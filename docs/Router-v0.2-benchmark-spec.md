@@ -1,8 +1,8 @@
 # Router v0.2 Synthetic Benchmark 设计规格
 
-> 状态：Draft for review
+> 状态：Approved for Phase 1 Implementation
 >
-> 文档版本：0.2
+> 文档版本：0.3
 >
 > 日期：2026-09-07
 >
@@ -100,6 +100,18 @@ Query 生成采用四层 family：
 
 同一上游 family 的所有派生项必须进入同一 split。表面生成至少混合人工编写的语义框架、句式级改写、约束顺序变化、同义表达、中英文及混合语言表达。变量必须改变任务内容或约束，不能只是替换对质量无影响的数字。
 
+### 5.1 Query Surface Authoring Workflow
+
+v0.2 固定采用三层 Query surface 流程，但不预先规定三层内容所占百分比：
+
+1. **Human-authored Semantic Frames**：人工定义真实任务的输入、目标、约束和场景，不写入 winner、模型名称或 model-specific cue；
+2. **Programmatic Composition**：程序组合 capability requirements、difficulty、input length、constraints、domain variables 和 output format，并在生成阶段验证组合后的语义与约束一致；
+3. **Surface Realization / Paraphrase**：进行多种自然语言改写、句式与约束顺序变化、同义替换，以及中文、英文和混合表达。
+
+正式扩展前先建立 **Pilot Surface Set**：每个 coarse task 生成约 40–60 个 Query，总计约 200–300 个。Pilot 只用于 Human Surface Quality Audit、template artifact 和 shortcut risk 审查，不进入 Router Train/Validation/Test，也不用于任何 Predictor 或 baseline 训练。Pilot 通过后才能扩展 Minimum Benchmark。
+
+### 5.2 Task-conditioned Language Distribution
+
 语言分布按 task 的真实表达需要配置，不使用全局固定比例。`benchmark-config-v1` 的初始目标如下；后续只能依据语言真实性与结构审计修订并提升版本：
 
 | Coarse task | 中文 | 中英混合 | 英文 | 说明 |
@@ -112,7 +124,9 @@ Query 生成采用四层 family：
 
 该设计使总体语料以中文为主，同时保留比赛和企业技术场景中合理的英语与混合语言请求。Audit 必须报告 `task × language/direction` 分布；在适用的主要 capability subgroup 内至少覆盖两种语言形态，并检查语言本身是否成为 capability 或 winner 的单一捷径。
 
-未来可以引入公开 Benchmark Query 作为 source/template seed，但实施前必须记录来源、许可、清洗规则和 family 归属。本阶段不下载任何公开数据。
+### 5.3 Source Policy
+
+Router v0.2 Synthetic Benchmark 不引入公开 Benchmark Query。全部 Query 均为 synthetic / internally authored，manifest 固定记录 `source_kind = synthetic`。HumanEval、GSM8K 等公开来源会引入许可、训练污染、答案质量、family 去重、来源归属和真实 evaluator 等额外变量，留到后续 Controlled Real-model Benchmark 单独设计。未来若引入任何公开数据，必须创建新的 dataset/generator 或 benchmark version，不能静默混入当前 v0.2。
 
 ## 6. Capability Taxonomy
 
@@ -167,18 +181,18 @@ Coarse task interaction 仅允许作为小幅残差项，绝对值不超过 `0.0
 
 每个模型还可以声明少量 capability synergy，绝对值不超过 `0.08`。初始正向组合为 A:`AR×MH`、`MH×LC`；B:`DE×AU`、`DS×SC`；C:`SQ×SC`、`SQ×MH`；D:`FT×MT`、`FT×LC`；E:`FK×AM`、`DS×FK`；F:`LC×SC`、`AU×SC`。未声明组合为零。任何后续修改都必须更新 profile 版本并重新运行完整 benchmark audit。
 
-模型成本、速度和能力不得共用同一个排序。建议初始运行参数如下，单位仅为 synthetic benchmark 单位：
+模型成本、速度和能力不得共用同一个排序。初始运行参数全部使用第 9 节定义的 Synthetic Compute Units：
 
-| Model | input price | output price | startup ms | prefill units/s | decode units/s | difficulty resilience |
-|---|---:|---:|---:|---:|---:|---:|
-| dev-model-a | .040 | .060 | 800 | 7000 | 45 | .90 |
-| dev-model-b | .022 | .035 | 500 | 9000 | 65 | .78 |
-| dev-model-c | .028 | .042 | 650 | 8000 | 55 | .84 |
-| dev-model-d | .015 | .026 | 450 | 10000 | 70 | .72 |
-| dev-model-e | .007 | .014 | 300 | 6500 | 80 | .68 |
-| dev-model-f | .020 | .030 | 380 | 12000 | 75 | .82 |
+| Model | input synthetic_cost / unit | output synthetic_cost / unit | startup synthetic_ms | prefill input units/s | decode output units/s | reasoning_rate (work units/s) | difficulty resilience |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| dev-model-a | .040 | .060 | 800 | 7000 | 45 | 125 | .90 |
+| dev-model-b | .022 | .035 | 500 | 9000 | 65 | 150 | .78 |
+| dev-model-c | .028 | .042 | 650 | 8000 | 55 | 112 | .84 |
+| dev-model-d | .015 | .026 | 450 | 10000 | 70 | 138 | .72 |
+| dev-model-e | .007 | .014 | 300 | 6500 | 80 | 105 | .68 |
+| dev-model-f | .020 | .030 | 380 | 12000 | 75 | 132 | .82 |
 
-这些数值是待审查的 synthetic 参数，不是实测性能。正式实现只能根据第 12、13 节的 benchmark 结构门槛调整它们，不能根据 Query-aware Router 是否获胜来调节。
+`reasoning_rate_m` 是模型处理 synthetic reasoning work 的速率。它与 prefill、decode 的排序均不相同，也不与 capability 强弱作单调绑定，使 reasoning-heavy Query 产生可解释的 Query-dependent latency 差异。以上数值是待结构审查的 synthetic 参数，不是实测性能。正式实现只能根据第 12、13 节的 benchmark 结构门槛调整它们，并提升 `runtime_profile_version`；不能根据 Query-aware Router 是否获胜来调节。
 
 ## 8. Quality Generation Mechanism
 
@@ -249,24 +263,37 @@ Benchmark audit 与实验报告必须严格区分以下三个概念：
 
 Quality structure 使用 Expected quality-best model 审计；Routing structure 使用 Expected efficient winner 审计；Sampled Outcome Oracle 只用于噪声与上界分析。报告不得使用未限定的 `expected winner`、`sampled winner` 或 `Oracle` 混称三者，也不得把 Sampled Outcome Oracle 当成可部署 Router。
 
-## 9. Cost / Latency Generation
+## 9. Cost / Latency Generation in Synthetic Compute Units
 
-成本不再只是模型常数。先通过版本固定的 tokenizer/长度估计规则，从最终可见 Query 和输出约束得到 `input_units` 与 `requested_output_units`：
+v0.2 固定使用 `synthetic-workload-v1`。`input_units`、`requested_output_units` 和 `reasoning_work_units` 都是版本化的 synthetic workload units，不是真实 token 或硬件计数；成本输出为 `synthetic_cost_units`，时延输出为 `synthetic_ms`。`synthetic_ms` 只保留毫秒形态以便直观展示，不代表真实服务器毫秒。所有实验表格和图必须标注 **SIMULATED / SYNTHETIC UNITS**，不得使用人民币、美元或真实服务 SLA 解释这些值。
+
+三个 workload 字段只从最终可见 Query 及其显式输出要求确定：
+
+- `input_units`：对互斥字符类别使用固定估计式 `ceil(0.65 × CJK字符数 + 1.30 × 非CJK词数 + 0.20 × 代码/标点字符数)`，下限为 1；
+- `requested_output_units`：优先读取可见的目标长度/格式约束并按同一长度规则换算；未明确长度时，由 query-derived task hint 使用固定默认值：code 320、math 220、qa 260、summary 为 `clip(0.25 × input_units, 120, 600)`、translation 为 `clip(1.05 × source_input_units, 120, 800)`；其中 `source_input_units` 是从 Query 中可见的待翻译源材料片段按 `input_units` 规则计算的值；
+- `reasoning_work_units`：使用 `clip(20 + 12×推理步骤数 + 8×条件依赖数 + 0.004×材料字符数 + 5×约束数 + 10×组合推理需求数, 20, 180)`。
+
+上述计数由版本固定的 query-only parser 从可见文本提取。推理步骤、条件依赖、材料长度、约束数量和组合推理需求必须能在 Query 中找到对应证据。估计器不得读取 hidden capability label、model capability profile 的匹配结果、expected quality、sampled quality、任何 winner 或 outcome。字段或 workload estimator 发生变化时必须提升 `synthetic_workload_version`；时延公式变化时提升 `latency_model_version`；模型 rate 变化时提升 `runtime_profile_version`。任一变化都必须重新执行全部 benchmark audit。
+
+期望成本为：
 
 \[
-E[cost_{qm}]=p^{in}_m\,input\_units_q+p^{out}_m\,requested\_output\_units_q
+E[synthetic\_cost\_units_{qm}]=p^{in}_m\,input\_units_q+p^{out}_m\,requested\_output\_units_q
 \]
 
-采样成本使用保持均值不变的小幅 log-normal 波动，`σ_cost` 建议为 `0.05–0.10`。价格参数与 capability profile 分开配置；质量噪声不得进入成本公式。
+采样成本使用保持均值不变的小幅 log-normal 波动，`σ_cost` 建议为 `0.05–0.10`。Synthetic cost-rate 参数与 capability profile 分开配置；质量噪声不得进入成本公式。
 
-期望时延由启动、prefill、decode 和可见推理工作量组成：
+期望时延由启动、prefill、decode 和可见推理工作量组成。三个 rate 的单位均为对应 synthetic units/s，因此换算到 `synthetic_ms` 时显式乘以 1000：
 
 \[
-E[latency_{qm}]=startup_m+\frac{input\_units_q}{prefill_m}
-+\frac{requested\_output\_units_q}{decode_m}+\frac{reasoning\_work_q}{reasoning\_rate_m}
+E[synthetic\_ms_{qm}]=startup^{synthetic\_ms}_m+1000\left(
+\frac{input\_units_q}{prefill\_rate_m}
++\frac{requested\_output\_units_q}{decode\_rate_m}
++\frac{reasoning\_work\_units_q}{reasoning\_rate_m}
+\right)
 \]
 
-采样时延使用 `σ_latency=0.08–0.15` 的 log-normal 波动。`reasoning_work` 只能由 Query 中可观察的步骤、材料长度和约束数量决定，不能读取 sampled quality。Audit 必须报告 capability 均值与成本/时延的 Spearman 相关；绝对相关系数达到 `0.80` 进入 NEEDS REVISION，达到 `0.95` 判定 FAIL。
+第 7 节的 `reasoning_rate_m` 取值为 105–150 reasoning work units/s；结合 `reasoning_work_units∈[20,180]`，推理项约贡献 133–1,714 `synthetic_ms`，与 startup、prefill 和 decode 项处于可解释的仿真数量级。采样时延使用 `σ_latency=0.08–0.15` 的 log-normal 波动。Audit 必须报告 capability 均值与 synthetic cost/latency 的 Spearman 相关；绝对相关系数达到 `0.80` 进入 NEEDS REVISION，达到 `0.95` 判定 FAIL。
 
 ## 10. Dataset Scale
 
@@ -371,11 +398,25 @@ Recommended 档一个完整生命周期默认人工审查 **288 个 Query**：Be
 3. `Constraint consistency`：约束是否相互兼容；
 4. `Capability cue naturalness`：能力线索是否由任务自然表达，而非标签化提示；
 5. `Template artifact`：是否存在重复骨架、占位符或机械拼接痕迹；
-6. `Shortcut risk`：词汇、格式或语言是否可直接映射 hidden capability/model winner；
+6. `Shortcut risk`：是否存在 label-like token，或某个词、格式、语言与 hidden capability 的机械绑定；Reviewer 不读取 Expected quality-best model 或 Expected efficient winner；
 7. `Difficulty plausibility`：标称难度是否与可见请求相称；
 8. `Ambiguity/unanswerable risk`：是否存在非设计目的的歧义、矛盾或不可答问题。
 
 所有维度使用简单三级量表：`0 = Fail`、`1 = Acceptable`、`2 = Good`。对风险维度，`2` 表示未发现实质风险，`1` 表示轻微但可接受，`0` 表示不可接受。至少两名 reviewer 独立审查；默认 80 个样本由两人重叠评分，其余均由一人评分。重叠样本出现 2 分分歧、任一 reviewer 判定整体无效，或双方对 `Template artifact`/`Shortcut risk` 是否为 0 不一致时，由第三人裁决。报告每维 exact agreement、within-one agreement 和简单 unweighted Cohen's κ；κ 只用于解释一致性，不单独决定通过。
+
+#### Human Surface Reviewer Information Boundary
+
+| 角色 | 职责与允许信息 | Final 正式评价前禁止信息 |
+|---|---|---|
+| Router Developer | 日常算法、feature、threshold 和 baseline 开发；使用 Train/Validation 及协议允许的 Development 信息 | `final_master_seed`、Final Query review packet、Final expected quality matrix、Expected quality-best model、Expected efficient winner、sampled outcome、Sampled Outcome Oracle |
+| Surface Reviewer | 查看 Query 文本，以及完成审查所需的最小 task/capability 描述和 difficulty rubric；评价自然度、完整性、一致性、模板与 shortcut | 当前 Query 的 model-profile matching、expected quality matrix、Expected quality-best model、Expected efficient winner、sampled outcome、Sampled Outcome Oracle、Router 实验结果 |
+| Final Custodian / Evaluator | 保管 seed、提交/验证 commitment、生成受控 Final 文件并执行冻结后的正式评价 | 不参与日常 Router 调参、feature/threshold/baseline 选择，也不向开发者提前回传 Final 信息 |
+
+对真实 Frozen Final 执行审查时，Router Developer 不得同时担任 Surface Reviewer 或 Final Custodian / Evaluator；角色分配和交接时间写入 access ledger。Construction/Pilot 阶段可以由开发者参与 surface 反馈，但这些样本不具有 Final 身份。
+
+Final review packet 由 custodian 按字段白名单产生；如审查 capability cue，只提供该 Query 的最小必要 capability 名称/自然语言定义，不提供强度向量、模型画像或质量计算结果。Shortcut Risk 优先依据 label-like token、词汇/格式与 capability 的机械绑定、construction 阶段 token–capability 自动关联统计及 diagnostic ablation 判断，禁止要求 Reviewer 查看 Expected quality-best model 或 Expected efficient winner。Final 审查在 outcome 生成前完成，评价前只向 Router Developer 返回 aggregate gate status 和不含 Final expected quality、winner 或 outcome 的原因代码；如需修改 surface，按第 11.1 节使当前 Final 版本作废并重新 commitment。
+
+该边界是职责分离和最小必要信息原则下的团队治理，不是安全沙箱；它降低无意泄漏风险，但不能证明不存在恶意串通或旁路访问。
 
 以下是预注册的项目内部门槛：
 
@@ -412,7 +453,16 @@ Routing PASS 要求每个 task 至少 2 个 efficient winner 各占 10%，normal
 
 ### 12.4 D. Learnability Test
 
-使用固定超参数的轻量 diagnostic learner，在 out-of-family Development Test 上比较：
+Learnability Audit 固定使用 `diagnostic-protocol-v1` 的 **TF-IDF + Logistic Regression**，只用于判断可见 Query 是否承载可学习结构，不作为正式 Router 算法竞赛。文本配置固定为：
+
+- `TfidfVectorizer(analyzer="char", ngram_range=(2,5), min_df=2, max_features=50000, sublinear_tf=True, lowercase=True, norm="l2")`；
+- `LogisticRegression(C=1.0, penalty="l2", solver="liblinear", class_weight="balanced", max_iter=1000, random_state=20260907)`；
+- 一个 6-class one-vs-rest classifier 预测 Expected quality-best model，另为每个候选模型训练一个同配置、以主阈值 `0.8` 定义标签的 binary pass classifier；
+- vocabulary、IDF、任何缩放/编码和 classifier 都只 fit Train；不在 Development Test 上搜索 n-gram、feature 数、`C`、class weight 或其他超参数。
+
+字符级方案无需中文分词器，轻量且在中英混合文本上具有稳定的固定输入边界。Hidden capability oracle 与 True task-only diagnostic 使用固定 one-hot/numeric view，文本变体使用相同 TF-IDF；所有视图共享相同 Train/Development split、Logistic Regression 配置、预测目标和评价指标，唯一变化是允许读取的 feature view。任何会改变特征、训练或预测行为的修改都必须提升 `diagnostic_protocol_version` 并重跑 Learnability Audit。
+
+在 out-of-family Development Test 上比较：
 
 - `Hidden capability oracle`：读取真实 capability 向量，只用于诊断上界；
 - `True task-only diagnostic`：只读取 hidden coarse task，用于测量 task→model 的结构上限，不属于可部署方法；
@@ -511,30 +561,36 @@ PASS 要求第 18 节中适用于公开 development seed 的自动化 Hard Gates
 7. **Baseline boundary**：Strongest、Lowest Cost、Global 和 Learned Task Rule 只使用 Train；Expert Rule 必须在看结果前登记；
 8. **Final governance**：先冻结 generator/schema/config/profile/分析，再提交隐藏 Final seed 的 SHA256 commitment；算法、feature、阈值和 baseline 冻结后才能 reveal、验证并生成 Final；
 9. **无 test 回调**：读取 Dev Test 后的改动必须记录；首次读取 Frozen Final outcome 后的改动必须把它标为 `previously observed test`，或预提交新 seed/version；
-10. **审计追踪**：记录 Final seed reveal 时间、commit、custodian、evaluator、文件 hash 与每次 access event。
+10. **Reviewer boundary**：Final Surface Reviewer 只接收字段白名单中的 Query 与最小必要 rubric，不接收 model matching、Expected quality-best model、Expected efficient winner、sampled outcome 或 Router 结果；
+11. **审计追踪**：记录 Final seed reveal 时间、commit、custodian、evaluator、文件 hash 与每次 access event。
 
 Capability cue 自然出现在 Query 中是预期信号。泄漏是把 generator metadata、family ID、真实 task label、expected/sample outcome 或与它们一一对应的人工 token 交给算法。
 
 ## 16. Dataset Versioning
 
-建议独立版本：
+固定使用独立版本字段：
 
 - `dataset_version`: `router-benchmark-v0.2.0`；
 - `generator_version`: `2.0.0`；
 - `config_version`: `benchmark-config-v1`；
 - `capability_taxonomy_version`: `capability-taxonomy-v1`；
 - `model_profile_version`: `model-profile-v1`；
+- `runtime_profile_version`: `synthetic-runtime-v1`；
+- `synthetic_workload_version`: `synthetic-workload-v1`；
+- `latency_model_version`: `synthetic-latency-v1`；
+- `diagnostic_protocol_version`: `diagnostic-protocol-v1`；
 - `split_definition_version`: `family-split-v1`。
 
 Manifest 至少记录：
 
-- `source_kind`、全部版本、generator Git commit、creation timestamp；
+- 固定的 `source_kind = synthetic`、全部版本、generator Git commit、creation timestamp；
 - Benchmark Construction 使用的公开 development seed 及 namespace 派生 seed；
 - Final manifest 在 reveal 前只记录 `final_master_seed_sha256` commitment；reveal 后的明文 seed 进入受控的不可变评价记录，不进入普通开发配置；
 - Query/model/observation 数和 full-coverage 声明；
 - task、capability、combination、difficulty、language 与 split 计数；
-- noise、quality、cost、latency 参数；
-- 完整 model capability profile 与 task/synergy residual；
+- noise、quality、synthetic cost/latency 参数，以及 `SIMULATED / SYNTHETIC UNITS` 标识；
+- `input_units`、`requested_output_units`、`reasoning_work_units` 的 estimator 规则与系数；
+- 完整 model capability profile、task/synergy residual，以及包含 `reasoning_rate` 的 synthetic runtime profile；
 - family split 定义、Final Familiar/Novel 清单及各自与 Overall 的 hash；
 - canonical config、各 split 数据、diagnostic sidecar 和 audit report 的 SHA256；
 - synthetic 限制声明与允许输入字段。
@@ -589,6 +645,7 @@ Manifest 至少记录：
 - [ ] Expected quality-best model 与 Expected efficient winner 的任务内多样性都已在无噪声期望值上存在；
 - [ ] `interaction_SNR ≥ 2.0`；Expected quality-best model 对 sampled quality-best、Expected efficient winner 对 Sampled Outcome Oracle 的总体 agreement 均至少 0.75；
 - [ ] Train-only preprocessing/statistics 与 decision-after-outcome 边界有自动测试；
+- [ ] Final Human Surface review packet 通过字段白名单检查，不含 model matching、Expected quality-best model、Expected efficient winner、sampled outcome 或 Router 结果；
 - [ ] Frozen Final 的隐藏 seed commitment 已在 reveal 前提交；reveal 后 hash 验证成功，冻结 commit、custodian、evaluator 与 access ledger 可核验；
 - [ ] 所有 synthetic 结果均有明确 simulated 标识。
 
@@ -609,7 +666,7 @@ Manifest 至少记录：
 
 Acceptance report 必须列出每一项的分子、分母、置信区间、seed 明细和原始统计，不得使用“看起来合理”作为通过理由。
 
-## 19. Risks and Open Questions
+## 19. Risks and Confirmed Decisions
 
 主要剩余风险：
 
@@ -619,7 +676,7 @@ Acceptance report 必须列出每一项的分子、分母、置信区间、seed 
 - full-coverage 数据回避了真实生产路由的反事实选择偏差；
 - 同一团队同时设计 benchmark 和 Router，仍存在无意识地让方法适配 benchmark 的风险；
 - Final Test 的 custodian、commitment 和 access ledger 能降低意外污染，但不能构成绝对防作弊机制；
-- 公开 Query 引入后会增加许可、污染、答案质量和 family 去重问题。
+- synthetic workload 与 `synthetic_ms` 只能检验受控世界中的相对路由行为，不能替代真实成本或时延测量。
 
 ### 19.1 已确认的负责人决定
 
@@ -627,32 +684,33 @@ Acceptance report 必须列出每一项的分子、分母、置信区间、seed 
 2. **语言分布**：采用第 5 节 task-conditioned 分布，总体中文占主导，不使用全局统一比例；
 3. **Final 组合**：固定 75% Familiar 与 25% Novel capability combinations，并分别报告 Familiar、Novel、Overall；完全 unseen capability 进入独立 stress set；
 4. **Final 治理**：使用不参与日常 Router 调参的 custodian、隐藏 `final_master_seed`、普通仓库中的 SHA256 commitment 与完整 access ledger；
-5. **质量阈值**：主评价固定为 `0.8`；`0.7` 和 `0.9` 只做预注册 sensitivity，不参与 feature、threshold、benchmark 或主排名选择。
+5. **质量阈值**：主评价固定为 `0.8`；`0.7` 和 `0.9` 只做预注册 sensitivity，不参与 feature、threshold、benchmark 或主排名选择；
+6. **Surface workflow**：固定为 Human-authored Semantic Frames → Programmatic Composition → Surface Realization / Paraphrase；不固定三层百分比，先审查 200–300 个 Pilot Query；
+7. **Diagnostic learner**：固定为 `diagnostic-protocol-v1` 的 character TF-IDF + Logistic Regression，Train-only fit，禁止在 Development Test 调参；
+8. **Cost/latency units**：固定为 `synthetic-workload-v1` 的 Synthetic Compute Units；包含版本化 workload estimator 与每模型 `reasoning_rate`，报告统一标记 simulated；
+9. **Public source policy**：v0.2 只使用 synthetic / internally authored Query，`source_kind = synthetic`；公开 Query 只能在新 benchmark version 或 Controlled Real-model Benchmark 中引入。
 
-### 19.2 仍需在实现前解决的问题
+### 19.2 Implementation Readiness
 
-1. **Surface authoring workflow**：人工语义框架、程序化约束组合和改写各占多少，以及 reviewer 的具体排期和责任人；
-2. **Diagnostic learner**：固定使用哪一种轻量文本表示、tokenizer 与超参数，使 learnability audit 可复现且不演变为算法竞赛；
-3. **Cost/latency unit**：`input_units`、`requested_output_units`、`reasoning_work` 的版本化估计规则和 synthetic 单位命名；
-4. **Public source policy**：若未来引入公开 query seed，允许的许可、污染检查、答案质量与 family 归属标准。
-
-这些问题可以在不改变已确认决策的前提下落地。具体生成系数只能在不查看候选 Router 胜负的 Benchmark Construction audit 中调整，并必须遵守第 1.1、16、18 节的版本化和预注册门槛。
+**No blocking design questions remain before Phase 1 implementation.** Reviewer 排期、具体责任人和文件落点属于非阻塞的实施管理事项，不改变本规格已冻结的信息边界与验收规则。任何生成系数修订仍只能依据 Benchmark Construction 的结构 audit，必须遵守第 1.1、16、18 节的版本化和预注册门槛。
 
 ## 20. Implementation Plan
 
 本节只规定后续顺序，本轮不执行：
 
-1. 解决第 19.2 节的实现问题，并冻结已确认的 taxonomy、模型数、语言分布、Final 组合与治理规则；
-2. 定义 v0.2 schema、canonical config、manifest、diagnostic sidecar、版本提升规则和 Final access ledger；
-3. 实现分 namespace RNG、四层 family、task-conditioned language 和 Query surface realization；
-4. 实现无噪声 quality/cost/latency、受控采样，以及三个质量/路由概念的独立计算；
-5. 实现独立 benchmark validator、Human Surface Quality 工具和 acceptance report；
-6. 使用公开 development seeds 只在 Train/Validation/Development 构建候选 benchmark，运行 8-seed、perturbation 与全部结构 audit；
-7. 仅根据结构 audit 修订 generator/profile/taxonomy/surface；每次语义变更提升版本并完整重跑，禁止读取 Query-aware 与 baseline 的胜负来调数据；
-8. 规格再次通过 Code Review 后，才开始 baseline、ablation 和 Predictor 的 Development 实验；
-9. 冻结 generator/schema/config/profile/split/validator/analysis commit，并由 custodian 预提交隐藏 Final seed 的 SHA256 commitment；
-10. 冻结算法、feature、训练与路由阈值、baseline 和主/敏感性分析；custodian reveal seed，评价者验证 commitment；
-11. 生成 Final Query 后、读取 outcome 前完成 family/duplicate/Human Surface audit；通过后生成 outcome 并只执行一次正式评价；
-12. 归档 reveal 时间、commit、evaluator、文件 hash 和 access event；首次读取后将后续使用标为 `previously observed test`，需要新结论时创建新 seed commitment/version。
+阶段门顺序固定为：
 
-本规格通过审查之前，不开始 v0.2 generator、Predictor、Router、Calibration、Online Estimator、真实 API 或鲲鹏实现。
+`Pilot Surface Set → Minimum Benchmark → Validator/Audit → Recommended Benchmark → Router Evaluation`
+
+1. 定义 v0.2 schema、canonical config、manifest、diagnostic sidecar 和版本提升规则；schema 必须包含 `input_units`、`requested_output_units`、`reasoning_work_units`、每模型 `reasoning_rate`、Synthetic Compute Unit 标识和第 16 节全部 version 字段；
+2. 实现三层 surface workflow，建立每 task 40–60 个、总计约 200–300 个 Query 的 Pilot Surface Set；
+3. 只对 Pilot 运行 Human Surface、template artifact、shortcut/token–capability association 审查；通过后才能进入 Minimum；
+4. 实现 Minimum Benchmark 所需的分 namespace RNG、四层 family、task-conditioned language、无噪声 quality、synthetic cost/latency 和受控采样；
+5. 实现独立 validator 与 acceptance report，在 Minimum 上运行 Distribution、Heterogeneity、Learnability、Noise 和 Baseline Audit；只依据结构 audit 修订并提升版本；
+6. Minimum 通过后扩展 Recommended 6,000 Query / 36,000 observations，并运行 8 个公开 development seeds、perturbation 和全部 audit；
+7. Recommended 通过后冻结 dataset/generator/config/profile/workload/diagnostic/validator/analysis 版本，正式进入 Router Evaluation；
+8. Router 只按冻结协议使用 Train/Validation/Development；禁止根据 Query-aware 与 baseline 胜负反向调 benchmark；
+9. 冻结算法、feature、阈值、baseline 和分析后，由 custodian 提交并 reveal Final seed、验证 commitment、先审查 Final Query、再生成 outcome 并执行一次正式评价；
+10. 归档 reveal 时间、commit、evaluator、文件 hash 和 access event；首次读取后将后续使用标为 `previously observed test`，需要新结论时创建新 seed commitment/version。
+
+本轮只批准规格，不执行上述 Phase 1 工作，也不开始 Router、Calibration、Online Estimator、真实 API 或鲲鹏实现。
