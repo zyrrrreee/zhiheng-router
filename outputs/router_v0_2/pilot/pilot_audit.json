@@ -1,0 +1,972 @@
+{
+  "capability_pair_distribution": {
+    "AM+AR": 13,
+    "AM+DE": 4,
+    "AM+DS": 15,
+    "AM+FK": 12,
+    "AM+FT": 45,
+    "AM+LC": 27,
+    "AM+MH": 30,
+    "AM+MT": 15,
+    "AM+SC": 35,
+    "AM+SQ": 35,
+    "AR+AU": 1,
+    "AR+DE": 3,
+    "AR+MH": 14,
+    "AR+SC": 27,
+    "AR+SQ": 21,
+    "AU+DE": 11,
+    "AU+DS": 4,
+    "AU+FK": 9,
+    "AU+FT": 10,
+    "AU+LC": 10,
+    "AU+MT": 5,
+    "AU+SC": 25,
+    "DE+FK": 4,
+    "DE+FT": 9,
+    "DE+LC": 13,
+    "DE+MH": 5,
+    "DE+SC": 14,
+    "DS+FK": 3,
+    "DS+FT": 16,
+    "DS+SC": 5,
+    "DS+SQ": 16,
+    "FK+FT": 19,
+    "FK+LC": 21,
+    "FK+MH": 6,
+    "FK+MT": 10,
+    "FK+SC": 25,
+    "FK+SQ": 3,
+    "FT+LC": 44,
+    "FT+MH": 18,
+    "FT+MT": 32,
+    "FT+SC": 46,
+    "FT+SQ": 16,
+    "LC+MH": 24,
+    "LC+MT": 15,
+    "LC+SC": 25,
+    "MH+MT": 1,
+    "MH+SC": 16,
+    "MH+SQ": 17,
+    "MT+SC": 23,
+    "SC+SQ": 32
+  },
+  "checks": {
+    "all_capabilities_covered": true,
+    "capability_count_2_to_4": true,
+    "difficulty_bounds": true,
+    "fixed_sentence_share": true,
+    "id_and_family_uniqueness": true,
+    "language_policy": true,
+    "no_exact_duplicate": true,
+    "no_label_like_token": true,
+    "no_model_or_result_text": true,
+    "no_normalized_duplicate": true,
+    "query_count": true,
+    "query_length": true,
+    "semantic_frame_coverage": true,
+    "surface_evidence_present": true,
+    "task_balance": true
+  },
+  "difficulty_distribution": {
+    "high": 83,
+    "low": 75,
+    "medium": 92
+  },
+  "difficulty_summary": {
+    "max": 0.94919,
+    "mean": 0.562488,
+    "min": 0.157441
+  },
+  "exact_duplicate_groups": [],
+  "high_frequency_fixed_sentences": [
+    {
+      "count": 26,
+      "sentence": "记录甲报告#次事件，记录乙修订其中#项，后续说明把修订范围限定为已批准情形",
+      "share": 0.104
+    },
+    {
+      "count": 24,
+      "sentence": "区分原文结论和编辑说明，所有实体与数值需保持一致",
+      "share": 0.096
+    },
+    {
+      "count": 23,
+      "sentence": "最终答案需符合给定格式，并逐项核对必填内容",
+      "share": 0.092
+    },
+    {
+      "count": 22,
+      "sentence": "保留原材料中的条件、数字和不确定性，不补写未提供的事实",
+      "share": 0.088
+    },
+    {
+      "count": 22,
+      "sentence": "压缩或改写时不得改变因果方向，也不要遗漏限制条件",
+      "share": 0.088
+    },
+    {
+      "count": 21,
+      "sentence": "保持字段顺序和层级，不得增加未声明的顶层字段",
+      "share": 0.084
+    },
+    {
+      "count": 21,
+      "sentence": "材料共有#条观察、#项争议、两项决定和一个尚未解决的依赖条件",
+      "share": 0.084
+    },
+    {
+      "count": 20,
+      "sentence": "计划分#批处理，并要求在第#项记录后再次核对状态",
+      "share": 0.08
+    },
+    {
+      "count": 20,
+      "sentence": "the work is divided into # batches, with a status review after item #",
+      "share": 0.08
+    },
+    {
+      "count": 19,
+      "sentence": "输入摘要：第#号样例包含#个有依赖的操作，最后一个操作可能返回空字段",
+      "share": 0.076
+    },
+    {
+      "count": 18,
+      "sentence": "english log 写明 the final field may be empty",
+      "share": 0.072
+    },
+    {
+      "count": 17,
+      "sentence": "列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定",
+      "share": 0.068
+    },
+    {
+      "count": 16,
+      "sentence": "写清变量之间的关系，并对最终数值做一次反向核验",
+      "share": 0.064
+    },
+    {
+      "count": 16,
+      "sentence": "结论需要覆盖材料前、中、后三部分，不能只依据最近一段",
+      "share": 0.064
+    },
+    {
+      "count": 15,
+      "sentence": "先处理前置条件，再利用其结果判断后续分支",
+      "share": 0.06
+    },
+    {
+      "count": 15,
+      "sentence": "同时使用开头的定义和后文的例外，保持跨段引用一致",
+      "share": 0.06
+    },
+    {
+      "count": 15,
+      "sentence": "将下面的源文译为英文，并按给定输出要求交付",
+      "share": 0.06
+    },
+    {
+      "count": 15,
+      "sentence": "将下面的 source text 译为中文，并按给定输出要求交付",
+      "share": 0.06
+    },
+    {
+      "count": 14,
+      "sentence": "发现指代或范围不唯一时保留歧义，并提出具体澄清问题",
+      "share": 0.056
+    },
+    {
+      "count": 13,
+      "sentence": "输入说明包含#项操作，其中#项有依赖",
+      "share": 0.052
+    },
+    {
+      "count": 13,
+      "sentence": "source excerpts contain # observations, # disputed items, two decisions, and one unresolved dependency",
+      "share": 0.052
+    },
+    {
+      "count": 12,
+      "sentence": "preserve field order and hierarchy without adding undeclared top-level fields",
+      "share": 0.048
+    },
+    {
+      "count": 11,
+      "sentence": "follow the requested fields exactly",
+      "share": 0.044
+    },
+    {
+      "count": 11,
+      "sentence": "use null for missing information and explain it in notes",
+      "share": 0.044
+    },
+    {
+      "count": 11,
+      "sentence": "串联前后材料中的依赖关系，并说明中间条件如何改变结论",
+      "share": 0.044
+    },
+    {
+      "count": 11,
+      "sentence": "把材料中明确给出的事实、常见领域知识和仍待确认的假设分开",
+      "share": 0.044
+    },
+    {
+      "count": 11,
+      "sentence": "现有材料：材料共有#条观察、#项争议、两项决定和一个尚未解决的依赖条件",
+      "share": 0.044
+    },
+    {
+      "count": 10,
+      "sentence": "match the requested format and verify every required item before finishing",
+      "share": 0.04
+    },
+    {
+      "count": 10,
+      "sentence": "给出所用公式，数值结果保留两位小数并说明舍入位置",
+      "share": 0.04
+    },
+    {
+      "count": 10,
+      "sentence": "现有材料：已知总量为#，其中#项属于目标子集",
+      "share": 0.04
+    }
+  ],
+  "label_like_matches": [],
+  "language_distribution": {
+    "en": 30,
+    "mixed": 65,
+    "zh": 155
+  },
+  "limitations": [
+    "No quality, cost, latency, winner, Router, or baseline outcome is generated.",
+    "Automatic checks prepare human review; they do not establish Human Surface Audit PASS."
+  ],
+  "manual_review_required": {
+    "association_candidates_require_review": true,
+    "human_scores_are_unfilled": true,
+    "human_surface_audit_passed": false
+  },
+  "max_fixed_sentence_share": 0.104,
+  "max_language_policy_deviation": 0.02,
+  "missing_surface_evidence": [],
+  "normalized_duplicate_groups": [],
+  "pilot_version": "router-v0.2-pilot-v1",
+  "primary_capability_distribution": {
+    "AM": 27,
+    "AR": 13,
+    "AU": 16,
+    "DE": 10,
+    "DS": 12,
+    "FK": 20,
+    "FT": 34,
+    "LC": 29,
+    "MH": 20,
+    "MT": 17,
+    "SC": 30,
+    "SQ": 22
+  },
+  "query_count": 250,
+  "query_length_summary": {
+    "max": 840,
+    "mean": 347.552,
+    "min": 179
+  },
+  "ready_for_human_review": true,
+  "secondary_capability_distribution": {
+    "AM": 72,
+    "AR": 20,
+    "AU": 20,
+    "DE": 19,
+    "DS": 14,
+    "FK": 33,
+    "FT": 84,
+    "LC": 51,
+    "MH": 35,
+    "MT": 30,
+    "SC": 94,
+    "SQ": 36
+  },
+  "semantic_frame_coverage": {
+    "frame-code-api-client": 6,
+    "frame-code-data-pipeline": 6,
+    "frame-code-performance": 6,
+    "frame-code-refactor": 6,
+    "frame-code-repository-review": 6,
+    "frame-code-scheduler": 7,
+    "frame-code-service-debug": 7,
+    "frame-code-sql-report": 6,
+    "frame-math-chart-analysis": 6,
+    "frame-math-equation-system": 7,
+    "frame-math-geometry": 6,
+    "frame-math-optimization": 6,
+    "frame-math-probability": 7,
+    "frame-math-proof": 6,
+    "frame-math-statistics": 6,
+    "frame-math-word-problem": 6,
+    "frame-qa-ambiguous-policy": 6,
+    "frame-qa-bilingual-terms": 6,
+    "frame-qa-data-explanation": 6,
+    "frame-qa-evidence-chain": 7,
+    "frame-qa-long-policy": 6,
+    "frame-qa-source-comparison": 6,
+    "frame-qa-technical-docs": 7,
+    "frame-qa-troubleshooting": 6,
+    "frame-summary-bilingual-report": 6,
+    "frame-summary-conflicting-reports": 6,
+    "frame-summary-executive": 6,
+    "frame-summary-incident": 6,
+    "frame-summary-meeting": 7,
+    "frame-summary-metrics": 6,
+    "frame-summary-research": 7,
+    "frame-summary-technical-guide": 6,
+    "frame-translation-ambiguous-reference": 6,
+    "frame-translation-contract": 7,
+    "frame-translation-domain-report": 6,
+    "frame-translation-glossary": 6,
+    "frame-translation-incident": 6,
+    "frame-translation-notice": 6,
+    "frame-translation-technical": 7,
+    "frame-translation-ui-localization": 6
+  },
+  "stage": "pilot_surface_only",
+  "task_distribution": {
+    "code": 50,
+    "math": 50,
+    "qa": 50,
+    "summary": 50,
+    "translation": 50
+  },
+  "task_language_distribution": {
+    "code": {
+      "en": 5,
+      "mixed": 18,
+      "zh": 27
+    },
+    "math": {
+      "en": 5,
+      "mixed": 5,
+      "zh": 40
+    },
+    "qa": {
+      "en": 7,
+      "mixed": 7,
+      "zh": 36
+    },
+    "summary": {
+      "en": 13,
+      "mixed": 5,
+      "zh": 32
+    },
+    "translation": {
+      "mixed": 30,
+      "zh": 20
+    }
+  },
+  "token_capability_association_candidates": [
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 33,
+      "token": "不补"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 33,
+      "token": "严格"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "先写"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "其影"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "出采"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "及其"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "未说"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "的口"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "的解"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 33,
+      "token": "补写"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "要默"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "认未"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "采用"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "释及"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 33,
+      "token": "默认"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "与数"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "体与"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "值需"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "分原"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "和编"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "实体"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "文结"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "有实"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "编辑"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "论和"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "辑说"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 32,
+      "token": "需保"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 31,
+      "token": "不确"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "中解"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 31,
+      "token": "供的"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "值并"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 31,
+      "token": "写未"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "加未"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 31,
+      "token": "原材"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 31,
+      "token": "和不"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "和层"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "在备"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "增加"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "备注"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "定字"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "少信"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "层字"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "层级"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "序和"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "得增"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "息时"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "持字"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "指定"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "按指"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 31,
+      "token": "未提"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "格按"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "段输"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "段顺"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "用空"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "的顶"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 31,
+      "token": "顶层"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "合给"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "填内"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "定格"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "对必"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "并逐"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "必填"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "案需"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "符合"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "终答"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "需符"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 28,
+      "token": "项核"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "也不"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "写时"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "制条"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "变因"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "因果"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "得改"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "或改"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "改写"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "方向"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "时不"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "果方"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "漏限"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "缩或"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "要遗"
+    },
+    {
+      "capability": "FT",
+      "precision": 1.0,
+      "support": 27,
+      "token": "遗漏"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 24,
+      "token": "fields"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "充哪"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "响答"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "哪项"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "息才"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "才能"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "明需"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "能影"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "能确"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "补充"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "要补"
+    },
+    {
+      "capability": "AM",
+      "precision": 1.0,
+      "support": 24,
+      "token": "项信"
+    },
+    {
+      "capability": "SC",
+      "precision": 1.0,
+      "support": 22,
+      "token": "requested"
+    },
+    {
+      "capability": "MH",
+      "precision": 1.0,
+      "support": 22,
+      "token": "先处"
+    },
+    {
+      "capability": "MH",
+      "precision": 1.0,
+      "support": 22,
+      "token": "其结"
+    },
+    {
+      "capability": "MH",
+      "precision": 1.0,
+      "support": 22,
+      "token": "再利"
+    },
+    {
+      "capability": "MH",
+      "precision": 1.0,
+      "support": 22,
+      "token": "分支"
+    },
+    {
+      "capability": "MH",
+      "precision": 1.0,
+      "support": 22,
+      "token": "利用"
+    }
+  ],
+  "translation_direction_distribution": {
+    "bilingual_revision": 10,
+    "en_to_zh": 20,
+    "zh_to_en": 20
+  }
+}

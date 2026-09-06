@@ -1,0 +1,62 @@
+{
+  "automatic_audit_ready_for_human_review": true,
+  "config_sha256": "7706307ea88db1309c998d7e87f84dbfb275b28daffc890875ca581f200fd964",
+  "dataset_version": "router-benchmark-v0.2.0",
+  "files": {
+    "data/router_v0_2/pilot/pilot_queries.jsonl": {
+      "bytes": 274364,
+      "sha256": "1e903fa8681a08e637a6e28a7b8903c9276d42332072829cc4d1ff876829ff70"
+    },
+    "data/router_v0_2/pilot/pilot_sidecar.jsonl": {
+      "bytes": 333536,
+      "sha256": "2acfcaa14320c09ec067913555bd750abadc6197307da6158ec1f766eb84ced0"
+    },
+    "outputs/router_v0_2/pilot/human_surface_review.csv": {
+      "bytes": 262392,
+      "sha256": "882ea7e82f1db261603ff3a618b7a93532ed905a1850892f691acfcee7a5baae"
+    },
+    "outputs/router_v0_2/pilot/pilot_audit.json": {
+      "bytes": 20260,
+      "sha256": "4f51153ad1b96965d6138cbca9f2d7da899328f22a6f1f72fe23121dbb8a5999"
+    }
+  },
+  "human_scores_completed": false,
+  "master_seed": 20260907,
+  "namespaces": {
+    "capability": "router-v0.2/capability/v1",
+    "content": "router-v0.2/content/v1",
+    "cost_noise": "router-v0.2/cost-noise/v1",
+    "difficulty": "router-v0.2/difficulty/v1",
+    "latency_noise": "router-v0.2/latency-noise/v1",
+    "quality_noise": "router-v0.2/quality-noise/v1",
+    "split": "router-v0.2/split/v1",
+    "surface": "router-v0.2/surface/v1"
+  },
+  "outcomes_included": false,
+  "pilot_version": "router-v0.2-pilot-v1",
+  "query_count": 250,
+  "router_training_allowed": false,
+  "semantic_frame_count": 40,
+  "source_kind": "synthetic",
+  "split_assignment": "none_pilot_only",
+  "stage": "pilot_surface_only",
+  "task_query_counts": {
+    "code": 50,
+    "math": 50,
+    "qa": 50,
+    "summary": 50,
+    "translation": 50
+  },
+  "versions": {
+    "capability_taxonomy_version": "capability-taxonomy-v1",
+    "config_version": "benchmark-config-v1",
+    "dataset_version": "router-benchmark-v0.2.0",
+    "diagnostic_protocol_version": "diagnostic-protocol-v1",
+    "generator_version": "2.0.0",
+    "latency_model_version": "synthetic-latency-v1",
+    "model_profile_version": "model-profile-v1",
+    "runtime_profile_version": "synthetic-runtime-v1",
+    "split_definition_version": "family-split-v1",
+    "synthetic_workload_version": "synthetic-workload-v1"
+  }
+}

@@ -1,0 +1,2251 @@
+﻿review_id,query_id,query_text,task,minimal_capability_rubric,difficulty_rubric,language,translation_direction,semantic_scenario,naturalness,task_completeness,constraint_consistency,capability_cue_naturalness,template_artifact,shortcut_risk,difficulty_plausibility,ambiguity_unanswerable_risk,reviewer_note,reason_code
+review-pilot-q-code-000,pilot-q-code-000,"教学项目组需要安排83个存在依赖关系的任务，并限制同时运行数量。
+
+设计可执行的调度函数，解释依赖处理和异常输入。
+
+输入说明包含83项操作，其中9项有依赖；English log 写明 the final field may be empty.
+
+给出选择方案的依据，并检查最小规模和极端规模的情况。 Connect dependencies across the material and explain how an intermediate condition changes the conclusion. 接口名称保持前后一致。
+
+输出形式：Python function。",code,比较可行路径并检查关键步骤与边界条件；连接多段证据或有依赖的条件,low; active_requirements=2; visible_constraints=4,mixed,,教学项目组需要安排83个存在依赖关系的任务，并限制同时运行数量。,,,,,,,,,,
+review-pilot-q-code-001,pilot-q-code-001,"使用场景：知识库接口在处理第13批请求时出现重复写入，日志给出两个不同的错误位置。
+
+现有材料：输入摘要：第167号样例包含13个有依赖的操作，最后一个操作可能返回空字段。
+
+需要完成：定位最早的偏差来源并给出最小修复和回归检查。
+
+具体要求：不要只处理报错表面；请沿输入到输出定位首次不一致。 调用过程需要说明版本前提、超时处理和返回字段校验。 保持字段顺序和层级，不得增加未声明的顶层字段。 不要依赖未声明的第三方服务。 列出两条关键测试。
+
+输出形式：diagnostic checklist。",code,利用失败现象定位最早偏差并设计回归检查；遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,知识库接口在处理第13批请求时出现重复写入，日志给出两个不同的错误位置。,,,,,,,,,,
+review-pilot-q-code-002,pilot-q-code-002,"Requirements first: Define how unmatched rows and changes in reporting definitions are handled. List two interpretations that could change the answer and state what information would resolve them. Explain invalid-input handling.
+
+the operations center needs a monthly reconciliation across orders, refunds, and customers for 76 records.
+
+Input notes: case 76 has 13 dependent operations; the last operation may return an empty field.
+
+Write the query and explain joins, deduplication, and null handling.
+
+Output format: result schema.",code,正确处理表格、连接、聚合或数据口径；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,en,,"the operations center needs a monthly reconciliation across orders, refunds, and customers for 76 records.",,,,,,,,,,
+review-pilot-q-code-003,pilot-q-code-003,"订单服务要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。
+
+输入摘要：第66号样例包含8个有依赖的操作，最后一个操作可能返回空字段。
+
+实现稳健的客户端调用流程，覆盖重试、校验和失败报告。
+
+输出形式：Python module。
+
+完成前请逐项确认：调用过程需要说明版本前提、超时处理和返回字段校验。 结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 给出一个最小可运行示例。",code,遵守接口或库约束并处理失败路径；利用失败现象定位最早偏差并设计回归检查,low; active_requirements=2; visible_constraints=4,zh,,订单服务要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。,,,,,,,,,,
+review-pilot-q-code-004,pilot-q-code-004,"一个62行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。
+
+提出重构方案并给出关键代码，说明如何证明外部行为未改变。
+
+输入说明包含62项操作，其中3项有依赖；English log 写明 the final field may be empty.
+
+区分原文结论和编辑说明，所有实体与数值需保持一致。 Integrate distant sections and state the scope of each when they conflict. 不要只处理报错表面；请沿输入到输出定位首次不一致。 不要依赖未声明的第三方服务。 给出一个最小可运行示例。
+
+输出形式：refactoring plan。",code,保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致；利用失败现象定位最早偏差并设计回归检查,medium; active_requirements=3; visible_constraints=6,mixed,,一个62行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。,,,,,,,,,,
+review-pilot-q-code-005,pilot-q-code-005,"使用场景：区域服务部门的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。
+
+现有材料：输入摘要：第97号样例包含8个有依赖的操作，最后一个操作可能返回空字段。
+
+需要完成：综合各模块信息解释执行路径，并指出最小修改位置。
+
+具体要求：综合相隔较远的材料，遇到冲突时指出各自适用范围。 不要默认未说明的口径；先写出采用的解释及其影响。 结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 先处理前置条件，再利用其结果判断后续分支。 列出两条关键测试。 不要依赖未声明的第三方服务。 接口名称保持前后一致。
+
+输出形式：call-flow diagram。",code,综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求；利用失败现象定位最早偏差并设计回归检查；连接多段证据或有依赖的条件,high; active_requirements=4; visible_constraints=8,zh,,区域服务部门的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。,,,,,,,,,,
+review-pilot-q-code-006,pilot-q-code-006,"请先遵守这些要求：核对连接键、重复记录和空值处理，避免汇总口径被放大。 Preserve conditions, figures, and uncertainty without adding facts absent from the source. 不要依赖未声明的第三方服务。
+
+区域服务部门每天接收142个批次的CSV文件，不同来源对日期和缺失值使用不同表示。
+
+输入说明包含142项操作，其中5项有依赖；English log 写明 the final field may be empty.
+
+设计标准化流水线，保留可追踪的错误记录和输出契约。
+
+输出形式：JSON schema。",code,正确处理表格、连接、聚合或数据口径；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,mixed,,区域服务部门每天接收142个批次的CSV文件，不同来源对日期和缺失值使用不同表示。,,,,,,,,,,
+review-pilot-q-code-007,pilot-q-code-007,"现有搜索过程需要检查34个状态，在边界输入下会明显变慢。
+
+输入摘要：第34号样例包含8个有依赖的操作，最后一个操作可能返回空字段。
+
+比较两种优化方式，给出复杂度依据和可复现的验证方法。
+
+输出形式：analysis with code。
+
+完成前请逐项确认：先列出候选做法，再解释其中一条在特殊输入下是否仍有效。 最终答案需符合给定格式，并逐项核对必填内容。 写清变量之间的关系，并对最终数值做一次反向核验。 给出一个最小可运行示例。 说明错误输入如何处理。",code,比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,medium; active_requirements=3; visible_constraints=6,zh,,现有搜索过程需要检查34个状态，在边界输入下会明显变慢。,,,,,,,,,,
+review-pilot-q-code-008,pilot-q-code-008,"区域服务部门需要安排155个存在依赖关系的任务，并限制同时运行数量。
+
+设计可执行的调度函数，解释依赖处理和异常输入。
+
+输入摘要：第155号样例包含11个有依赖的操作，最后一个操作可能返回空字段。
+
+先处理前置条件，再利用其结果判断后续分支。 保持字段顺序和层级，不得增加未声明的顶层字段。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 接口名称保持前后一致。 给出一个最小可运行示例。
+
+输出形式：JSON contract。",code,连接多段证据或有依赖的条件；严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,zh,,区域服务部门需要安排155个存在依赖关系的任务，并限制同时运行数量。,,,,,,,,,,
+review-pilot-q-code-009,pilot-q-code-009,"使用场景：日志平台在处理第8批请求时出现重复写入，日志给出两个不同的错误位置。
+
+现有材料：输入说明包含19项操作，其中8项有依赖；English log 写明 the final field may be empty.
+
+需要完成：定位最早的偏差来源并给出最小修复和回归检查。
+
+具体要求：请覆盖限流、部分成功和接口返回缺少字段的情况。 Match the requested format and verify every required item before finishing. 接口名称保持前后一致。
+
+输出形式：diagnostic checklist。",code,遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,mixed,,日志平台在处理第8批请求时出现重复写入，日志给出两个不同的错误位置。,,,,,,,,,,
+review-pilot-q-code-010,pilot-q-code-010,"请先遵守这些要求：涉及比例和总量时保留计算过程，并检查单位是否一致。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 列出两条关键测试。
+
+运维中心有订单、退款和客户三张表，需要核对106条记录的月度汇总。
+
+输入摘要：第106号样例包含18个有依赖的操作，最后一个操作可能返回空字段。
+
+编写查询并说明连接、去重和空值如何处理。
+
+输出形式：result schema。",code,明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,zh,,运维中心有订单、退款和客户三张表，需要核对106条记录的月度汇总。,,,,,,,,,,
+review-pilot-q-code-011,pilot-q-code-011,"the knowledge-base API integrates a paginated API that may rate-limit requests and omit fields on some pages.
+
+Input notes: case 165 has 7 dependent operations; the last operation may return an empty field.
+
+Implement a robust client flow covering retries, validation, and failure reporting.
+
+Output format: typed interface.
+
+Before finalizing: Explain reproduction, root-cause confirmation, and a regression case for the failing path. List candidate approaches before testing whether the chosen one still works on an edge case. State version prerequisites, timeout handling, and response-field validation. Preserve field order and hierarchy without adding undeclared top-level fields. Do not rely on undeclared external services. Include a minimal runnable example. Keep interface names consistent.",code,利用失败现象定位最早偏差并设计回归检查；比较可行路径并检查关键步骤与边界条件；遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,en,,the knowledge-base API integrates a paginated API that may rate-limit requests and omit fields on some pages.,,,,,,,,,,
+review-pilot-q-code-012,pilot-q-code-012,"一个73行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。
+
+提出重构方案并给出关键代码，说明如何证明外部行为未改变。
+
+输入摘要：第73号样例包含13个有依赖的操作，最后一个操作可能返回空字段。
+
+综合相隔较远的材料，遇到冲突时指出各自适用范围。 说明如何复现问题、确认根因，并给出覆盖该路径的回归样例。 最终答案需符合给定格式，并逐项核对必填内容。 区分原文结论和编辑说明，所有实体与数值需保持一致。 接口名称保持前后一致。 说明错误输入如何处理。 给出一个最小可运行示例。
+
+输出形式：code diff outline。",code,综合相隔较远的材料并保持前后一致；利用失败现象定位最早偏差并设计回归检查；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,zh,,一个73行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。,,,,,,,,,,
+review-pilot-q-code-013,pilot-q-code-013,"使用场景：研发团队的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。
+
+现有材料：输入说明包含126项操作，其中5项有依赖；English log 写明 the final field may be empty.
+
+需要完成：综合各模块信息解释执行路径，并指出最小修改位置。
+
+具体要求：先处理前置条件，再利用其结果判断后续分支。 Base the conclusion on the beginning, middle, and end rather than only the nearest paragraph. 结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 Do not assume an unstated definition; declare the chosen interpretation and its effect. 接口名称保持前后一致。 给出一个最小可运行示例。 不要依赖未声明的第三方服务。
+
+输出形式：review memo。",code,连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致；利用失败现象定位最早偏差并设计回归检查；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,mixed,,研发团队的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。,,,,,,,,,,
+review-pilot-q-code-014,pilot-q-code-014,"请先遵守这些要求：调用过程需要说明版本前提、超时处理和返回字段校验。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 对表间匹配失败和统计口径变化给出明确处理规则。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 不要依赖未声明的第三方服务。 接口名称保持前后一致。 列出两条关键测试。
+
+研发团队每天接收129个批次的CSV文件，不同来源对日期和缺失值使用不同表示。
+
+输入摘要：第129号样例包含14个有依赖的操作，最后一个操作可能返回空字段。
+
+设计标准化流水线，保留可追踪的错误记录和输出契约。
+
+输出形式：JSON schema。",code,遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束；正确处理表格、连接、聚合或数据口径；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,zh,,研发团队每天接收129个批次的CSV文件，不同来源对日期和缺失值使用不同表示。,,,,,,,,,,
+review-pilot-q-code-015,pilot-q-code-015,"现有搜索过程需要检查93个状态，在边界输入下会明显变慢。
+
+输入说明包含93项操作，其中5项有依赖；English log 写明 the final field may be empty.
+
+比较两种优化方式，给出复杂度依据和可复现的验证方法。
+
+输出形式：benchmark plan。
+
+完成前请逐项确认：给出所用公式，数值结果保留两位小数并说明舍入位置。 Preserve unresolved reference or scope ambiguity and ask a concrete clarification question. 比较两条可行路径，并说明关键步骤在边界输入下为何成立。 Follow the requested fields exactly; use null for missing information and explain it in notes. 不要依赖未声明的第三方服务。 列出两条关键测试。 接口名称保持前后一致。",code,明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求；比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,mixed,,现有搜索过程需要检查93个状态，在边界输入下会明显变慢。,,,,,,,,,,
+review-pilot-q-code-016,pilot-q-code-016,"教学项目组需要安排141个存在依赖关系的任务，并限制同时运行数量。
+
+设计可执行的调度函数，解释依赖处理和异常输入。
+
+输入摘要：第141号样例包含8个有依赖的操作，最后一个操作可能返回空字段。
+
+最终答案需符合给定格式，并逐项核对必填内容。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 给出选择方案的依据，并检查最小规模和极端规模的情况。 接口名称保持前后一致。 不要依赖未声明的第三方服务。
+
+输出形式：JSON contract。",code,严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求；比较可行路径并检查关键步骤与边界条件,medium; active_requirements=3; visible_constraints=6,zh,,教学项目组需要安排141个存在依赖关系的任务，并限制同时运行数量。,,,,,,,,,,
+review-pilot-q-code-017,pilot-q-code-017,"使用场景：知识库接口在处理第15批请求时出现重复写入，日志给出两个不同的错误位置。
+
+现有材料：输入摘要：第112号样例包含15个有依赖的操作，最后一个操作可能返回空字段。
+
+需要完成：定位最早的偏差来源并给出最小修复和回归检查。
+
+具体要求：综合相隔较远的材料，遇到冲突时指出各自适用范围。 最终答案需符合给定格式，并逐项核对必填内容。 接口名称保持前后一致。
+
+输出形式：diagnostic checklist。",code,综合相隔较远的材料并保持前后一致；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,zh,,知识库接口在处理第15批请求时出现重复写入，日志给出两个不同的错误位置。,,,,,,,,,,
+review-pilot-q-code-018,pilot-q-code-018,"请先遵守这些要求：保持字段顺序和层级，不得增加未声明的顶层字段。 Check join keys, duplicate rows, and null handling so aggregation is not inflated. 给出所用公式，数值结果保留两位小数并说明舍入位置。 说明错误输入如何处理。 给出一个最小可运行示例。
+
+研发团队有订单、退款和客户三张表，需要核对50条记录的月度汇总。
+
+输入说明包含50项操作，其中13项有依赖；English log 写明 the final field may be empty.
+
+编写查询并说明连接、去重和空值如何处理。
+
+输出形式：result schema。",code,严格满足字段、格式、长度和结构约束；正确处理表格、连接、聚合或数据口径；明确变量关系、计算过程与数值核验,medium; active_requirements=3; visible_constraints=6,mixed,,研发团队有订单、退款和客户三张表，需要核对50条记录的月度汇总。,,,,,,,,,,
+review-pilot-q-code-019,pilot-q-code-019,"资产管理系统要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。
+
+输入摘要：第26号样例包含6个有依赖的操作，最后一个操作可能返回空字段。
+
+实现稳健的客户端调用流程，覆盖重试、校验和失败报告。
+
+输出形式：typed interface。
+
+完成前请逐项确认：最终答案需符合给定格式，并逐项核对必填内容。 说明如何复现问题、确认根因，并给出覆盖该路径的回归样例。 列出两条关键测试。",code,严格满足字段、格式、长度和结构约束；利用失败现象定位最早偏差并设计回归检查,low; active_requirements=2; visible_constraints=4,zh,,资产管理系统要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。,,,,,,,,,,
+review-pilot-q-code-020,pilot-q-code-020,"一个110行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。
+
+提出重构方案并给出关键代码，说明如何证明外部行为未改变。
+
+输入说明包含110项操作，其中4项有依赖；English log 写明 the final field may be empty.
+
+最终答案需符合给定格式，并逐项核对必填内容。 Use the failing example to locate the first divergence and add a regression check. 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 接口名称保持前后一致。 说明错误输入如何处理。
+
+输出形式：refactoring plan。",code,严格满足字段、格式、长度和结构约束；利用失败现象定位最早偏差并设计回归检查；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,mixed,,一个110行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。,,,,,,,,,,
+review-pilot-q-code-021,pilot-q-code-021,"使用场景：教学项目组的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。
+
+现有材料：输入摘要：第37号样例包含8个有依赖的操作，最后一个操作可能返回空字段。
+
+需要完成：综合各模块信息解释执行路径，并指出最小修改位置。
+
+具体要求：结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 同时使用开头的定义和后文的例外，保持跨段引用一致。 不要默认未说明的口径；先写出采用的解释及其影响。 接口名称保持前后一致。 给出一个最小可运行示例。
+
+输出形式：review memo。",code,利用失败现象定位最早偏差并设计回归检查；综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,zh,,教学项目组的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。,,,,,,,,,,
+review-pilot-q-code-022,pilot-q-code-022,"Requirements first: Preserve conditions, figures, and uncertainty without adding facts absent from the source. Check join keys, duplicate rows, and null handling so aggregation is not inflated. State version prerequisites, timeout handling, and response-field validation. Match the requested format and verify every required item before finishing. Include a minimal runnable example. Do not rely on undeclared external services. Keep interface names consistent.
+
+the operations center receives 66 CSV batches daily, with source-specific date and missing-value conventions.
+
+Input notes: case 66 has 15 dependent operations; the last operation may return an empty field.
+
+Design a normalization pipeline with traceable errors and a stable output contract.
+
+Output format: JSON schema.",code,保留原意和事实，不添加材料外信息；正确处理表格、连接、聚合或数据口径；遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,en,,"the operations center receives 66 CSV batches daily, with source-specific date and missing-value conventions.",,,,,,,,,,
+review-pilot-q-code-023,pilot-q-code-023,"现有搜索过程需要检查72个状态，在边界输入下会明显变慢。
+
+输入摘要：第72号样例包含5个有依赖的操作，最后一个操作可能返回空字段。
+
+比较两种优化方式，给出复杂度依据和可复现的验证方法。
+
+输出形式：benchmark plan。
+
+完成前请逐项确认：发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 写清变量之间的关系，并对最终数值做一次反向核验。 先列出候选做法，再解释其中一条在特殊输入下是否仍有效。 不要依赖未声明的第三方服务。 给出一个最小可运行示例。",code,识别多种合理解释并说明澄清需求；明确变量关系、计算过程与数值核验；比较可行路径并检查关键步骤与边界条件,medium; active_requirements=3; visible_constraints=6,zh,,现有搜索过程需要检查72个状态，在边界输入下会明显变慢。,,,,,,,,,,
+review-pilot-q-code-024,pilot-q-code-024,"研发团队需要安排170个存在依赖关系的任务，并限制同时运行数量。
+
+设计可执行的调度函数，解释依赖处理和异常输入。
+
+输入说明包含170项操作，其中18项有依赖；English log 写明 the final field may be empty.
+
+列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 Match the requested format and verify every required item before finishing. 按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 Explain the choice of approach and check both minimal and extreme cases. 不要依赖未声明的第三方服务。 说明错误输入如何处理。 给出一个最小可运行示例。
+
+输出形式：JSON contract。",code,识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束；连接多段证据或有依赖的条件；比较可行路径并检查关键步骤与边界条件,high; active_requirements=4; visible_constraints=8,mixed,,研发团队需要安排170个存在依赖关系的任务，并限制同时运行数量。,,,,,,,,,,
+review-pilot-q-code-025,pilot-q-code-025,"使用场景：日志平台在处理第18批请求时出现重复写入，日志给出两个不同的错误位置。
+
+现有材料：输入摘要：第96号样例包含18个有依赖的操作，最后一个操作可能返回空字段。
+
+需要完成：定位最早的偏差来源并给出最小修复和回归检查。
+
+具体要求：保持字段顺序和层级，不得增加未声明的顶层字段。 调用过程需要说明版本前提、超时处理和返回字段校验。 说明如何复现问题、确认根因，并给出覆盖该路径的回归样例。 列出两条关键测试。 接口名称保持前后一致。
+
+输出形式：diagnostic checklist。",code,严格满足字段、格式、长度和结构约束；遵守接口或库约束并处理失败路径；利用失败现象定位最早偏差并设计回归检查,medium; active_requirements=3; visible_constraints=6,zh,,日志平台在处理第18批请求时出现重复写入，日志给出两个不同的错误位置。,,,,,,,,,,
+review-pilot-q-code-026,pilot-q-code-026,"请先遵守这些要求：发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 Match the requested format and verify every required item before finishing. 给出一个最小可运行示例。
+
+数据平台主管有订单、退款和客户三张表，需要核对169条记录的月度汇总。
+
+输入说明包含169项操作，其中3项有依赖；English log 写明 the final field may be empty.
+
+编写查询并说明连接、去重和空值如何处理。
+
+输出形式：SQL。",code,识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,mixed,,数据平台主管有订单、退款和客户三张表，需要核对169条记录的月度汇总。,,,,,,,,,,
+review-pilot-q-code-027,pilot-q-code-027,"日志平台要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。
+
+输入摘要：第102号样例包含6个有依赖的操作，最后一个操作可能返回空字段。
+
+实现稳健的客户端调用流程，覆盖重试、校验和失败报告。
+
+输出形式：Python module。
+
+完成前请逐项确认：给出选择方案的依据，并检查最小规模和极端规模的情况。 说明如何复现问题、确认根因，并给出覆盖该路径的回归样例。 说明错误输入如何处理。",code,比较可行路径并检查关键步骤与边界条件；利用失败现象定位最早偏差并设计回归检查,low; active_requirements=2; visible_constraints=4,zh,,日志平台要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。,,,,,,,,,,
+review-pilot-q-code-028,pilot-q-code-028,"一个42行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。
+
+提出重构方案并给出关键代码，说明如何证明外部行为未改变。
+
+输入摘要：第42号样例包含16个有依赖的操作，最后一个操作可能返回空字段。
+
+结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 不要依赖未声明的第三方服务。 接口名称保持前后一致。 列出两条关键测试。
+
+输出形式：refactoring plan。",code,利用失败现象定位最早偏差并设计回归检查；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,zh,,一个42行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。,,,,,,,,,,
+review-pilot-q-code-029,pilot-q-code-029,"使用场景：运维中心的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。
+
+现有材料：输入说明包含49项操作，其中17项有依赖；English log 写明 the final field may be empty.
+
+需要完成：综合各模块信息解释执行路径，并指出最小修改位置。
+
+具体要求：列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 Do not patch only the visible error; trace the first inconsistency from input to output. 按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 Use both the opening definitions and later exceptions while keeping cross-references consistent. 给出一个最小可运行示例。 说明错误输入如何处理。 列出两条关键测试。
+
+输出形式：review memo。",code,识别多种合理解释并说明澄清需求；利用失败现象定位最早偏差并设计回归检查；连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,mixed,,运维中心的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。,,,,,,,,,,
+review-pilot-q-code-030,pilot-q-code-030,"请先遵守这些要求：最终答案需符合给定格式，并逐项核对必填内容。 区分原文结论和编辑说明，所有实体与数值需保持一致。 给出一个最小可运行示例。
+
+区域服务部门每天接收120个批次的CSV文件，不同来源对日期和缺失值使用不同表示。
+
+输入摘要：第120号样例包含17个有依赖的操作，最后一个操作可能返回空字段。
+
+设计标准化流水线，保留可追踪的错误记录和输出契约。
+
+输出形式：pipeline pseudocode。",code,严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,区域服务部门每天接收120个批次的CSV文件，不同来源对日期和缺失值使用不同表示。,,,,,,,,,,
+review-pilot-q-code-031,pilot-q-code-031,"The current search examines 151 states and slows sharply on boundary inputs.
+
+Input notes: case 151 has 11 dependent operations; the last operation may return an empty field.
+
+Compare two optimizations with complexity evidence and a reproducible validation method.
+
+Output format: benchmark plan.
+
+Before finalizing: Match the requested format and verify every required item before finishing. State the variable relationships and verify the final number in reverse. Include a minimal runnable example.",code,严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,low; active_requirements=2; visible_constraints=4,en,,The current search examines 151 states and slows sharply on boundary inputs.,,,,,,,,,,
+review-pilot-q-code-032,pilot-q-code-032,"运维中心需要安排106个存在依赖关系的任务，并限制同时运行数量。
+
+设计可执行的调度函数，解释依赖处理和异常输入。
+
+输入摘要：第106号样例包含18个有依赖的操作，最后一个操作可能返回空字段。
+
+比较两条可行路径，并说明关键步骤在边界输入下为何成立。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 先处理前置条件，再利用其结果判断后续分支。 接口名称保持前后一致。 不要依赖未声明的第三方服务。
+
+输出形式：Python function。",code,比较可行路径并检查关键步骤与边界条件；识别多种合理解释并说明澄清需求；连接多段证据或有依赖的条件,medium; active_requirements=3; visible_constraints=6,zh,,运维中心需要安排106个存在依赖关系的任务，并限制同时运行数量。,,,,,,,,,,
+review-pilot-q-code-033,pilot-q-code-033,"使用场景：资产管理系统在处理第16批请求时出现重复写入，日志给出两个不同的错误位置。
+
+现有材料：输入说明包含107项操作，其中16项有依赖；English log 写明 the final field may be empty.
+
+需要完成：定位最早的偏差来源并给出最小修复和回归检查。
+
+具体要求：结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 Base the conclusion on the beginning, middle, and end rather than only the nearest paragraph. 调用过程需要说明版本前提、超时处理和返回字段校验。 Match the requested format and verify every required item before finishing. 接口名称保持前后一致。 说明错误输入如何处理。 给出一个最小可运行示例。
+
+输出形式：diagnostic checklist。",code,利用失败现象定位最早偏差并设计回归检查；综合相隔较远的材料并保持前后一致；遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,mixed,,资产管理系统在处理第16批请求时出现重复写入，日志给出两个不同的错误位置。,,,,,,,,,,
+review-pilot-q-code-034,pilot-q-code-034,"请先遵守这些要求：先说明数据粒度，再处理筛选、分组和聚合。 不要默认未说明的口径；先写出采用的解释及其影响。 保持字段顺序和层级，不得增加未声明的顶层字段。 写清变量之间的关系，并对最终数值做一次反向核验。 接口名称保持前后一致。 说明错误输入如何处理。 列出两条关键测试。
+
+研发团队有订单、退款和客户三张表，需要核对92条记录的月度汇总。
+
+输入摘要：第92号样例包含13个有依赖的操作，最后一个操作可能返回空字段。
+
+编写查询并说明连接、去重和空值如何处理。
+
+输出形式：result schema。",code,正确处理表格、连接、聚合或数据口径；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,high; active_requirements=4; visible_constraints=8,zh,,研发团队有订单、退款和客户三张表，需要核对92条记录的月度汇总。,,,,,,,,,,
+review-pilot-q-code-035,pilot-q-code-035,"报表流水线要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。
+
+输入说明包含97项操作，其中18项有依赖；English log 写明 the final field may be empty.
+
+实现稳健的客户端调用流程，覆盖重试、校验和失败报告。
+
+输出形式：typed interface。
+
+完成前请逐项确认：考虑接口版本、分页和失败重试，并保留可诊断的错误信息。 Use the failing example to locate the first divergence and add a regression check. 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 列出两条关键测试。 说明错误输入如何处理。",code,遵守接口或库约束并处理失败路径；利用失败现象定位最早偏差并设计回归检查；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,mixed,,报表流水线要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。,,,,,,,,,,
+review-pilot-q-code-036,pilot-q-code-036,"一个120行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。
+
+提出重构方案并给出关键代码，说明如何证明外部行为未改变。
+
+输入摘要：第120号样例包含17个有依赖的操作，最后一个操作可能返回空字段。
+
+区分原文结论和编辑说明，所有实体与数值需保持一致。 说明如何复现问题、确认根因，并给出覆盖该路径的回归样例。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 说明错误输入如何处理。 给出一个最小可运行示例。
+
+输出形式：code diff outline。",code,保留原意和事实，不添加材料外信息；利用失败现象定位最早偏差并设计回归检查；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,zh,,一个120行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。,,,,,,,,,,
+review-pilot-q-code-037,pilot-q-code-037,"使用场景：数据平台主管的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。
+
+现有材料：输入摘要：第41号样例包含7个有依赖的操作，最后一个操作可能返回空字段。
+
+需要完成：综合各模块信息解释执行路径，并指出最小修改位置。
+
+具体要求：结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 不要默认未说明的口径；先写出采用的解释及其影响。 给出一个最小可运行示例。
+
+输出形式：call-flow diagram。",code,综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,zh,,数据平台主管的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。,,,,,,,,,,
+review-pilot-q-code-038,pilot-q-code-038,"请先遵守这些要求：核对连接键、重复记录和空值处理，避免汇总口径被放大。 Preserve field order and hierarchy without adding undeclared top-level fields. 请覆盖限流、部分成功和接口返回缺少字段的情况。 列出两条关键测试。 给出一个最小可运行示例。
+
+数据平台主管每天接收77个批次的CSV文件，不同来源对日期和缺失值使用不同表示。
+
+输入说明包含77项操作，其中13项有依赖；English log 写明 the final field may be empty.
+
+设计标准化流水线，保留可追踪的错误记录和输出契约。
+
+输出形式：pipeline pseudocode。",code,正确处理表格、连接、聚合或数据口径；严格满足字段、格式、长度和结构约束；遵守接口或库约束并处理失败路径,medium; active_requirements=3; visible_constraints=6,mixed,,数据平台主管每天接收77个批次的CSV文件，不同来源对日期和缺失值使用不同表示。,,,,,,,,,,
+review-pilot-q-code-039,pilot-q-code-039,"现有搜索过程需要检查78个状态，在边界输入下会明显变慢。
+
+输入摘要：第78号样例包含13个有依赖的操作，最后一个操作可能返回空字段。
+
+比较两种优化方式，给出复杂度依据和可复现的验证方法。
+
+输出形式：benchmark plan。
+
+完成前请逐项确认：比较两条可行路径，并说明关键步骤在边界输入下为何成立。 写清变量之间的关系，并对最终数值做一次反向核验。 最终答案需符合给定格式，并逐项核对必填内容。 接口名称保持前后一致。 给出一个最小可运行示例。",code,比较可行路径并检查关键步骤与边界条件；明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,现有搜索过程需要检查78个状态，在边界输入下会明显变慢。,,,,,,,,,,
+review-pilot-q-code-040,pilot-q-code-040,"数据平台主管需要安排73个存在依赖关系的任务，并限制同时运行数量。
+
+设计可执行的调度函数，解释依赖处理和异常输入。
+
+输入说明包含73项操作，其中15项有依赖；English log 写明 the final field may be empty.
+
+串联前后材料中的依赖关系，并说明中间条件如何改变结论。 Follow the requested fields exactly; use null for missing information and explain it in notes. 比较两条可行路径，并说明关键步骤在边界输入下为何成立。 List two interpretations that could change the answer and state what information would resolve them. 接口名称保持前后一致。 给出一个最小可运行示例。 说明错误输入如何处理。
+
+输出形式：JSON contract。",code,连接多段证据或有依赖的条件；严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,mixed,,数据平台主管需要安排73个存在依赖关系的任务，并限制同时运行数量。,,,,,,,,,,
+review-pilot-q-code-041,pilot-q-code-041,"使用场景：资产管理系统在处理第18批请求时出现重复写入，日志给出两个不同的错误位置。
+
+现有材料：输入摘要：第38号样例包含18个有依赖的操作，最后一个操作可能返回空字段。
+
+需要完成：定位最早的偏差来源并给出最小修复和回归检查。
+
+具体要求：考虑接口版本、分页和失败重试，并保留可诊断的错误信息。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 保持字段顺序和层级，不得增加未声明的顶层字段。 结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 列出两条关键测试。 给出一个最小可运行示例。 说明错误输入如何处理。
+
+输出形式：patch。",code,遵守接口或库约束并处理失败路径；综合相隔较远的材料并保持前后一致；严格满足字段、格式、长度和结构约束；利用失败现象定位最早偏差并设计回归检查,high; active_requirements=4; visible_constraints=8,zh,,资产管理系统在处理第18批请求时出现重复写入，日志给出两个不同的错误位置。,,,,,,,,,,
+review-pilot-q-code-042,pilot-q-code-042,"Requirements first: State the variable relationships and verify the final number in reverse. Preserve unresolved reference or scope ambiguity and ask a concrete clarification question. Preserve field order and hierarchy without adding undeclared top-level fields. Explain invalid-input handling. Do not rely on undeclared external services.
+
+the data platform team needs a monthly reconciliation across orders, refunds, and customers for 58 records.
+
+Input notes: case 58 has 6 dependent operations; the last operation may return an empty field.
+
+Write the query and explain joins, deduplication, and null handling.
+
+Output format: result schema.",code,明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,en,,"the data platform team needs a monthly reconciliation across orders, refunds, and customers for 58 records.",,,,,,,,,,
+review-pilot-q-code-043,pilot-q-code-043,"知识库接口要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。
+
+输入摘要：第142号样例包含10个有依赖的操作，最后一个操作可能返回空字段。
+
+实现稳健的客户端调用流程，覆盖重试、校验和失败报告。
+
+输出形式：Python module。
+
+完成前请逐项确认：说明如何复现问题、确认根因，并给出覆盖该路径的回归样例。 先列出候选做法，再解释其中一条在特殊输入下是否仍有效。 给出一个最小可运行示例。",code,利用失败现象定位最早偏差并设计回归检查；比较可行路径并检查关键步骤与边界条件,low; active_requirements=2; visible_constraints=4,zh,,知识库接口要接入一个分页接口；接口可能限流，并在部分页面返回缺失字段。,,,,,,,,,,
+review-pilot-q-code-044,pilot-q-code-044,"一个135行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。
+
+提出重构方案并给出关键代码，说明如何证明外部行为未改变。
+
+输入说明包含135项操作，其中16项有依赖；English log 写明 the final field may be empty.
+
+同时使用开头的定义和后文的例外，保持跨段引用一致。 Separate source conclusions from editorial notes and keep every entity and figure consistent. 给出一个最小可运行示例。
+
+输出形式：refactoring plan。",code,综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,mixed,,一个135行的数据转换模块混合了解析、校验和输出逻辑，现有行为必须保持。,,,,,,,,,,
+review-pilot-q-code-045,pilot-q-code-045,"使用场景：教学项目组的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。
+
+现有材料：输入摘要：第100号样例包含6个有依赖的操作，最后一个操作可能返回空字段。
+
+需要完成：综合各模块信息解释执行路径，并指出最小修改位置。
+
+具体要求：先处理前置条件，再利用其结果判断后续分支。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 不要默认未说明的口径；先写出采用的解释及其影响。 列出两条关键测试。 接口名称保持前后一致。
+
+输出形式：call-flow diagram。",code,连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,zh,,教学项目组的仓库包含入口、配置、缓存和测试四部分，问题只在特定调用顺序出现。,,,,,,,,,,
+review-pilot-q-code-046,pilot-q-code-046,"请先遵守这些要求：调用过程需要说明版本前提、超时处理和返回字段校验。 Separate source conclusions from editorial notes and keep every entity and figure consistent. 先说明数据粒度，再处理筛选、分组和聚合。 列出两条关键测试。 给出一个最小可运行示例。
+
+数据平台主管每天接收47个批次的CSV文件，不同来源对日期和缺失值使用不同表示。
+
+输入说明包含47项操作，其中10项有依赖；English log 写明 the final field may be empty.
+
+设计标准化流水线，保留可追踪的错误记录和输出契约。
+
+输出形式：JSON schema。",code,遵守接口或库约束并处理失败路径；保留原意和事实，不添加材料外信息；正确处理表格、连接、聚合或数据口径,medium; active_requirements=3; visible_constraints=6,mixed,,数据平台主管每天接收47个批次的CSV文件，不同来源对日期和缺失值使用不同表示。,,,,,,,,,,
+review-pilot-q-code-047,pilot-q-code-047,"现有搜索过程需要检查87个状态，在边界输入下会明显变慢。
+
+输入摘要：第87号样例包含4个有依赖的操作，最后一个操作可能返回空字段。
+
+比较两种优化方式，给出复杂度依据和可复现的验证方法。
+
+输出形式：analysis with code。
+
+完成前请逐项确认：涉及比例和总量时保留计算过程，并检查单位是否一致。 给出选择方案的依据，并检查最小规模和极端规模的情况。 不要默认未说明的口径；先写出采用的解释及其影响。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 接口名称保持前后一致。 给出一个最小可运行示例。 列出两条关键测试。",code,明确变量关系、计算过程与数值核验；比较可行路径并检查关键步骤与边界条件；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,zh,,现有搜索过程需要检查87个状态，在边界输入下会明显变慢。,,,,,,,,,,
+review-pilot-q-code-048,pilot-q-code-048,"数据平台主管需要安排64个存在依赖关系的任务，并限制同时运行数量。
+
+设计可执行的调度函数，解释依赖处理和异常输入。
+
+输入摘要：第64号样例包含9个有依赖的操作，最后一个操作可能返回空字段。
+
+严格按指定字段输出；缺少信息时使用空值并在备注中解释。 不要默认未说明的口径；先写出采用的解释及其影响。 比较两条可行路径，并说明关键步骤在边界输入下为何成立。 按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 说明错误输入如何处理。 接口名称保持前后一致。 不要依赖未声明的第三方服务。
+
+输出形式：JSON contract。",code,严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求；比较可行路径并检查关键步骤与边界条件；连接多段证据或有依赖的条件,high; active_requirements=4; visible_constraints=8,zh,,数据平台主管需要安排64个存在依赖关系的任务，并限制同时运行数量。,,,,,,,,,,
+review-pilot-q-code-049,pilot-q-code-049,"使用场景：资产管理系统在处理第6批请求时出现重复写入，日志给出两个不同的错误位置。
+
+现有材料：输入说明包含27项操作，其中6项有依赖；English log 写明 the final field may be empty.
+
+需要完成：定位最早的偏差来源并给出最小修复和回归检查。
+
+具体要求：综合相隔较远的材料，遇到冲突时指出各自适用范围。 Do not patch only the visible error; trace the first inconsistency from input to output. 列出两条关键测试。
+
+输出形式：diagnostic checklist。",code,综合相隔较远的材料并保持前后一致；利用失败现象定位最早偏差并设计回归检查,low; active_requirements=2; visible_constraints=4,mixed,,资产管理系统在处理第6批请求时出现重复写入，日志给出两个不同的错误位置。,,,,,,,,,,
+review-pilot-q-math-000,pilot-q-math-000,"一个资源分配问题形成94个变量和11条约束，其中两条约束可能相关。
+
+建立方程、求解，并检查解是否满足原始限制。
+
+已知总量为94，其中11项属于目标子集；题面中的比例以原始总量为基准。
+
+涉及比例和总量时保留计算过程，并检查单位是否一致。 不要默认未说明的口径；先写出采用的解释及其影响。 最终答案需符合给定格式，并逐项核对必填内容。 检查结果是否满足原条件。 写出中间步骤。
+
+输出形式：stepwise derivation。",math,明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,一个资源分配问题形成94个变量和11条约束，其中两条约束可能相关。,,,,,,,,,,
+review-pilot-q-math-001,pilot-q-math-001,"使用场景：抽样过程分为17个阶段，每个阶段的选择会改变下一阶段的候选数。
+
+现有材料：已知总量为127，其中17项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：计算目标事件概率，并说明各阶段为何不能简单独立相乘。
+
+具体要求：给出所用公式，数值结果保留两位小数并说明舍入位置。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 写出中间步骤。 不要省略边界情况。
+
+输出形式：probability tree。",math,明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,zh,,抽样过程分为17个阶段，每个阶段的选择会改变下一阶段的候选数。,,,,,,,,,,
+review-pilot-q-math-002,pilot-q-math-002,"Requirements first: List candidate approaches before testing whether the chosen one still works on an edge case. Connect dependencies across the material and explain how an intermediate condition changes the conclusion. Preserve field order and hierarchy without adding undeclared top-level fields. Show calculations for ratios and totals, and check that units remain consistent. Check the result against the original conditions. State the units used. Distinguish exact and approximate values.
+
+A recurrence with 85 initial terms is used in a claim that should hold for all positive integers.
+
+Given values: the total is 85, the selected subset is 14, and the stated rate uses the original total.
+
+Provide a proof and check the initial cases and recurrence boundary separately.
+
+Output format: proof outline.",math,比较可行路径并检查关键步骤与边界条件；连接多段证据或有依赖的条件；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,high; active_requirements=4; visible_constraints=8,en,,A recurrence with 85 initial terms is used in a claim that should hold for all positive integers.,,,,,,,,,,
+review-pilot-q-math-003,pilot-q-math-003,"区域服务部门比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。
+
+已知总量为167，其中14项属于目标子集；题面中的比例以原始总量为基准。
+
+选择合适的汇总量并解释结论对处理方式是否敏感。
+
+输出形式：statistical note。
+
+完成前请逐项确认：涉及比例和总量时保留计算过程，并检查单位是否一致。 对表间匹配失败和统计口径变化给出明确处理规则。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 不要默认未说明的口径；先写出采用的解释及其影响。 检查结果是否满足原条件。 区分精确值与近似值。 写出中间步骤。",math,明确变量关系、计算过程与数值核验；正确处理表格、连接、聚合或数据口径；保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,zh,,区域服务部门比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。,,,,,,,,,,
+review-pilot-q-math-004,pilot-q-math-004,"一个复合图形由10个矩形和两个重叠区域组成，部分尺寸通过比例给出。
+
+推导总面积，标明重复计算的区域并验证单位。
+
+已知总量为107，其中10项属于目标子集；题面中的比例以原始总量为基准。
+
+涉及比例和总量时保留计算过程，并检查单位是否一致。 最终答案需符合给定格式，并逐项核对必填内容。 先处理前置条件，再利用其结果判断后续分支。 先列出候选做法，再解释其中一条在特殊输入下是否仍有效。 说明使用的单位。 不要省略边界情况。 写出中间步骤。
+
+输出形式：annotated derivation。",math,明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束；连接多段证据或有依赖的条件；比较可行路径并检查关键步骤与边界条件,high; active_requirements=4; visible_constraints=8,zh,,一个复合图形由10个矩形和两个重叠区域组成，部分尺寸通过比例给出。,,,,,,,,,,
+review-pilot-q-math-005,pilot-q-math-005,"使用场景：教学项目组要在预算和容量限制下分配29项资源，并存在最低服务量。
+
+现有材料：已知总量为29，其中8项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：建立目标函数，比较候选方案并说明最优性条件。
+
+具体要求：先列出候选做法，再解释其中一条在特殊输入下是否仍有效。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 给出所用公式，数值结果保留两位小数并说明舍入位置。 写出中间步骤。 区分精确值与近似值。
+
+输出形式：optimization model。",math,比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,medium; active_requirements=3; visible_constraints=6,zh,,教学项目组要在预算和容量限制下分配29项资源，并存在最低服务量。,,,,,,,,,,
+review-pilot-q-math-006,pilot-q-math-006,"请先遵守这些要求：列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 写清变量之间的关系，并对最终数值做一次反向核验。 写出中间步骤。 不要省略边界情况。
+
+一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。
+
+已知总量为144，其中5项属于目标子集；题面中的比例以原始总量为基准。
+
+列出合理解释，选择可计算的定义并分别给出结果。
+
+输出形式：worked solution。",math,识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息；明确变量关系、计算过程与数值核验,medium; active_requirements=3; visible_constraints=6,zh,,一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。,,,,,,,,,,
+review-pilot-q-math-007,pilot-q-math-007,"一张表记录4个月的数量和比例，部分月份的统计口径发生变化。
+
+已知总量为47，其中4项属于目标子集；题面中的比例以原始总量为基准。
+
+计算可比变化并避免把口径变化误当作真实增长。
+
+输出形式：calculation memo。
+
+完成前请逐项确认：先说明数据粒度，再处理筛选、分组和聚合。 给出所用公式，数值结果保留两位小数并说明舍入位置。 不要默认未说明的口径；先写出采用的解释及其影响。 区分精确值与近似值。 不要省略边界情况。",math,正确处理表格、连接、聚合或数据口径；明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,zh,,一张表记录4个月的数量和比例，部分月份的统计口径发生变化。,,,,,,,,,,
+review-pilot-q-math-008,pilot-q-math-008,"一个资源分配问题形成150个变量和17条约束，其中两条约束可能相关。
+
+建立方程、求解，并检查解是否满足原始限制。
+
+已知总量为150，其中17项属于目标子集；题面中的比例以原始总量为基准。
+
+先列出候选做法，再解释其中一条在特殊输入下是否仍有效。 最终答案需符合给定格式，并逐项核对必填内容。 涉及比例和总量时保留计算过程，并检查单位是否一致。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 说明使用的单位。 不要省略边界情况。 区分精确值与近似值。
+
+输出形式：solution table。",math,比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,zh,,一个资源分配问题形成150个变量和17条约束，其中两条约束可能相关。,,,,,,,,,,
+review-pilot-q-math-009,pilot-q-math-009,"使用场景：抽样过程分为14个阶段，每个阶段的选择会改变下一阶段的候选数。
+
+现有材料：题面给出总量115和子集14；the reported rate is based on the original total，而不是修订值。
+
+需要完成：计算目标事件概率，并说明各阶段为何不能简单独立相乘。
+
+具体要求：按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 Preserve unresolved reference or scope ambiguity and ask a concrete clarification question. 写出中间步骤。
+
+输出形式：formula derivation。",math,连接多段证据或有依赖的条件；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,mixed,,抽样过程分为14个阶段，每个阶段的选择会改变下一阶段的候选数。,,,,,,,,,,
+review-pilot-q-math-010,pilot-q-math-010,"请先遵守这些要求：按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 写清变量之间的关系，并对最终数值做一次反向核验。 区分精确值与近似值。
+
+给定一个由79项构成的递推序列，需要判断命题对所有正整数是否成立。
+
+已知总量为79，其中8项属于目标子集；题面中的比例以原始总量为基准。
+
+给出证明，并单独检查起始项和递推边界。
+
+输出形式：proof outline。",math,连接多段证据或有依赖的条件；明确变量关系、计算过程与数值核验,low; active_requirements=2; visible_constraints=4,zh,,给定一个由79项构成的递推序列，需要判断命题对所有正整数是否成立。,,,,,,,,,,
+review-pilot-q-math-011,pilot-q-math-011,"运维中心比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。
+
+已知总量为32，其中12项属于目标子集；题面中的比例以原始总量为基准。
+
+选择合适的汇总量并解释结论对处理方式是否敏感。
+
+输出形式：calculation table。
+
+完成前请逐项确认：先说明数据粒度，再处理筛选、分组和聚合。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 说明使用的单位。",math,正确处理表格、连接、聚合或数据口径；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,运维中心比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。,,,,,,,,,,
+review-pilot-q-math-012,pilot-q-math-012,"A composite shape contains 17 rectangles and two overlapping regions, with some dimensions given as ratios.
+
+Derive the total area, identify double-counted regions, and verify units.
+
+Given values: the total is 25, the selected subset is 17, and the stated rate uses the original total.
+
+Explain the choice of approach and check both minimal and extreme cases. Preserve field order and hierarchy without adding undeclared top-level fields. Do not omit boundary cases.
+
+Output format: annotated derivation.",math,比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,en,,"A composite shape contains 17 rectangles and two overlapping regions, with some dimensions given as ratios.",,,,,,,,,,
+review-pilot-q-math-013,pilot-q-math-013,"使用场景：区域服务部门要在预算和容量限制下分配126项资源，并存在最低服务量。
+
+现有材料：已知总量为126，其中6项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：建立目标函数，比较候选方案并说明最优性条件。
+
+具体要求：给出所用公式，数值结果保留两位小数并说明舍入位置。 串联前后材料中的依赖关系，并说明中间条件如何改变结论。 保持字段顺序和层级，不得增加未声明的顶层字段。 比较两条可行路径，并说明关键步骤在边界输入下为何成立。 区分精确值与近似值。 说明使用的单位。 检查结果是否满足原条件。
+
+输出形式：decision table。",math,明确变量关系、计算过程与数值核验；连接多段证据或有依赖的条件；严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件,high; active_requirements=4; visible_constraints=8,zh,,区域服务部门要在预算和容量限制下分配126项资源，并存在最低服务量。,,,,,,,,,,
+review-pilot-q-math-014,pilot-q-math-014,"请先遵守这些要求：涉及比例和总量时保留计算过程，并检查单位是否一致。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 串联前后材料中的依赖关系，并说明中间条件如何改变结论。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 不要省略边界情况。 写出中间步骤。 检查结果是否满足原条件。
+
+一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。
+
+已知总量为57，其中17项属于目标子集；题面中的比例以原始总量为基准。
+
+列出合理解释，选择可计算的定义并分别给出结果。
+
+输出形式：worked solution。",math,明确变量关系、计算过程与数值核验；保留原意和事实，不添加材料外信息；连接多段证据或有依赖的条件；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,zh,,一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。,,,,,,,,,,
+review-pilot-q-math-015,pilot-q-math-015,"一张表记录16个月的数量和比例，部分月份的统计口径发生变化。
+
+已知总量为30，其中16项属于目标子集；题面中的比例以原始总量为基准。
+
+计算可比变化并避免把口径变化误当作真实增长。
+
+输出形式：calculation memo。
+
+完成前请逐项确认：给出所用公式，数值结果保留两位小数并说明舍入位置。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 核对连接键、重复记录和空值处理，避免汇总口径被放大。 写出中间步骤。 区分精确值与近似值。 说明使用的单位。",math,明确变量关系、计算过程与数值核验；保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求；正确处理表格、连接、聚合或数据口径,high; active_requirements=4; visible_constraints=8,zh,,一张表记录16个月的数量和比例，部分月份的统计口径发生变化。,,,,,,,,,,
+review-pilot-q-math-016,pilot-q-math-016,"一个资源分配问题形成76个变量和3条约束，其中两条约束可能相关。
+
+建立方程、求解，并检查解是否满足原始限制。
+
+已知总量为76，其中3项属于目标子集；题面中的比例以原始总量为基准。
+
+保持字段顺序和层级，不得增加未声明的顶层字段。 比较两条可行路径，并说明关键步骤在边界输入下为何成立。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 涉及比例和总量时保留计算过程，并检查单位是否一致。 写出中间步骤。 说明使用的单位。 不要省略边界情况。
+
+输出形式：stepwise derivation。",math,严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件；识别多种合理解释并说明澄清需求；明确变量关系、计算过程与数值核验,high; active_requirements=4; visible_constraints=8,zh,,一个资源分配问题形成76个变量和3条约束，其中两条约束可能相关。,,,,,,,,,,
+review-pilot-q-math-017,pilot-q-math-017,"使用场景：抽样过程分为16个阶段，每个阶段的选择会改变下一阶段的候选数。
+
+现有材料：已知总量为127，其中16项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：计算目标事件概率，并说明各阶段为何不能简单独立相乘。
+
+具体要求：列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 给出所用公式，数值结果保留两位小数并说明舍入位置。 不要省略边界情况。 区分精确值与近似值。
+
+输出形式：formula derivation。",math,识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,medium; active_requirements=3; visible_constraints=6,zh,,抽样过程分为16个阶段，每个阶段的选择会改变下一阶段的候选数。,,,,,,,,,,
+review-pilot-q-math-018,pilot-q-math-018,"请先遵守这些要求：严格按指定字段输出；缺少信息时使用空值并在备注中解释。 按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 区分精确值与近似值。
+
+给定一个由159项构成的递推序列，需要判断命题对所有正整数是否成立。
+
+已知总量为159，其中17项属于目标子集；题面中的比例以原始总量为基准。
+
+给出证明，并单独检查起始项和递推边界。
+
+输出形式：proof outline。",math,严格满足字段、格式、长度和结构约束；连接多段证据或有依赖的条件,low; active_requirements=2; visible_constraints=4,zh,,给定一个由159项构成的递推序列，需要判断命题对所有正整数是否成立。,,,,,,,,,,
+review-pilot-q-math-019,pilot-q-math-019,"区域服务部门比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。
+
+题面给出总量134和子集7；the reported rate is based on the original total，而不是修订值。
+
+选择合适的汇总量并解释结论对处理方式是否敏感。
+
+输出形式：statistical note。
+
+完成前请逐项确认：不要默认未说明的口径；先写出采用的解释及其影响。 Check join keys, duplicate rows, and null handling so aggregation is not inflated. 写清变量之间的关系，并对最终数值做一次反向核验。 Do not reverse causality or omit limitations while condensing or rewriting. 不要省略边界情况。 区分精确值与近似值。 检查结果是否满足原条件。",math,识别多种合理解释并说明澄清需求；正确处理表格、连接、聚合或数据口径；明确变量关系、计算过程与数值核验；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,mixed,,区域服务部门比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。,,,,,,,,,,
+review-pilot-q-math-020,pilot-q-math-020,"一个复合图形由16个矩形和两个重叠区域组成，部分尺寸通过比例给出。
+
+推导总面积，标明重复计算的区域并验证单位。
+
+已知总量为107，其中16项属于目标子集；题面中的比例以原始总量为基准。
+
+严格按指定字段输出；缺少信息时使用空值并在备注中解释。 涉及比例和总量时保留计算过程，并检查单位是否一致。 检查结果是否满足原条件。
+
+输出形式：annotated derivation。",math,严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,low; active_requirements=2; visible_constraints=4,zh,,一个复合图形由16个矩形和两个重叠区域组成，部分尺寸通过比例给出。,,,,,,,,,,
+review-pilot-q-math-021,pilot-q-math-021,"使用场景：研发团队要在预算和容量限制下分配67项资源，并存在最低服务量。
+
+现有材料：已知总量为67，其中13项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：建立目标函数，比较候选方案并说明最优性条件。
+
+具体要求：先处理前置条件，再利用其结果判断后续分支。 写清变量之间的关系，并对最终数值做一次反向核验。 保持字段顺序和层级，不得增加未声明的顶层字段。 给出选择方案的依据，并检查最小规模和极端规模的情况。 说明使用的单位。 写出中间步骤。 区分精确值与近似值。
+
+输出形式：decision table。",math,连接多段证据或有依赖的条件；明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件,high; active_requirements=4; visible_constraints=8,zh,,研发团队要在预算和容量限制下分配67项资源，并存在最低服务量。,,,,,,,,,,
+review-pilot-q-math-022,pilot-q-math-022,"Requirements first: Link at least three pieces of information in order without skipping the decisive middle step. Give the formula, round numerical results to two decimals, and state where rounding occurs. Preserve unresolved reference or scope ambiguity and ask a concrete clarification question. Do not reverse causality or omit limitations while condensing or rewriting. Distinguish exact and approximate values. Do not omit boundary cases. Check the result against the original conditions.
+
+A business problem gives totals, a rate of change, and a time range, but 'current period' has two plausible meanings.
+
+Given values: the total is 127, the selected subset is 12, and the stated rate uses the original total.
+
+List the plausible interpretations, select computable definitions, and give each result.
+
+Output format: worked solution.",math,连接多段证据或有依赖的条件；明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,en,,"A business problem gives totals, a rate of change, and a time range, but 'current period' has two plausible meanings.",,,,,,,,,,
+review-pilot-q-math-023,pilot-q-math-023,"一张表记录4个月的数量和比例，部分月份的统计口径发生变化。
+
+已知总量为148，其中4项属于目标子集；题面中的比例以原始总量为基准。
+
+计算可比变化并避免把口径变化误当作真实增长。
+
+输出形式：calculation memo。
+
+完成前请逐项确认：保留原材料中的条件、数字和不确定性，不补写未提供的事实。 涉及比例和总量时保留计算过程，并检查单位是否一致。 不要默认未说明的口径；先写出采用的解释及其影响。 对表间匹配失败和统计口径变化给出明确处理规则。 写出中间步骤。 区分精确值与近似值。 不要省略边界情况。",math,保留原意和事实，不添加材料外信息；明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求；正确处理表格、连接、聚合或数据口径,high; active_requirements=4; visible_constraints=8,zh,,一张表记录4个月的数量和比例，部分月份的统计口径发生变化。,,,,,,,,,,
+review-pilot-q-math-024,pilot-q-math-024,"一个资源分配问题形成90个变量和12条约束，其中两条约束可能相关。
+
+建立方程、求解，并检查解是否满足原始限制。
+
+已知总量为90，其中12项属于目标子集；题面中的比例以原始总量为基准。
+
+列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 比较两条可行路径，并说明关键步骤在边界输入下为何成立。 保持字段顺序和层级，不得增加未声明的顶层字段。 写清变量之间的关系，并对最终数值做一次反向核验。 检查结果是否满足原条件。 不要省略边界情况。 写出中间步骤。
+
+输出形式：solution table。",math,识别多种合理解释并说明澄清需求；比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,high; active_requirements=4; visible_constraints=8,zh,,一个资源分配问题形成90个变量和12条约束，其中两条约束可能相关。,,,,,,,,,,
+review-pilot-q-math-025,pilot-q-math-025,"使用场景：抽样过程分为11个阶段，每个阶段的选择会改变下一阶段的候选数。
+
+现有材料：已知总量为117，其中11项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：计算目标事件概率，并说明各阶段为何不能简单独立相乘。
+
+具体要求：严格按指定字段输出；缺少信息时使用空值并在备注中解释。 串联前后材料中的依赖关系，并说明中间条件如何改变结论。 不要省略边界情况。
+
+输出形式：probability tree。",math,严格满足字段、格式、长度和结构约束；连接多段证据或有依赖的条件,low; active_requirements=2; visible_constraints=4,zh,,抽样过程分为11个阶段，每个阶段的选择会改变下一阶段的候选数。,,,,,,,,,,
+review-pilot-q-math-026,pilot-q-math-026,"请先遵守这些要求：涉及比例和总量时保留计算过程，并检查单位是否一致。 最终答案需符合给定格式，并逐项核对必填内容。 检查结果是否满足原条件。
+
+给定一个由62项构成的递推序列，需要判断命题对所有正整数是否成立。
+
+已知总量为62，其中3项属于目标子集；题面中的比例以原始总量为基准。
+
+给出证明，并单独检查起始项和递推边界。
+
+输出形式：formal proof。",math,明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,zh,,给定一个由62项构成的递推序列，需要判断命题对所有正整数是否成立。,,,,,,,,,,
+review-pilot-q-math-027,pilot-q-math-027,"运维中心比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。
+
+已知总量为118，其中4项属于目标子集；题面中的比例以原始总量为基准。
+
+选择合适的汇总量并解释结论对处理方式是否敏感。
+
+输出形式：statistical note。
+
+完成前请逐项确认：保留原材料中的条件、数字和不确定性，不补写未提供的事实。 不要默认未说明的口径；先写出采用的解释及其影响。 写出中间步骤。",math,保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,zh,,运维中心比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。,,,,,,,,,,
+review-pilot-q-math-028,pilot-q-math-028,"一个复合图形由11个矩形和两个重叠区域组成，部分尺寸通过比例给出。
+
+推导总面积，标明重复计算的区域并验证单位。
+
+已知总量为108，其中11项属于目标子集；题面中的比例以原始总量为基准。
+
+串联前后材料中的依赖关系，并说明中间条件如何改变结论。 先列出候选做法，再解释其中一条在特殊输入下是否仍有效。 最终答案需符合给定格式，并逐项核对必填内容。 涉及比例和总量时保留计算过程，并检查单位是否一致。 检查结果是否满足原条件。 写出中间步骤。 不要省略边界情况。
+
+输出形式：formula list。",math,连接多段证据或有依赖的条件；比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,high; active_requirements=4; visible_constraints=8,zh,,一个复合图形由11个矩形和两个重叠区域组成，部分尺寸通过比例给出。,,,,,,,,,,
+review-pilot-q-math-029,pilot-q-math-029,"使用场景：运维中心要在预算和容量限制下分配149项资源，并存在最低服务量。
+
+现有材料：题面给出总量149和子集16；the reported rate is based on the original total，而不是修订值。
+
+需要完成：建立目标函数，比较候选方案并说明最优性条件。
+
+具体要求：保持字段顺序和层级，不得增加未声明的顶层字段。 List candidate approaches before testing whether the chosen one still works on an edge case. 写清变量之间的关系，并对最终数值做一次反向核验。 不要省略边界情况。 写出中间步骤。
+
+输出形式：optimization model。",math,严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件；明确变量关系、计算过程与数值核验,medium; active_requirements=3; visible_constraints=6,mixed,,运维中心要在预算和容量限制下分配149项资源，并存在最低服务量。,,,,,,,,,,
+review-pilot-q-math-030,pilot-q-math-030,"请先遵守这些要求：区分原文结论和编辑说明，所有实体与数值需保持一致。 给出所用公式，数值结果保留两位小数并说明舍入位置。 先处理前置条件，再利用其结果判断后续分支。 区分精确值与近似值。 不要省略边界情况。
+
+一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。
+
+已知总量为141，其中5项属于目标子集；题面中的比例以原始总量为基准。
+
+列出合理解释，选择可计算的定义并分别给出结果。
+
+输出形式：assumption table。",math,保留原意和事实，不添加材料外信息；明确变量关系、计算过程与数值核验；连接多段证据或有依赖的条件,medium; active_requirements=3; visible_constraints=6,zh,,一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。,,,,,,,,,,
+review-pilot-q-math-031,pilot-q-math-031,"一张表记录8个月的数量和比例，部分月份的统计口径发生变化。
+
+已知总量为126，其中8项属于目标子集；题面中的比例以原始总量为基准。
+
+计算可比变化并避免把口径变化误当作真实增长。
+
+输出形式：comparison table。
+
+完成前请逐项确认：不要默认未说明的口径；先写出采用的解释及其影响。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 检查结果是否满足原条件。",math,识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,一张表记录8个月的数量和比例，部分月份的统计口径发生变化。,,,,,,,,,,
+review-pilot-q-math-032,pilot-q-math-032,"A resource allocation problem yields 175 variables and 14 constraints, two of which may be dependent.
+
+Form the equations, solve them, and verify the result against the original constraints.
+
+Given values: the total is 175, the selected subset is 14, and the stated rate uses the original total.
+
+State the variable relationships and verify the final number in reverse. Explain the choice of approach and check both minimal and extreme cases. Preserve field order and hierarchy without adding undeclared top-level fields. Preserve unresolved reference or scope ambiguity and ask a concrete clarification question. Check the result against the original conditions. Do not omit boundary cases. Distinguish exact and approximate values.
+
+Output format: stepwise derivation.",math,明确变量关系、计算过程与数值核验；比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,en,,"A resource allocation problem yields 175 variables and 14 constraints, two of which may be dependent.",,,,,,,,,,
+review-pilot-q-math-033,pilot-q-math-033,"使用场景：抽样过程分为10个阶段，每个阶段的选择会改变下一阶段的候选数。
+
+现有材料：已知总量为82，其中10项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：计算目标事件概率，并说明各阶段为何不能简单独立相乘。
+
+具体要求：涉及比例和总量时保留计算过程，并检查单位是否一致。 串联前后材料中的依赖关系，并说明中间条件如何改变结论。 不要默认未说明的口径；先写出采用的解释及其影响。 保持字段顺序和层级，不得增加未声明的顶层字段。 写出中间步骤。 不要省略边界情况。 说明使用的单位。
+
+输出形式：probability tree。",math,明确变量关系、计算过程与数值核验；连接多段证据或有依赖的条件；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,zh,,抽样过程分为10个阶段，每个阶段的选择会改变下一阶段的候选数。,,,,,,,,,,
+review-pilot-q-math-034,pilot-q-math-034,"请先遵守这些要求：比较两条可行路径，并说明关键步骤在边界输入下为何成立。 先处理前置条件，再利用其结果判断后续分支。 写清变量之间的关系，并对最终数值做一次反向核验。 最终答案需符合给定格式，并逐项核对必填内容。 区分精确值与近似值。 不要省略边界情况。 写出中间步骤。
+
+给定一个由61项构成的递推序列，需要判断命题对所有正整数是否成立。
+
+已知总量为61，其中16项属于目标子集；题面中的比例以原始总量为基准。
+
+给出证明，并单独检查起始项和递推边界。
+
+输出形式：formal proof。",math,比较可行路径并检查关键步骤与边界条件；连接多段证据或有依赖的条件；明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,zh,,给定一个由61项构成的递推序列，需要判断命题对所有正整数是否成立。,,,,,,,,,,
+review-pilot-q-math-035,pilot-q-math-035,"运维中心比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。
+
+已知总量为113，其中16项属于目标子集；题面中的比例以原始总量为基准。
+
+选择合适的汇总量并解释结论对处理方式是否敏感。
+
+输出形式：calculation table。
+
+完成前请逐项确认：涉及比例和总量时保留计算过程，并检查单位是否一致。 不要默认未说明的口径；先写出采用的解释及其影响。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 先说明数据粒度，再处理筛选、分组和聚合。 检查结果是否满足原条件。 写出中间步骤。 说明使用的单位。",math,明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息；正确处理表格、连接、聚合或数据口径,high; active_requirements=4; visible_constraints=8,zh,,运维中心比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。,,,,,,,,,,
+review-pilot-q-math-036,pilot-q-math-036,"一个复合图形由6个矩形和两个重叠区域组成，部分尺寸通过比例给出。
+
+推导总面积，标明重复计算的区域并验证单位。
+
+已知总量为131，其中6项属于目标子集；题面中的比例以原始总量为基准。
+
+给出所用公式，数值结果保留两位小数并说明舍入位置。 串联前后材料中的依赖关系，并说明中间条件如何改变结论。 保持字段顺序和层级，不得增加未声明的顶层字段。 给出选择方案的依据，并检查最小规模和极端规模的情况。 写出中间步骤。 检查结果是否满足原条件。 说明使用的单位。
+
+输出形式：annotated derivation。",math,明确变量关系、计算过程与数值核验；连接多段证据或有依赖的条件；严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件,high; active_requirements=4; visible_constraints=8,zh,,一个复合图形由6个矩形和两个重叠区域组成，部分尺寸通过比例给出。,,,,,,,,,,
+review-pilot-q-math-037,pilot-q-math-037,"使用场景：教学项目组要在预算和容量限制下分配68项资源，并存在最低服务量。
+
+现有材料：已知总量为68，其中14项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：建立目标函数，比较候选方案并说明最优性条件。
+
+具体要求：给出选择方案的依据，并检查最小规模和极端规模的情况。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 检查结果是否满足原条件。
+
+输出形式：optimization model。",math,比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,zh,,教学项目组要在预算和容量限制下分配68项资源，并存在最低服务量。,,,,,,,,,,
+review-pilot-q-math-038,pilot-q-math-038,"请先遵守这些要求：列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 写清变量之间的关系，并对最终数值做一次反向核验。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 串联前后材料中的依赖关系，并说明中间条件如何改变结论。 说明使用的单位。 检查结果是否满足原条件。 写出中间步骤。
+
+一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。
+
+已知总量为54，其中14项属于目标子集；题面中的比例以原始总量为基准。
+
+列出合理解释，选择可计算的定义并分别给出结果。
+
+输出形式：worked solution。",math,识别多种合理解释并说明澄清需求；明确变量关系、计算过程与数值核验；保留原意和事实，不添加材料外信息；连接多段证据或有依赖的条件,high; active_requirements=4; visible_constraints=8,zh,,一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。,,,,,,,,,,
+review-pilot-q-math-039,pilot-q-math-039,"一张表记录17个月的数量和比例，部分月份的统计口径发生变化。
+
+题面给出总量162和子集17；the reported rate is based on the original total，而不是修订值。
+
+计算可比变化并避免把口径变化误当作真实增长。
+
+输出形式：comparison table。
+
+完成前请逐项确认：核对连接键、重复记录和空值处理，避免汇总口径被放大。 List two interpretations that could change the answer and state what information would resolve them. 写清变量之间的关系，并对最终数值做一次反向核验。 检查结果是否满足原条件。 说明使用的单位。",math,正确处理表格、连接、聚合或数据口径；识别多种合理解释并说明澄清需求；明确变量关系、计算过程与数值核验,medium; active_requirements=3; visible_constraints=6,mixed,,一张表记录17个月的数量和比例，部分月份的统计口径发生变化。,,,,,,,,,,
+review-pilot-q-math-040,pilot-q-math-040,"一个资源分配问题形成157个变量和9条约束，其中两条约束可能相关。
+
+建立方程、求解，并检查解是否满足原始限制。
+
+已知总量为157，其中9项属于目标子集；题面中的比例以原始总量为基准。
+
+给出选择方案的依据，并检查最小规模和极端规模的情况。 写清变量之间的关系，并对最终数值做一次反向核验。 保持字段顺序和层级，不得增加未声明的顶层字段。 区分精确值与近似值。 检查结果是否满足原条件。
+
+输出形式：stepwise derivation。",math,比较可行路径并检查关键步骤与边界条件；明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,一个资源分配问题形成157个变量和9条约束，其中两条约束可能相关。,,,,,,,,,,
+review-pilot-q-math-041,pilot-q-math-041,"使用场景：抽样过程分为4个阶段，每个阶段的选择会改变下一阶段的候选数。
+
+现有材料：已知总量为103，其中4项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：计算目标事件概率，并说明各阶段为何不能简单独立相乘。
+
+具体要求：先处理前置条件，再利用其结果判断后续分支。 给出所用公式，数值结果保留两位小数并说明舍入位置。 不要默认未说明的口径；先写出采用的解释及其影响。 最终答案需符合给定格式，并逐项核对必填内容。 说明使用的单位。 区分精确值与近似值。 不要省略边界情况。
+
+输出形式：probability tree。",math,连接多段证据或有依赖的条件；明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,zh,,抽样过程分为4个阶段，每个阶段的选择会改变下一阶段的候选数。,,,,,,,,,,
+review-pilot-q-math-042,pilot-q-math-042,"Requirements first: Connect dependencies across the material and explain how an intermediate condition changes the conclusion. Compare two viable approaches and justify the key step on boundary inputs. Preserve field order and hierarchy without adding undeclared top-level fields. Give the formula, round numerical results to two decimals, and state where rounding occurs. Distinguish exact and approximate values. State the units used. Show intermediate steps.
+
+A recurrence with 81 initial terms is used in a claim that should hold for all positive integers.
+
+Given values: the total is 81, the selected subset is 5, and the stated rate uses the original total.
+
+Provide a proof and check the initial cases and recurrence boundary separately.
+
+Output format: formal proof.",math,连接多段证据或有依赖的条件；比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,high; active_requirements=4; visible_constraints=8,en,,A recurrence with 81 initial terms is used in a claim that should hold for all positive integers.,,,,,,,,,,
+review-pilot-q-math-043,pilot-q-math-043,"研发团队比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。
+
+已知总量为50，其中9项属于目标子集；题面中的比例以原始总量为基准。
+
+选择合适的汇总量并解释结论对处理方式是否敏感。
+
+输出形式：statistical note。
+
+完成前请逐项确认：先说明数据粒度，再处理筛选、分组和聚合。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 区分精确值与近似值。",math,正确处理表格、连接、聚合或数据口径；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,研发团队比较两组观测，其中一组有缺失值，另一组包含一个明显离群点。,,,,,,,,,,
+review-pilot-q-math-044,pilot-q-math-044,"一个复合图形由3个矩形和两个重叠区域组成，部分尺寸通过比例给出。
+
+推导总面积，标明重复计算的区域并验证单位。
+
+已知总量为33，其中3项属于目标子集；题面中的比例以原始总量为基准。
+
+比较两条可行路径，并说明关键步骤在边界输入下为何成立。 按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 说明使用的单位。
+
+输出形式：annotated derivation。",math,比较可行路径并检查关键步骤与边界条件；连接多段证据或有依赖的条件,low; active_requirements=2; visible_constraints=4,zh,,一个复合图形由3个矩形和两个重叠区域组成，部分尺寸通过比例给出。,,,,,,,,,,
+review-pilot-q-math-045,pilot-q-math-045,"使用场景：数据平台主管要在预算和容量限制下分配168项资源，并存在最低服务量。
+
+现有材料：已知总量为168，其中8项属于目标子集；题面中的比例以原始总量为基准。
+
+需要完成：建立目标函数，比较候选方案并说明最优性条件。
+
+具体要求：涉及比例和总量时保留计算过程，并检查单位是否一致。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 不要省略边界情况。
+
+输出形式：optimization model。",math,明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,zh,,数据平台主管要在预算和容量限制下分配168项资源，并存在最低服务量。,,,,,,,,,,
+review-pilot-q-math-046,pilot-q-math-046,"请先遵守这些要求：涉及比例和总量时保留计算过程，并检查单位是否一致。 区分原文结论和编辑说明，所有实体与数值需保持一致。 不要默认未说明的口径；先写出采用的解释及其影响。 先处理前置条件，再利用其结果判断后续分支。 检查结果是否满足原条件。 写出中间步骤。 不要省略边界情况。
+
+一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。
+
+已知总量为143，其中9项属于目标子集；题面中的比例以原始总量为基准。
+
+列出合理解释，选择可计算的定义并分别给出结果。
+
+输出形式：assumption table。",math,明确变量关系、计算过程与数值核验；保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求；连接多段证据或有依赖的条件,high; active_requirements=4; visible_constraints=8,zh,,一段业务描述同时给出总量、变化率和时间范围，但“本期”可能有两种解释。,,,,,,,,,,
+review-pilot-q-math-047,pilot-q-math-047,"一张表记录16个月的数量和比例，部分月份的统计口径发生变化。
+
+已知总量为163，其中16项属于目标子集；题面中的比例以原始总量为基准。
+
+计算可比变化并避免把口径变化误当作真实增长。
+
+输出形式：comparison table。
+
+完成前请逐项确认：涉及比例和总量时保留计算过程，并检查单位是否一致。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 不要默认未说明的口径；先写出采用的解释及其影响。 先说明数据粒度，再处理筛选、分组和聚合。 说明使用的单位。 写出中间步骤。 不要省略边界情况。",math,明确变量关系、计算过程与数值核验；保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求；正确处理表格、连接、聚合或数据口径,high; active_requirements=4; visible_constraints=8,zh,,一张表记录16个月的数量和比例，部分月份的统计口径发生变化。,,,,,,,,,,
+review-pilot-q-math-048,pilot-q-math-048,"一个资源分配问题形成110个变量和16条约束，其中两条约束可能相关。
+
+建立方程、求解，并检查解是否满足原始限制。
+
+已知总量为110，其中16项属于目标子集；题面中的比例以原始总量为基准。
+
+严格按指定字段输出；缺少信息时使用空值并在备注中解释。 先列出候选做法，再解释其中一条在特殊输入下是否仍有效。 给出所用公式，数值结果保留两位小数并说明舍入位置。 不要默认未说明的口径；先写出采用的解释及其影响。 区分精确值与近似值。 写出中间步骤。 说明使用的单位。
+
+输出形式：solution table。",math,严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件；明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,zh,,一个资源分配问题形成110个变量和16条约束，其中两条约束可能相关。,,,,,,,,,,
+review-pilot-q-math-049,pilot-q-math-049,"使用场景：抽样过程分为11个阶段，每个阶段的选择会改变下一阶段的候选数。
+
+现有材料：题面给出总量148和子集11；the reported rate is based on the original total，而不是修订值。
+
+需要完成：计算目标事件概率，并说明各阶段为何不能简单独立相乘。
+
+具体要求：发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 Connect dependencies across the material and explain how an intermediate condition changes the conclusion. 给出所用公式，数值结果保留两位小数并说明舍入位置。 写出中间步骤。 检查结果是否满足原条件。
+
+输出形式：formula derivation。",math,识别多种合理解释并说明澄清需求；连接多段证据或有依赖的条件；明确变量关系、计算过程与数值核验,medium; active_requirements=3; visible_constraints=6,mixed,,抽样过程分为11个阶段，每个阶段的选择会改变下一阶段的候选数。,,,,,,,,,,
+review-pilot-q-qa-000,pilot-q-qa-000,"用户根据报表流水线的两段版本说明询问一个配置项为何失效。
+
+记录甲报告134次事件，记录乙修订其中9项，后续说明把修订范围限定为已批准情形。
+
+结合版本条件解释原因，并给出可验证的处理步骤。
+
+输出形式：technical answer。
+
+完成前请逐项确认：把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 调用过程需要说明版本前提、超时处理和返回字段校验。 同时使用开头的定义和后文的例外，保持跨段引用一致。 无法由材料确定时明确说明。 回答控制在四个小节内。",qa,区分材料事实、领域常识和待验证假设；遵守接口或库约束并处理失败路径；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,zh,,用户根据报表流水线的两段版本说明询问一个配置项为何失效。,,,,,,,,,,
+review-pilot-q-qa-001,pilot-q-qa-001,"现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。
+
+判断事件顺序，并说明中间记录如何改变最终结论。
+
+记录甲报告148次事件，记录乙修订其中6项，后续说明把修订范围限定为已批准情形。
+
+按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 不要默认未说明的口径；先写出采用的解释及其影响。 综合相隔较远的材料，遇到冲突时指出各自适用范围。 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 引用相关材料位置。 把事实和推断分开。 回答控制在四个小节内。
+
+输出形式：timeline。",qa,连接多段证据或有依赖的条件；识别多种合理解释并说明澄清需求；综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设,high; active_requirements=4; visible_constraints=8,zh,,现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。,,,,,,,,,,
+review-pilot-q-qa-002,pilot-q-qa-002,"使用场景：数据平台主管的一条规则使用“及时”和“重大影响”等未定义词语。
+
+现有材料：记录甲报告24次事件，记录乙修订其中18项，后续说明把修订范围限定为已批准情形。
+
+需要完成：区分能直接回答的部分与需要澄清的部分，并提出具体澄清问题。
+
+具体要求：列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 无法由材料确定时明确说明。 把事实和推断分开。
+
+输出形式：qualified answer。",qa,识别多种合理解释并说明澄清需求；区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,数据平台主管的一条规则使用“及时”和“重大影响”等未定义词语。,,,,,,,,,,
+review-pilot-q-qa-003,pilot-q-qa-003,"请先遵守这些要求：先处理前置条件，再利用其结果判断后续分支。 Preserve conditions, figures, and uncertainty without adding facts absent from the source. 同时使用开头的定义和后文的例外，保持跨段引用一致。 Tie each key conclusion to its supporting passage and flag anything unverifiable. 引用相关材料位置。 把事实和推断分开。 无法由材料确定时明确说明。
+
+两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。
+
+中文记录列出32次事件和6项修订；the later note limits the revision to approved cases.
+
+比较证据强弱，说明哪些结论能同时得到支持。
+
+输出形式：evidence-based answer。",qa,连接多段证据或有依赖的条件；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设,high; active_requirements=4; visible_constraints=8,mixed,,两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。,,,,,,,,,,
+review-pilot-q-qa-004,pilot-q-qa-004,"订单服务的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。
+
+记录甲报告140次事件，记录乙修订其中14项，后续说明把修订范围限定为已批准情形。
+
+给出按优先级排列的排查步骤，并说明每步如何缩小原因范围。
+
+输出形式：troubleshooting tree。
+
+完成前请逐项确认：调用过程需要说明版本前提、超时处理和返回字段校验。 不要只处理报错表面；请沿输入到输出定位首次不一致。 最终答案需符合给定格式，并逐项核对必填内容。 把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 回答控制在四个小节内。 引用相关材料位置。 给出可执行的下一步。",qa,遵守接口或库约束并处理失败路径；利用失败现象定位最早偏差并设计回归检查；严格满足字段、格式、长度和结构约束；区分材料事实、领域常识和待验证假设,high; active_requirements=4; visible_constraints=8,zh,,订单服务的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。,,,,,,,,,,
+review-pilot-q-qa-005,pilot-q-qa-005,"A metric at the operations center rises over 10 months while sample size and missingness also change.
+
+Explain possible causes while separating observed facts, inferences, and unverified hypotheses.
+
+Evidence A reports 132 events, evidence B revises 10 entries, and a later note limits the revision's scope.
+
+Define how unmatched rows and changes in reporting definitions are handled. Separate stated facts, established domain knowledge, and assumptions that still need verification. List two interpretations that could change the answer and state what information would resolve them. Cite the relevant material section. Separate facts from inferences.
+
+Output format: layered explanation.",qa,正确处理表格、连接、聚合或数据口径；区分材料事实、领域常识和待验证假设；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,en,,A metric at the operations center rises over 10 months while sample size and missingness also change.,,,,,,,,,,
+review-pilot-q-qa-006,pilot-q-qa-006,"使用场景：一份长制度在开头定义适用范围，在后文列出例外和过渡安排。
+
+现有材料：记录甲报告76次事件，记录乙修订其中16项，后续说明把修订范围限定为已批准情形。
+
+需要完成：回答具体情形是否适用，并引用相互关联的条款。
+
+具体要求：综合相隔较远的材料，遇到冲突时指出各自适用范围。 按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 不要默认未说明的口径；先写出采用的解释及其影响。 区分原文结论和编辑说明，所有实体与数值需保持一致。 无法由材料确定时明确说明。 引用相关材料位置。 把事实和推断分开。
+
+输出形式：decision memo。",qa,综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,zh,,一份长制度在开头定义适用范围，在后文列出例外和过渡安排。,,,,,,,,,,
+review-pilot-q-qa-007,pilot-q-qa-007,"请先遵守这些要求：依据给定语境选择译名，不要在同一文档中切换同义术语。 保持字段顺序和层级，不得增加未声明的顶层字段。 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 无法由材料确定时明确说明。 把事实和推断分开。
+
+用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。
+
+记录甲报告152次事件，记录乙修订其中4项，后续说明把修订范围限定为已批准情形。
+
+统一术语后解释差异，并避免把翻译差别当作事实冲突。
+
+输出形式：terminology table。",qa,跨语言保持术语和语域一致；严格满足字段、格式、长度和结构约束；区分材料事实、领域常识和待验证假设,medium; active_requirements=3; visible_constraints=6,zh,,用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。,,,,,,,,,,
+review-pilot-q-qa-008,pilot-q-qa-008,"用户根据报表流水线的两段版本说明询问一个配置项为何失效。
+
+记录甲报告127次事件，记录乙修订其中6项，后续说明把修订范围限定为已批准情形。
+
+结合版本条件解释原因，并给出可验证的处理步骤。
+
+输出形式：checklist。
+
+完成前请逐项确认：综合相隔较远的材料，遇到冲突时指出各自适用范围。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 给出可执行的下一步。",qa,综合相隔较远的材料并保持前后一致；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,zh,,用户根据报表流水线的两段版本说明询问一个配置项为何失效。,,,,,,,,,,
+review-pilot-q-qa-009,pilot-q-qa-009,"现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。
+
+判断事件顺序，并说明中间记录如何改变最终结论。
+
+记录甲报告42次事件，记录乙修订其中12项，后续说明把修订范围限定为已批准情形。
+
+综合相隔较远的材料，遇到冲突时指出各自适用范围。 不要默认未说明的口径；先写出采用的解释及其影响。 引用相关材料位置。
+
+输出形式：evidence chain。",qa,综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,zh,,现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。,,,,,,,,,,
+review-pilot-q-qa-010,pilot-q-qa-010,"使用场景：区域服务部门的一条规则使用“及时”和“重大影响”等未定义词语。
+
+现有材料：中文记录列出87次事件和10项修订；the later note limits the revision to approved cases.
+
+需要完成：区分能直接回答的部分与需要澄清的部分，并提出具体澄清问题。
+
+具体要求：遇到领域术语时给出准确含义，不把推测写成已证实事实。 Separate source conclusions from editorial notes and keep every entity and figure consistent. 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 回答控制在四个小节内。 把事实和推断分开。
+
+输出形式：clarification list。",qa,区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,mixed,,区域服务部门的一条规则使用“及时”和“重大影响”等未定义词语。,,,,,,,,,,
+review-pilot-q-qa-011,pilot-q-qa-011,"请先遵守这些要求：把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 综合相隔较远的材料，遇到冲突时指出各自适用范围。 无法由材料确定时明确说明。 把事实和推断分开。
+
+两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。
+
+记录甲报告164次事件，记录乙修订其中6项，后续说明把修订范围限定为已批准情形。
+
+比较证据强弱，说明哪些结论能同时得到支持。
+
+输出形式：evidence-based answer。",qa,区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,zh,,两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。,,,,,,,,,,
+review-pilot-q-qa-012,pilot-q-qa-012,"A documented procedure still fails in the reporting pipeline; the user provides an environment version and one error message.
+
+Evidence A reports 163 events, evidence B revises 4 entries, and a later note limits the revision's scope.
+
+Give prioritized troubleshooting steps and explain how each narrows the cause.
+
+Output format: troubleshooting tree.
+
+Before finalizing: Do not patch only the visible error; trace the first inconsistency from input to output. Separate stated facts, established domain knowledge, and assumptions that still need verification. Match the requested format and verify every required item before finishing. Handle API versioning, pagination, retries, and diagnostic error details. Cite the relevant material section. Give an actionable next step. Separate facts from inferences.",qa,利用失败现象定位最早偏差并设计回归检查；区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束；遵守接口或库约束并处理失败路径,high; active_requirements=4; visible_constraints=8,en,,A documented procedure still fails in the reporting pipeline; the user provides an environment version and one error message.,,,,,,,,,,
+review-pilot-q-qa-013,pilot-q-qa-013,"数据平台主管的指标在12个月内上升，但样本量和缺失率也同时变化。
+
+解释可能原因，区分数据事实、推断和仍需验证的假设。
+
+记录甲报告102次事件，记录乙修订其中12项，后续说明把修订范围限定为已批准情形。
+
+把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 涉及比例和总量时保留计算过程，并检查单位是否一致。 先说明数据粒度，再处理筛选、分组和聚合。 给出可执行的下一步。 引用相关材料位置。 回答控制在四个小节内。
+
+输出形式：evidence table。",qa,区分材料事实、领域常识和待验证假设；识别多种合理解释并说明澄清需求；明确变量关系、计算过程与数值核验；正确处理表格、连接、聚合或数据口径,high; active_requirements=4; visible_constraints=8,zh,,数据平台主管的指标在12个月内上升，但样本量和缺失率也同时变化。,,,,,,,,,,
+review-pilot-q-qa-014,pilot-q-qa-014,"使用场景：一份长制度在开头定义适用范围，在后文列出例外和过渡安排。
+
+现有材料：记录甲报告27次事件，记录乙修订其中14项，后续说明把修订范围限定为已批准情形。
+
+需要完成：回答具体情形是否适用，并引用相互关联的条款。
+
+具体要求：不要默认未说明的口径；先写出采用的解释及其影响。 先处理前置条件，再利用其结果判断后续分支。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 区分原文结论和编辑说明，所有实体与数值需保持一致。 回答控制在四个小节内。 无法由材料确定时明确说明。 引用相关材料位置。
+
+输出形式：decision memo。",qa,识别多种合理解释并说明澄清需求；连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,zh,,一份长制度在开头定义适用范围，在后文列出例外和过渡安排。,,,,,,,,,,
+review-pilot-q-qa-015,pilot-q-qa-015,"请先遵守这些要求：关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 把事实和推断分开。
+
+用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。
+
+记录甲报告137次事件，记录乙修订其中13项，后续说明把修订范围限定为已批准情形。
+
+统一术语后解释差异，并避免把翻译差别当作事实冲突。
+
+输出形式：bilingual explanation。",qa,区分材料事实、领域常识和待验证假设；综合相隔较远的材料并保持前后一致,low; active_requirements=2; visible_constraints=4,zh,,用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。,,,,,,,,,,
+review-pilot-q-qa-016,pilot-q-qa-016,"用户根据日志平台的两段版本说明询问一个配置项为何失效。
+
+中文记录列出180次事件和4项修订；the later note limits the revision to approved cases.
+
+结合版本条件解释原因，并给出可验证的处理步骤。
+
+输出形式：checklist。
+
+完成前请逐项确认：请覆盖限流、部分成功和接口返回缺少字段的情况。 Define domain terms accurately and do not present an inference as a confirmed fact. 同时使用开头的定义和后文的例外，保持跨段引用一致。 Follow the requested fields exactly; use null for missing information and explain it in notes. 引用相关材料位置。 回答控制在四个小节内。 把事实和推断分开。",qa,遵守接口或库约束并处理失败路径；区分材料事实、领域常识和待验证假设；综合相隔较远的材料并保持前后一致；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,mixed,,用户根据日志平台的两段版本说明询问一个配置项为何失效。,,,,,,,,,,
+review-pilot-q-qa-017,pilot-q-qa-017,"现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。
+
+判断事件顺序，并说明中间记录如何改变最终结论。
+
+记录甲报告99次事件，记录乙修订其中11项，后续说明把修订范围限定为已批准情形。
+
+把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 无法由材料确定时明确说明。
+
+输出形式：evidence chain。",qa,区分材料事实、领域常识和待验证假设；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,zh,,现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。,,,,,,,,,,
+review-pilot-q-qa-018,pilot-q-qa-018,"使用场景：运维中心的一条规则使用“及时”和“重大影响”等未定义词语。
+
+现有材料：记录甲报告155次事件，记录乙修订其中9项，后续说明把修订范围限定为已批准情形。
+
+需要完成：区分能直接回答的部分与需要澄清的部分，并提出具体澄清问题。
+
+具体要求：保持字段顺序和层级，不得增加未声明的顶层字段。 区分原文结论和编辑说明，所有实体与数值需保持一致。 回答控制在四个小节内。
+
+输出形式：clarification list。",qa,严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,运维中心的一条规则使用“及时”和“重大影响”等未定义词语。,,,,,,,,,,
+review-pilot-q-qa-019,pilot-q-qa-019,"Requirements first: Separate source conclusions from editorial notes and keep every entity and figure consistent. Use both the opening definitions and later exceptions while keeping cross-references consistent. Give an actionable next step.
+
+Two sources explain the same observation differently: one emphasizes environment, the other procedure.
+
+Evidence A reports 67 events, evidence B revises 18 entries, and a later note limits the revision's scope.
+
+Compare the evidence and state which conclusions are supported by both sources.
+
+Output format: evidence-based answer.",qa,保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,low; active_requirements=2; visible_constraints=4,en,,"Two sources explain the same observation differently: one emphasizes environment, the other procedure.",,,,,,,,,,
+review-pilot-q-qa-020,pilot-q-qa-020,"资产管理系统的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。
+
+记录甲报告157次事件，记录乙修订其中13项，后续说明把修订范围限定为已批准情形。
+
+给出按优先级排列的排查步骤，并说明每步如何缩小原因范围。
+
+输出形式：troubleshooting tree。
+
+完成前请逐项确认：保持字段顺序和层级，不得增加未声明的顶层字段。 调用过程需要说明版本前提、超时处理和返回字段校验。 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 说明如何复现问题、确认根因，并给出覆盖该路径的回归样例。 把事实和推断分开。 给出可执行的下一步。 回答控制在四个小节内。",qa,严格满足字段、格式、长度和结构约束；遵守接口或库约束并处理失败路径；区分材料事实、领域常识和待验证假设；利用失败现象定位最早偏差并设计回归检查,high; active_requirements=4; visible_constraints=8,zh,,资产管理系统的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。,,,,,,,,,,
+review-pilot-q-qa-021,pilot-q-qa-021,"教学项目组的指标在13个月内上升，但样本量和缺失率也同时变化。
+
+解释可能原因，区分数据事实、推断和仍需验证的假设。
+
+记录甲报告124次事件，记录乙修订其中13项，后续说明把修订范围限定为已批准情形。
+
+给出所用公式，数值结果保留两位小数并说明舍入位置。 对表间匹配失败和统计口径变化给出明确处理规则。 给出可执行的下一步。
+
+输出形式：evidence table。",qa,明确变量关系、计算过程与数值核验；正确处理表格、连接、聚合或数据口径,low; active_requirements=2; visible_constraints=4,zh,,教学项目组的指标在13个月内上升，但样本量和缺失率也同时变化。,,,,,,,,,,
+review-pilot-q-qa-022,pilot-q-qa-022,"使用场景：一份长制度在开头定义适用范围，在后文列出例外和过渡安排。
+
+现有材料：记录甲报告86次事件，记录乙修订其中15项，后续说明把修订范围限定为已批准情形。
+
+需要完成：回答具体情形是否适用，并引用相互关联的条款。
+
+具体要求：保留原材料中的条件、数字和不确定性，不补写未提供的事实。 先处理前置条件，再利用其结果判断后续分支。 不要默认未说明的口径；先写出采用的解释及其影响。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 引用相关材料位置。 无法由材料确定时明确说明。 把事实和推断分开。
+
+输出形式：clause-based answer。",qa,保留原意和事实，不添加材料外信息；连接多段证据或有依赖的条件；识别多种合理解释并说明澄清需求；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,zh,,一份长制度在开头定义适用范围，在后文列出例外和过渡安排。,,,,,,,,,,
+review-pilot-q-qa-023,pilot-q-qa-023,"请先遵守这些要求：保持字段顺序和层级，不得增加未声明的顶层字段。 Define domain terms accurately and do not present an inference as a confirmed fact. 综合相隔较远的材料，遇到冲突时指出各自适用范围。 Select terminology from context and avoid switching synonyms within the same document. 无法由材料确定时明确说明。 回答控制在四个小节内。 把事实和推断分开。
+
+用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。
+
+中文记录列出91次事件和17项修订；the later note limits the revision to approved cases.
+
+统一术语后解释差异，并避免把翻译差别当作事实冲突。
+
+输出形式：terminology table。",qa,严格满足字段、格式、长度和结构约束；区分材料事实、领域常识和待验证假设；综合相隔较远的材料并保持前后一致；跨语言保持术语和语域一致,high; active_requirements=4; visible_constraints=8,mixed,,用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。,,,,,,,,,,
+review-pilot-q-qa-024,pilot-q-qa-024,"用户根据日志平台的两段版本说明询问一个配置项为何失效。
+
+记录甲报告99次事件，记录乙修订其中7项，后续说明把修订范围限定为已批准情形。
+
+结合版本条件解释原因，并给出可验证的处理步骤。
+
+输出形式：checklist。
+
+完成前请逐项确认：严格按指定字段输出；缺少信息时使用空值并在备注中解释。 同时使用开头的定义和后文的例外，保持跨段引用一致。 考虑接口版本、分页和失败重试，并保留可诊断的错误信息。 引用相关材料位置。 给出可执行的下一步。",qa,严格满足字段、格式、长度和结构约束；综合相隔较远的材料并保持前后一致；遵守接口或库约束并处理失败路径,medium; active_requirements=3; visible_constraints=6,zh,,用户根据日志平台的两段版本说明询问一个配置项为何失效。,,,,,,,,,,
+review-pilot-q-qa-025,pilot-q-qa-025,"Three records describe states before, during, and after an event, but their timestamp formats differ.
+
+Determine the event order and explain how the middle record changes the conclusion.
+
+Evidence A reports 53 events, evidence B revises 16 entries, and a later note limits the revision's scope.
+
+List two interpretations that could change the answer and state what information would resolve them. Separate stated facts, established domain knowledge, and assumptions that still need verification. Cite the relevant material section.
+
+Output format: evidence chain.",qa,识别多种合理解释并说明澄清需求；区分材料事实、领域常识和待验证假设,low; active_requirements=2; visible_constraints=4,en,,"Three records describe states before, during, and after an event, but their timestamp formats differ.",,,,,,,,,,
+review-pilot-q-qa-026,pilot-q-qa-026,"使用场景：区域服务部门的一条规则使用“及时”和“重大影响”等未定义词语。
+
+现有材料：记录甲报告103次事件，记录乙修订其中12项，后续说明把修订范围限定为已批准情形。
+
+需要完成：区分能直接回答的部分与需要澄清的部分，并提出具体澄清问题。
+
+具体要求：压缩或改写时不得改变因果方向，也不要遗漏限制条件。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 给出可执行的下一步。
+
+输出形式：clarification list。",qa,保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,zh,,区域服务部门的一条规则使用“及时”和“重大影响”等未定义词语。,,,,,,,,,,
+review-pilot-q-qa-027,pilot-q-qa-027,"请先遵守这些要求：结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 遇到领域术语时给出准确含义，不把推测写成已证实事实。 无法由材料确定时明确说明。
+
+两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。
+
+记录甲报告89次事件，记录乙修订其中8项，后续说明把修订范围限定为已批准情形。
+
+比较证据强弱，说明哪些结论能同时得到支持。
+
+输出形式：evidence-based answer。",qa,综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设,low; active_requirements=2; visible_constraints=4,zh,,两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。,,,,,,,,,,
+review-pilot-q-qa-028,pilot-q-qa-028,"日志平台的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。
+
+记录甲报告69次事件，记录乙修订其中11项，后续说明把修订范围限定为已批准情形。
+
+给出按优先级排列的排查步骤，并说明每步如何缩小原因范围。
+
+输出形式：ordered checklist。
+
+完成前请逐项确认：关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 说明如何复现问题、确认根因，并给出覆盖该路径的回归样例。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 无法由材料确定时明确说明。 回答控制在四个小节内。",qa,区分材料事实、领域常识和待验证假设；利用失败现象定位最早偏差并设计回归检查；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,日志平台的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。,,,,,,,,,,
+review-pilot-q-qa-029,pilot-q-qa-029,"研发团队的指标在16个月内上升，但样本量和缺失率也同时变化。
+
+解释可能原因，区分数据事实、推断和仍需验证的假设。
+
+记录甲报告32次事件，记录乙修订其中16项，后续说明把修订范围限定为已批准情形。
+
+列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 涉及比例和总量时保留计算过程，并检查单位是否一致。 遇到领域术语时给出准确含义，不把推测写成已证实事实。 回答控制在四个小节内。 把事实和推断分开。
+
+输出形式：layered explanation。",qa,识别多种合理解释并说明澄清需求；明确变量关系、计算过程与数值核验；区分材料事实、领域常识和待验证假设,medium; active_requirements=3; visible_constraints=6,zh,,研发团队的指标在16个月内上升，但样本量和缺失率也同时变化。,,,,,,,,,,
+review-pilot-q-qa-030,pilot-q-qa-030,"使用场景：一份长制度在开头定义适用范围，在后文列出例外和过渡安排。
+
+现有材料：中文记录列出94次事件和8项修订；the later note limits the revision to approved cases.
+
+需要完成：回答具体情形是否适用，并引用相互关联的条款。
+
+具体要求：串联前后材料中的依赖关系，并说明中间条件如何改变结论。 Do not assume an unstated definition; declare the chosen interpretation and its effect. 把事实和推断分开。
+
+输出形式：decision memo。",qa,连接多段证据或有依赖的条件；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,mixed,,一份长制度在开头定义适用范围，在后文列出例外和过渡安排。,,,,,,,,,,
+review-pilot-q-qa-031,pilot-q-qa-031,"请先遵守这些要求：同时使用开头的定义和后文的例外，保持跨段引用一致。 核对双语术语的范围是否一致，并记录需要保留的原文标识。 把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 回答控制在四个小节内。 无法由材料确定时明确说明。
+
+用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。
+
+记录甲报告124次事件，记录乙修订其中16项，后续说明把修订范围限定为已批准情形。
+
+统一术语后解释差异，并避免把翻译差别当作事实冲突。
+
+输出形式：bilingual explanation。",qa,综合相隔较远的材料并保持前后一致；跨语言保持术语和语域一致；区分材料事实、领域常识和待验证假设,medium; active_requirements=3; visible_constraints=6,zh,,用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。,,,,,,,,,,
+review-pilot-q-qa-032,pilot-q-qa-032,"A user asks why a setting stopped working after reading two release-note sections for the reporting pipeline.
+
+Evidence A reports 100 events, evidence B revises 9 entries, and a later note limits the revision's scope.
+
+Use the version conditions to explain the cause and give verifiable resolution steps.
+
+Output format: checklist.
+
+Before finalizing: Separate stated facts, established domain knowledge, and assumptions that still need verification. Preserve field order and hierarchy without adding undeclared top-level fields. Handle API versioning, pagination, retries, and diagnostic error details. Give an actionable next step. Use no more than four sections.",qa,区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束；遵守接口或库约束并处理失败路径,medium; active_requirements=3; visible_constraints=6,en,,A user asks why a setting stopped working after reading two release-note sections for the reporting pipeline.,,,,,,,,,,
+review-pilot-q-qa-033,pilot-q-qa-033,"现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。
+
+判断事件顺序，并说明中间记录如何改变最终结论。
+
+记录甲报告104次事件，记录乙修订其中15项，后续说明把修订范围限定为已批准情形。
+
+串联前后材料中的依赖关系，并说明中间条件如何改变结论。 同时使用开头的定义和后文的例外，保持跨段引用一致。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 把事实和推断分开。 给出可执行的下一步。 无法由材料确定时明确说明。
+
+输出形式：evidence chain。",qa,连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求；区分材料事实、领域常识和待验证假设,high; active_requirements=4; visible_constraints=8,zh,,现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。,,,,,,,,,,
+review-pilot-q-qa-034,pilot-q-qa-034,"使用场景：数据平台主管的一条规则使用“及时”和“重大影响”等未定义词语。
+
+现有材料：记录甲报告180次事件，记录乙修订其中5项，后续说明把修订范围限定为已批准情形。
+
+需要完成：区分能直接回答的部分与需要澄清的部分，并提出具体澄清问题。
+
+具体要求：列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 回答控制在四个小节内。
+
+输出形式：clarification list。",qa,识别多种合理解释并说明澄清需求；区分材料事实、领域常识和待验证假设,low; active_requirements=2; visible_constraints=4,zh,,数据平台主管的一条规则使用“及时”和“重大影响”等未定义词语。,,,,,,,,,,
+review-pilot-q-qa-035,pilot-q-qa-035,"请先遵守这些要求：先处理前置条件，再利用其结果判断后续分支。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 引用相关材料位置。 给出可执行的下一步。
+
+两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。
+
+记录甲报告170次事件，记录乙修订其中3项，后续说明把修订范围限定为已批准情形。
+
+比较证据强弱，说明哪些结论能同时得到支持。
+
+输出形式：comparison matrix。",qa,连接多段证据或有依赖的条件；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,zh,,两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。,,,,,,,,,,
+review-pilot-q-qa-036,pilot-q-qa-036,"知识库接口的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。
+
+中文记录列出112次事件和12项修订；the later note limits the revision to approved cases.
+
+给出按优先级排列的排查步骤，并说明每步如何缩小原因范围。
+
+输出形式：ordered checklist。
+
+完成前请逐项确认：调用过程需要说明版本前提、超时处理和返回字段校验。 Separate stated facts, established domain knowledge, and assumptions that still need verification. 把事实和推断分开。",qa,遵守接口或库约束并处理失败路径；区分材料事实、领域常识和待验证假设,low; active_requirements=2; visible_constraints=4,mixed,,知识库接口的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。,,,,,,,,,,
+review-pilot-q-qa-037,pilot-q-qa-037,"教学项目组的指标在7个月内上升，但样本量和缺失率也同时变化。
+
+解释可能原因，区分数据事实、推断和仍需验证的假设。
+
+记录甲报告89次事件，记录乙修订其中7项，后续说明把修订范围限定为已批准情形。
+
+先说明数据粒度，再处理筛选、分组和聚合。 把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 写清变量之间的关系，并对最终数值做一次反向核验。 引用相关材料位置。 无法由材料确定时明确说明。
+
+输出形式：evidence table。",qa,正确处理表格、连接、聚合或数据口径；区分材料事实、领域常识和待验证假设；明确变量关系、计算过程与数值核验,medium; active_requirements=3; visible_constraints=6,zh,,教学项目组的指标在7个月内上升，但样本量和缺失率也同时变化。,,,,,,,,,,
+review-pilot-q-qa-038,pilot-q-qa-038,"使用场景：一份长制度在开头定义适用范围，在后文列出例外和过渡安排。
+
+现有材料：记录甲报告21次事件，记录乙修订其中6项，后续说明把修订范围限定为已批准情形。
+
+需要完成：回答具体情形是否适用，并引用相互关联的条款。
+
+具体要求：同时使用开头的定义和后文的例外，保持跨段引用一致。 区分原文结论和编辑说明，所有实体与数值需保持一致。 引用相关材料位置。
+
+输出形式：clause-based answer。",qa,综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,一份长制度在开头定义适用范围，在后文列出例外和过渡安排。,,,,,,,,,,
+review-pilot-q-qa-039,pilot-q-qa-039,"Requirements first: Select terminology from context and avoid switching synonyms within the same document. Tie each key conclusion to its supporting passage and flag anything unverifiable. Follow the requested fields exactly; use null for missing information and explain it in notes. Separate facts from inferences. Use no more than four sections.
+
+The user provides a Chinese specification and an English API document that scope one term differently.
+
+Evidence A reports 178 events, evidence B revises 5 entries, and a later note limits the revision's scope.
+
+Normalize terminology, explain the difference, and avoid treating translation variation as factual conflict.
+
+Output format: terminology table.",qa,跨语言保持术语和语域一致；区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,en,,The user provides a Chinese specification and an English API document that scope one term differently.,,,,,,,,,,
+review-pilot-q-qa-040,pilot-q-qa-040,"用户根据日志平台的两段版本说明询问一个配置项为何失效。
+
+记录甲报告167次事件，记录乙修订其中5项，后续说明把修订范围限定为已批准情形。
+
+结合版本条件解释原因，并给出可验证的处理步骤。
+
+输出形式：checklist。
+
+完成前请逐项确认：结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 考虑接口版本、分页和失败重试，并保留可诊断的错误信息。 引用相关材料位置。 回答控制在四个小节内。",qa,综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设；遵守接口或库约束并处理失败路径,medium; active_requirements=3; visible_constraints=6,zh,,用户根据日志平台的两段版本说明询问一个配置项为何失效。,,,,,,,,,,
+review-pilot-q-qa-041,pilot-q-qa-041,"现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。
+
+判断事件顺序，并说明中间记录如何改变最终结论。
+
+记录甲报告30次事件，记录乙修订其中7项，后续说明把修订范围限定为已批准情形。
+
+同时使用开头的定义和后文的例外，保持跨段引用一致。 先处理前置条件，再利用其结果判断后续分支。 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 无法由材料确定时明确说明。 回答控制在四个小节内。 把事实和推断分开。
+
+输出形式：evidence chain。",qa,综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件；区分材料事实、领域常识和待验证假设；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,zh,,现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。,,,,,,,,,,
+review-pilot-q-qa-042,pilot-q-qa-042,"使用场景：研发团队的一条规则使用“及时”和“重大影响”等未定义词语。
+
+现有材料：记录甲报告43次事件，记录乙修订其中11项，后续说明把修订范围限定为已批准情形。
+
+需要完成：区分能直接回答的部分与需要澄清的部分，并提出具体澄清问题。
+
+具体要求：关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 无法由材料确定时明确说明。 引用相关材料位置。
+
+输出形式：clarification list。",qa,区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,zh,,研发团队的一条规则使用“及时”和“重大影响”等未定义词语。,,,,,,,,,,
+review-pilot-q-qa-043,pilot-q-qa-043,"请先遵守这些要求：把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 Use both the opening definitions and later exceptions while keeping cross-references consistent. 串联前后材料中的依赖关系，并说明中间条件如何改变结论。 给出可执行的下一步。 回答控制在四个小节内。
+
+两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。
+
+中文记录列出172次事件和18项修订；the later note limits the revision to approved cases.
+
+比较证据强弱，说明哪些结论能同时得到支持。
+
+输出形式：comparison matrix。",qa,区分材料事实、领域常识和待验证假设；综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件,medium; active_requirements=3; visible_constraints=6,mixed,,两份资料对同一现象给出不同解释，一份强调环境，一份强调操作过程。,,,,,,,,,,
+review-pilot-q-qa-044,pilot-q-qa-044,"报表流水线的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。
+
+记录甲报告175次事件，记录乙修订其中17项，后续说明把修订范围限定为已批准情形。
+
+给出按优先级排列的排查步骤，并说明每步如何缩小原因范围。
+
+输出形式：troubleshooting tree。
+
+完成前请逐项确认：结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 考虑接口版本、分页和失败重试，并保留可诊断的错误信息。 给出可执行的下一步。",qa,利用失败现象定位最早偏差并设计回归检查；遵守接口或库约束并处理失败路径,low; active_requirements=2; visible_constraints=4,zh,,报表流水线的操作按文档执行后仍失败，用户提供了环境版本和一段错误信息。,,,,,,,,,,
+review-pilot-q-qa-045,pilot-q-qa-045,"A metric at the data platform team rises over 4 months while sample size and missingness also change.
+
+Explain possible causes while separating observed facts, inferences, and unverified hypotheses.
+
+Evidence A reports 139 events, evidence B revises 4 entries, and a later note limits the revision's scope.
+
+Tie each key conclusion to its supporting passage and flag anything unverifiable. Do not assume an unstated definition; declare the chosen interpretation and its effect. State when the material is insufficient.
+
+Output format: layered explanation.",qa,区分材料事实、领域常识和待验证假设；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,en,,A metric at the data platform team rises over 4 months while sample size and missingness also change.,,,,,,,,,,
+review-pilot-q-qa-046,pilot-q-qa-046,"使用场景：一份长制度在开头定义适用范围，在后文列出例外和过渡安排。
+
+现有材料：记录甲报告38次事件，记录乙修订其中6项，后续说明把修订范围限定为已批准情形。
+
+需要完成：回答具体情形是否适用，并引用相互关联的条款。
+
+具体要求：不要默认未说明的口径；先写出采用的解释及其影响。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 引用相关材料位置。
+
+输出形式：clause-based answer。",qa,识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,一份长制度在开头定义适用范围，在后文列出例外和过渡安排。,,,,,,,,,,
+review-pilot-q-qa-047,pilot-q-qa-047,"请先遵守这些要求：关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 最终答案需符合给定格式，并逐项核对必填内容。 同时使用开头的定义和后文的例外，保持跨段引用一致。 无法由材料确定时明确说明。 给出可执行的下一步。
+
+用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。
+
+记录甲报告87次事件，记录乙修订其中8项，后续说明把修订范围限定为已批准情形。
+
+统一术语后解释差异，并避免把翻译差别当作事实冲突。
+
+输出形式：terminology table。",qa,区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,zh,,用户同时提供中文规范和英文接口文档，两个版本对一个术语的范围表述不同。,,,,,,,,,,
+review-pilot-q-qa-048,pilot-q-qa-048,"用户根据知识库接口的两段版本说明询问一个配置项为何失效。
+
+记录甲报告137次事件，记录乙修订其中12项，后续说明把修订范围限定为已批准情形。
+
+结合版本条件解释原因，并给出可验证的处理步骤。
+
+输出形式：technical answer。
+
+完成前请逐项确认：调用过程需要说明版本前提、超时处理和返回字段校验。 把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 把事实和推断分开。",qa,遵守接口或库约束并处理失败路径；区分材料事实、领域常识和待验证假设,low; active_requirements=2; visible_constraints=4,zh,,用户根据知识库接口的两段版本说明询问一个配置项为何失效。,,,,,,,,,,
+review-pilot-q-qa-049,pilot-q-qa-049,"现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。
+
+判断事件顺序，并说明中间记录如何改变最终结论。
+
+记录甲报告70次事件，记录乙修订其中16项，后续说明把修订范围限定为已批准情形。
+
+遇到领域术语时给出准确含义，不把推测写成已证实事实。 不要默认未说明的口径；先写出采用的解释及其影响。 先处理前置条件，再利用其结果判断后续分支。 回答控制在四个小节内。 无法由材料确定时明确说明。
+
+输出形式：timeline。",qa,区分材料事实、领域常识和待验证假设；识别多种合理解释并说明澄清需求；连接多段证据或有依赖的条件,medium; active_requirements=3; visible_constraints=6,zh,,现有三段记录分别描述事件前、事件中和事件后的状态，但时间戳格式不同。,,,,,,,,,,
+review-pilot-q-summary-000,pilot-q-summary-000,"A the engineering team meeting record contains product, engineering, and operations views, with conditional decisions.
+
+Extract decisions, disagreements, owners, and open items without adding unsupported facts.
+
+Source excerpts contain 168 observations, 18 disputed items, two decisions, and one unresolved dependency.
+
+Base the conclusion on the beginning, middle, and end rather than only the nearest paragraph. List two interpretations that could change the answer and state what information would resolve them. Follow the requested fields exactly; use null for missing information and explain it in notes. Do not reverse causality or omit limitations while condensing or rewriting. Do not add information absent from the source. Use no more than four sections. List unresolved items separately.
+
+Output format: action table.",summary,综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,en,,"A the engineering team meeting record contains product, engineering, and operations views, with conditional decisions.",,,,,,,,,,
+review-pilot-q-summary-001,pilot-q-summary-001,"使用场景：一份研究材料包含方法、132个观察结果、限制和作者的谨慎结论。
+
+现有材料：材料共有132条观察、10项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：压缩主要发现，同时保留限制并区分观察与解释。
+
+具体要求：保留原材料中的条件、数字和不确定性，不补写未提供的事实。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 单独列出未决事项。 保留所有关键数字。
+
+输出形式：bullet summary。",summary,保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,一份研究材料包含方法、132个观察结果、限制和作者的谨慎结论。,,,,,,,,,,
+review-pilot-q-summary-002,pilot-q-summary-002,"请先遵守这些要求：结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 串联前后材料中的依赖关系，并说明中间条件如何改变结论。 说明如何复现问题、确认根因，并给出覆盖该路径的回归样例。 单独列出未决事项。 不得添加材料外信息。 冲突信息需并列呈现。
+
+故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。
+
+材料共有103条观察、12项争议、两项决定和一个尚未解决的依赖条件。
+
+总结时间线、影响、已证实原因和待验证事项。
+
+输出形式：incident brief。",summary,综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息；连接多段证据或有依赖的条件；利用失败现象定位最早偏差并设计回归检查,high; active_requirements=4; visible_constraints=8,zh,,故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。,,,,,,,,,,
+review-pilot-q-summary-003,pilot-q-summary-003,"A monthly report lists revenue, refunds, and active users, but two tables use different periods.
+
+Source excerpts contain 92 observations, 18 disputed items, two decisions, and one unresolved dependency.
+
+Produce a comparable management summary and flag figures that should not be directly compared.
+
+Output format: metric table.
+
+Before finalizing: Define how unmatched rows and changes in reporting definitions are handled. Give the formula, round numerical results to two decimals, and state where rounding occurs. Do not assume an unstated definition; declare the chosen interpretation and its effect. Separate source conclusions from editorial notes and keep every entity and figure consistent. Preserve every key figure. List unresolved items separately. Do not add information absent from the source.",summary,正确处理表格、连接、聚合或数据口径；明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,en,,"A monthly report lists revenue, refunds, and active users, but two tables use different periods.",,,,,,,,,,
+review-pilot-q-summary-004,pilot-q-summary-004,"两份项目报告对延期原因和完成比例存在冲突，附件提供了部分佐证。
+
+并列冲突、评估证据，并给出不超出材料的综合摘要。
+
+材料共有147条观察、14项争议、两项决定和一个尚未解决的依赖条件。
+
+发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 先处理前置条件，再利用其结果判断后续分支。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 综合相隔较远的材料，遇到冲突时指出各自适用范围。 单独列出未决事项。 不得添加材料外信息。 冲突信息需并列呈现。
+
+输出形式：conflict matrix。",summary,识别多种合理解释并说明澄清需求；连接多段证据或有依赖的条件；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,zh,,两份项目报告对延期原因和完成比例存在冲突，附件提供了部分佐证。,,,,,,,,,,
+review-pilot-q-summary-005,pilot-q-summary-005,"使用场景：一份知识库接口指南跨多个章节描述安装、配置、失败恢复和版本限制。
+
+现有材料：材料共有28条观察、5项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：为实施人员整理顺序化摘要，保留关键前置条件。
+
+具体要求：结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 请覆盖限流、部分成功和接口返回缺少字段的情况。 最终答案需符合给定格式，并逐项核对必填内容。 单独列出未决事项。 保留所有关键数字。
+
+输出形式：runbook summary。",summary,综合相隔较远的材料并保持前后一致；遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,一份知识库接口指南跨多个章节描述安装、配置、失败恢复和版本限制。,,,,,,,,,,
+review-pilot-q-summary-006,pilot-q-summary-006,"请先遵守这些要求：术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 Base the conclusion on the beginning, middle, and end rather than only the nearest paragraph. 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 Preserve unresolved reference or scope ambiguity and ask a concrete clarification question. 不得添加材料外信息。 冲突信息需并列呈现。 保留所有关键数字。
+
+同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。
+
+材料包含45条观察和16项争议；English appendix adds one unresolved dependency.
+
+统一术语并形成合并摘要，标注仅来自单一版本的信息。
+
+输出形式：bilingual summary。",summary,跨语言保持术语和语域一致；综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,mixed,,同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。,,,,,,,,,,
+review-pilot-q-summary-007,pilot-q-summary-007,"管理层需要从114页材料中快速了解结论、风险、数字和下一步。
+
+材料共有114条观察、13项争议、两项决定和一个尚未解决的依赖条件。
+
+在严格字段和长度限制下生成可核查摘要。
+
+输出形式：four-section brief。
+
+完成前请逐项确认：最终答案需符合给定格式，并逐项核对必填内容。 把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 区分原文结论和编辑说明，所有实体与数值需保持一致。 单独列出未决事项。 摘要不超过四个小节。",summary,严格满足字段、格式、长度和结构约束；区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,zh,,管理层需要从114页材料中快速了解结论、风险、数字和下一步。,,,,,,,,,,
+review-pilot-q-summary-008,pilot-q-summary-008,"A the operations center meeting record contains product, engineering, and operations views, with conditional decisions.
+
+Extract decisions, disagreements, owners, and open items without adding unsupported facts.
+
+Source excerpts contain 122 observations, 17 disputed items, two decisions, and one unresolved dependency.
+
+Separate source conclusions from editorial notes and keep every entity and figure consistent. Do not assume an unstated definition; declare the chosen interpretation and its effect. Preserve field order and hierarchy without adding undeclared top-level fields. Use both the opening definitions and later exceptions while keeping cross-references consistent. List unresolved items separately. Preserve every key figure. Use no more than four sections.
+
+Output format: executive summary.",summary,保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,en,,"A the operations center meeting record contains product, engineering, and operations views, with conditional decisions.",,,,,,,,,,
+review-pilot-q-summary-009,pilot-q-summary-009,"使用场景：一份研究材料包含方法、157个观察结果、限制和作者的谨慎结论。
+
+现有材料：材料共有157条观察、9项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：压缩主要发现，同时保留限制并区分观察与解释。
+
+具体要求：关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 摘要不超过四个小节。 单独列出未决事项。
+
+输出形式：bullet summary。",summary,区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,一份研究材料包含方法、157个观察结果、限制和作者的谨慎结论。,,,,,,,,,,
+review-pilot-q-summary-010,pilot-q-summary-010,"请先遵守这些要求：结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 区分原文结论和编辑说明，所有实体与数值需保持一致。 冲突信息需并列呈现。
+
+故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。
+
+材料共有54条观察、7项争议、两项决定和一个尚未解决的依赖条件。
+
+总结时间线、影响、已证实原因和待验证事项。
+
+输出形式：timeline table。",summary,利用失败现象定位最早偏差并设计回归检查；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。,,,,,,,,,,
+review-pilot-q-summary-011,pilot-q-summary-011,"月报列出收入、退款和活跃用户，但两个表使用不同统计周期。
+
+材料共有155条观察、15项争议、两项决定和一个尚未解决的依赖条件。
+
+给出可比的管理摘要，并明确不可直接比较的数据。
+
+输出形式：management note。
+
+完成前请逐项确认：给出所用公式，数值结果保留两位小数并说明舍入位置。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 区分原文结论和编辑说明，所有实体与数值需保持一致。 核对连接键、重复记录和空值处理，避免汇总口径被放大。 摘要不超过四个小节。 冲突信息需并列呈现。 单独列出未决事项。",summary,明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息；正确处理表格、连接、聚合或数据口径,high; active_requirements=4; visible_constraints=8,zh,,月报列出收入、退款和活跃用户，但两个表使用不同统计周期。,,,,,,,,,,
+review-pilot-q-summary-012,pilot-q-summary-012,"Two project reports conflict on delay causes and completion rate, with partial evidence in an appendix.
+
+Present the conflicts, assess evidence, and write a synthesis that stays within the material.
+
+Source excerpts contain 137 observations, 7 disputed items, two decisions, and one unresolved dependency.
+
+Connect dependencies across the material and explain how an intermediate condition changes the conclusion. Base the conclusion on the beginning, middle, and end rather than only the nearest paragraph. List two interpretations that could change the answer and state what information would resolve them. Preserve conditions, figures, and uncertainty without adding facts absent from the source. Do not add information absent from the source. Preserve every key figure. Use no more than four sections.
+
+Output format: conflict matrix.",summary,连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,en,,"Two project reports conflict on delay causes and completion rate, with partial evidence in an appendix.",,,,,,,,,,
+review-pilot-q-summary-013,pilot-q-summary-013,"使用场景：一份知识库接口指南跨多个章节描述安装、配置、失败恢复和版本限制。
+
+现有材料：材料共有145条观察、3项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：为实施人员整理顺序化摘要，保留关键前置条件。
+
+具体要求：调用过程需要说明版本前提、超时处理和返回字段校验。 保持字段顺序和层级，不得增加未声明的顶层字段。 保留所有关键数字。
+
+输出形式：runbook summary。",summary,遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,zh,,一份知识库接口指南跨多个章节描述安装、配置、失败恢复和版本限制。,,,,,,,,,,
+review-pilot-q-summary-014,pilot-q-summary-014,"请先遵守这些要求：保留原材料中的条件、数字和不确定性，不补写未提供的事实。 综合相隔较远的材料，遇到冲突时指出各自适用范围。 单独列出未决事项。
+
+同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。
+
+材料共有30条观察、10项争议、两项决定和一个尚未解决的依赖条件。
+
+统一术语并形成合并摘要，标注仅来自单一版本的信息。
+
+输出形式：term-aligned table。",summary,保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,low; active_requirements=2; visible_constraints=4,zh,,同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。,,,,,,,,,,
+review-pilot-q-summary-015,pilot-q-summary-015,"Executives need conclusions, risks, figures, and next steps from a 80-page document.
+
+Source excerpts contain 80 observations, 6 disputed items, two decisions, and one unresolved dependency.
+
+Produce a verifiable summary under strict field and length constraints.
+
+Output format: four-section brief.
+
+Before finalizing: Preserve conditions, figures, and uncertainty without adding facts absent from the source. Tie each key conclusion to its supporting passage and flag anything unverifiable. Use no more than four sections.",summary,保留原意和事实，不添加材料外信息；区分材料事实、领域常识和待验证假设,low; active_requirements=2; visible_constraints=4,en,,"Executives need conclusions, risks, figures, and next steps from a 80-page document.",,,,,,,,,,
+review-pilot-q-summary-016,pilot-q-summary-016,"数据平台主管的会议记录包含产品、研发和运营三方意见，部分决定带有前置条件。
+
+提炼决定、分歧、负责人和未决事项，不补写会议中没有的信息。
+
+材料共有74条观察、3项争议、两项决定和一个尚未解决的依赖条件。
+
+严格按指定字段输出；缺少信息时使用空值并在备注中解释。 区分原文结论和编辑说明，所有实体与数值需保持一致。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 不得添加材料外信息。 摘要不超过四个小节。 保留所有关键数字。
+
+输出形式：executive summary。",summary,严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,zh,,数据平台主管的会议记录包含产品、研发和运营三方意见，部分决定带有前置条件。,,,,,,,,,,
+review-pilot-q-summary-017,pilot-q-summary-017,"使用场景：一份研究材料包含方法、44个观察结果、限制和作者的谨慎结论。
+
+现有材料：材料包含44条观察和12项争议；English appendix adds one unresolved dependency.
+
+需要完成：压缩主要发现，同时保留限制并区分观察与解释。
+
+具体要求：综合相隔较远的材料，遇到冲突时指出各自适用范围。 Separate stated facts, established domain knowledge, and assumptions that still need verification. 最终答案需符合给定格式，并逐项核对必填内容。 摘要不超过四个小节。 冲突信息需并列呈现。
+
+输出形式：structured abstract。",summary,综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,mixed,,一份研究材料包含方法、44个观察结果、限制和作者的谨慎结论。,,,,,,,,,,
+review-pilot-q-summary-018,pilot-q-summary-018,"请先遵守这些要求：保留原材料中的条件、数字和不确定性，不补写未提供的事实。 结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 单独列出未决事项。
+
+故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。
+
+材料共有70条观察、17项争议、两项决定和一个尚未解决的依赖条件。
+
+总结时间线、影响、已证实原因和待验证事项。
+
+输出形式：timeline table。",summary,保留原意和事实，不添加材料外信息；利用失败现象定位最早偏差并设计回归检查,low; active_requirements=2; visible_constraints=4,zh,,故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。,,,,,,,,,,
+review-pilot-q-summary-019,pilot-q-summary-019,"月报列出收入、退款和活跃用户，但两个表使用不同统计周期。
+
+材料共有113条观察、17项争议、两项决定和一个尚未解决的依赖条件。
+
+给出可比的管理摘要，并明确不可直接比较的数据。
+
+输出形式：management note。
+
+完成前请逐项确认：压缩或改写时不得改变因果方向，也不要遗漏限制条件。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 单独列出未决事项。",summary,保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,zh,,月报列出收入、退款和活跃用户，但两个表使用不同统计周期。,,,,,,,,,,
+review-pilot-q-summary-020,pilot-q-summary-020,"Two project reports conflict on delay causes and completion rate, with partial evidence in an appendix.
+
+Present the conflicts, assess evidence, and write a synthesis that stays within the material.
+
+Source excerpts contain 133 observations, 11 disputed items, two decisions, and one unresolved dependency.
+
+Separate source conclusions from editorial notes and keep every entity and figure consistent. Link at least three pieces of information in order without skipping the decisive middle step. Preserve every key figure.
+
+Output format: conflict matrix.",summary,保留原意和事实，不添加材料外信息；连接多段证据或有依赖的条件,low; active_requirements=2; visible_constraints=4,en,,"Two project reports conflict on delay causes and completion rate, with partial evidence in an appendix.",,,,,,,,,,
+review-pilot-q-summary-021,pilot-q-summary-021,"使用场景：一份日志平台指南跨多个章节描述安装、配置、失败恢复和版本限制。
+
+现有材料：材料共有41条观察、6项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：为实施人员整理顺序化摘要，保留关键前置条件。
+
+具体要求：区分原文结论和编辑说明，所有实体与数值需保持一致。 最终答案需符合给定格式，并逐项核对必填内容。 摘要不超过四个小节。
+
+输出形式：ordered checklist。",summary,保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,zh,,一份日志平台指南跨多个章节描述安装、配置、失败恢复和版本限制。,,,,,,,,,,
+review-pilot-q-summary-022,pilot-q-summary-022,"请先遵守这些要求：同时使用开头的定义和后文的例外，保持跨段引用一致。 依据给定语境选择译名，不要在同一文档中切换同义术语。 区分原文结论和编辑说明，所有实体与数值需保持一致。 单独列出未决事项。 保留所有关键数字。
+
+同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。
+
+材料共有56条观察、17项争议、两项决定和一个尚未解决的依赖条件。
+
+统一术语并形成合并摘要，标注仅来自单一版本的信息。
+
+输出形式：term-aligned table。",summary,综合相隔较远的材料并保持前后一致；跨语言保持术语和语域一致；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,zh,,同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。,,,,,,,,,,
+review-pilot-q-summary-023,pilot-q-summary-023,"Executives need conclusions, risks, figures, and next steps from a 117-page document.
+
+Source excerpts contain 117 observations, 6 disputed items, two decisions, and one unresolved dependency.
+
+Produce a verifiable summary under strict field and length constraints.
+
+Output format: JSON summary.
+
+Before finalizing: Define domain terms accurately and do not present an inference as a confirmed fact. Preserve field order and hierarchy without adding undeclared top-level fields. Separate source conclusions from editorial notes and keep every entity and figure consistent. Base the conclusion on the beginning, middle, and end rather than only the nearest paragraph. Use no more than four sections. Do not add information absent from the source. Present conflicting information side by side.",summary,区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,en,,"Executives need conclusions, risks, figures, and next steps from a 117-page document.",,,,,,,,,,
+review-pilot-q-summary-024,pilot-q-summary-024,"研发团队的会议记录包含产品、研发和运营三方意见，部分决定带有前置条件。
+
+提炼决定、分歧、负责人和未决事项，不补写会议中没有的信息。
+
+材料共有54条观察、15项争议、两项决定和一个尚未解决的依赖条件。
+
+不要默认未说明的口径；先写出采用的解释及其影响。 区分原文结论和编辑说明，所有实体与数值需保持一致。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 保留所有关键数字。 单独列出未决事项。
+
+输出形式：action table。",summary,识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,zh,,研发团队的会议记录包含产品、研发和运营三方意见，部分决定带有前置条件。,,,,,,,,,,
+review-pilot-q-summary-025,pilot-q-summary-025,"使用场景：一份研究材料包含方法、18个观察结果、限制和作者的谨慎结论。
+
+现有材料：材料共有18条观察、4项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：压缩主要发现，同时保留限制并区分观察与解释。
+
+具体要求：保持字段顺序和层级，不得增加未声明的顶层字段。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 摘要不超过四个小节。
+
+输出形式：bullet summary。",summary,严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,一份研究材料包含方法、18个观察结果、限制和作者的谨慎结论。,,,,,,,,,,
+review-pilot-q-summary-026,pilot-q-summary-026,"请先遵守这些要求：先处理前置条件，再利用其结果判断后续分支。 Use both the opening definitions and later exceptions while keeping cross-references consistent. 摘要不超过四个小节。
+
+故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。
+
+材料包含163条观察和10项争议；English appendix adds one unresolved dependency.
+
+总结时间线、影响、已证实原因和待验证事项。
+
+输出形式：timeline table。",summary,连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致,low; active_requirements=2; visible_constraints=4,mixed,,故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。,,,,,,,,,,
+review-pilot-q-summary-027,pilot-q-summary-027,"月报列出收入、退款和活跃用户，但两个表使用不同统计周期。
+
+材料共有80条观察、16项争议、两项决定和一个尚未解决的依赖条件。
+
+给出可比的管理摘要，并明确不可直接比较的数据。
+
+输出形式：metric table。
+
+完成前请逐项确认：不要默认未说明的口径；先写出采用的解释及其影响。 先说明数据粒度，再处理筛选、分组和聚合。 写清变量之间的关系，并对最终数值做一次反向核验。 区分原文结论和编辑说明，所有实体与数值需保持一致。 单独列出未决事项。 摘要不超过四个小节。 保留所有关键数字。",summary,识别多种合理解释并说明澄清需求；正确处理表格、连接、聚合或数据口径；明确变量关系、计算过程与数值核验；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,zh,,月报列出收入、退款和活跃用户，但两个表使用不同统计周期。,,,,,,,,,,
+review-pilot-q-summary-028,pilot-q-summary-028,"Two project reports conflict on delay causes and completion rate, with partial evidence in an appendix.
+
+Present the conflicts, assess evidence, and write a synthesis that stays within the material.
+
+Source excerpts contain 73 observations, 7 disputed items, two decisions, and one unresolved dependency.
+
+Integrate distant sections and state the scope of each when they conflict. Connect dependencies across the material and explain how an intermediate condition changes the conclusion. Do not reverse causality or omit limitations while condensing or rewriting. List two interpretations that could change the answer and state what information would resolve them. Use no more than four sections. List unresolved items separately. Preserve every key figure.
+
+Output format: conflict matrix.",summary,综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件；保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求,high; active_requirements=4; visible_constraints=8,en,,"Two project reports conflict on delay causes and completion rate, with partial evidence in an appendix.",,,,,,,,,,
+review-pilot-q-summary-029,pilot-q-summary-029,"使用场景：一份知识库接口指南跨多个章节描述安装、配置、失败恢复和版本限制。
+
+现有材料：材料共有66条观察、5项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：为实施人员整理顺序化摘要，保留关键前置条件。
+
+具体要求：保持字段顺序和层级，不得增加未声明的顶层字段。 调用过程需要说明版本前提、超时处理和返回字段校验。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 同时使用开头的定义和后文的例外，保持跨段引用一致。 单独列出未决事项。 摘要不超过四个小节。 冲突信息需并列呈现。
+
+输出形式：runbook summary。",summary,严格满足字段、格式、长度和结构约束；遵守接口或库约束并处理失败路径；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,zh,,一份知识库接口指南跨多个章节描述安装、配置、失败恢复和版本限制。,,,,,,,,,,
+review-pilot-q-summary-030,pilot-q-summary-030,"请先遵守这些要求：发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 保留所有关键数字。
+
+同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。
+
+材料共有32条观察、16项争议、两项决定和一个尚未解决的依赖条件。
+
+统一术语并形成合并摘要，标注仅来自单一版本的信息。
+
+输出形式：term-aligned table。",summary,识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。,,,,,,,,,,
+review-pilot-q-summary-031,pilot-q-summary-031,"管理层需要从168页材料中快速了解结论、风险、数字和下一步。
+
+材料共有168条观察、9项争议、两项决定和一个尚未解决的依赖条件。
+
+在严格字段和长度限制下生成可核查摘要。
+
+输出形式：four-section brief。
+
+完成前请逐项确认：综合相隔较远的材料，遇到冲突时指出各自适用范围。 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 最终答案需符合给定格式，并逐项核对必填内容。 单独列出未决事项。 不得添加材料外信息。",summary,综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,管理层需要从168页材料中快速了解结论、风险、数字和下一步。,,,,,,,,,,
+review-pilot-q-summary-032,pilot-q-summary-032,"A the data platform team meeting record contains product, engineering, and operations views, with conditional decisions.
+
+Extract decisions, disagreements, owners, and open items without adding unsupported facts.
+
+Source excerpts contain 103 observations, 6 disputed items, two decisions, and one unresolved dependency.
+
+Use both the opening definitions and later exceptions while keeping cross-references consistent. Preserve field order and hierarchy without adding undeclared top-level fields. Do not assume an unstated definition; declare the chosen interpretation and its effect. Present conflicting information side by side. Preserve every key figure.
+
+Output format: action table.",summary,综合相隔较远的材料并保持前后一致；严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,en,,"A the data platform team meeting record contains product, engineering, and operations views, with conditional decisions.",,,,,,,,,,
+review-pilot-q-summary-033,pilot-q-summary-033,"使用场景：一份研究材料包含方法、143个观察结果、限制和作者的谨慎结论。
+
+现有材料：材料共有143条观察、11项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：压缩主要发现，同时保留限制并区分观察与解释。
+
+具体要求：压缩或改写时不得改变因果方向，也不要遗漏限制条件。 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 摘要不超过四个小节。
+
+输出形式：bullet summary。",summary,保留原意和事实，不添加材料外信息；区分材料事实、领域常识和待验证假设,low; active_requirements=2; visible_constraints=4,zh,,一份研究材料包含方法、143个观察结果、限制和作者的谨慎结论。,,,,,,,,,,
+review-pilot-q-summary-034,pilot-q-summary-034,"请先遵守这些要求：同时使用开头的定义和后文的例外，保持跨段引用一致。 先处理前置条件，再利用其结果判断后续分支。 单独列出未决事项。
+
+故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。
+
+材料共有159条观察、3项争议、两项决定和一个尚未解决的依赖条件。
+
+总结时间线、影响、已证实原因和待验证事项。
+
+输出形式：incident brief。",summary,综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件,low; active_requirements=2; visible_constraints=4,zh,,故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。,,,,,,,,,,
+review-pilot-q-summary-035,pilot-q-summary-035,"A monthly report lists revenue, refunds, and active users, but two tables use different periods.
+
+Source excerpts contain 84 observations, 12 disputed items, two decisions, and one unresolved dependency.
+
+Produce a comparable management summary and flag figures that should not be directly compared.
+
+Output format: management note.
+
+Before finalizing: Define how unmatched rows and changes in reporting definitions are handled. Preserve conditions, figures, and uncertainty without adding facts absent from the source. Use no more than four sections.",summary,正确处理表格、连接、聚合或数据口径；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,en,,"A monthly report lists revenue, refunds, and active users, but two tables use different periods.",,,,,,,,,,
+review-pilot-q-summary-036,pilot-q-summary-036,"两份项目报告对延期原因和完成比例存在冲突，附件提供了部分佐证。
+
+并列冲突、评估证据，并给出不超出材料的综合摘要。
+
+材料共有102条观察、16项争议、两项决定和一个尚未解决的依赖条件。
+
+列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 先处理前置条件，再利用其结果判断后续分支。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 不得添加材料外信息。 保留所有关键数字。
+
+输出形式：synthesis。",summary,识别多种合理解释并说明澄清需求；连接多段证据或有依赖的条件；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,zh,,两份项目报告对延期原因和完成比例存在冲突，附件提供了部分佐证。,,,,,,,,,,
+review-pilot-q-summary-037,pilot-q-summary-037,"使用场景：一份报表流水线指南跨多个章节描述安装、配置、失败恢复和版本限制。
+
+现有材料：材料包含158条观察和18项争议；English appendix adds one unresolved dependency.
+
+需要完成：为实施人员整理顺序化摘要，保留关键前置条件。
+
+具体要求：综合相隔较远的材料，遇到冲突时指出各自适用范围。 Preserve conditions, figures, and uncertainty without adding facts absent from the source. 最终答案需符合给定格式，并逐项核对必填内容。 Cover rate limiting, partial success, and responses with missing fields. 冲突信息需并列呈现。 单独列出未决事项。 保留所有关键数字。
+
+输出形式：runbook summary。",summary,综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束；遵守接口或库约束并处理失败路径,high; active_requirements=4; visible_constraints=8,mixed,,一份报表流水线指南跨多个章节描述安装、配置、失败恢复和版本限制。,,,,,,,,,,
+review-pilot-q-summary-038,pilot-q-summary-038,"请先遵守这些要求：核对双语术语的范围是否一致，并记录需要保留的原文标识。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 保留所有关键数字。 不得添加材料外信息。 冲突信息需并列呈现。
+
+同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。
+
+材料共有168条观察、13项争议、两项决定和一个尚未解决的依赖条件。
+
+统一术语并形成合并摘要，标注仅来自单一版本的信息。
+
+输出形式：bilingual summary。",summary,跨语言保持术语和语域一致；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,zh,,同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。,,,,,,,,,,
+review-pilot-q-summary-039,pilot-q-summary-039,"管理层需要从163页材料中快速了解结论、风险、数字和下一步。
+
+材料共有163条观察、3项争议、两项决定和一个尚未解决的依赖条件。
+
+在严格字段和长度限制下生成可核查摘要。
+
+输出形式：four-section brief。
+
+完成前请逐项确认：严格按指定字段输出；缺少信息时使用空值并在备注中解释。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 摘要不超过四个小节。",summary,严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,,管理层需要从163页材料中快速了解结论、风险、数字和下一步。,,,,,,,,,,
+review-pilot-q-summary-040,pilot-q-summary-040,"A a teaching project meeting record contains product, engineering, and operations views, with conditional decisions.
+
+Extract decisions, disagreements, owners, and open items without adding unsupported facts.
+
+Source excerpts contain 57 observations, 9 disputed items, two decisions, and one unresolved dependency.
+
+Preserve conditions, figures, and uncertainty without adding facts absent from the source. Use both the opening definitions and later exceptions while keeping cross-references consistent. Do not assume an unstated definition; declare the chosen interpretation and its effect. Do not add information absent from the source. Preserve every key figure.
+
+Output format: executive summary.",summary,保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,en,,"A a teaching project meeting record contains product, engineering, and operations views, with conditional decisions.",,,,,,,,,,
+review-pilot-q-summary-041,pilot-q-summary-041,"使用场景：一份研究材料包含方法、115个观察结果、限制和作者的谨慎结论。
+
+现有材料：材料共有115条观察、9项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：压缩主要发现，同时保留限制并区分观察与解释。
+
+具体要求：把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 保持字段顺序和层级，不得增加未声明的顶层字段。 摘要不超过四个小节。 保留所有关键数字。
+
+输出形式：bullet summary。",summary,区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,,一份研究材料包含方法、115个观察结果、限制和作者的谨慎结论。,,,,,,,,,,
+review-pilot-q-summary-042,pilot-q-summary-042,"请先遵守这些要求：结合失败样例找出最早出现偏差的位置，并补一个不会复发的检查。 按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 同时使用开头的定义和后文的例外，保持跨段引用一致。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 摘要不超过四个小节。 单独列出未决事项。 保留所有关键数字。
+
+故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。
+
+材料共有176条观察、4项争议、两项决定和一个尚未解决的依赖条件。
+
+总结时间线、影响、已证实原因和待验证事项。
+
+输出形式：incident brief。",summary,利用失败现象定位最早偏差并设计回归检查；连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,zh,,故障记录由监控、值班人员和修复日志组成，三部分时间范围有重叠。,,,,,,,,,,
+review-pilot-q-summary-043,pilot-q-summary-043,"A monthly report lists revenue, refunds, and active users, but two tables use different periods.
+
+Source excerpts contain 180 observations, 12 disputed items, two decisions, and one unresolved dependency.
+
+Produce a comparable management summary and flag figures that should not be directly compared.
+
+Output format: management note.
+
+Before finalizing: State the variable relationships and verify the final number in reverse. Do not reverse causality or omit limitations while condensing or rewriting. Preserve every key figure.",summary,明确变量关系、计算过程与数值核验；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,en,,"A monthly report lists revenue, refunds, and active users, but two tables use different periods.",,,,,,,,,,
+review-pilot-q-summary-044,pilot-q-summary-044,"两份项目报告对延期原因和完成比例存在冲突，附件提供了部分佐证。
+
+并列冲突、评估证据，并给出不超出材料的综合摘要。
+
+材料共有98条观察、10项争议、两项决定和一个尚未解决的依赖条件。
+
+按发生顺序连接至少三条信息，不要跳过决定性中间步骤。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 同时使用开头的定义和后文的例外，保持跨段引用一致。 不得添加材料外信息。 单独列出未决事项。
+
+输出形式：conflict matrix。",summary,连接多段证据或有依赖的条件；识别多种合理解释并说明澄清需求；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,zh,,两份项目报告对延期原因和完成比例存在冲突，附件提供了部分佐证。,,,,,,,,,,
+review-pilot-q-summary-045,pilot-q-summary-045,"使用场景：一份报表流水线指南跨多个章节描述安装、配置、失败恢复和版本限制。
+
+现有材料：材料共有81条观察、11项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：为实施人员整理顺序化摘要，保留关键前置条件。
+
+具体要求：请覆盖限流、部分成功和接口返回缺少字段的情况。 最终答案需符合给定格式，并逐项核对必填内容。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 同时使用开头的定义和后文的例外，保持跨段引用一致。 单独列出未决事项。 保留所有关键数字。 摘要不超过四个小节。
+
+输出形式：runbook summary。",summary,遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,high; active_requirements=4; visible_constraints=8,zh,,一份报表流水线指南跨多个章节描述安装、配置、失败恢复和版本限制。,,,,,,,,,,
+review-pilot-q-summary-046,pilot-q-summary-046,"请先遵守这些要求：压缩或改写时不得改变因果方向，也不要遗漏限制条件。 Preserve unresolved reference or scope ambiguity and ask a concrete clarification question. 术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 冲突信息需并列呈现。 不得添加材料外信息。
+
+同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。
+
+材料包含136条观察和13项争议；English appendix adds one unresolved dependency.
+
+统一术语并形成合并摘要，标注仅来自单一版本的信息。
+
+输出形式：bilingual summary。",summary,保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,mixed,,同一项目有中英文两版进展材料，英文版包含一项中文版本没有的更新。,,,,,,,,,,
+review-pilot-q-summary-047,pilot-q-summary-047,"管理层需要从34页材料中快速了解结论、风险、数字和下一步。
+
+材料共有34条观察、15项争议、两项决定和一个尚未解决的依赖条件。
+
+在严格字段和长度限制下生成可核查摘要。
+
+输出形式：four-section brief。
+
+完成前请逐项确认：保留原材料中的条件、数字和不确定性，不补写未提供的事实。 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 保留所有关键数字。 冲突信息需并列呈现。 不得添加材料外信息。",summary,保留原意和事实，不添加材料外信息；区分材料事实、领域常识和待验证假设；综合相隔较远的材料并保持前后一致；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,zh,,管理层需要从34页材料中快速了解结论、风险、数字和下一步。,,,,,,,,,,
+review-pilot-q-summary-048,pilot-q-summary-048,"A the data platform team meeting record contains product, engineering, and operations views, with conditional decisions.
+
+Extract decisions, disagreements, owners, and open items without adding unsupported facts.
+
+Source excerpts contain 180 observations, 6 disputed items, two decisions, and one unresolved dependency.
+
+Follow the requested fields exactly; use null for missing information and explain it in notes. Do not reverse causality or omit limitations while condensing or rewriting. Base the conclusion on the beginning, middle, and end rather than only the nearest paragraph. Use no more than four sections. List unresolved items separately.
+
+Output format: action table.",summary,严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,en,,"A the data platform team meeting record contains product, engineering, and operations views, with conditional decisions.",,,,,,,,,,
+review-pilot-q-summary-049,pilot-q-summary-049,"使用场景：一份研究材料包含方法、76个观察结果、限制和作者的谨慎结论。
+
+现有材料：材料共有76条观察、18项争议、两项决定和一个尚未解决的依赖条件。
+
+需要完成：压缩主要发现，同时保留限制并区分观察与解释。
+
+具体要求：综合相隔较远的材料，遇到冲突时指出各自适用范围。 最终答案需符合给定格式，并逐项核对必填内容。 把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 区分原文结论和编辑说明，所有实体与数值需保持一致。 不得添加材料外信息。 摘要不超过四个小节。 保留所有关键数字。
+
+输出形式：structured abstract。",summary,综合相隔较远的材料并保持前后一致；严格满足字段、格式、长度和结构约束；区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,zh,,一份研究材料包含方法、76个观察结果、限制和作者的谨慎结论。,,,,,,,,,,
+review-pilot-q-translation-000,pilot-q-translation-000,"日志平台的技术说明包含版本号、命令、参数名和故障恢复步骤。
+
+待译内容：日志平台的技术说明包含版本号、命令、参数名和故障恢复步骤。 计划分4批处理，并要求在第172项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：parallel translation。
+
+完成前请逐项确认：术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 调用过程需要说明版本前提、超时处理和返回字段校验。 必要说明放在译者注中。 保留数字、日期和专有标识。",translation,跨语言保持术语和语域一致；保留原意和事实，不添加材料外信息；遵守接口或库约束并处理失败路径,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,日志平台的技术说明包含版本号、命令、参数名和故障恢复步骤。,,,,,,,,,,
+review-pilot-q-translation-001,pilot-q-translation-001,"A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+Source text: A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference. The work is divided into 17 batches, with a status review after item 67.
+
+压缩或改写时不得改变因果方向，也不要遗漏限制条件。 Match the requested format and verify every required item before finishing. 不要默认未说明的口径；先写出采用的解释及其影响。 保留原有段落结构。 必要说明放在译者注中。
+
+输出形式：bilingual clauses。",translation,保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.",,,,,,,,,,
+review-pilot-q-translation-002,pilot-q-translation-002,"使用场景：教学项目组的通知包含日期、地点、报名条件和临时变更安排。
+
+现有材料：待译内容：教学项目组的通知包含日期、地点、报名条件和临时变更安排。 计划分6批处理，并要求在第86项记录后再次核对状态。
+
+需要完成：将下面的源文译为英文，并按给定输出要求交付。
+
+具体要求：区分原文结论和编辑说明，所有实体与数值需保持一致。 核对双语术语的范围是否一致，并记录需要保留的原文标识。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 保持字段顺序和层级，不得增加未声明的顶层字段。 术语译法保持一致。 保留数字、日期和专有标识。 不要擅自消除原文歧义。
+
+输出形式：bilingual notice。",translation,保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,zh,zh_to_en,教学项目组的通知包含日期、地点、报名条件和临时变更安排。,,,,,,,,,,
+review-pilot-q-translation-003,pilot-q-translation-003,"请先遵守这些要求：关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 Choose one translation when a term first appears, reuse it consistently, and preserve required abbreviations. 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 不要擅自消除原文歧义。 保留数字、日期和专有标识。
+
+A environmental monitoring report uses several abbreviations and redefines one term in a later section.
+
+Source text: A environmental monitoring report uses several abbreviations and redefines one term in a later section. The work is divided into 12 batches, with a status review after item 106.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：annotated translation。",translation,区分材料事实、领域常识和待验证假设；跨语言保持术语和语域一致；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,A environmental monitoring report uses several abbreviations and redefines one term in a later section.,,,,,,,,,,
+review-pilot-q-translation-004,pilot-q-translation-004,"日志平台的界面文本含按钮、占位符、错误消息和字符长度限制。 / The the logging platform UI text contains buttons, placeholders, errors, and character limits.
+
+现有中英文版本需要统一。中文：日志平台的界面文本含按钮、占位符、错误消息和字符长度限制。 英文：The the logging platform UI text contains buttons, placeholders, errors, and character limits. The Chinese version records 35 items, while the English appendix mentions 7 review batches.
+
+Review the bilingual material，统一术语并给出修订后的双语版本。
+
+输出形式：localized resource。
+
+完成前请逐项确认：术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 Match the requested format and verify every required item before finishing. 必要说明放在译者注中。",translation,跨语言保持术语和语域一致；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,mixed,bilingual_revision,"日志平台的界面文本含按钮、占位符、错误消息和字符长度限制。 / The the logging platform UI text contains buttons, placeholders, errors, and character limits.",,,,,,,,,,
+review-pilot-q-translation-005,pilot-q-translation-005,"双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+待译内容：双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。 计划分3批处理，并要求在第84项记录后再次核对状态。
+
+结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 保留原有段落结构。
+
+输出形式：aligned timeline。",translation,综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,zh_to_en,双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。,,,,,,,,,,
+review-pilot-q-translation-006,pilot-q-translation-006,"使用场景：In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs.
+
+现有材料：Source text: In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs. The work is divided into 12 batches, with a status review after item 68.
+
+需要完成：将下面的 source text 译为中文，并按给定输出要求交付。
+
+具体要求：列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 Base the conclusion on the beginning, middle, and end rather than only the nearest paragraph. 核对双语术语的范围是否一致，并记录需要保留的原文标识。 保留原有段落结构。 保留数字、日期和专有标识。
+
+输出形式：translation with notes。",translation,识别多种合理解释并说明澄清需求；综合相隔较远的材料并保持前后一致；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs.",,,,,,,,,,
+review-pilot-q-translation-007,pilot-q-translation-007,"请先遵守这些要求：依据给定语境选择译名，不要在同一文档中切换同义术语。 把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 区分原文结论和编辑说明，所有实体与数值需保持一致。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 保留数字、日期和专有标识。 不要擅自消除原文歧义。 必要说明放在译者注中。
+
+研发团队提供了双语术语表，但历史材料中有18处使用了旧译名。
+
+待译内容：研发团队提供了双语术语表，但历史材料中有18处使用了旧译名。 计划分18批处理，并要求在第168项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：change log。",translation,跨语言保持术语和语域一致；区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束,high; active_requirements=4; visible_constraints=8,zh,zh_to_en,研发团队提供了双语术语表，但历史材料中有18处使用了旧译名。,,,,,,,,,,
+review-pilot-q-translation-008,pilot-q-translation-008,"A technical note for the order service includes versions, commands, parameter names, and recovery steps.
+
+Source text: A technical note for the order service includes versions, commands, parameter names, and recovery steps. The work is divided into 8 batches, with a status review after item 118.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：translated guide。
+
+完成前请逐项确认：保留原材料中的条件、数字和不确定性，不补写未提供的事实。 Follow the requested fields exactly; use null for missing information and explain it in notes. 依据给定语境选择译名，不要在同一文档中切换同义术语。 保留数字、日期和专有标识。 不要擅自消除原文歧义。",translation,保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"A technical note for the order service includes versions, commands, parameter names, and recovery steps.",,,,,,,,,,
+review-pilot-q-translation-009,pilot-q-translation-009,"合同片段包含交付批次、验收条件和一个指代不清的例外条款。 / A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.
+
+Review the bilingual material，统一术语并给出修订后的双语版本。
+
+现有中英文版本需要统一。中文：合同片段包含交付批次、验收条件和一个指代不清的例外条款。 英文：A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference. The Chinese version records 168 items, while the English appendix mentions 18 review batches.
+
+术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 Follow the requested fields exactly; use null for missing information and explain it in notes. 术语译法保持一致。
+
+输出形式：clause-aligned translation。",translation,跨语言保持术语和语域一致；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,mixed,bilingual_revision,"合同片段包含交付批次、验收条件和一个指代不清的例外条款。 / A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.",,,,,,,,,,
+review-pilot-q-translation-010,pilot-q-translation-010,"使用场景：教学项目组的通知包含日期、地点、报名条件和临时变更安排。
+
+现有材料：待译内容：教学项目组的通知包含日期、地点、报名条件和临时变更安排。 计划分10批处理，并要求在第144项记录后再次核对状态。
+
+需要完成：将下面的源文译为英文，并按给定输出要求交付。
+
+具体要求：最终答案需符合给定格式，并逐项核对必填内容。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 核对双语术语的范围是否一致，并记录需要保留的原文标识。 保留原有段落结构。 必要说明放在译者注中。 不要擅自消除原文歧义。
+
+输出形式：formatted notice。",translation,严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致,high; active_requirements=4; visible_constraints=8,zh,zh_to_en,教学项目组的通知包含日期、地点、报名条件和临时变更安排。,,,,,,,,,,
+review-pilot-q-translation-011,pilot-q-translation-011,"请先遵守这些要求：依据给定语境选择译名，不要在同一文档中切换同义术语。 Use both the opening definitions and later exceptions while keeping cross-references consistent. 关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 Preserve conditions, figures, and uncertainty without adding facts absent from the source. 术语译法保持一致。 保留原有段落结构。 保留数字、日期和专有标识。
+
+A customer support report uses several abbreviations and redefines one term in a later section.
+
+Source text: A customer support report uses several abbreviations and redefines one term in a later section. The work is divided into 17 batches, with a status review after item 20.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：terminology table。",translation,跨语言保持术语和语域一致；综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,mixed,en_to_zh,A customer support report uses several abbreviations and redefines one term in a later section.,,,,,,,,,,
+review-pilot-q-translation-012,pilot-q-translation-012,"报表流水线的界面文本含按钮、占位符、错误消息和字符长度限制。
+
+待译内容：报表流水线的界面文本含按钮、占位符、错误消息和字符长度限制。 计划分18批处理，并要求在第60项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：localized resource。
+
+完成前请逐项确认：请覆盖限流、部分成功和接口返回缺少字段的情况。 保持字段顺序和层级，不得增加未声明的顶层字段。 保留原有段落结构。",translation,遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,low; active_requirements=2; visible_constraints=4,zh,zh_to_en,报表流水线的界面文本含按钮、占位符、错误消息和字符长度限制。,,,,,,,,,,
+review-pilot-q-translation-013,pilot-q-translation-013,"A bilingual incident record is split across a ticket, chat, and repair note, and its timeline must remain consistent.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+Source text: A bilingual incident record is split across a ticket, chat, and repair note, and its timeline must remain consistent. The work is divided into 5 batches, with a status review after item 64.
+
+压缩或改写时不得改变因果方向，也不要遗漏限制条件。 Resolve prerequisites first, then use their results to evaluate later branches. 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 保留原有段落结构。 不要擅自消除原文歧义。
+
+输出形式：merged translation。",translation,保留原意和事实，不添加材料外信息；连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"A bilingual incident record is split across a ticket, chat, and repair note, and its timeline must remain consistent.",,,,,,,,,,
+review-pilot-q-translation-014,pilot-q-translation-014,"使用场景：源文中的“其”和“该方案”可能分别指向前两段的不同对象。 / In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs.
+
+现有材料：现有中英文版本需要统一。中文：源文中的“其”和“该方案”可能分别指向前两段的不同对象。 英文：In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs. The Chinese version records 92 items, while the English appendix mentions 3 review batches.
+
+需要完成：Review the bilingual material，统一术语并给出修订后的双语版本。
+
+具体要求：区分原文结论和编辑说明，所有实体与数值需保持一致。 Check whether bilingual terms have the same scope and record identifiers that must remain unchanged. 不要默认未说明的口径；先写出采用的解释及其影响。 必要说明放在译者注中。 保留数字、日期和专有标识。
+
+输出形式：reference table。",translation,保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致；识别多种合理解释并说明澄清需求,medium; active_requirements=3; visible_constraints=6,mixed,bilingual_revision,"源文中的“其”和“该方案”可能分别指向前两段的不同对象。 / In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs.",,,,,,,,,,
+review-pilot-q-translation-015,pilot-q-translation-015,"请先遵守这些要求：关键结论要指出依据来自哪段材料，无法核实的内容需明确标注。 保持字段顺序和层级，不得增加未声明的顶层字段。 依据给定语境选择译名，不要在同一文档中切换同义术语。 术语译法保持一致。 保留数字、日期和专有标识。
+
+数据平台主管提供了双语术语表，但历史材料中有18处使用了旧译名。
+
+待译内容：数据平台主管提供了双语术语表，但历史材料中有18处使用了旧译名。 计划分18批处理，并要求在第127项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：revised translation。",translation,区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,数据平台主管提供了双语术语表，但历史材料中有18处使用了旧译名。,,,,,,,,,,
+review-pilot-q-translation-016,pilot-q-translation-016,"A technical note for the logging platform includes versions, commands, parameter names, and recovery steps.
+
+Source text: A technical note for the logging platform includes versions, commands, parameter names, and recovery steps. The work is divided into 16 batches, with a status review after item 63.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：parallel translation。
+
+完成前请逐项确认：调用过程需要说明版本前提、超时处理和返回字段校验。 Do not reverse causality or omit limitations while condensing or rewriting. 保持字段顺序和层级，不得增加未声明的顶层字段。 不要擅自消除原文歧义。 保留数字、日期和专有标识。",translation,遵守接口或库约束并处理失败路径；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"A technical note for the logging platform includes versions, commands, parameter names, and recovery steps.",,,,,,,,,,
+review-pilot-q-translation-017,pilot-q-translation-017,"合同片段包含交付批次、验收条件和一个指代不清的例外条款。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+待译内容：合同片段包含交付批次、验收条件和一个指代不清的例外条款。 计划分17批处理，并要求在第89项记录后再次核对状态。
+
+发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 核对双语术语的范围是否一致，并记录需要保留的原文标识。 保持字段顺序和层级，不得增加未声明的顶层字段。 必要说明放在译者注中。 保留原有段落结构。
+
+输出形式：bilingual clauses。",translation,识别多种合理解释并说明澄清需求；跨语言保持术语和语域一致；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,合同片段包含交付批次、验收条件和一个指代不清的例外条款。,,,,,,,,,,
+review-pilot-q-translation-018,pilot-q-translation-018,"使用场景：A the data platform team notice contains dates, location, eligibility, and contingency changes.
+
+现有材料：Source text: A the data platform team notice contains dates, location, eligibility, and contingency changes. The work is divided into 15 batches, with a status review after item 96.
+
+需要完成：将下面的 source text 译为中文，并按给定输出要求交付。
+
+具体要求：核对双语术语的范围是否一致，并记录需要保留的原文标识。 Follow the requested fields exactly; use null for missing information and explain it in notes. 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 Preserve conditions, figures, and uncertainty without adding facts absent from the source. 必要说明放在译者注中。 保留原有段落结构。 术语译法保持一致。
+
+输出形式：bilingual notice。",translation,跨语言保持术语和语域一致；严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,mixed,en_to_zh,"A the data platform team notice contains dates, location, eligibility, and contingency changes.",,,,,,,,,,
+review-pilot-q-translation-019,pilot-q-translation-019,"请先遵守这些要求：保留原材料中的条件、数字和不确定性，不补写未提供的事实。 Check whether bilingual terms have the same scope and record identifiers that must remain unchanged. 综合相隔较远的材料，遇到冲突时指出各自适用范围。 Separate stated facts, established domain knowledge, and assumptions that still need verification. 术语译法保持一致。 保留原有段落结构。 不要擅自消除原文歧义。
+
+一份环境监测报告使用多个缩写，并在后文重新定义其中一个术语。 / A environmental monitoring report uses several abbreviations and redefines one term in a later section.
+
+现有中英文版本需要统一。中文：一份环境监测报告使用多个缩写，并在后文重新定义其中一个术语。 英文：A environmental monitoring report uses several abbreviations and redefines one term in a later section. The Chinese version records 133 items, while the English appendix mentions 14 review batches.
+
+Review the bilingual material，统一术语并给出修订后的双语版本。
+
+输出形式：terminology table。",translation,保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致；综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设,high; active_requirements=4; visible_constraints=8,mixed,bilingual_revision,一份环境监测报告使用多个缩写，并在后文重新定义其中一个术语。 / A environmental monitoring report uses several abbreviations and redefines one term in a later section.,,,,,,,,,,
+review-pilot-q-translation-020,pilot-q-translation-020,"报表流水线的界面文本含按钮、占位符、错误消息和字符长度限制。
+
+待译内容：报表流水线的界面文本含按钮、占位符、错误消息和字符长度限制。 计划分18批处理，并要求在第51项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：key-value table。
+
+完成前请逐项确认：保持字段顺序和层级，不得增加未声明的顶层字段。 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 依据给定语境选择译名，不要在同一文档中切换同义术语。 保留数字、日期和专有标识。 不要擅自消除原文歧义。",translation,严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,报表流水线的界面文本含按钮、占位符、错误消息和字符长度限制。,,,,,,,,,,
+review-pilot-q-translation-021,pilot-q-translation-021,"A bilingual incident record is split across a ticket, chat, and repair note, and its timeline must remain consistent.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+Source text: A bilingual incident record is split across a ticket, chat, and repair note, and its timeline must remain consistent. The work is divided into 9 batches, with a status review after item 146.
+
+术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 Resolve prerequisites first, then use their results to evaluate later branches. 同时使用开头的定义和后文的例外，保持跨段引用一致。 必要说明放在译者注中。 保留原有段落结构。
+
+输出形式：aligned timeline。",translation,跨语言保持术语和语域一致；连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"A bilingual incident record is split across a ticket, chat, and repair note, and its timeline must remain consistent.",,,,,,,,,,
+review-pilot-q-translation-022,pilot-q-translation-022,"使用场景：源文中的“其”和“该方案”可能分别指向前两段的不同对象。
+
+现有材料：待译内容：源文中的“其”和“该方案”可能分别指向前两段的不同对象。 计划分9批处理，并要求在第140项记录后再次核对状态。
+
+需要完成：将下面的源文译为英文，并按给定输出要求交付。
+
+具体要求：依据给定语境选择译名，不要在同一文档中切换同义术语。 同时使用开头的定义和后文的例外，保持跨段引用一致。 区分原文结论和编辑说明，所有实体与数值需保持一致。 必要说明放在译者注中。 保留数字、日期和专有标识。
+
+输出形式：translation with notes。",translation,跨语言保持术语和语域一致；综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,源文中的“其”和“该方案”可能分别指向前两段的不同对象。,,,,,,,,,,
+review-pilot-q-translation-023,pilot-q-translation-023,"请先遵守这些要求：最终答案需符合给定格式，并逐项核对必填内容。 Choose one translation when a term first appears, reuse it consistently, and preserve required abbreviations. 区分原文结论和编辑说明，所有实体与数值需保持一致。 Tie each key conclusion to its supporting passage and flag anything unverifiable. 术语译法保持一致。 必要说明放在译者注中。 保留原有段落结构。
+
+a teaching project provides a bilingual glossary, but historical material uses an old translation in 4 places.
+
+Source text: a teaching project provides a bilingual glossary, but historical material uses an old translation in 4 places. The work is divided into 4 batches, with a status review after item 87.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：change log。",translation,严格满足字段、格式、长度和结构约束；跨语言保持术语和语域一致；保留原意和事实，不添加材料外信息；区分材料事实、领域常识和待验证假设,high; active_requirements=4; visible_constraints=8,mixed,en_to_zh,"a teaching project provides a bilingual glossary, but historical material uses an old translation in 4 places.",,,,,,,,,,
+review-pilot-q-translation-024,pilot-q-translation-024,"日志平台的技术说明包含版本号、命令、参数名和故障恢复步骤。 / A technical note for the logging platform includes versions, commands, parameter names, and recovery steps.
+
+现有中英文版本需要统一。中文：日志平台的技术说明包含版本号、命令、参数名和故障恢复步骤。 英文：A technical note for the logging platform includes versions, commands, parameter names, and recovery steps. The Chinese version records 121 items, while the English appendix mentions 9 review batches.
+
+Review the bilingual material，统一术语并给出修订后的双语版本。
+
+输出形式：translated guide。
+
+完成前请逐项确认：保持字段顺序和层级，不得增加未声明的顶层字段。 Separate source conclusions from editorial notes and keep every entity and figure consistent. 术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 保留数字、日期和专有标识。 保留原有段落结构。",translation,严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,mixed,bilingual_revision,"日志平台的技术说明包含版本号、命令、参数名和故障恢复步骤。 / A technical note for the logging platform includes versions, commands, parameter names, and recovery steps.",,,,,,,,,,
+review-pilot-q-translation-025,pilot-q-translation-025,"合同片段包含交付批次、验收条件和一个指代不清的例外条款。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+待译内容：合同片段包含交付批次、验收条件和一个指代不清的例外条款。 计划分18批处理，并要求在第167项记录后再次核对状态。
+
+保持字段顺序和层级，不得增加未声明的顶层字段。 核对双语术语的范围是否一致，并记录需要保留的原文标识。 列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 不要擅自消除原文歧义。 必要说明放在译者注中。 保留数字、日期和专有标识。
+
+输出形式：clause-aligned translation。",translation,严格满足字段、格式、长度和结构约束；跨语言保持术语和语域一致；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,zh,zh_to_en,合同片段包含交付批次、验收条件和一个指代不清的例外条款。,,,,,,,,,,
+review-pilot-q-translation-026,pilot-q-translation-026,"使用场景：A the engineering team notice contains dates, location, eligibility, and contingency changes.
+
+现有材料：Source text: A the engineering team notice contains dates, location, eligibility, and contingency changes. The work is divided into 3 batches, with a status review after item 77.
+
+需要完成：将下面的 source text 译为中文，并按给定输出要求交付。
+
+具体要求：不要默认未说明的口径；先写出采用的解释及其影响。 Preserve field order and hierarchy without adding undeclared top-level fields. 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 术语译法保持一致。 保留原有段落结构。
+
+输出形式：bilingual notice。",translation,识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"A the engineering team notice contains dates, location, eligibility, and contingency changes.",,,,,,,,,,
+review-pilot-q-translation-027,pilot-q-translation-027,"请先遵守这些要求：综合相隔较远的材料，遇到冲突时指出各自适用范围。 核对双语术语的范围是否一致，并记录需要保留的原文标识。 区分原文结论和编辑说明，所有实体与数值需保持一致。 保留数字、日期和专有标识。 术语译法保持一致。
+
+一份软件交付报告使用多个缩写，并在后文重新定义其中一个术语。
+
+待译内容：一份软件交付报告使用多个缩写，并在后文重新定义其中一个术语。 计划分15批处理，并要求在第84项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：terminology table。",translation,综合相隔较远的材料并保持前后一致；跨语言保持术语和语域一致；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,一份软件交付报告使用多个缩写，并在后文重新定义其中一个术语。,,,,,,,,,,
+review-pilot-q-translation-028,pilot-q-translation-028,"The the logging platform UI text contains buttons, placeholders, errors, and character limits.
+
+Source text: The the logging platform UI text contains buttons, placeholders, errors, and character limits. The work is divided into 18 batches, with a status review after item 140.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：key-value table。
+
+完成前请逐项确认：区分原文结论和编辑说明，所有实体与数值需保持一致。 Select terminology from context and avoid switching synonyms within the same document. 保留数字、日期和专有标识。",translation,保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致,low; active_requirements=2; visible_constraints=4,mixed,en_to_zh,"The the logging platform UI text contains buttons, placeholders, errors, and character limits.",,,,,,,,,,
+review-pilot-q-translation-029,pilot-q-translation-029,"双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。 / A bilingual incident record is split across a ticket, chat, and repair note, and its timeline must remain consistent.
+
+Review the bilingual material，统一术语并给出修订后的双语版本。
+
+现有中英文版本需要统一。中文：双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。 英文：A bilingual incident record is split across a ticket, chat, and repair note, and its timeline must remain consistent. The Chinese version records 161 items, while the English appendix mentions 13 review batches.
+
+先处理前置条件，再利用其结果判断后续分支。 Integrate distant sections and state the scope of each when they conflict. 术语译法保持一致。
+
+输出形式：aligned timeline。",translation,连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致,low; active_requirements=2; visible_constraints=4,mixed,bilingual_revision,"双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。 / A bilingual incident record is split across a ticket, chat, and repair note, and its timeline must remain consistent.",,,,,,,,,,
+review-pilot-q-translation-030,pilot-q-translation-030,"使用场景：源文中的“其”和“该方案”可能分别指向前两段的不同对象。
+
+现有材料：待译内容：源文中的“其”和“该方案”可能分别指向前两段的不同对象。 计划分10批处理，并要求在第140项记录后再次核对状态。
+
+需要完成：将下面的源文译为英文，并按给定输出要求交付。
+
+具体要求：综合相隔较远的材料，遇到冲突时指出各自适用范围。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 区分原文结论和编辑说明，所有实体与数值需保持一致。 核对双语术语的范围是否一致，并记录需要保留的原文标识。 术语译法保持一致。 必要说明放在译者注中。 不要擅自消除原文歧义。
+
+输出形式：reference table。",translation,综合相隔较远的材料并保持前后一致；识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致,high; active_requirements=4; visible_constraints=8,zh,zh_to_en,源文中的“其”和“该方案”可能分别指向前两段的不同对象。,,,,,,,,,,
+review-pilot-q-translation-031,pilot-q-translation-031,"请先遵守这些要求：区分原文结论和编辑说明，所有实体与数值需保持一致。 Follow the requested fields exactly; use null for missing information and explain it in notes. 核对双语术语的范围是否一致，并记录需要保留的原文标识。 保留原有段落结构。 必要说明放在译者注中。
+
+the operations center provides a bilingual glossary, but historical material uses an old translation in 7 places.
+
+Source text: the operations center provides a bilingual glossary, but historical material uses an old translation in 7 places. The work is divided into 7 batches, with a status review after item 126.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：change log。",translation,保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"the operations center provides a bilingual glossary, but historical material uses an old translation in 7 places.",,,,,,,,,,
+review-pilot-q-translation-032,pilot-q-translation-032,"报表流水线的技术说明包含版本号、命令、参数名和故障恢复步骤。
+
+待译内容：报表流水线的技术说明包含版本号、命令、参数名和故障恢复步骤。 计划分6批处理，并要求在第59项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：translated guide。
+
+完成前请逐项确认：术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 考虑接口版本、分页和失败重试，并保留可诊断的错误信息。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 保留原有段落结构。 保留数字、日期和专有标识。",translation,跨语言保持术语和语域一致；遵守接口或库约束并处理失败路径；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,报表流水线的技术说明包含版本号、命令、参数名和故障恢复步骤。,,,,,,,,,,
+review-pilot-q-translation-033,pilot-q-translation-033,"A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+Source text: A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference. The work is divided into 4 batches, with a status review after item 86.
+
+区分原文结论和编辑说明，所有实体与数值需保持一致。 Match the requested format and verify every required item before finishing. 依据给定语境选择译名，不要在同一文档中切换同义术语。 不要擅自消除原文歧义。 术语译法保持一致。
+
+输出形式：clause-aligned translation。",translation,保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.",,,,,,,,,,
+review-pilot-q-translation-034,pilot-q-translation-034,"使用场景：运维中心的通知包含日期、地点、报名条件和临时变更安排。 / A the operations center notice contains dates, location, eligibility, and contingency changes.
+
+现有材料：现有中英文版本需要统一。中文：运维中心的通知包含日期、地点、报名条件和临时变更安排。 英文：A the operations center notice contains dates, location, eligibility, and contingency changes. The Chinese version records 97 items, while the English appendix mentions 3 review batches.
+
+需要完成：Review the bilingual material，统一术语并给出修订后的双语版本。
+
+具体要求：区分原文结论和编辑说明，所有实体与数值需保持一致。 Match the requested format and verify every required item before finishing. 依据给定语境选择译名，不要在同一文档中切换同义术语。 保留原有段落结构。 必要说明放在译者注中。
+
+输出形式：formatted notice。",translation,保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,mixed,bilingual_revision,"运维中心的通知包含日期、地点、报名条件和临时变更安排。 / A the operations center notice contains dates, location, eligibility, and contingency changes.",,,,,,,,,,
+review-pilot-q-translation-035,pilot-q-translation-035,"请先遵守这些要求：把材料中明确给出的事实、常见领域知识和仍待确认的假设分开。 区分原文结论和编辑说明，所有实体与数值需保持一致。 必要说明放在译者注中。
+
+一份供应链报告使用多个缩写，并在后文重新定义其中一个术语。
+
+待译内容：一份供应链报告使用多个缩写，并在后文重新定义其中一个术语。 计划分12批处理，并要求在第156项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：annotated translation。",translation,区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息,low; active_requirements=2; visible_constraints=4,zh,zh_to_en,一份供应链报告使用多个缩写，并在后文重新定义其中一个术语。,,,,,,,,,,
+review-pilot-q-translation-036,pilot-q-translation-036,"The the asset system UI text contains buttons, placeholders, errors, and character limits.
+
+Source text: The the asset system UI text contains buttons, placeholders, errors, and character limits. The work is divided into 9 batches, with a status review after item 100.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：key-value table。
+
+完成前请逐项确认：术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 State version prerequisites, timeout handling, and response-field validation. 保留数字、日期和专有标识。",translation,跨语言保持术语和语域一致；遵守接口或库约束并处理失败路径,low; active_requirements=2; visible_constraints=4,mixed,en_to_zh,"The the asset system UI text contains buttons, placeholders, errors, and character limits.",,,,,,,,,,
+review-pilot-q-translation-037,pilot-q-translation-037,"双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+待译内容：双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。 计划分15批处理，并要求在第141项记录后再次核对状态。
+
+综合相隔较远的材料，遇到冲突时指出各自适用范围。 术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 不要擅自消除原文歧义。 术语译法保持一致。
+
+输出形式：aligned timeline。",translation,综合相隔较远的材料并保持前后一致；跨语言保持术语和语域一致；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。,,,,,,,,,,
+review-pilot-q-translation-038,pilot-q-translation-038,"使用场景：In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs.
+
+现有材料：Source text: In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs. The work is divided into 15 batches, with a status review after item 120.
+
+需要完成：将下面的 source text 译为中文，并按给定输出要求交付。
+
+具体要求：不要默认未说明的口径；先写出采用的解释及其影响。 Do not reverse causality or omit limitations while condensing or rewriting. 依据给定语境选择译名，不要在同一文档中切换同义术语。 不要擅自消除原文歧义。 必要说明放在译者注中。
+
+输出形式：translation with notes。",translation,识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs.",,,,,,,,,,
+review-pilot-q-translation-039,pilot-q-translation-039,"请先遵守这些要求：核对双语术语的范围是否一致，并记录需要保留的原文标识。 Follow the requested fields exactly; use null for missing information and explain it in notes. 压缩或改写时不得改变因果方向，也不要遗漏限制条件。 必要说明放在译者注中。 保留原有段落结构。
+
+研发团队提供了双语术语表，但历史材料中有13处使用了旧译名。 / the engineering team provides a bilingual glossary, but historical material uses an old translation in 13 places.
+
+现有中英文版本需要统一。中文：研发团队提供了双语术语表，但历史材料中有13处使用了旧译名。 英文：the engineering team provides a bilingual glossary, but historical material uses an old translation in 13 places. The Chinese version records 163 items, while the English appendix mentions 13 review batches.
+
+Review the bilingual material，统一术语并给出修订后的双语版本。
+
+输出形式：revised translation。",translation,跨语言保持术语和语域一致；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,medium; active_requirements=3; visible_constraints=6,mixed,bilingual_revision,"研发团队提供了双语术语表，但历史材料中有13处使用了旧译名。 / the engineering team provides a bilingual glossary, but historical material uses an old translation in 13 places.",,,,,,,,,,
+review-pilot-q-translation-040,pilot-q-translation-040,"订单服务的技术说明包含版本号、命令、参数名和故障恢复步骤。
+
+待译内容：订单服务的技术说明包含版本号、命令、参数名和故障恢复步骤。 计划分14批处理，并要求在第124项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：parallel translation。
+
+完成前请逐项确认：压缩或改写时不得改变因果方向，也不要遗漏限制条件。 调用过程需要说明版本前提、超时处理和返回字段校验。 最终答案需符合给定格式，并逐项核对必填内容。 术语译法保持一致。 保留原有段落结构。",translation,保留原意和事实，不添加材料外信息；遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,订单服务的技术说明包含版本号、命令、参数名和故障恢复步骤。,,,,,,,,,,
+review-pilot-q-translation-041,pilot-q-translation-041,"A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+Source text: A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference. The work is divided into 12 batches, with a status review after item 137.
+
+术语首次出现时给出统一译法，后文保持一致并保留必要英文缩写。 Do not assume an unstated definition; declare the chosen interpretation and its effect. 保持字段顺序和层级，不得增加未声明的顶层字段。 不要擅自消除原文歧义。 保留原有段落结构。
+
+输出形式：bilingual clauses。",translation,跨语言保持术语和语域一致；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.",,,,,,,,,,
+review-pilot-q-translation-042,pilot-q-translation-042,"使用场景：区域服务部门的通知包含日期、地点、报名条件和临时变更安排。
+
+现有材料：待译内容：区域服务部门的通知包含日期、地点、报名条件和临时变更安排。 计划分11批处理，并要求在第109项记录后再次核对状态。
+
+需要完成：将下面的源文译为英文，并按给定输出要求交付。
+
+具体要求：严格按指定字段输出；缺少信息时使用空值并在备注中解释。 发现指代或范围不唯一时保留歧义，并提出具体澄清问题。 术语译法保持一致。
+
+输出形式：formatted notice。",translation,严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求,low; active_requirements=2; visible_constraints=4,zh,zh_to_en,区域服务部门的通知包含日期、地点、报名条件和临时变更安排。,,,,,,,,,,
+review-pilot-q-translation-043,pilot-q-translation-043,"请先遵守这些要求：依据给定语境选择译名，不要在同一文档中切换同义术语。 Integrate distant sections and state the scope of each when they conflict. 保留原有段落结构。
+
+A environmental monitoring report uses several abbreviations and redefines one term in a later section.
+
+Source text: A environmental monitoring report uses several abbreviations and redefines one term in a later section. The work is divided into 3 batches, with a status review after item 107.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：terminology table。",translation,跨语言保持术语和语域一致；综合相隔较远的材料并保持前后一致,low; active_requirements=2; visible_constraints=4,mixed,en_to_zh,A environmental monitoring report uses several abbreviations and redefines one term in a later section.,,,,,,,,,,
+review-pilot-q-translation-044,pilot-q-translation-044,"订单服务的界面文本含按钮、占位符、错误消息和字符长度限制。 / The the order service UI text contains buttons, placeholders, errors, and character limits.
+
+现有中英文版本需要统一。中文：订单服务的界面文本含按钮、占位符、错误消息和字符长度限制。 英文：The the order service UI text contains buttons, placeholders, errors, and character limits. The Chinese version records 132 items, while the English appendix mentions 14 review batches.
+
+Review the bilingual material，统一术语并给出修订后的双语版本。
+
+输出形式：key-value table。
+
+完成前请逐项确认：请覆盖限流、部分成功和接口返回缺少字段的情况。 Select terminology from context and avoid switching synonyms within the same document. 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 术语译法保持一致。 不要擅自消除原文歧义。",translation,遵守接口或库约束并处理失败路径；跨语言保持术语和语域一致；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,mixed,bilingual_revision,"订单服务的界面文本含按钮、占位符、错误消息和字符长度限制。 / The the order service UI text contains buttons, placeholders, errors, and character limits.",,,,,,,,,,
+review-pilot-q-translation-045,pilot-q-translation-045,"双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+待译内容：双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。 计划分11批处理，并要求在第49项记录后再次核对状态。
+
+保留原材料中的条件、数字和不确定性，不补写未提供的事实。 依据给定语境选择译名，不要在同一文档中切换同义术语。 结论需要覆盖材料前、中、后三部分，不能只依据最近一段。 保留数字、日期和专有标识。 必要说明放在译者注中。
+
+输出形式：merged translation。",translation,保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致；综合相隔较远的材料并保持前后一致,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,双语故障记录分散在工单、聊天和修复说明中，时间线需要保持一致。,,,,,,,,,,
+review-pilot-q-translation-046,pilot-q-translation-046,"使用场景：In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs.
+
+现有材料：Source text: In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs. The work is divided into 5 batches, with a status review after item 152.
+
+需要完成：将下面的 source text 译为中文，并按给定输出要求交付。
+
+具体要求：区分原文结论和编辑说明，所有实体与数值需保持一致。 Do not assume an unstated definition; declare the chosen interpretation and its effect. 依据给定语境选择译名，不要在同一文档中切换同义术语。 术语译法保持一致。 必要说明放在译者注中。
+
+输出形式：reference table。",translation,保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求；跨语言保持术语和语域一致,medium; active_requirements=3; visible_constraints=6,mixed,en_to_zh,"In the source, 'it' and 'the proposal' may refer to different entities in the preceding paragraphs.",,,,,,,,,,
+review-pilot-q-translation-047,pilot-q-translation-047,"请先遵守这些要求：遇到领域术语时给出准确含义，不把推测写成已证实事实。 保留原材料中的条件、数字和不确定性，不补写未提供的事实。 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 保留原有段落结构。 保留数字、日期和专有标识。
+
+运维中心提供了双语术语表，但历史材料中有11处使用了旧译名。
+
+待译内容：运维中心提供了双语术语表，但历史材料中有11处使用了旧译名。 计划分11批处理，并要求在第28项记录后再次核对状态。
+
+将下面的源文译为英文，并按给定输出要求交付。
+
+输出形式：change log。",translation,区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束,medium; active_requirements=3; visible_constraints=6,zh,zh_to_en,运维中心提供了双语术语表，但历史材料中有11处使用了旧译名。,,,,,,,,,,
+review-pilot-q-translation-048,pilot-q-translation-048,"A technical note for the knowledge-base API includes versions, commands, parameter names, and recovery steps.
+
+Source text: A technical note for the knowledge-base API includes versions, commands, parameter names, and recovery steps. The work is divided into 9 batches, with a status review after item 121.
+
+将下面的 source text 译为中文，并按给定输出要求交付。
+
+输出形式：translated guide。
+
+完成前请逐项确认：请覆盖限流、部分成功和接口返回缺少字段的情况。 Choose one translation when a term first appears, reuse it consistently, and preserve required abbreviations. 必要说明放在译者注中。",translation,遵守接口或库约束并处理失败路径；跨语言保持术语和语域一致,low; active_requirements=2; visible_constraints=4,mixed,en_to_zh,"A technical note for the knowledge-base API includes versions, commands, parameter names, and recovery steps.",,,,,,,,,,
+review-pilot-q-translation-049,pilot-q-translation-049,"合同片段包含交付批次、验收条件和一个指代不清的例外条款。 / A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.
+
+Review the bilingual material，统一术语并给出修订后的双语版本。
+
+现有中英文版本需要统一。中文：合同片段包含交付批次、验收条件和一个指代不清的例外条款。 英文：A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference. The Chinese version records 86 items, while the English appendix mentions 17 review batches.
+
+列出可能影响答案的两种解释，并说明需要补充哪项信息才能确定。 Choose one translation when a term first appears, reuse it consistently, and preserve required abbreviations. 严格按指定字段输出；缺少信息时使用空值并在备注中解释。 Separate source conclusions from editorial notes and keep every entity and figure consistent. 术语译法保持一致。 保留原有段落结构。 保留数字、日期和专有标识。
+
+输出形式：clause-aligned translation。",translation,识别多种合理解释并说明澄清需求；跨语言保持术语和语域一致；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,high; active_requirements=4; visible_constraints=8,mixed,bilingual_revision,"合同片段包含交付批次、验收条件和一个指代不清的例外条款。 / A contract excerpt includes delivery batches, acceptance conditions, and an exception with an unclear reference.",,,,,,,,,,
