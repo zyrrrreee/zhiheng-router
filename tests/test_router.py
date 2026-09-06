@@ -48,6 +48,21 @@ def test_cost_just_outside_tolerance_cannot_win_by_latency():
     assert decide(rows, P(.8, .5)).selected_model == "a"
 
 
+def test_decimal_cost_tolerance_boundary_is_inclusive():
+    rows = [E("a", .9, 1.0, 100), E("b", .9, 1.1, 1)]
+    assert decide(rows, P(.8, .1)).selected_model == "b"
+
+
+def test_decimal_cost_above_real_tolerance_is_excluded():
+    rows = [E("a", .9, 1.0, 100), E("b", .9, 1.1000001, 1)]
+    assert decide(rows, P(.8, .1)).selected_model == "a"
+
+
+def test_zero_tolerance_does_not_include_next_more_expensive_float():
+    rows = [E("a", .9, 1.0, 100), E("b", .9, 1.0000000000000002, 1)]
+    assert decide(rows, P(.8, 0.0)).selected_model == "a"
+
+
 def test_latency_tie_within_band_uses_cost_before_id():
     rows = [E("a", .9, 10.5, 50), E("z", .85, 10, 50)]
     assert decide(rows, P(.8, 1)).selected_model == "z"

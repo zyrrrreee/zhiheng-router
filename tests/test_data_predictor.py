@@ -1,5 +1,6 @@
 """Input, group isolation, training and serialization checks."""
 
+from copy import deepcopy
 from dataclasses import asdict, replace
 import hashlib
 import json
@@ -11,6 +12,7 @@ from scipy.sparse import issparse
 from sklearn.exceptions import ConvergenceWarning
 from threadpoolctl import threadpool_limits
 
+import experiments.make_development_data as development_data
 from experiments.make_development_data import generate_records, write_dataset
 from experiments.run import run_experiment
 from zhiheng_router.data import group_split, load_history, read_config, validate_history
@@ -165,18 +167,89 @@ def test_unknown_model_rejected(trained, observations):
         summarize_models(observations, ["missing"], .8)
 
 
-def test_artifact_round_trip_preserves_decisions(trained, observations, tmp_path):
+def make_artifact(trained, observations):
     statistics = summarize_models(observations, ["a", "b"], .8)
     candidates = (ModelCandidate("a"), ModelCandidate("b"))
-    artifact = RoutingArtifact(trained, statistics, candidates, RoutingPolicy(),
-                               {"source_kind": "synthetic"}, {"training": {"quality_score_threshold": .8}}, {})
+    policy = RoutingPolicy()
+    config = {
+        "models": [asdict(candidate) for candidate in candidates],
+        "features": asdict(trained.features.config),
+        "training": asdict(trained.config),
+        "policy": asdict(policy),
+    }
+    return RoutingArtifact(deepcopy(trained), statistics, candidates, policy,
+                           {"source_kind": "synthetic"}, config, {})
+
+
+def test_artifact_round_trip_preserves_decisions(trained, observations, tmp_path):
+    artifact = make_artifact(trained, observations)
     path = tmp_path / "router.joblib"
     save_artifact(artifact, path)
     restored = load_artifact(path)
     query = "数学求解 x = 2"
-    original = route(candidates, estimate_candidates(query, ["a", "b"], trained, statistics), artifact.policy)
-    reloaded = route(candidates, estimate_candidates(query, ["a", "b"], restored.predictor, restored.statistics), restored.policy)
+    original = route(artifact.candidates, estimate_candidates(
+        query, ["a", "b"], artifact.predictor, artifact.statistics), artifact.policy)
+    reloaded = route(restored.candidates, estimate_candidates(
+        query, ["a", "b"], restored.predictor, restored.statistics), restored.policy)
     assert original == reloaded
+
+
+@pytest.mark.parametrize("field,value", [
+    ("router_probability_threshold", .9),
+    ("cost_tolerance_abs", .1),
+])
+def test_artifact_rejects_policy_drift(trained, observations, tmp_path, field, value):
+    artifact = make_artifact(trained, observations)
+    artifact.policy = replace(artifact.policy, **{field: value})
+    path = tmp_path / f"policy-{field}.joblib"
+    save_artifact(artifact, path)
+    with pytest.raises(ValueError, match="RoutingPolicy"):
+        load_artifact(path)
+
+
+def test_artifact_rejects_predictor_quality_threshold_drift(trained, observations, tmp_path):
+    artifact = make_artifact(trained, observations)
+    artifact.predictor.quality_score_threshold = .9
+    path = tmp_path / "quality-threshold.joblib"
+    save_artifact(artifact, path)
+    with pytest.raises(ValueError, match="quality_score_threshold"):
+        load_artifact(path)
+
+
+def test_artifact_rejects_config_quality_threshold_drift(trained, observations, tmp_path):
+    artifact = make_artifact(trained, observations)
+    artifact.config["training"]["quality_score_threshold"] = .9
+    path = tmp_path / "config-quality-threshold.joblib"
+    save_artifact(artifact, path)
+    with pytest.raises(ValueError, match="quality_score_threshold"):
+        load_artifact(path)
+
+
+def test_artifact_rejects_missing_predictor_model(trained, observations, tmp_path):
+    artifact = make_artifact(trained, observations)
+    artifact.predictor.models.pop("b")
+    path = tmp_path / "missing-predictor-model.joblib"
+    save_artifact(artifact, path)
+    with pytest.raises(ValueError, match="predictor models"):
+        load_artifact(path)
+
+
+def test_artifact_rejects_missing_model_statistics(trained, observations, tmp_path):
+    artifact = make_artifact(trained, observations)
+    artifact.statistics.pop("b")
+    path = tmp_path / "missing-statistics.joblib"
+    save_artifact(artifact, path)
+    with pytest.raises(ValueError, match="training statistics"):
+        load_artifact(path)
+
+
+def test_artifact_rejects_extra_unknown_model(trained, observations, tmp_path):
+    artifact = make_artifact(trained, observations)
+    artifact.predictor.models["unknown"] = artifact.predictor.models["a"]
+    path = tmp_path / "extra-predictor-model.joblib"
+    save_artifact(artifact, path)
+    with pytest.raises(ValueError, match=r"extra=\['unknown'\]"):
+        load_artifact(path)
 
 
 def test_generator_reproducibility_coverage_and_nontrivial_outcomes(tmp_path):
@@ -199,6 +272,61 @@ def test_generator_reproducibility_coverage_and_nontrivial_outcomes(tmp_path):
     assert b"\r\n" not in (tmp_path / config["manifest_path"]).read_bytes()
     write_dataset(config, tmp_path)
     assert original == (tmp_path / config["data_path"]).read_bytes()
+
+
+@pytest.mark.parametrize("path,value,message", [
+    (("seed",), None, "seed"),
+    (("profiles", "dev-model-b", "task_bonus", "code"), float("nan"), "task_bonus.code"),
+    (("profiles", "dev-model-a", "ability"), float("inf"), "ability"),
+    (("profiles", "dev-model-a", "difficulty_penalty"), float("nan"), "difficulty_penalty"),
+    (("profiles", "dev-model-c", "base_cost"), 0.0, "base_cost"),
+    (("profiles", "dev-model-d", "base_latency_ms"), -1.0, "base_latency_ms"),
+    (("quality_noise_std",), float("inf"), "quality_noise_std"),
+])
+def test_generator_rejects_invalid_configuration_before_generation(path, value, message):
+    config = read_config(ROOT / "configs/mvp.json")
+    target = config["generator"]
+    for key in path[:-1]:
+        target = target[key]
+    target[path[-1]] = value
+    with pytest.raises(ValueError, match=message):
+        generate_records(config)
+
+
+def test_invalid_generator_config_leaves_existing_files_unchanged(tmp_path):
+    config = read_config(ROOT / "configs/mvp.json")
+    write_dataset(config, tmp_path)
+    data_path = tmp_path / config["data_path"]
+    meta_path = tmp_path / config["manifest_path"]
+    before = data_path.read_bytes(), meta_path.read_bytes()
+    invalid = deepcopy(config)
+    invalid["generator"]["profiles"]["dev-model-b"]["task_bonus"]["code"] = float("nan")
+    with pytest.raises(ValueError, match="task_bonus.code"):
+        write_dataset(invalid, tmp_path)
+    assert (data_path.read_bytes(), meta_path.read_bytes()) == before
+
+
+def test_pair_replacement_failure_rolls_back_both_files(tmp_path, monkeypatch):
+    config = read_config(ROOT / "configs/mvp.json")
+    write_dataset(config, tmp_path)
+    data_path = tmp_path / config["data_path"]
+    meta_path = tmp_path / config["manifest_path"]
+    before = data_path.read_bytes(), meta_path.read_bytes()
+    real_replace = development_data.os.replace
+    calls = 0
+
+    def fail_second_replace(source, destination):
+        nonlocal calls
+        calls += 1
+        if calls == 2:
+            raise OSError("simulated manifest replace failure")
+        return real_replace(source, destination)
+
+    monkeypatch.setattr(development_data.os, "replace", fail_second_replace)
+    with pytest.raises(OSError, match="manifest replace"):
+        write_dataset(config, tmp_path)
+    assert (data_path.read_bytes(), meta_path.read_bytes()) == before
+    assert not list(tmp_path.rglob("*.tmp"))
 
 
 def test_test_outcome_changes_cannot_change_training_or_selection(tmp_path):

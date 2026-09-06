@@ -34,7 +34,7 @@ TF-IDF 仅在唯一训练 Query 上拟合。长度与近似片段数先做 log1p
 
 - `quality_score_threshold`：`quality_score >= threshold` 定义 pass label，属于训练配置并随产物保存；修改它需要重训。
 - `router_probability_threshold`：筛选预测达标概率，属于 RoutingPolicy。
-- `cost_tolerance_abs`：相对全部 qualified 模型的最低估计成本计算差值；差值不超过容差者进入时延比较。默认 0.0。正容差是项目扩展，不是命题的固定要求。
+- `cost_tolerance_abs`：相对全部 qualified 模型的最低估计成本计算差值；差值不超过容差者进入时延比较。默认 0.0。零容差使用严格的浮点成本相等，不引入隐式 epsilon；正容差将已验证浮点值的十进制文本表示转换为 `Decimal` 后比较，避免 `1.1 - 1.0` 的二进制舍入误差错误排除边界值。正容差是项目扩展，不是命题的固定要求。
 
 `route(candidates, estimates, policy)` 是纯函数，不训练、不调用模型、不读取历史或测试标签。
 
@@ -50,8 +50,10 @@ Fallback：无 qualified 模型时，按 `-pass_probability, cost, latency, mode
 |---|---|
 | Always Strongest | 训练集平均质量最高的固定模型，平局按 ID |
 | Always Lowest Cost | 训练集平均成本最低的固定模型，平局按 ID |
-| Rule-based | 配置中预先声明的 hint → model 映射 |
+| Expert Rule-based | 配置中预先声明的 Query-only task hint → model 映射 |
 | Global Historical Router | 用训练集模型达标率替代 Query-aware 概率，复用同一 Router Policy，固定全局选择 |
+
+Expert Rule-based Baseline 使用较强的人工先验：当前 synthetic generator 的模型任务专长与预设 hint → model 映射具有明显结构一致性。这不是 test label leakage，因为规则只读取 Query 并且未查询测试 outcome；但当前结果既不能证明规则方法一般优于 Query-aware routing，也没有证明 Query-aware Router 优于规则方法。v0.2 将通过更丰富的 within-task heterogeneity、learned task-rule baseline、hint ablation 和新的冻结测试集进一步评价，本版不据此调整规则、数据或结果。
 
 前三种策略没有概率门槛，fallback 相关指标为 `null`（不适用），不是 0%。Global Historical Router 与 Query-aware Router 报告真实的 fallback 标记。某个 normal/fallback 子集为空时，其达标率也为 `null`，避免把无样本写成零。
 

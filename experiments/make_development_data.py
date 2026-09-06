@@ -5,8 +5,10 @@ from dataclasses import asdict
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import random
+import tempfile
 
 from zhiheng_router.data import read_config, validate_history
 from zhiheng_router.schemas import HistoricalRecord, finite_number
@@ -98,7 +100,7 @@ REQUIREMENTS = [
 STYLES = ["使用简洁中文。", "面向初学者解释。", "保留必要的 English 术语。", "按条目组织答案。"]
 
 
-def generate_records(config: dict) -> tuple[list[HistoricalRecord], dict]:
+def _validate_generator_config(config: dict) -> tuple[dict, list[str]]:
     settings = config["generator"]
     expected_ids = [f"dev-model-{letter}" for letter in "abcde"]
     if sorted(m["model_id"] for m in config["models"]) != expected_ids:
@@ -108,15 +110,35 @@ def generate_records(config: dict) -> tuple[list[HistoricalRecord], dict]:
     variants = settings["variants_per_group"]
     if type(variants) is not int or variants < 4:
         raise ValueError("variants_per_group must be an integer >= 4 to cover difficulty levels")
+    if type(settings["seed"]) is not int or settings["seed"] < 0:
+        raise ValueError("generator seed must be a nonnegative integer")
     for name in ("quality_noise_std", "query_shock_std", "group_effect_std", "latency_log_std", "cost_log_std"):
         finite_number(settings[name], name)
+    task_types = set(TEMPLATES)
+    for model_id in expected_ids:
+        profile = settings["profiles"][model_id]
+        finite_number(profile["ability"], f"{model_id}.ability", maximum=1.0)
+        finite_number(profile["difficulty_penalty"], f"{model_id}.difficulty_penalty", maximum=1.0)
+        for name in ("base_cost", "base_latency_ms"):
+            finite_number(profile[name], f"{model_id}.{name}")
+            if profile[name] == 0:
+                raise ValueError(f"{model_id}.{name} must be positive")
+        if set(profile["task_bonus"]) != task_types:
+            raise ValueError(f"{model_id}.task_bonus must cover exactly {sorted(task_types)}")
+        for task_type, bonus in profile["task_bonus"].items():
+            finite_number(bonus, f"{model_id}.task_bonus.{task_type}", minimum=-1.0, maximum=1.0)
+    return settings, expected_ids
+
+
+def generate_records(config: dict) -> tuple[list[HistoricalRecord], dict]:
+    settings, expected_ids = _validate_generator_config(config)
     rng = random.Random(settings["seed"])
     records = []
     for task_type, templates in TEMPLATES.items():
         for template_index, template in enumerate(templates):
             group_id = f"{task_type}-family-{template_index:02d}"
             group_effect = rng.gauss(0, settings["group_effect_std"])
-            for variant in range(variants):
+            for variant in range(settings["variants_per_group"]):
                 # Difficulty has visible constraints plus unobserved continuous variation.
                 level = variant % len(REQUIREMENTS)
                 difficulty = min(1.0, max(0.0, (level + rng.uniform(0.05, 0.95)) / 4))
@@ -158,15 +180,59 @@ def generate_records(config: dict) -> tuple[list[HistoricalRecord], dict]:
     return records, manifest
 
 
+def _stage_file(path: Path, content: bytes) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+            mode="wb", dir=path.parent, prefix=f".{path.name}.", suffix=".tmp", delete=False) as handle:
+        handle.write(content)
+        handle.flush()
+        os.fsync(handle.fileno())
+        return Path(handle.name)
+
+
+def _replace_pair(data_path: Path, data_content: bytes,
+                  meta_path: Path, meta_content: bytes) -> None:
+    if data_path.resolve() == meta_path.resolve():
+        raise ValueError("data_path and manifest_path must be different files")
+    targets = ((data_path, data_content), (meta_path, meta_content))
+    staged: list[Path] = []
+    backups: list[Path | None] = []
+    replaced: list[int] = []
+    try:
+        for path, content in targets:
+            staged.append(_stage_file(path, content))
+            backups.append(_stage_file(path, path.read_bytes()) if path.exists() else None)
+        for index, (path, _) in enumerate(targets):
+            os.replace(staged[index], path)
+            replaced.append(index)
+        staged.clear()
+    except Exception:
+        rollback_errors = []
+        for index in reversed(replaced):
+            path = targets[index][0]
+            try:
+                if backups[index] is None:
+                    path.unlink(missing_ok=True)
+                else:
+                    os.replace(backups[index], path)
+                    backups[index] = None
+            except OSError as exc:
+                rollback_errors.append(exc)
+        if rollback_errors:
+            raise RuntimeError("dataset update failed and rollback was incomplete") from rollback_errors[0]
+        raise
+    finally:
+        for temporary in (*staged, *(backup for backup in backups if backup is not None)):
+            temporary.unlink(missing_ok=True)
+
+
 def write_dataset(config: dict, root: Path = ROOT) -> dict:
     rows, manifest = generate_records(config)
     content = "".join(json.dumps(asdict(r), ensure_ascii=False, allow_nan=False) + "\n" for r in rows).encode("utf-8")
     manifest["sha256"] = hashlib.sha256(content).hexdigest()
+    meta_content = (json.dumps(manifest, ensure_ascii=False, indent=2, allow_nan=False) + "\n").encode("utf-8")
     data_path, meta_path = root / config["data_path"], root / config["manifest_path"]
-    data_path.parent.mkdir(parents=True, exist_ok=True)
-    meta_path.parent.mkdir(parents=True, exist_ok=True)
-    data_path.write_bytes(content)
-    meta_path.write_bytes((json.dumps(manifest, ensure_ascii=False, indent=2, allow_nan=False) + "\n").encode("utf-8"))
+    _replace_pair(data_path, content, meta_path, meta_content)
     return manifest
 
 

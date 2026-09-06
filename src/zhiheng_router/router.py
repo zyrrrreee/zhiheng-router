@@ -1,8 +1,16 @@
 """Pure quality-constraint -> cost -> latency selection, without model calls."""
 
 from collections.abc import Sequence
+from decimal import Decimal
 
 from .schemas import CandidateEstimate, ModelCandidate, RoutingDecision, RoutingPolicy
+
+
+def _within_cost_band(cost: float, minimum_cost: float, tolerance: float) -> bool:
+    """Apply exact minimum-cost semantics at zero and decimal boundary semantics above zero."""
+    if tolerance == 0.0:
+        return cost == minimum_cost
+    return Decimal(str(cost)) - Decimal(str(minimum_cost)) <= Decimal(str(tolerance))
 
 
 def route(candidates: Sequence[ModelCandidate], estimates: Sequence[CandidateEstimate],
@@ -32,7 +40,7 @@ def route(candidates: Sequence[ModelCandidate], estimates: Sequence[CandidateEst
     if qualified:
         minimum_cost = min(e.estimated_cost for e in qualified)
         band = [e for e in qualified
-                if e.estimated_cost - minimum_cost <= policy.cost_tolerance_abs]
+                if _within_cost_band(e.estimated_cost, minimum_cost, policy.cost_tolerance_abs)]
         selected = min(band, key=lambda e: (e.estimated_latency_ms, e.estimated_cost, e.model_id))
         reason = ("QUALIFIED_ONLY_MODEL" if len(qualified) == 1 else
                   "QUALIFIED_MINIMUM_COST" if len(band) == 1 else
