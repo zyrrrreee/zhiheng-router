@@ -2,6 +2,32 @@
 
 > 基于历史感知的大模型智能网管系统
 
+## Router MVP 快速运行
+
+当前已实现离线 Router MVP：共享字符 TF-IDF 和结构特征、每模型独立 Logistic Regression、训练集成本/时延均值、质量约束路由，以及四个 Baseline。
+
+**当前数据全部为 SYNTHETIC DEVELOPMENT DATA。质量、模型调用成本和模型时延结果均为 simulated；未调用真实模型，概率不代表实际质量保证。**
+
+推荐使用 Python 3.12（本地验证版本为 3.12.14）。在仓库根目录运行以下 PowerShell 命令；其他系统使用相应的虚拟环境激活命令。
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -e ".[dev]"
+python experiments/make_development_data.py
+python experiments/run.py
+python -m pytest -q
+python demo.py
+```
+
+若系统默认 Python 不是 3.12，第一步请使用已安装的 Python 3.12 解释器。已创建虚拟环境时直接从激活步骤开始；也可不激活，使用 `.\.venv\Scripts\python.exe` 替代各命令中的 `python`。
+
+参数位于 [configs/mvp.json](configs/mvp.json)。实验产生 `outputs/mvp/report.json` 和 `outputs/mvp/router.joblib`；Demo 读取产物中保存的配置，不重新训练。只加载本地生成、可信的 joblib 文件。
+
+`quality_score_threshold` 定义训练标签，修改后必须重新训练；`router_probability_threshold` 和 `cost_tolerance_abs` 定义路由策略。后者默认零，严格执行质量门槛 → 最低成本 → 时延。Cost / Latency 目前是每模型固定训练均值。
+
+详细的数据口径、接口边界和复现说明见 [Router MVP 使用与实现约定](docs/Router-MVP.md)。下文第 8 节目录树及早期阶段计划保留为长期规划，当前包实际位于 `src/zhiheng_router/`。
+
 ## 1. 项目简介
 
 Zhiheng Router（智衡路由）是面向多大模型服务集群的智能路由与网管系统。
@@ -240,8 +266,8 @@ zhiheng-router/
 - [x] 完成项目基本需求理解
 - [ ] 完成解决方案 V1
 - [ ] 完成数据方案
-- [ ] 完成 Baseline
-- [ ] 完成 Router MVP
+- [x] 完成 Baseline（离线四基线）
+- [x] 完成 Router MVP（synthetic development 范围）
 - [ ] 完成多模型接入
 - [ ] 完成鲲鹏部署
 - [ ] 完成完整实验

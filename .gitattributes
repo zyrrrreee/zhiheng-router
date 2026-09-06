@@ -1,0 +1,3 @@
+# Preserve reproducible dataset bytes and manifest checksums on every checkout.
+data/*.jsonl text eol=lf
+data/*.json text eol=lf

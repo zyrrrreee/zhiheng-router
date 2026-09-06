@@ -1,0 +1,43 @@
+{
+  "data_path": "data/development.jsonl",
+  "manifest_path": "data/development.meta.json",
+  "output_dir": "outputs/mvp",
+  "models": [
+    {"model_id": "dev-model-a", "enabled": true},
+    {"model_id": "dev-model-b", "enabled": true},
+    {"model_id": "dev-model-c", "enabled": true},
+    {"model_id": "dev-model-d", "enabled": true},
+    {"model_id": "dev-model-e", "enabled": true}
+  ],
+  "features": {"ngram_range": [2, 4], "max_features": 3000},
+  "training": {
+    "quality_score_threshold": 0.8,
+    "C": 1.0,
+    "max_iter": 1000,
+    "seed": 20260906,
+    "min_model_samples": 40
+  },
+  "policy": {"router_probability_threshold": 0.8, "cost_tolerance_abs": 0.0},
+  "split": {"train_fraction": 0.6, "validation_fraction": 0.2, "seed": 20260906},
+  "evaluation": {"probability_bins": 5, "timing_warmup_queries": 5, "numeric_threads": 1},
+  "rules": {
+    "code": "dev-model-b", "math": "dev-model-c",
+    "summary": "dev-model-d", "translation": "dev-model-d", "qa": "dev-model-a"
+  },
+  "generator": {
+    "seed": 20260906,
+    "variants_per_group": 10,
+    "quality_noise_std": 0.065,
+    "query_shock_std": 0.03,
+    "group_effect_std": 0.025,
+    "latency_log_std": 0.18,
+    "cost_log_std": 0.12,
+    "profiles": {
+      "dev-model-a": {"ability": 0.96, "difficulty_penalty": 0.17, "base_cost": 0.055, "base_latency_ms": 1500, "task_bonus": {"code": 0.00, "math": -0.01, "summary": 0.00, "translation": -0.02, "qa": 0.02}},
+      "dev-model-b": {"ability": 0.90, "difficulty_penalty": 0.24, "base_cost": 0.025, "base_latency_ms": 900, "task_bonus": {"code": 0.12, "math": -0.06, "summary": -0.03, "translation": -0.04, "qa": 0.00}},
+      "dev-model-c": {"ability": 0.91, "difficulty_penalty": 0.22, "base_cost": 0.031, "base_latency_ms": 1150, "task_bonus": {"code": -0.05, "math": 0.12, "summary": -0.03, "translation": -0.04, "qa": 0.00}},
+      "dev-model-d": {"ability": 0.87, "difficulty_penalty": 0.22, "base_cost": 0.014, "base_latency_ms": 700, "task_bonus": {"code": -0.08, "math": -0.09, "summary": 0.11, "translation": 0.12, "qa": 0.00}},
+      "dev-model-e": {"ability": 0.84, "difficulty_penalty": 0.25, "base_cost": 0.006, "base_latency_ms": 420, "task_bonus": {"code": -0.04, "math": -0.05, "summary": 0.025, "translation": -0.02, "qa": 0.03}}
+    }
+  }
+}

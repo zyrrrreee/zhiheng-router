@@ -1,0 +1,103 @@
+{
+  "source_kind": "synthetic",
+  "data_version": "development-v1",
+  "generator_version": "1.0.0",
+  "seed": 20260906,
+  "quality_score_range": [
+    0.0,
+    1.0
+  ],
+  "cost_unit": "synthetic_cost_unit",
+  "latency_unit": "ms",
+  "coverage_kind": "full",
+  "quality_definition": "Clipped synthetic utility from model/task ability, nonlinear difficulty, group/query shocks and model noise; not a real response evaluation.",
+  "latency_definition": "Simulated complete model invocation duration; excludes router overhead.",
+  "observation_count": 3000,
+  "query_count": 600,
+  "group_count": 60,
+  "model_ids": [
+    "dev-model-a",
+    "dev-model-b",
+    "dev-model-c",
+    "dev-model-d",
+    "dev-model-e"
+  ],
+  "generator_config": {
+    "seed": 20260906,
+    "variants_per_group": 10,
+    "quality_noise_std": 0.065,
+    "query_shock_std": 0.03,
+    "group_effect_std": 0.025,
+    "latency_log_std": 0.18,
+    "cost_log_std": 0.12,
+    "profiles": {
+      "dev-model-a": {
+        "ability": 0.96,
+        "difficulty_penalty": 0.17,
+        "base_cost": 0.055,
+        "base_latency_ms": 1500,
+        "task_bonus": {
+          "code": 0.0,
+          "math": -0.01,
+          "summary": 0.0,
+          "translation": -0.02,
+          "qa": 0.02
+        }
+      },
+      "dev-model-b": {
+        "ability": 0.9,
+        "difficulty_penalty": 0.24,
+        "base_cost": 0.025,
+        "base_latency_ms": 900,
+        "task_bonus": {
+          "code": 0.12,
+          "math": -0.06,
+          "summary": -0.03,
+          "translation": -0.04,
+          "qa": 0.0
+        }
+      },
+      "dev-model-c": {
+        "ability": 0.91,
+        "difficulty_penalty": 0.22,
+        "base_cost": 0.031,
+        "base_latency_ms": 1150,
+        "task_bonus": {
+          "code": -0.05,
+          "math": 0.12,
+          "summary": -0.03,
+          "translation": -0.04,
+          "qa": 0.0
+        }
+      },
+      "dev-model-d": {
+        "ability": 0.87,
+        "difficulty_penalty": 0.22,
+        "base_cost": 0.014,
+        "base_latency_ms": 700,
+        "task_bonus": {
+          "code": -0.08,
+          "math": -0.09,
+          "summary": 0.11,
+          "translation": 0.12,
+          "qa": 0.0
+        }
+      },
+      "dev-model-e": {
+        "ability": 0.84,
+        "difficulty_penalty": 0.25,
+        "base_cost": 0.006,
+        "base_latency_ms": 420,
+        "task_bonus": {
+          "code": -0.04,
+          "math": -0.05,
+          "summary": 0.025,
+          "translation": -0.02,
+          "qa": 0.03
+        }
+      }
+    }
+  },
+  "notice": "SYNTHETIC DEVELOPMENT DATA. All model outcomes are simulated; no actual models were invoked.",
+  "sha256": "1fc6898c1508c04f76cfece0075f59308a34233f606f25835e0028b3a758df64"
+}
