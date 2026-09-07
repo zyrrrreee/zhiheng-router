@@ -1,0 +1,123 @@
+{
+  "comparison": "router-v0.2-pilot-v2_vs_router-v0.2-pilot-v3",
+  "interpretation_boundary": "Deterministic diagnostics prepare final Spot Review; they do not establish Human Surface Audit PASS.",
+  "same_master_seed": true,
+  "v2": {
+    "answerability_total": 250,
+    "answerability_valid_count": 250,
+    "capability_alignment_valid_rate": 0.576517,
+    "capability_count_distribution": {
+      "2": 75,
+      "3": 92,
+      "4": 83
+    },
+    "difficulty_by_capability_count": {
+      "high": {
+        "2": 0,
+        "3": 0,
+        "4": 83
+      },
+      "low": {
+        "2": 75,
+        "3": 0,
+        "4": 0
+      },
+      "medium": {
+        "2": 0,
+        "3": 92,
+        "4": 0
+      }
+    },
+    "difficulty_distribution": {
+      "high": 83,
+      "low": 75,
+      "medium": 92
+    },
+    "exact_duplicate_group_count": 0,
+    "invalid_capability_evidence_count": 321,
+    "language_distribution": {
+      "en": 29,
+      "mixed": 65,
+      "zh": 156
+    },
+    "lexical_shortcut_candidate_count": 100,
+    "likely_generator_artifact_count": 0,
+    "max_fixed_sentence_share": 0.028,
+    "max_repeated_phrase_share": 0.04,
+    "maximum_frame_skeleton_share": 1.0,
+    "minimum_frame_skeleton_count": 1,
+    "normalized_duplicate_group_count": 0,
+    "payload_presence_rate": 1.0,
+    "pearson_difficulty_capability_count": 0.936926,
+    "query_count": 250,
+    "spearman_difficulty_capability_count": 0.941586,
+    "surface_lint_failure_count": 0,
+    "task_distribution": {
+      "code": 50,
+      "math": 50,
+      "qa": 50,
+      "summary": 50,
+      "translation": 50
+    }
+  },
+  "v2_generator_version": "2.1.0",
+  "v3": {
+    "answerability_total": 250,
+    "answerability_valid_count": 250,
+    "capability_alignment_valid_rate": 1.0,
+    "capability_count_distribution": {
+      "2": 126,
+      "3": 78,
+      "4": 46
+    },
+    "difficulty_by_capability_count": {
+      "high": {
+        "2": 39,
+        "3": 28,
+        "4": 13
+      },
+      "low": {
+        "2": 46,
+        "3": 28,
+        "4": 16
+      },
+      "medium": {
+        "2": 41,
+        "3": 22,
+        "4": 17
+      }
+    },
+    "difficulty_distribution": {
+      "high": 80,
+      "low": 90,
+      "medium": 80
+    },
+    "exact_duplicate_group_count": 0,
+    "invalid_capability_evidence_count": 0,
+    "language_distribution": {
+      "en": 31,
+      "mixed": 65,
+      "zh": 154
+    },
+    "lexical_shortcut_candidate_count": 100,
+    "likely_generator_artifact_count": 2,
+    "max_fixed_sentence_share": 0.028,
+    "max_repeated_phrase_share": 0.04,
+    "maximum_frame_skeleton_share": 0.428571,
+    "minimum_frame_skeleton_count": 3,
+    "normalized_duplicate_group_count": 0,
+    "payload_presence_rate": 1.0,
+    "pearson_difficulty_capability_count": 0.011729,
+    "query_count": 250,
+    "spearman_difficulty_capability_count": 0.023886,
+    "surface_lint_failure_count": 0,
+    "task_distribution": {
+      "code": 50,
+      "math": 50,
+      "qa": 50,
+      "summary": 50,
+      "translation": 50
+    }
+  },
+  "v3_generator_version": "2.2.0"
+}

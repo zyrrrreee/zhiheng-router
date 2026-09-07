@@ -1,0 +1,5448 @@
+{
+  "answerability": {
+    "by_task": {
+      "code": {
+        "total": 50,
+        "valid": 50
+      },
+      "math": {
+        "total": 50,
+        "valid": 50
+      },
+      "qa": {
+        "total": 50,
+        "valid": 50
+      },
+      "summary": {
+        "total": 50,
+        "valid": 50
+      },
+      "translation": {
+        "total": 50,
+        "valid": 50
+      }
+    },
+    "failures": [],
+    "total": 250,
+    "valid_count": 250,
+    "valid_rate": 1.0
+  },
+  "capability_evidence_alignment": {
+    "active_capability_count": 670,
+    "alignment_valid_rate": 1.0,
+    "failures": [],
+    "invalid_evidence_count": 0,
+    "per_capability_invalid_realization_count": {
+      "AM": 0,
+      "AR": 0,
+      "AU": 0,
+      "DE": 0,
+      "DS": 0,
+      "FK": 0,
+      "FT": 0,
+      "LC": 0,
+      "MH": 0,
+      "MT": 0,
+      "SC": 0,
+      "SQ": 0
+    },
+    "query_count": 250,
+    "valid_capability_count": 670,
+    "valid_query_count": 250
+  },
+  "capability_pair_distribution": {
+    "AM+DS": 7,
+    "AM+FK": 4,
+    "AM+FT": 16,
+    "AM+LC": 9,
+    "AM+MH": 2,
+    "AM+MT": 10,
+    "AM+SC": 9,
+    "AM+SQ": 9,
+    "AR+AU": 5,
+    "AR+DE": 4,
+    "AR+MH": 7,
+    "AR+SC": 30,
+    "AR+SQ": 12,
+    "AU+DE": 13,
+    "AU+DS": 3,
+    "AU+FK": 7,
+    "AU+FT": 14,
+    "AU+LC": 15,
+    "AU+MT": 8,
+    "AU+SC": 29,
+    "DE+FK": 3,
+    "DE+FT": 1,
+    "DE+LC": 10,
+    "DE+MH": 9,
+    "DE+SC": 11,
+    "DS+FT": 3,
+    "DS+SC": 7,
+    "DS+SQ": 14,
+    "FK+FT": 18,
+    "FK+LC": 34,
+    "FK+MH": 11,
+    "FK+MT": 13,
+    "FK+SC": 24,
+    "FK+SQ": 2,
+    "FT+LC": 39,
+    "FT+MH": 12,
+    "FT+MT": 28,
+    "FT+SC": 37,
+    "FT+SQ": 5,
+    "LC+MH": 30,
+    "LC+MT": 15,
+    "LC+SC": 27,
+    "MH+MT": 4,
+    "MH+SC": 13,
+    "MH+SQ": 11,
+    "MT+SC": 21,
+    "SC+SQ": 21
+  },
+  "capability_realization_diversity": {
+    "AM": {
+      "evidence_variant_count": 27,
+      "query_count": 38,
+      "semantic_frame_count": 9,
+      "surface_style_count": 4
+    },
+    "AR": {
+      "evidence_variant_count": 20,
+      "query_count": 36,
+      "semantic_frame_count": 7,
+      "surface_style_count": 3
+    },
+    "AU": {
+      "evidence_variant_count": 27,
+      "query_count": 42,
+      "semantic_frame_count": 8,
+      "surface_style_count": 4
+    },
+    "DE": {
+      "evidence_variant_count": 17,
+      "query_count": 23,
+      "semantic_frame_count": 5,
+      "surface_style_count": 4
+    },
+    "DS": {
+      "evidence_variant_count": 18,
+      "query_count": 22,
+      "semantic_frame_count": 6,
+      "surface_style_count": 3
+    },
+    "FK": {
+      "evidence_variant_count": 42,
+      "query_count": 59,
+      "semantic_frame_count": 11,
+      "surface_style_count": 4
+    },
+    "FT": {
+      "evidence_variant_count": 55,
+      "query_count": 88,
+      "semantic_frame_count": 21,
+      "surface_style_count": 4
+    },
+    "LC": {
+      "evidence_variant_count": 87,
+      "query_count": 87,
+      "semantic_frame_count": 17,
+      "surface_style_count": 4
+    },
+    "MH": {
+      "evidence_variant_count": 58,
+      "query_count": 58,
+      "semantic_frame_count": 11,
+      "surface_style_count": 4
+    },
+    "MT": {
+      "evidence_variant_count": 32,
+      "query_count": 48,
+      "semantic_frame_count": 10,
+      "surface_style_count": 4
+    },
+    "SC": {
+      "evidence_variant_count": 45,
+      "query_count": 117,
+      "semantic_frame_count": 25,
+      "surface_style_count": 4
+    },
+    "SQ": {
+      "evidence_variant_count": 51,
+      "query_count": 52,
+      "semantic_frame_count": 11,
+      "surface_style_count": 4
+    }
+  },
+  "checks": {
+    "all_capabilities_covered": true,
+    "capability_count_2_to_4": true,
+    "capability_counts_span_multiple_difficulty_bins": true,
+    "capability_evidence_alignment": true,
+    "capability_realization_diversity": true,
+    "content_payload_presence": true,
+    "cue_masking_structure_retained": true,
+    "difficulty_bins_have_multiple_capability_counts": true,
+    "difficulty_bounds": true,
+    "difficulty_capability_correlation": true,
+    "fixed_sentence_share": true,
+    "id_and_family_uniqueness": true,
+    "language_policy": true,
+    "no_exact_duplicate": true,
+    "no_label_like_token": true,
+    "no_model_or_result_text": true,
+    "no_normalized_duplicate": true,
+    "normalized_fixed_sentence_below_v1": true,
+    "query_count": true,
+    "query_length": true,
+    "semantic_frame_coverage": true,
+    "semantic_skeleton_diversity": true,
+    "surface_evidence_present": true,
+    "surface_lint": true,
+    "task_balance": true,
+    "task_specific_answerability": true
+  },
+  "cue_masking_diagnostic": {
+    "candidate_count": 687,
+    "diagnostics": [
+      {
+        "affected_queries": 36,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 36,
+        "token": "sections"
+      },
+      {
+        "affected_queries": 25,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 25,
+        "token": "columns"
+      },
+      {
+        "affected_queries": 20,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 20,
+        "token": "english"
+      },
+      {
+        "affected_queries": 18,
+        "capability": "AU",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 18,
+        "token": "retry"
+      },
+      {
+        "affected_queries": 18,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 18,
+        "token": "实现"
+      },
+      {
+        "affected_queries": 16,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 16,
+        "token": "时保"
+      },
+      {
+        "affected_queries": 16,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 16,
+        "token": "首次"
+      },
+      {
+        "affected_queries": 14,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 14,
+        "token": "录发"
+      },
+      {
+        "affected_queries": 13,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 13,
+        "token": "window"
+      },
+      {
+        "affected_queries": 13,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 13,
+        "token": "文版"
+      },
+      {
+        "affected_queries": 13,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 13,
+        "token": "规定"
+      },
+      {
+        "affected_queries": 12,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 12,
+        "token": "务窗"
+      },
+      {
+        "affected_queries": 12,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 12,
+        "token": "段落"
+      },
+      {
+        "affected_queries": 12,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 12,
+        "token": "译为"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "derivation"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "error"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "timeline"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "仍为"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "合并"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "已经"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "第一"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "限制"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "bilingual"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "current"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "SQ",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "solution"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "version"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "中英"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "付修"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "客服"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "时交"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "服窗"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "的中"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "verification"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "两份"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "中的"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "制度"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "AU",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "升级"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "原因"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "接池"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "最多"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "最近"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "标准"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "池耗"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "继续"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "综合"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "缺少"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "解析"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "term"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "不同"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "可重"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "如果"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "对照"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "时与"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "校验"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "核验"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "模块"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "生在"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "证据"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "AU",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "append_once"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "AU",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "event"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "events"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "facts"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "fraction"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "glossary"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "AU",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "key"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "AU",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "miss"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "probability"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "state"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "AU",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "store"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "不放"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "与分"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "与解"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "两例"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "个样"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "个红"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "个蓝"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "中心"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "为红"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "为结"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "主要"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "二次"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "件概"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "例失"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "信区"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "值得"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "出分"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "分子"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "分观"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "到红"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "制并"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "包括"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "区间"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "单中"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "压缩"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "和两"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "回连"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FK",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "在结"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "声称"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "失访"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "子与"
+      }
+    ],
+    "method": "Remove the associated token from its capability evidence span and check whether substantive structure remains; no Predictor is trained.",
+    "minimum_structure_retained_rate": 1.0
+  },
+  "difficulty_capability_diagnostics": {
+    "capability_count_by_difficulty": {
+      "2": {
+        "high": 39,
+        "low": 46,
+        "medium": 41
+      },
+      "3": {
+        "high": 28,
+        "low": 28,
+        "medium": 22
+      },
+      "4": {
+        "high": 13,
+        "low": 16,
+        "medium": 17
+      }
+    },
+    "capability_count_distribution": {
+      "2": 126,
+      "3": 78,
+      "4": 46
+    },
+    "difficulty_by_capability_count": {
+      "high": {
+        "2": 39,
+        "3": 28,
+        "4": 13
+      },
+      "low": {
+        "2": 46,
+        "3": 28,
+        "4": 16
+      },
+      "medium": {
+        "2": 41,
+        "3": 22,
+        "4": 17
+      }
+    },
+    "pearson_correlation": 0.011729,
+    "spearman_correlation": 0.023886
+  },
+  "difficulty_distribution": {
+    "high": 80,
+    "low": 90,
+    "medium": 80
+  },
+  "difficulty_summary": {
+    "max": 0.912043,
+    "mean": 0.545356,
+    "min": 0.220506
+  },
+  "exact_duplicate_groups": [],
+  "exact_sentence_frequency": [
+    {
+      "count": 10,
+      "sentence": "[English version]",
+      "share": 0.04
+    },
+    {
+      "count": 7,
+      "sentence": "实现 `schedule(tasks, limit)`，返回合法的分批执行顺序，并说明环依赖和未知依赖如何报告",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "目标是在满足依赖的前提下缩短总完成时间",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "任务失败后，不再启动依赖它的任务",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "输入格式：`[{\"id\": \"A\", \"depends_on\": []},",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "def append_once(store, event):",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "get(\"request_id\", \"\")",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "if key in store:",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "return store[key]",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "value = {\"request_id\": key, \"amount\": event[\"amount\"]}",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key + \"-retry\"] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "计算第二次仍为红球的条件概率，并写出分子与分母",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "sections: events / probability fraction / verification",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落3] 作者认为结果值得继续验证，没有声称效果已经确定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落4] 局限包括样本量小、单中心和两例失访",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "压缩主要发现，同时保留限制并区分观察与解释",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "完成翻译，保持技术标识不变并统一关键术语",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "忠实翻译并标出无法在不澄清的情况下唯一确定的指代",
+      "share": 0.028
+    },
+    {
+      "count": 6,
+      "sentence": "预期：同一 `request_id` 只保留一条记录",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "定位导致重复记录的最早状态变化，给出最小修复，并写出覆盖普通请求和 retry 请求的测试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "接口：`GET /v2/items",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "异常样例：HTTP 200 但某个 item 缺少 `id`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "fields: response / error / retry decision",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "实现分页客户端，区分末页、限流和 schema 错误",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "把解析、校验和聚合职责拆开，同时保持列出的外部行为，并给出特征测试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "def transform(rows):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for row in rows:",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "out[row[\"id\"]] = int(row",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "return list(out",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "def contains_pair(values, target):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for i in range(len(values)):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for j in range(i + 1, len(values)):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "if values[i] + values[j] == target:",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "sections: algorithm / complexity / boundary cases",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "比较排序双指针与哈希集合两种优化，选择一种实现，并分析重复值和负数边界",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "某项目采购 x 台标准设备和 y 台增强设备",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "建立方程并求 x、y，代回两条条件核验",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "最后一个 B 值来自传感器告警，是否有效尚未确认",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "分别计算两组中位数与均值，并说明待确认离群值如何影响比较",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "写出整数优化模型并找出利润最大的生产组合",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "先按原表计算 Q2→Q3 增长率，再按附注调整后重新计算，并比较差异",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "本次 worker 是否应自动重试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "说明每段材料在结论中的作用",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[材料C] 本次日志来自批处理接口，返回 HTTP 429 和 `retry_after`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[材料C] 其中一条成功记录发生在昨日 00:05",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "哪些结论可以直接比较，哪些不能",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[材料A] 中文制度把 `service window` 译为“服务窗口”，指允许停机的时段",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[Evidence B] English log says the job ran outside the service window",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "用中文解释日志结论，并说明应采用哪个术语及理由",
+      "share": 0.024
+    }
+  ],
+  "high_frequency_fixed_sentences": [
+    {
+      "count": 7,
+      "sentence": "[段落#] 作者认为结果值得继续验证，没有声称效果已经确定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落#] 局限包括样本量小、单中心和两例失访",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落#] 试验组包含 # 个样本，对照组包含 # 个样本",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "`#:# write r#-retry`",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "def append_once(store, event):",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "get(\"request_id\", \"\")",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "sections: events / probability fraction / verification",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key + \"-retry\"] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "value = {\"request_id\": key, \"amount\": event[\"amount\"]}",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "任务耗时：a=#ms、b=#ms、c=#ms、d=#ms、e=#ms",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "压缩主要发现，同时保留限制并区分观察与解释",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "完成翻译，保持技术标识不变并统一关键术语",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "实现 `schedule(tasks, limit)`，返回合法的分批执行顺序，并说明环依赖和未知依赖如何报告",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "忠实翻译并标出无法在不澄清的情况下唯一确定的指代",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "目标是在满足依赖的前提下缩短总完成时间",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "袋中有 # 个红球和 # 个蓝球，不放回连续抽取 # 个",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "计算第二次仍为红球的条件概率，并写出分子与分母",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "输入格式：`[{\"id\": \"a\", \"depends_on\": []},",
+      "share": 0.028
+    },
+    {
+      "count": 6,
+      "sentence": "# 变更说明只取消了登录接口的自动重试，批处理接口保持原规则",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "# 文档规定，worker 收到 `retry_after` 后等待 # 秒再重试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "# 说明曾把同一词误译为“客服窗口”，本次事件使用新版术语",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[english #] data import is complete",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[english #] deployment remains scheduled for friday, subject to validation approval",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[english addendum]",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[evidence b] english log says the job ran outside the service window",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[中文#] 当前版本没有记录这 # 个重复 id，负责人尚未确认处理方式",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[中文#] 数据导入已完成，验证工作计划周四结束",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[事件#] #:# 修复连接池上限后恢复全部流量，错误率回到基线",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[事件#] #:# 发布配置，两分钟后首次出现写入超时",
+      "share": 0.024
+    }
+  ],
+  "label_like_matches": [],
+  "language_distribution": {
+    "en": 31,
+    "mixed": 65,
+    "zh": 154
+  },
+  "likely_generator_artifact_count": 2,
+  "limitations": [
+    "Lexical and structural diagnostics do not establish naturalness or Human Surface Audit PASS.",
+    "No quality, cost, latency, outcome, Predictor, Router, or baseline result is generated."
+  ],
+  "manual_review_required": {
+    "human_surface_audit_passed": false,
+    "spot_review_scores_are_unfilled": true
+  },
+  "max_exact_sentence_share": 0.04,
+  "max_fixed_sentence_share": 0.028,
+  "max_language_policy_deviation": 0.02,
+  "max_normalized_sentence_share": 0.04,
+  "max_repeated_phrase_share": 0.04,
+  "missing_surface_evidence": [],
+  "normalized_duplicate_groups": [],
+  "normalized_sentence_frequency": [
+    {
+      "count": 10,
+      "sentence": "[English version]",
+      "share": 0.04
+    },
+    {
+      "count": 7,
+      "sentence": "实现 `schedule(tasks, limit)`，返回合法的分批执行顺序，并说明环依赖和未知依赖如何报告",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "任务耗时：A=17ms、B=6ms、C=7ms、D=23ms、E=11ms",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "目标是在满足依赖的前提下缩短总完成时间",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "任务失败后，不再启动依赖它的任务",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "输入格式：`[{\"id\": \"A\", \"depends_on\": []},",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "def append_once(store, event):",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "get(\"request_id\", \"\")",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "if key in store:",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "return store[key]",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "value = {\"request_id\": key, \"amount\": event[\"amount\"]}",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key + \"-retry\"] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "计算第二次仍为红球的条件概率，并写出分子与分母",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "袋中有 14 个红球和 6 个蓝球，不放回连续抽取 2 个",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "sections: events / probability fraction / verification",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落1] 试验组包含 35 个样本，对照组包含 37 个样本",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落3] 作者认为结果值得继续验证，没有声称效果已经确定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落4] 局限包括样本量小、单中心和两例失访",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "压缩主要发现，同时保留限制并区分观察与解释",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "完成翻译，保持技术标识不变并统一关键术语",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "忠实翻译并标出无法在不澄清的情况下唯一确定的指代",
+      "share": 0.028
+    },
+    {
+      "count": 6,
+      "sentence": "失败输入：`{\"request_id\":\"r12\",\"amount\":19,\"retry\":true}`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "日志：`09:31 cache miss r12`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "预期：同一 `request_id` 只保留一条记录",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "定位导致重复记录的最早状态变化，给出最小修复，并写出覆盖普通请求和 retry 请求的测试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "成功响应：`{\"items\":[{\"id\":\"i13\",\"state\":\"ready\"}],\"next_cursor\":\"p2\"}`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "限流响应：HTTP 429，`{\"retry_after\":4}`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "异常样例：HTTP 200 但某个 item 缺少 `id`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "fields: response / error / retry decision",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "实现分页客户端，区分末页、限流和 schema 错误",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "把解析、校验和聚合职责拆开，同时保持列出的外部行为，并给出特征测试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "def transform(rows):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for row in rows:",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "out[row[\"id\"]] = int(row",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "return list(out",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "输入 `[{\"id\":\"a\",\"value\":\"17\"},{\"id\":\"b\",\"value\":\"6\"}]` 返回 `[('a',17),('b',6)]`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "def contains_pair(values, target):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for i in range(len(values)):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for j in range(i + 1, len(values)):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "if values[i] + values[j] == target:",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "sections: algorithm / complexity / boundary cases",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "比较排序双指针与哈希集合两种优化，选择一种实现，并分析重复值和负数边界",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "某项目采购 x 台标准设备和 y 台增强设备",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "设备总数为 26，按标准设备 2 个积分、增强设备 1 个积分计算，总积分为 49",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "建立方程并求 x、y，代回两条条件核验",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "最后一个 B 值来自传感器告警，是否有效尚未确认",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "分别计算两组中位数与均值，并说明待确认离群值如何影响比较",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "写出整数优化模型并找出利润最大的生产组合",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "可用 23 小时，A 至少生产 1 件，A、B 均为非负整数",
+      "share": 0.024
+    }
+  ],
+  "per_capability_lexical_concentration": {
+    "AM": {
+      "query_count": 38,
+      "top_token": "交付",
+      "top_token_share": 0.736842,
+      "top_token_support": 28,
+      "unique_token_count": 949
+    },
+    "AR": {
+      "query_count": 36,
+      "top_token": "交付",
+      "top_token_share": 0.944444,
+      "top_token_support": 34,
+      "unique_token_count": 600
+    },
+    "AU": {
+      "query_count": 42,
+      "top_token": "交付",
+      "top_token_share": 0.880952,
+      "top_token_support": 37,
+      "unique_token_count": 821
+    },
+    "DE": {
+      "query_count": 23,
+      "top_token": "交付",
+      "top_token_share": 0.869565,
+      "top_token_support": 20,
+      "unique_token_count": 530
+    },
+    "DS": {
+      "query_count": 22,
+      "top_token": "交付",
+      "top_token_share": 0.772727,
+      "top_token_support": 17,
+      "unique_token_count": 485
+    },
+    "FK": {
+      "query_count": 59,
+      "top_token": "交付",
+      "top_token_share": 0.881356,
+      "top_token_support": 52,
+      "unique_token_count": 1084
+    },
+    "FT": {
+      "query_count": 88,
+      "top_token": "交付",
+      "top_token_share": 0.886364,
+      "top_token_support": 78,
+      "unique_token_count": 1901
+    },
+    "LC": {
+      "query_count": 87,
+      "top_token": "交付",
+      "top_token_share": 0.850575,
+      "top_token_support": 74,
+      "unique_token_count": 1746
+    },
+    "MH": {
+      "query_count": 58,
+      "top_token": "交付",
+      "top_token_share": 0.87931,
+      "top_token_support": 51,
+      "unique_token_count": 1137
+    },
+    "MT": {
+      "query_count": 48,
+      "top_token": "交付",
+      "top_token_share": 1.0,
+      "top_token_support": 48,
+      "unique_token_count": 958
+    },
+    "SC": {
+      "query_count": 117,
+      "top_token": "交付",
+      "top_token_share": 0.888889,
+      "top_token_support": 104,
+      "unique_token_count": 2092
+    },
+    "SQ": {
+      "query_count": 52,
+      "top_token": "交付",
+      "top_token_share": 0.807692,
+      "top_token_support": 42,
+      "unique_token_count": 915
+    }
+  },
+  "pilot_version": "router-v0.2-pilot-v3",
+  "primary_capability_distribution": {
+    "AM": 14,
+    "AR": 15,
+    "AU": 16,
+    "DE": 10,
+    "DS": 12,
+    "FK": 20,
+    "FT": 33,
+    "LC": 29,
+    "MH": 22,
+    "MT": 19,
+    "SC": 37,
+    "SQ": 23
+  },
+  "query_count": 250,
+  "query_length_summary": {
+    "max": 821,
+    "mean": 292.16,
+    "min": 103
+  },
+  "ready_for_final_spot_review": true,
+  "ready_for_human_review": false,
+  "ready_for_spot_review": true,
+  "repeated_multiword_phrase_frequency": [
+    {
+      "count": 10,
+      "phrase": "同时交付修订后的中英",
+      "share": 0.04
+    },
+    {
+      "count": 7,
+      "phrase": "if key in store",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "不再启动依赖它的任务",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "二次仍为红球的条件概",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "作者认为结果值得继续",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "依赖的前提下缩短总完",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "保持技术标识不变并统",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "出无法在不澄清的情况",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "前提下缩短总完成时间",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "同时保留限制并区分观",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "在不澄清的情况下唯一",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "在满足依赖的前提下缩",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "并说明环依赖和未知依",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "忠实翻译并标出无法在",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "术标识不变并统一关键",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "没有声称效果已经确定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "清的情况下唯一确定的",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "环依赖和未知依赖如何",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "留限制并区分观察与解",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "目标是在满足依赖的前",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "计算第二次仍为红球的",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "译并标出无法在不澄清",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "返回合法的分批执行顺",
+      "share": 0.028
+    },
+    {
+      "count": 6,
+      "phrase": "data import is complete",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "deployment remains scheduled for",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "english log says the",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "for i in range",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "for j in range",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "for row in rows",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "job ran outside the",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "log says the job",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "outside the service window",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "ran outside the service",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "remains scheduled for friday",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "return true return false",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "says the job ran",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "subject to validation approval",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "the job ran outside",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "不改变事件顺序或确定",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "两份成功数为何可能不",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "两分钟后首次出现写入",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "为实施人员整理顺序化",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "事件顺序或确定性程度",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "保持占位符和字段键不",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "保留项目顺序和所有条",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "修复连接池上限后恢复",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "其中一条成功记录发生",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "再按附注调整后重新计",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "写出整数优化模型并找",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "分别计算两组中位数与",
+      "share": 0.024
+    }
+  ],
+  "secondary_capability_distribution": {
+    "AM": 24,
+    "AR": 21,
+    "AU": 26,
+    "DE": 13,
+    "DS": 10,
+    "FK": 39,
+    "FT": 55,
+    "LC": 58,
+    "MH": 36,
+    "MT": 29,
+    "SC": 80,
+    "SQ": 29
+  },
+  "semantic_frame_coverage": {
+    "frame-code-api-client": 6,
+    "frame-code-data-pipeline": 6,
+    "frame-code-performance": 6,
+    "frame-code-refactor": 6,
+    "frame-code-repository-review": 6,
+    "frame-code-scheduler": 7,
+    "frame-code-service-debug": 7,
+    "frame-code-sql-report": 6,
+    "frame-math-chart-analysis": 6,
+    "frame-math-equation-system": 7,
+    "frame-math-geometry": 6,
+    "frame-math-optimization": 6,
+    "frame-math-probability": 7,
+    "frame-math-proof": 6,
+    "frame-math-statistics": 6,
+    "frame-math-word-problem": 6,
+    "frame-qa-ambiguous-policy": 6,
+    "frame-qa-bilingual-terms": 6,
+    "frame-qa-data-explanation": 6,
+    "frame-qa-evidence-chain": 7,
+    "frame-qa-long-policy": 6,
+    "frame-qa-source-comparison": 6,
+    "frame-qa-technical-docs": 7,
+    "frame-qa-troubleshooting": 6,
+    "frame-summary-bilingual-report": 6,
+    "frame-summary-conflicting-reports": 6,
+    "frame-summary-executive": 6,
+    "frame-summary-incident": 6,
+    "frame-summary-meeting": 7,
+    "frame-summary-metrics": 6,
+    "frame-summary-research": 7,
+    "frame-summary-technical-guide": 6,
+    "frame-translation-ambiguous-reference": 6,
+    "frame-translation-contract": 7,
+    "frame-translation-domain-report": 6,
+    "frame-translation-glossary": 6,
+    "frame-translation-incident": 6,
+    "frame-translation-notice": 6,
+    "frame-translation-technical": 7,
+    "frame-translation-ui-localization": 6
+  },
+  "semantic_skeleton_diversity": {
+    "frame_count": 40,
+    "frames": {
+      "frame-code-api-client": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-003",
+              "pilot-q-code-027"
+            ],
+            "skeleton_id": "34020e70477fcc42"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-011",
+              "pilot-q-code-035"
+            ],
+            "skeleton_id": "5a13874d0d05732f"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-019",
+              "pilot-q-code-043"
+            ],
+            "skeleton_id": "731f8219d01bab92"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-code-data-pipeline": {
+        "distinct_skeleton_count": 5,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-046"
+            ],
+            "skeleton_id": "06f95d027c3ea6c6"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-006"
+            ],
+            "skeleton_id": "49271bfe8d07d4c8"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-014",
+              "pilot-q-code-038"
+            ],
+            "skeleton_id": "5cc12d4052e7b996"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-030"
+            ],
+            "skeleton_id": "d73648b1020c4c98"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-022"
+            ],
+            "skeleton_id": "ec4c93415f8647c4"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-code-performance": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-015",
+              "pilot-q-code-039"
+            ],
+            "skeleton_id": "0b238ea6dc224221"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-023",
+              "pilot-q-code-047"
+            ],
+            "skeleton_id": "5d85dab35bacf79e"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-007",
+              "pilot-q-code-031"
+            ],
+            "skeleton_id": "a86c31ccd4935dac"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-code-refactor": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-012",
+              "pilot-q-code-036"
+            ],
+            "skeleton_id": "47d62d37ecccbb9e"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-020",
+              "pilot-q-code-044"
+            ],
+            "skeleton_id": "9944969c23bbfd2e"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-004",
+              "pilot-q-code-028"
+            ],
+            "skeleton_id": "bd2573ed401a820b"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-code-repository-review": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-037"
+            ],
+            "skeleton_id": "46cd06faad8417f7"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-013"
+            ],
+            "skeleton_id": "5f737e6eecaab1b4"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-021",
+              "pilot-q-code-045"
+            ],
+            "skeleton_id": "84414a3d9750d1d6"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-005",
+              "pilot-q-code-029"
+            ],
+            "skeleton_id": "9602340be980bfe5"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-code-scheduler": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-008",
+              "pilot-q-code-032"
+            ],
+            "skeleton_id": "4f7df0ca1ae218ed"
+          },
+          {
+            "count": 3,
+            "query_ids": [
+              "pilot-q-code-000",
+              "pilot-q-code-024",
+              "pilot-q-code-048"
+            ],
+            "skeleton_id": "709f6675a28d7426"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-016",
+              "pilot-q-code-040"
+            ],
+            "skeleton_id": "bdc5b48825f08650"
+          }
+        ],
+        "largest_skeleton_group_count": 3,
+        "largest_skeleton_share": 0.428571,
+        "query_count": 7
+      },
+      "frame-code-service-debug": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-017"
+            ],
+            "skeleton_id": "27d335c43198184c"
+          },
+          {
+            "count": 3,
+            "query_ids": [
+              "pilot-q-code-001",
+              "pilot-q-code-025",
+              "pilot-q-code-049"
+            ],
+            "skeleton_id": "6c2f5a16ff20eed0"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-009",
+              "pilot-q-code-033"
+            ],
+            "skeleton_id": "9a41a1cc3566f207"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-041"
+            ],
+            "skeleton_id": "ad66079f453397a8"
+          }
+        ],
+        "largest_skeleton_group_count": 3,
+        "largest_skeleton_share": 0.428571,
+        "query_count": 7
+      },
+      "frame-code-sql-report": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-010",
+              "pilot-q-code-034"
+            ],
+            "skeleton_id": "064a6af9e56bea02"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-002"
+            ],
+            "skeleton_id": "24cb7e8ec40ca51c"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-code-026"
+            ],
+            "skeleton_id": "607b1e76ee6a5561"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-code-018",
+              "pilot-q-code-042"
+            ],
+            "skeleton_id": "81e61895dca811e0"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-math-chart-analysis": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-015",
+              "pilot-q-math-039"
+            ],
+            "skeleton_id": "0c9bc1fdc7ebe0ac"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-007",
+              "pilot-q-math-031"
+            ],
+            "skeleton_id": "1f8392beb6017281"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-023",
+              "pilot-q-math-047"
+            ],
+            "skeleton_id": "cf5284c839e9c099"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-math-equation-system": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-016"
+            ],
+            "skeleton_id": "1b09efc868fe48d6"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-040"
+            ],
+            "skeleton_id": "72d7ac04ea08e7dc"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-008",
+              "pilot-q-math-032"
+            ],
+            "skeleton_id": "83ca8c29792eec2f"
+          },
+          {
+            "count": 3,
+            "query_ids": [
+              "pilot-q-math-000",
+              "pilot-q-math-024",
+              "pilot-q-math-048"
+            ],
+            "skeleton_id": "edcc2f32e7e2082e"
+          }
+        ],
+        "largest_skeleton_group_count": 3,
+        "largest_skeleton_share": 0.428571,
+        "query_count": 7
+      },
+      "frame-math-geometry": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-020",
+              "pilot-q-math-044"
+            ],
+            "skeleton_id": "673c475015eec7c9"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-004",
+              "pilot-q-math-028"
+            ],
+            "skeleton_id": "8c1a770efba74605"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-036"
+            ],
+            "skeleton_id": "8dfa643ba6adc388"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-012"
+            ],
+            "skeleton_id": "94fd1ed3be155202"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-math-optimization": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-005",
+              "pilot-q-math-029"
+            ],
+            "skeleton_id": "150a852ed46a3b76"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-013",
+              "pilot-q-math-037"
+            ],
+            "skeleton_id": "2ec612a96f0cf7cf"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-021",
+              "pilot-q-math-045"
+            ],
+            "skeleton_id": "67ba7d8bbc616793"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-math-probability": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-017",
+              "pilot-q-math-041"
+            ],
+            "skeleton_id": "4952d3834555d059"
+          },
+          {
+            "count": 3,
+            "query_ids": [
+              "pilot-q-math-001",
+              "pilot-q-math-025",
+              "pilot-q-math-049"
+            ],
+            "skeleton_id": "9521cdd6aa1dd9bf"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-009",
+              "pilot-q-math-033"
+            ],
+            "skeleton_id": "bd192325230291aa"
+          }
+        ],
+        "largest_skeleton_group_count": 3,
+        "largest_skeleton_share": 0.428571,
+        "query_count": 7
+      },
+      "frame-math-proof": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-018",
+              "pilot-q-math-042"
+            ],
+            "skeleton_id": "2cb3e3c9b93cc718"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-002"
+            ],
+            "skeleton_id": "3aceaaa61146cccd"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-026"
+            ],
+            "skeleton_id": "47792b483547a615"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-010",
+              "pilot-q-math-034"
+            ],
+            "skeleton_id": "b647126f23be1eec"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-math-statistics": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-011",
+              "pilot-q-math-035"
+            ],
+            "skeleton_id": "7379d90b11827f7c"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-019",
+              "pilot-q-math-043"
+            ],
+            "skeleton_id": "84b7b1665a9d7af9"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-003",
+              "pilot-q-math-027"
+            ],
+            "skeleton_id": "c7c499ac65953566"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-math-word-problem": {
+        "distinct_skeleton_count": 5,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-math-014",
+              "pilot-q-math-038"
+            ],
+            "skeleton_id": "3b9798baee8a80b0"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-030"
+            ],
+            "skeleton_id": "79e3895efebc7248"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-046"
+            ],
+            "skeleton_id": "8ebd64a57458be27"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-022"
+            ],
+            "skeleton_id": "c2083e58ca5d705f"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-math-006"
+            ],
+            "skeleton_id": "c76948e879f9ca94"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-qa-ambiguous-policy": {
+        "distinct_skeleton_count": 5,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-018"
+            ],
+            "skeleton_id": "2b05a4410ae6ccb4"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-042"
+            ],
+            "skeleton_id": "4e28b25f29355d34"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-010",
+              "pilot-q-qa-034"
+            ],
+            "skeleton_id": "a2b8727612eaafd9"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-002"
+            ],
+            "skeleton_id": "c14ddcd1ca015eca"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-026"
+            ],
+            "skeleton_id": "c6e26c77d89d2274"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-qa-bilingual-terms": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-007",
+              "pilot-q-qa-031"
+            ],
+            "skeleton_id": "038dbe43fe13365d"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-023",
+              "pilot-q-qa-047"
+            ],
+            "skeleton_id": "55d3a82c663d1c51"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-015",
+              "pilot-q-qa-039"
+            ],
+            "skeleton_id": "a02d729aa1c48852"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-qa-data-explanation": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-029"
+            ],
+            "skeleton_id": "35a1f5b6dee0acd4"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-021",
+              "pilot-q-qa-045"
+            ],
+            "skeleton_id": "7be9aecc75cc4841"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-005"
+            ],
+            "skeleton_id": "ea21ffe954d85e2e"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-013",
+              "pilot-q-qa-037"
+            ],
+            "skeleton_id": "fb471ba9cdd09bf9"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-qa-evidence-chain": {
+        "distinct_skeleton_count": 5,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-001",
+              "pilot-q-qa-025"
+            ],
+            "skeleton_id": "0539049844642382"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-033"
+            ],
+            "skeleton_id": "2f5f065a3053b8f0"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-049"
+            ],
+            "skeleton_id": "352016701d8788e4"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-009"
+            ],
+            "skeleton_id": "9c184c07bf53ee63"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-017",
+              "pilot-q-qa-041"
+            ],
+            "skeleton_id": "a1b8c60217881de0"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.285714,
+        "query_count": 7
+      },
+      "frame-qa-long-policy": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-046"
+            ],
+            "skeleton_id": "02e4d9dd182fc6dd"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-022"
+            ],
+            "skeleton_id": "96821cc30519b36b"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-006",
+              "pilot-q-qa-030"
+            ],
+            "skeleton_id": "a1dfe7c539e863ff"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-014",
+              "pilot-q-qa-038"
+            ],
+            "skeleton_id": "d32c90972f68c882"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-qa-source-comparison": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-019",
+              "pilot-q-qa-043"
+            ],
+            "skeleton_id": "61d17b672b2f6438"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-011",
+              "pilot-q-qa-035"
+            ],
+            "skeleton_id": "6a2a78688fdca40d"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-003",
+              "pilot-q-qa-027"
+            ],
+            "skeleton_id": "b60523f0fd3dc867"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-qa-technical-docs": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-008",
+              "pilot-q-qa-032"
+            ],
+            "skeleton_id": "2acbf633c3bb8d9c"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-016"
+            ],
+            "skeleton_id": "74ac56557aedec49"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-040"
+            ],
+            "skeleton_id": "b09e459ea052180b"
+          },
+          {
+            "count": 3,
+            "query_ids": [
+              "pilot-q-qa-000",
+              "pilot-q-qa-024",
+              "pilot-q-qa-048"
+            ],
+            "skeleton_id": "fbdcbda8935bf1e0"
+          }
+        ],
+        "largest_skeleton_group_count": 3,
+        "largest_skeleton_share": 0.428571,
+        "query_count": 7
+      },
+      "frame-qa-troubleshooting": {
+        "distinct_skeleton_count": 4,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-020",
+              "pilot-q-qa-044"
+            ],
+            "skeleton_id": "6b6321a8baabed62"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-012"
+            ],
+            "skeleton_id": "73681d7666cc8217"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-qa-004",
+              "pilot-q-qa-028"
+            ],
+            "skeleton_id": "b838bb1614b6dad6"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-qa-036"
+            ],
+            "skeleton_id": "e43ba10b7183d575"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-summary-bilingual-report": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-014",
+              "pilot-q-summary-038"
+            ],
+            "skeleton_id": "78b1eb07ed002539"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-006",
+              "pilot-q-summary-030"
+            ],
+            "skeleton_id": "97f668ced47a569f"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-022",
+              "pilot-q-summary-046"
+            ],
+            "skeleton_id": "b444c921fe1a2b44"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-summary-conflicting-reports": {
+        "distinct_skeleton_count": 6,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-028"
+            ],
+            "skeleton_id": "2e4cad7167d34cf6"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-044"
+            ],
+            "skeleton_id": "3ffb81e1d38cc16d"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-012"
+            ],
+            "skeleton_id": "70faba09497dab43"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-004"
+            ],
+            "skeleton_id": "b3161dc5b22fde0e"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-020"
+            ],
+            "skeleton_id": "ddcff299d2b56104"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-036"
+            ],
+            "skeleton_id": "e54b95ff98528bbf"
+          }
+        ],
+        "largest_skeleton_group_count": 1,
+        "largest_skeleton_share": 0.166667,
+        "query_count": 6
+      },
+      "frame-summary-executive": {
+        "distinct_skeleton_count": 5,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-039"
+            ],
+            "skeleton_id": "310fc091f7f562bc"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-047"
+            ],
+            "skeleton_id": "6afa5a65a3d9519b"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-007",
+              "pilot-q-summary-031"
+            ],
+            "skeleton_id": "821cebc5baf2b5eb"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-023"
+            ],
+            "skeleton_id": "c8eb0ee322e5c8c8"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-015"
+            ],
+            "skeleton_id": "dd599b3eb8b2b3ca"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-summary-incident": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-018",
+              "pilot-q-summary-042"
+            ],
+            "skeleton_id": "1375084108b203f6"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-010",
+              "pilot-q-summary-034"
+            ],
+            "skeleton_id": "b09fc3003b847e18"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-002",
+              "pilot-q-summary-026"
+            ],
+            "skeleton_id": "fe7a54b9de483344"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-summary-meeting": {
+        "distinct_skeleton_count": 5,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-000",
+              "pilot-q-summary-048"
+            ],
+            "skeleton_id": "0d1f9456684177d8"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-016"
+            ],
+            "skeleton_id": "3fd41fbcd94f1e01"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-008",
+              "pilot-q-summary-032"
+            ],
+            "skeleton_id": "43f3113e5dad78bf"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-024"
+            ],
+            "skeleton_id": "6f11dbcf6df84dd4"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-040"
+            ],
+            "skeleton_id": "e9e5b3b95181938c"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.285714,
+        "query_count": 7
+      },
+      "frame-summary-metrics": {
+        "distinct_skeleton_count": 6,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-011"
+            ],
+            "skeleton_id": "14c9abf97688c9e6"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-019"
+            ],
+            "skeleton_id": "4831b203c450cbe3"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-003"
+            ],
+            "skeleton_id": "56f26597f0fb38e5"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-027"
+            ],
+            "skeleton_id": "65afa0346f39b3b2"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-043"
+            ],
+            "skeleton_id": "ce67ad3136d60c32"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-summary-035"
+            ],
+            "skeleton_id": "dd4fa5c852cf2435"
+          }
+        ],
+        "largest_skeleton_group_count": 1,
+        "largest_skeleton_share": 0.166667,
+        "query_count": 6
+      },
+      "frame-summary-research": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 3,
+            "query_ids": [
+              "pilot-q-summary-001",
+              "pilot-q-summary-025",
+              "pilot-q-summary-049"
+            ],
+            "skeleton_id": "220d71bd884dae62"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-009",
+              "pilot-q-summary-033"
+            ],
+            "skeleton_id": "3c0a0aea5a19074b"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-017",
+              "pilot-q-summary-041"
+            ],
+            "skeleton_id": "697fa20c8522f1e4"
+          }
+        ],
+        "largest_skeleton_group_count": 3,
+        "largest_skeleton_share": 0.428571,
+        "query_count": 7
+      },
+      "frame-summary-technical-guide": {
+        "distinct_skeleton_count": 3,
+        "groups": [
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-013",
+              "pilot-q-summary-037"
+            ],
+            "skeleton_id": "09a89e2e4f8a2cee"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-005",
+              "pilot-q-summary-029"
+            ],
+            "skeleton_id": "67a2a0432c2619b2"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-summary-021",
+              "pilot-q-summary-045"
+            ],
+            "skeleton_id": "e935690b7d09a01a"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.333333,
+        "query_count": 6
+      },
+      "frame-translation-ambiguous-reference": {
+        "distinct_skeleton_count": 6,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-014"
+            ],
+            "skeleton_id": "18d31e169bd01e13"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-030"
+            ],
+            "skeleton_id": "3be80f1d759e97eb"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-046"
+            ],
+            "skeleton_id": "7d54c01a4cf4a569"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-022"
+            ],
+            "skeleton_id": "9d5c20377d25956b"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-006"
+            ],
+            "skeleton_id": "a2105c68dc0c0a71"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-038"
+            ],
+            "skeleton_id": "dfcc0fdb7641bac9"
+          }
+        ],
+        "largest_skeleton_group_count": 1,
+        "largest_skeleton_share": 0.166667,
+        "query_count": 6
+      },
+      "frame-translation-contract": {
+        "distinct_skeleton_count": 7,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-041"
+            ],
+            "skeleton_id": "2369eab252ccf943"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-001"
+            ],
+            "skeleton_id": "354fac4eecb887f0"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-025"
+            ],
+            "skeleton_id": "7bddfe8b73cbd8b0"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-033"
+            ],
+            "skeleton_id": "8a05b32ef54bd2f4"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-009"
+            ],
+            "skeleton_id": "8fc7e597d0c11faa"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-017"
+            ],
+            "skeleton_id": "b46635c9bd006220"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-049"
+            ],
+            "skeleton_id": "e8cb622e4a624ea0"
+          }
+        ],
+        "largest_skeleton_group_count": 1,
+        "largest_skeleton_share": 0.142857,
+        "query_count": 7
+      },
+      "frame-translation-domain-report": {
+        "distinct_skeleton_count": 6,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-011"
+            ],
+            "skeleton_id": "091eddd5f506c48e"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-027"
+            ],
+            "skeleton_id": "0c13446c9931cca1"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-043"
+            ],
+            "skeleton_id": "0ecdc8d92c7ba12e"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-003"
+            ],
+            "skeleton_id": "505be2ee7cb3feb6"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-035"
+            ],
+            "skeleton_id": "7c3bbfebc99bb5a7"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-019"
+            ],
+            "skeleton_id": "ac4d0b28436804f3"
+          }
+        ],
+        "largest_skeleton_group_count": 1,
+        "largest_skeleton_share": 0.166667,
+        "query_count": 6
+      },
+      "frame-translation-glossary": {
+        "distinct_skeleton_count": 6,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-023"
+            ],
+            "skeleton_id": "1ca8165e1b606e01"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-015"
+            ],
+            "skeleton_id": "57bc9978ca68ef9c"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-031"
+            ],
+            "skeleton_id": "a8eff8fd8f216459"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-047"
+            ],
+            "skeleton_id": "d81da87c1554cd1e"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-039"
+            ],
+            "skeleton_id": "d92d0559d78291e0"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-007"
+            ],
+            "skeleton_id": "f5da46cd89fc0522"
+          }
+        ],
+        "largest_skeleton_group_count": 1,
+        "largest_skeleton_share": 0.166667,
+        "query_count": 6
+      },
+      "frame-translation-incident": {
+        "distinct_skeleton_count": 6,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-005"
+            ],
+            "skeleton_id": "552211327f7073ba"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-037"
+            ],
+            "skeleton_id": "59d4e1cb911d2a1e"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-013"
+            ],
+            "skeleton_id": "8a3a30286731ca0a"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-021"
+            ],
+            "skeleton_id": "97e2f78bafc0c124"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-029"
+            ],
+            "skeleton_id": "a4afb593d1013493"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-045"
+            ],
+            "skeleton_id": "a8781b835f8c35be"
+          }
+        ],
+        "largest_skeleton_group_count": 1,
+        "largest_skeleton_share": 0.166667,
+        "query_count": 6
+      },
+      "frame-translation-notice": {
+        "distinct_skeleton_count": 6,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-018"
+            ],
+            "skeleton_id": "0f0661a17cf81c18"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-026"
+            ],
+            "skeleton_id": "4603b733f1d05e17"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-010"
+            ],
+            "skeleton_id": "79540c08713c2561"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-042"
+            ],
+            "skeleton_id": "88e24f469ae49cca"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-034"
+            ],
+            "skeleton_id": "90d4139277fe8673"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-002"
+            ],
+            "skeleton_id": "e020605796de038e"
+          }
+        ],
+        "largest_skeleton_group_count": 1,
+        "largest_skeleton_share": 0.166667,
+        "query_count": 6
+      },
+      "frame-translation-technical": {
+        "distinct_skeleton_count": 6,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-032"
+            ],
+            "skeleton_id": "2af27025f314db0a"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-008"
+            ],
+            "skeleton_id": "4a465c2fd2d2fae3"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-040"
+            ],
+            "skeleton_id": "4ffa716a1aed6234"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-016"
+            ],
+            "skeleton_id": "82665a2494fdcb98"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-024"
+            ],
+            "skeleton_id": "9ea115dd131b3e6d"
+          },
+          {
+            "count": 2,
+            "query_ids": [
+              "pilot-q-translation-000",
+              "pilot-q-translation-048"
+            ],
+            "skeleton_id": "a79f19b78daaefdb"
+          }
+        ],
+        "largest_skeleton_group_count": 2,
+        "largest_skeleton_share": 0.285714,
+        "query_count": 7
+      },
+      "frame-translation-ui-localization": {
+        "distinct_skeleton_count": 6,
+        "groups": [
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-012"
+            ],
+            "skeleton_id": "283946a5c4bf966d"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-044"
+            ],
+            "skeleton_id": "3854c2acda871936"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-036"
+            ],
+            "skeleton_id": "51531dc8e15d5feb"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-004"
+            ],
+            "skeleton_id": "547deb33593c38e9"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-020"
+            ],
+            "skeleton_id": "789653ef22a04014"
+          },
+          {
+            "count": 1,
+            "query_ids": [
+              "pilot-q-translation-028"
+            ],
+            "skeleton_id": "e1a65c77dd523d36"
+          }
+        ],
+        "largest_skeleton_group_count": 1,
+        "largest_skeleton_share": 0.166667,
+        "query_count": 6
+      }
+    },
+    "maximum_largest_skeleton_share": 0.428571,
+    "method": "Extract provided material, normalize Unicode, numbers, IDs, versions, variables, whitespace, and punctuation, then group within each semantic frame.",
+    "minimum_distinct_skeleton_count": 3
+  },
+  "stage": "pilot_benchmark_final_calibration",
+  "surface_lint": {
+    "failure_count": 0,
+    "failures": []
+  },
+  "task_distribution": {
+    "code": 50,
+    "math": 50,
+    "qa": 50,
+    "summary": 50,
+    "translation": 50
+  },
+  "task_language_distribution": {
+    "code": {
+      "en": 5,
+      "mixed": 17,
+      "zh": 28
+    },
+    "math": {
+      "en": 5,
+      "mixed": 5,
+      "zh": 40
+    },
+    "qa": {
+      "en": 8,
+      "mixed": 8,
+      "zh": 34
+    },
+    "summary": {
+      "en": 13,
+      "mixed": 5,
+      "zh": 32
+    },
+    "translation": {
+      "mixed": 30,
+      "zh": 20
+    }
+  },
+  "token_capability_association_candidates": [
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 14,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-performance": 6,
+        "frame-code-refactor": 3,
+        "frame-code-service-debug": 3,
+        "frame-math-equation-system": 2,
+        "frame-math-geometry": 5,
+        "frame-math-optimization": 2,
+        "frame-math-probability": 7,
+        "frame-summary-meeting": 3,
+        "frame-summary-research": 4,
+        "frame-summary-technical-guide": 1
+      },
+      "support": 36,
+      "surface_realization_count": 3,
+      "task_distribution": {
+        "code": 12,
+        "math": 16,
+        "summary": 8
+      },
+      "token": "sections"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 11,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-data-pipeline": 2,
+        "frame-code-sql-report": 4,
+        "frame-qa-ambiguous-policy": 3,
+        "frame-qa-bilingual-terms": 4,
+        "frame-qa-technical-docs": 1,
+        "frame-qa-troubleshooting": 2,
+        "frame-translation-contract": 3,
+        "frame-translation-glossary": 4,
+        "frame-translation-technical": 2
+      },
+      "support": 25,
+      "surface_realization_count": 4,
+      "task_distribution": {
+        "code": 6,
+        "qa": 10,
+        "translation": 9
+      },
+      "token": "columns"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MH",
+      "classification": "uncertain",
+      "evidence_variant_count": 16,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-repository-review": 5,
+        "frame-code-scheduler": 2,
+        "frame-summary-incident": 6,
+        "frame-translation-incident": 3
+      },
+      "support": 16,
+      "surface_realization_count": 3,
+      "task_distribution": {
+        "code": 7,
+        "summary": 6,
+        "translation": 3
+      },
+      "token": "首次"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FK",
+      "classification": "uncertain",
+      "evidence_variant_count": 12,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-evidence-chain": 2,
+        "frame-qa-source-comparison": 6,
+        "frame-translation-glossary": 6
+      },
+      "support": 14,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 8,
+        "translation": 6
+      },
+      "token": "录发"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FK",
+      "classification": "likely_generator_artifact",
+      "evidence_variant_count": 6,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-bilingual-terms": 6,
+        "frame-translation-glossary": 6
+      },
+      "support": 12,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "qa": 6,
+        "translation": 6
+      },
+      "token": "务窗"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 3,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 2,
+        "frame-math-geometry": 5,
+        "frame-math-probability": 4
+      },
+      "support": 11,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "math": 11
+      },
+      "token": "derivation"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 11,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-evidence-chain": 4,
+        "frame-summary-incident": 2,
+        "frame-translation-incident": 5
+      },
+      "support": 11,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 4,
+        "summary": 2,
+        "translation": 5
+      },
+      "token": "timeline"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MT",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-bilingual-terms": 5,
+        "frame-summary-bilingual-report": 3,
+        "frame-translation-contract": 1,
+        "frame-translation-notice": 1
+      },
+      "support": 10,
+      "surface_realization_count": 3,
+      "task_distribution": {
+        "qa": 5,
+        "summary": 3,
+        "translation": 2
+      },
+      "token": "bilingual"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MT",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-ambiguous-reference": 2,
+        "frame-translation-contract": 2,
+        "frame-translation-domain-report": 1,
+        "frame-translation-glossary": 1,
+        "frame-translation-incident": 1,
+        "frame-translation-notice": 1,
+        "frame-translation-technical": 1,
+        "frame-translation-ui-localization": 1
+      },
+      "support": 10,
+      "surface_realization_count": 4,
+      "task_distribution": {
+        "translation": 10
+      },
+      "token": "version"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MT",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-ambiguous-reference": 2,
+        "frame-translation-contract": 2,
+        "frame-translation-domain-report": 1,
+        "frame-translation-glossary": 1,
+        "frame-translation-incident": 1,
+        "frame-translation-notice": 1,
+        "frame-translation-technical": 1,
+        "frame-translation-ui-localization": 1
+      },
+      "support": 10,
+      "surface_realization_count": 4,
+      "task_distribution": {
+        "translation": 10
+      },
+      "token": "中英"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MT",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-ambiguous-reference": 2,
+        "frame-translation-contract": 2,
+        "frame-translation-domain-report": 1,
+        "frame-translation-glossary": 1,
+        "frame-translation-incident": 1,
+        "frame-translation-notice": 1,
+        "frame-translation-technical": 1,
+        "frame-translation-ui-localization": 1
+      },
+      "support": 10,
+      "surface_realization_count": 4,
+      "task_distribution": {
+        "translation": 10
+      },
+      "token": "付修"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FK",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-bilingual-terms": 6,
+        "frame-translation-glossary": 4
+      },
+      "support": 10,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "qa": 6,
+        "translation": 4
+      },
+      "token": "客服"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MT",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-ambiguous-reference": 2,
+        "frame-translation-contract": 2,
+        "frame-translation-domain-report": 1,
+        "frame-translation-glossary": 1,
+        "frame-translation-incident": 1,
+        "frame-translation-notice": 1,
+        "frame-translation-technical": 1,
+        "frame-translation-ui-localization": 1
+      },
+      "support": 10,
+      "surface_realization_count": 4,
+      "task_distribution": {
+        "translation": 10
+      },
+      "token": "时交"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FK",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-bilingual-terms": 6,
+        "frame-translation-glossary": 4
+      },
+      "support": 10,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "qa": 6,
+        "translation": 4
+      },
+      "token": "服窗"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MT",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-ambiguous-reference": 2,
+        "frame-translation-contract": 2,
+        "frame-translation-domain-report": 1,
+        "frame-translation-glossary": 1,
+        "frame-translation-incident": 1,
+        "frame-translation-notice": 1,
+        "frame-translation-technical": 1,
+        "frame-translation-ui-localization": 1
+      },
+      "support": 10,
+      "surface_realization_count": 4,
+      "task_distribution": {
+        "translation": 10
+      },
+      "token": "的中"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 3,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 2,
+        "frame-math-probability": 7
+      },
+      "support": 9,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "math": 9
+      },
+      "token": "verification"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MH",
+      "classification": "uncertain",
+      "evidence_variant_count": 9,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-source-comparison": 6,
+        "frame-summary-conflicting-reports": 3
+      },
+      "support": 9,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 6,
+        "summary": 3
+      },
+      "token": "两份"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MH",
+      "classification": "uncertain",
+      "evidence_variant_count": 9,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-conflicting-reports": 3,
+        "frame-summary-incident": 6
+      },
+      "support": 9,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "summary": 9
+      },
+      "token": "原因"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MH",
+      "classification": "uncertain",
+      "evidence_variant_count": 9,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-incident": 6,
+        "frame-translation-incident": 3
+      },
+      "support": 9,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "summary": 6,
+        "translation": 3
+      },
+      "token": "接池"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MH",
+      "classification": "uncertain",
+      "evidence_variant_count": 9,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-incident": 6,
+        "frame-translation-incident": 3
+      },
+      "support": 9,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "summary": 6,
+        "translation": 3
+      },
+      "token": "池耗"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 3,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-refactor": 2,
+        "frame-summary-research": 7
+      },
+      "support": 9,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 2,
+        "summary": 7
+      },
+      "token": "继续"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 3,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-bilingual-terms": 4,
+        "frame-translation-glossary": 4
+      },
+      "support": 8,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "qa": 4,
+        "translation": 4
+      },
+      "token": "term"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MH",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-repository-review": 2,
+        "frame-qa-source-comparison": 6
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 2,
+        "qa": 6
+      },
+      "token": "不同"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 3,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-performance": 6,
+        "frame-code-scheduler": 2
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 8
+      },
+      "token": "可重"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MT",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 5,
+        "frame-translation-technical": 3
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "translation": 8
+      },
+      "token": "如果"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "likely_generator_artifact",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7,
+        "frame-translation-domain-report": 1
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "summary": 7,
+        "translation": 1
+      },
+      "token": "对照"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-api-client": 6,
+        "frame-math-optimization": 2
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 6,
+        "math": 2
+      },
+      "token": "时与"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-refactor": 6,
+        "frame-summary-technical-guide": 2
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 6,
+        "summary": 2
+      },
+      "token": "校验"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 6,
+        "frame-math-proof": 2
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "math": 8
+      },
+      "token": "核验"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "MH",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-repository-review": 5,
+        "frame-summary-conflicting-reports": 3
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 5,
+        "summary": 3
+      },
+      "token": "模块"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FK",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-evidence-chain": 2,
+        "frame-qa-source-comparison": 6
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 8
+      },
+      "token": "生在"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-evidence-chain": 5,
+        "frame-summary-conflicting-reports": 3
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 5,
+        "summary": 3
+      },
+      "token": "证据"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "AU",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-service-debug": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "code": 7
+      },
+      "token": "append_once"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "AU",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-service-debug": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "code": 7
+      },
+      "token": "event"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "events"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-ambiguous-policy": 2,
+        "frame-summary-meeting": 5
+      },
+      "support": 7,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 2,
+        "summary": 5
+      },
+      "token": "facts"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "fraction"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FK",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-bilingual-terms": 4,
+        "frame-translation-glossary": 3
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "qa": 4,
+        "translation": 3
+      },
+      "token": "glossary"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "AU",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-service-debug": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "code": 7
+      },
+      "token": "key"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "AU",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-service-debug": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "code": 7
+      },
+      "token": "miss"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "probability"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 3,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-api-client": 6,
+        "frame-code-service-debug": 1
+      },
+      "support": 7,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 7
+      },
+      "token": "state"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "AU",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-service-debug": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "code": 7
+      },
+      "token": "store"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "不放"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "与分"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "与解"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "两例"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "个样"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "个红"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "个蓝"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "中心"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "为红"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "为结"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "主要"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "二次"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "件概"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "例失"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "信区"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "值得"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "出分"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "分子"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "分观"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "到红"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "制并"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "包括"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "区间"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "单中"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "压缩"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "和两"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "回连"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FK",
+      "classification": "uncertain",
+      "evidence_variant_count": 6,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-technical-docs": 6,
+        "frame-translation-domain-report": 1
+      },
+      "support": 7,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 6,
+        "translation": 1
+      },
+      "token": "在结"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "声称"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "失访"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "子与"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-service-debug": 1,
+        "frame-qa-evidence-chain": 5,
+        "frame-summary-meeting": 1
+      },
+      "support": 7,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 1,
+        "qa": 5,
+        "summary": 1
+      },
+      "token": "安全"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "察与"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "局限"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "已知"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "并区"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "AU",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-api-client": 6,
+        "frame-code-service-debug": 1
+      },
+      "support": 7,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 7
+      },
+      "token": "异常"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "得继"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "心和"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "抽到"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "抽取"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "括样"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "提高"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "放回"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "效果"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FK",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-bilingual-terms": 6,
+        "frame-translation-glossary": 1
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "qa": 6,
+        "translation": 1
+      },
+      "token": "新版"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "有声"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "本量"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "果值"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "果已"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "标提"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "样本"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "概率"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "次仍"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-probability": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "次抽"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 1,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-research": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "照组"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FK",
+      "classification": "uncertain",
+      "evidence_variant_count": 2,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-bilingual-terms": 6,
+        "frame-translation-glossary": 1
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "qa": 6,
+        "translation": 1
+      },
+      "token": "版术"
+    }
+  ],
+  "token_capability_candidate_count": 100,
+  "translation_direction_distribution": {
+    "bilingual_revision": 10,
+    "en_to_zh": 20,
+    "zh_to_en": 20
+  }
+}

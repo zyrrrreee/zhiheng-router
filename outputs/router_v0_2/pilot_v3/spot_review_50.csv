@@ -1,0 +1,561 @@
+﻿review_id,query_id,query_text,task,minimal_capability_rubric,difficulty,difficulty_value,language,semantic_frame,active_capability_count,alignment_risk_capabilities,skeleton_group_size,difficulty_boundary_distance,lexical_association,naturalness,task_completeness,constraint_consistency,capability_cue_naturalness,template_artifact,shortcut_risk,difficulty_plausibility,ambiguity_unanswerable_risk,reviewer_note,reason_code
+spot-pilot-q-code-025,pilot-q-code-025,"给定材料
+代码：
+```python
+def append_once(store, event):
+    key = event.get(""request_id"", """")
+    if key in store:
+        return store[key]
+    value = {""request_id"": key, ""amount"": event[""amount""]}
+    store[key] = value
+    if event.get(""retry""):
+        store[key + ""-retry""] = value
+    return value
+```
+失败输入：`{""request_id"":""r35"",""amount"":42,""retry"":true}`
+日志：`09:31 cache miss r35`；`09:31 write r35`；`09:31 write r35-retry`。
+预期：同一 `request_id` 只保留一条记录。
+
+任务
+定位导致重复记录的最早状态变化，给出最小修复，并写出覆盖普通请求和 retry 请求的测试。
+
+交付形式
+patch; sections: root cause / patch / regression tests",code,严格满足字段、格式、长度和结构约束；利用失败现象定位最早偏差并设计回归检查；综合相隔较远的材料并保持前后一致；遵守接口或库约束并处理失败路径,low,0.265372,zh,frame-code-service-debug,4,LC,3,0.134628,sections,,,,,,,,,,
+spot-pilot-q-code-008,pilot-q-code-008,"任务
+实现 `schedule(tasks, limit)`，返回合法的分批执行顺序，并说明环依赖和未知依赖如何报告。
+
+给定材料
+任务耗时：A=34ms、B=7ms、C=8ms、D=41ms、E=27ms。A 无依赖；B、C 依赖 A；D 依赖 B 和 C；E 依赖 C。
+并发上限：6。目标是在满足依赖的前提下缩短总完成时间；任务失败后，不再启动依赖它的任务。
+输入格式：`[{""id"": ""A"", ""depends_on"": []}, ...]`。
+补充条件：B 与 C 共享独占数据库锁，不能放在同一执行批次。
+
+交付形式
+JSON contract",code,连接多段证据或有依赖的条件；严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件,medium,0.500339,mixed,frame-code-scheduler,3,MH,2,0.100339,,,,,,,,,,,
+spot-pilot-q-code-026,pilot-q-code-026,"Deliverable
+result schema
+
+Provided material
+Schema: `orders(order_id, customer_id, paid_amount, paid_at)` and `refunds(refund_id, order_id, refund_amount, approved_at)`.
+Rows: orders `(o1,c1,23,2026-08-02)`, `(o2,c1,16,2026-08-03)`; refunds `(r1,o1,7,2026-08-05)`, `(r2,o1,1,2026-08-06)`.
+Definition: August net paid amount per customer; orders without refunds remain.
+
+Task
+Write SQL that avoids multiplying order amounts through the one-to-many refund join, and explain aggregation order.",code,正确处理表格、连接、聚合或数据口径；明确变量关系、计算过程与数值核验,low,0.302364,en,frame-code-sql-report,2,,1,0.097636,,,,,,,,,,,
+spot-pilot-q-code-044,pilot-q-code-044,"任务
+把解析、校验和聚合职责拆开，同时保持列出的外部行为，并给出特征测试。
+
+给定材料
+现有代码：
+```python
+def transform(rows):
+    out = {}
+    for row in rows:
+        if not row.get(""id""):
+            continue
+        out[row[""id""]] = int(row.get(""value"", 0))
+    return list(out.items())
+```
+行为样例：空 `id` 被忽略；重复 `id` 保留最后值；输入 `[{""id"":""a"",""value"":""10""},{""id"":""b"",""value"":""5""}]` 返回 `[('a',10),('b',5)]`。
+补充条件：某行 value 无法转为整数时要记录该行错误并继续处理其余有效行，同时保持有效行顺序。
+
+交付形式
+code diff outline; sections: preserved behavior / change / tests",code,严格满足字段、格式、长度和结构约束；综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息,high,0.746602,mixed,frame-code-refactor,3,LC,2,0.046602,sections | 继续 | 校验,,,,,,,,,,
+spot-pilot-q-code-027,pilot-q-code-027,"给定材料
+接口：`GET /v2/items?cursor=<token>`
+成功响应：`{""items"":[{""id"":""i16"",""state"":""ready""}],""next_cursor"":""p2""}`
+末页响应：`{""items"":[]}`
+限流响应：HTTP 429，`{""retry_after"":3}`
+异常样例：HTTP 200 但某个 item 缺少 `id`。
+
+交付形式
+typed interface; fields: response / error / retry decision
+
+任务
+实现分页客户端，区分末页、限流和 schema 错误；给出超时与最大重试策略。",code,比较可行路径并检查关键步骤与边界条件；遵守接口或库约束并处理失败路径；严格满足字段、格式、长度和结构约束,low,0.351247,zh,frame-code-api-client,3,,2,0.048753,时与,,,,,,,,,,
+spot-pilot-q-code-038,pilot-q-code-038,"交付形式
+JSON schema
+
+给定材料
+来源 A：`id,date,value`，样例 `a3,2026-08-03,23`。
+来源 B：`record_id,event_date,value`，样例 `a3,03/08/2026,NA`。
+规则：日期统一为 ISO；`NA` 表示缺失而不是 0；同一 id/date 重复时保留来源 A，并记录冲突。
+补充条件：来源 B 的时间带 `+08:00`，换算 UTC 后可能落到前一天，去重键使用 UTC 日期。
+
+任务
+设计解析和标准化流程，给出统一输出 schema、错误记录以及上述两行的结果。",code,正确处理表格、连接、聚合或数据口径；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束；遵守接口或库约束并处理失败路径,medium,0.489393,zh,frame-code-data-pipeline,4,,2,0.089393,,,,,,,,,,,
+spot-pilot-q-code-047,pilot-q-code-047,"给定材料
+当前实现：
+```python
+def contains_pair(values, target):
+    for i in range(len(values)):
+        for j in range(i + 1, len(values)):
+            if values[i] + values[j] == target:
+                return True
+    return False
+```
+数据最多 37000 项；值可重复且可为负数；空列表返回 False。
+补充条件：输入改为单遍 iterator，内存上限不足以保存全部元素；方案需要说明精确性与外部存储的取舍。
+
+交付形式
+analysis with code; sections: algorithm / complexity / boundary cases
+
+任务
+比较排序双指针与哈希集合两种优化，选择一种实现，并分析重复值和负数边界。",code,严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件,high,0.762684,zh,frame-code-performance,2,,2,0.062684,sections | 可重,,,,,,,,,,
+spot-pilot-q-code-045,pilot-q-code-045,"给定材料
+模块关系：`cli.py → config.py → cache.py → service.py`。
+`config.py` 在 import 时读取环境变量；`cache.py` 在 import 时创建单例；测试先 import cache 再设置环境变量。
+失败顺序：`import cache` → `set ROUTER_TTL=16` → `import service`，实际 TTL 仍为 50。
+成功顺序：先设置环境变量，再 import 任一模块。
+补充条件：两个 worker 分别在设置环境变量前后 import 模块，当前会得到不同 TTL；修复后必须显式共享同一配置。
+
+任务
+说明配置值沿模块传播的路径，指出首次固化错误值的位置，并提出最小修改。
+
+交付形式
+call-flow diagram",code,利用失败现象定位最早偏差并设计回归检查；连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致,high,0.798723,zh,frame-code-repository-review,3,MH | LC,2,0.098723,首次 | 不同 | 模块,,,,,,,,,,
+spot-pilot-q-code-005,pilot-q-code-005,"给定材料
+模块关系：`cli.py → config.py → cache.py → service.py`。
+`config.py` 在 import 时读取环境变量；`cache.py` 在 import 时创建单例；测试先 import cache 再设置环境变量。
+失败顺序：`import cache` → `set ROUTER_TTL=35` → `import service`，实际 TTL 仍为 70。
+成功顺序：先设置环境变量，再 import 任一模块。
+
+任务
+说明配置值沿模块传播的路径，指出首次固化错误值的位置，并提出最小修改。
+
+交付形式
+review memo",code,综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件；利用失败现象定位最早偏差并设计回归检查,low,0.350142,zh,frame-code-repository-review,3,LC | MH,2,0.049858,首次 | 模块,,,,,,,,,,
+spot-pilot-q-code-029,pilot-q-code-029,"给定材料
+模块关系：`cli.py → config.py → cache.py → service.py`。
+`config.py` 在 import 时读取环境变量；`cache.py` 在 import 时创建单例；测试先 import cache 再设置环境变量。
+失败顺序：`import cache` → `set ROUTER_TTL=23` → `import service`，实际 TTL 仍为 40。
+成功顺序：先设置环境变量，再 import 任一模块。
+
+任务
+说明配置值沿模块传播的路径，指出首次固化错误值的位置，并提出最小修改。
+
+交付形式
+review memo",code,综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件,low,0.235048,zh,frame-code-repository-review,2,LC | MH,2,0.164952,首次 | 模块,,,,,,,,,,
+spot-pilot-q-math-049,pilot-q-math-049,"任务
+计算第二次仍为红球的条件概率，并写出分子与分母。
+
+给定材料
+袋中有 14 个红球和 5 个蓝球，不放回连续抽取 2 个。已知第一次抽到红球。
+
+交付形式
+formula derivation; sections: events / probability fraction / verification",math,明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束；连接多段证据或有依赖的条件,low,0.317717,zh,frame-math-probability,3,MH,3,0.082283,sections | derivation | verification,,,,,,,,,,
+spot-pilot-q-math-043,pilot-q-math-043,"交付形式
+statistical note
+
+给定材料
+A 组观测为 `[36, 37, 35, 36, 38]`；B 组为 `[5, 6, 5, 7, 205]`；最后一个 B 值来自传感器告警，是否有效尚未确认。
+补充条件：告警值可能有效、应校准或应删除；分别计算三种情形并给出不依赖其状态的结论。
+
+任务
+分别计算两组中位数与均值，并说明待确认离群值如何影响比较。",math,识别多种合理解释并说明澄清需求；正确处理表格、连接、聚合或数据口径,high,0.751332,mixed,frame-math-statistics,2,AM,2,0.051332,,,,,,,,,,,
+spot-pilot-q-math-016,pilot-q-math-016,"Provided material
+A project buys x standard devices and y enhanced devices. The total is 21. A standard device counts for 2 points and an enhanced device for 1, giving 39 points.
+Additional condition: The audit requires both elimination and matrix solutions, plus an explanation of why the coefficient determinant guarantees uniqueness.
+
+Deliverable
+stepwise derivation; sections: setup / solution / verification
+
+Task
+Form and solve the equations, then substitute the answer into both conditions.",math,严格满足字段、格式、长度和结构约束；比较可行路径并检查关键步骤与边界条件；明确变量关系、计算过程与数值核验,high,0.785061,en,frame-math-equation-system,3,,1,0.085061,sections | derivation | verification | term,,,,,,,,,,
+spot-pilot-q-math-015,pilot-q-math-015,"交付形式
+comparison table
+
+给定材料
+季度数据如下：Q1=360，Q2=380，Q3=740，Q4=20。附注称 Q3 中有 36 个单位应回溯计入 Q2。
+补充条件：复核又发现 Q3 有 5 个单位重复记录，应直接删除后再计算修订增长率。
+
+任务
+先按原表计算 Q2→Q3 增长率，再按附注调整后重新计算，并比较差异。",math,明确变量关系、计算过程与数值核验；保留原意和事实，不添加材料外信息,medium,0.523042,zh,frame-math-chart-analysis,2,,2,0.123042,,,,,,,,,,,
+spot-pilot-q-math-028,pilot-q-math-028,"给定材料
+一个 L 形区域可看作 36m × 8m 的大矩形，右上角挖去 5m × 6m 的小矩形。各边均与坐标轴平行。
+
+交付形式
+annotated derivation; sections: whole area / cutouts / result
+
+任务
+求剩余面积，列出大矩形和挖空部分的计算，并保留单位。",math,明确变量关系、计算过程与数值核验；比较可行路径并检查关键步骤与边界条件；严格满足字段、格式、长度和结构约束,low,0.343133,zh,frame-math-geometry,3,,2,0.056867,sections | derivation,,,,,,,,,,
+spot-pilot-q-math-021,pilot-q-math-021,"任务
+写出整数优化模型并找出利润最大的生产组合。
+
+给定材料
+产品 A 每件利润 14，耗时 2 小时；产品 B 每件利润 8，耗时 1 小时。可用 25 小时，A 至少生产 1 件，A、B 均为非负整数。
+补充条件：另有材料约束：A 每件耗材 1，B 每件耗材 2，总耗材不超过 12；同时满足工时与耗材约束。
+
+交付形式
+optimization model; sections: variables / constraints / optimum",math,严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,high,0.801872,zh,frame-math-optimization,2,,2,0.101872,sections | 时与,,,,,,,,,,
+spot-pilot-q-math-034,pilot-q-math-034,"给定材料
+数列满足 `a₁=17`，`a_(n+1)=a_n+3`。命题：对所有正整数 n，`a_n=17+(n-1)×3`。
+补充条件：在证明通项后，再推导前 n 项和并用 n=3 核验。
+
+任务
+用数学归纳法证明命题，分别写出基础步和归纳步。
+
+交付形式
+proof outline",math,比较可行路径并检查关键步骤与边界条件；连接多段证据或有依赖的条件；严格满足字段、格式、长度和结构约束,medium,0.49846,zh,frame-math-proof,3,MH,2,0.09846,核验,,,,,,,,,,
+spot-pilot-q-math-038,pilot-q-math-038,"给定材料
+影院售出成人票和学生票共 39 张。成人票每张 17 元，学生票每张 8 元，总收入为 609 元。
+补充条件：售票结束后最后 2 张成人票每张返还 1 元，另算实际净收入。
+
+任务
+求两类票各售出多少张，并验证票数与收入。
+
+交付形式
+worked solution",math,明确变量关系、计算过程与数值核验；连接多段证据或有依赖的条件,medium,0.597975,zh,frame-math-word-problem,2,MH,2,0.102025,,,,,,,,,,,
+spot-pilot-q-math-001,pilot-q-math-001,"任务
+计算第二次仍为红球的条件概率，并写出分子与分母。
+
+给定材料
+袋中有 14 个红球和 6 个蓝球，不放回连续抽取 2 个。已知第一次抽到红球。
+
+交付形式
+formula derivation; sections: events / probability fraction / verification",math,明确变量关系、计算过程与数值核验；严格满足字段、格式、长度和结构约束；连接多段证据或有依赖的条件,low,0.225638,zh,frame-math-probability,3,MH,3,0.174362,sections | derivation | verification,,,,,,,,,,
+spot-pilot-q-math-033,pilot-q-math-033,"任务
+计算第二次仍为红球的条件概率，并写出分子与分母。
+
+给定材料
+袋中有 11 个红球和 7 个蓝球，不放回连续抽取 2 个。已知第一次抽到红球。
+补充条件：第一次抽取后，观察者在第二次抽取前额外移走 1 个蓝球。
+
+交付形式
+formula derivation; sections: events / probability fraction / verification",math,连接多段证据或有依赖的条件；严格满足字段、格式、长度和结构约束；明确变量关系、计算过程与数值核验,medium,0.615552,mixed,frame-math-probability,3,MH,2,0.084448,sections | derivation | verification,,,,,,,,,,
+spot-pilot-q-qa-023,pilot-q-qa-023,"给定材料
+[材料A] 中文制度把 `service window` 译为“服务窗口”，指允许停机的时段。
+[Evidence B] English log says the job ran outside the service window.
+[材料C] v1.28.5 说明曾把同一词误译为“客服窗口”，本次事件使用新版术语。
+[材料D] 旧工单仍使用“客服窗口”，但页脚标注它引用的是旧版 glossary。
+
+交付形式
+bilingual explanation; table columns: term / source / reason
+
+任务
+用中文解释日志结论，并说明应采用哪个术语及理由。",qa,严格满足字段、格式、长度和结构约束；区分材料事实、领域常识和待验证假设；综合相隔较远的材料并保持前后一致；跨语言保持术语和语域一致,high,0.74664,zh,frame-qa-bilingual-terms,4,LC,2,0.04664,columns | 务窗 | bilingual | 客服 | 服窗 | term,,,,,,,,,,
+spot-pilot-q-qa-027,pilot-q-qa-027,"给定材料
+[材料A] 运营表记录 29 次成功和 7 次失败，统计窗口为自然日。
+[材料B] 技术表记录 30 次成功和 7 次失败，统计窗口为最近 24 小时。
+[材料C] 其中一条成功记录发生在昨日 00:05。
+
+交付形式
+comparison matrix
+
+任务
+两份成功数为何可能不同？哪些结论可以直接比较，哪些不能？",qa,连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设,low,0.296314,mixed,frame-qa-source-comparison,3,MH | LC,2,0.103686,录发 | 两份 | 不同,,,,,,,,,,
+spot-pilot-q-qa-029,pilot-q-qa-029,"Provided material
+[Evidence A] The report totals 21: active=15, suspended=6.
+[Evidence B] The dashboard displays only active accounts but is titled “All accounts.”
+[Evidence C] The dictionary says suspended accounts still exist but cannot sign in.
+
+Task
+Explain the difference and assess whether the dashboard title is accurate.
+
+Deliverable
+evidence table",qa,识别多种合理解释并说明澄清需求；明确变量关系、计算过程与数值核验,low,0.297745,en,frame-qa-data-explanation,2,AM,1,0.102255,,,,,,,,,,,
+spot-pilot-q-qa-036,pilot-q-qa-036,"Task
+What is the earliest confirmed failure point? Is mode the root cause, and what should be checked next?
+
+Provided material
+[Evidence A] At 09:33 `mode` changed from safe to fast.
+[Evidence B] At 09:35 the first failure was `schema mismatch: result.items`.
+[Evidence C] Rolling back mode at 09:37 did not help; restoring the old schema at 09:39 did.
+[Evidence D] The schema changed five minutes before mode, when the service had no traffic.
+
+Deliverable
+troubleshooting tree",qa,遵守接口或库约束并处理失败路径；区分材料事实、领域常识和待验证假设；利用失败现象定位最早偏差并设计回归检查,medium,0.608654,en,frame-qa-troubleshooting,3,,1,0.091346,,,,,,,,,,,
+spot-pilot-q-qa-042,pilot-q-qa-042,"Deliverable
+clarification list; table columns: fact / interpretation / clarification needed
+
+Provided material
+[Evidence A] A service with two serious incidents in the recent period requires review.
+[Evidence B] Service S27 had 3 incidents in 7 days and 5 in 30 days.
+[Evidence C] This policy page does not define “recent.”
+[Evidence D] A revision defines recent as 30 days for this clause, effective from the first of this month.
+
+Task
+Can the review requirement be determined? Separate facts, interpretations, and the required clarification.",qa,区分材料事实、领域常识和待验证假设；保留原意和事实，不添加材料外信息；识别多种合理解释并说明澄清需求；严格满足字段、格式、长度和结构约束,high,0.819433,en,frame-qa-ambiguous-policy,4,AM,1,0.119433,columns | term,,,,,,,,,,
+spot-pilot-q-qa-017,pilot-q-qa-017,"给定材料
+[材料A] 只有通过安全审批的版本才能进入部署队列。
+[材料B] 记录显示版本 R12 已通过安全审批并于周二进入队列。
+[材料C] 队列条目进入后，需要窗口负责人确认；R12 尚无确认记录。
+[材料D] 安全审批在周一到期，而入队记录发生在周二；续期尚无记录。
+
+任务
+R12 当前可以正式部署吗？按证据链说明已经满足和仍未满足的条件。
+
+交付形式
+evidence chain",qa,区分材料事实、领域常识和待验证假设；连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致,high,0.875041,zh,frame-qa-evidence-chain,3,MH | LC,2,0.175041,录发,,,,,,,,,,
+spot-pilot-q-qa-030,pilot-q-qa-030,"交付形式
+clause-based answer
+
+给定材料
+[材料A·定义] 有效申请必须在截止日前提交。
+[材料B·例外] 系统故障超过两小时，可在恢复后一个工作日内补交。
+[材料C·记录] 截止日当天系统中断 8 小时，申请 P14 在次日补交。
+[材料D·附录] 该例外不适用于主动撤回后重新提交的申请；P14 没有撤回记录。
+
+任务
+申请 P14 是否满足时间规则？综合定义、例外、记录和附录。",qa,综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件,low,0.293819,zh,frame-qa-long-policy,2,LC | MH,2,0.106181,,,,,,,,,,,
+spot-pilot-q-qa-048,pilot-q-qa-048,"任务
+本次 worker 是否应自动重试？说明每段材料在结论中的作用。
+
+给定材料
+[材料A] v2.6 文档规定，worker 收到 `retry_after` 后等待 19 秒再重试。
+[材料B] v2.7 变更说明只取消了登录接口的自动重试，批处理接口保持原规则。
+[材料C] 本次日志来自批处理接口，返回 HTTP 429 和 `retry_after`。
+
+交付形式
+checklist",qa,遵守接口或库约束并处理失败路径；区分材料事实、领域常识和待验证假设；综合相隔较远的材料并保持前后一致；严格满足字段、格式、长度和结构约束,low,0.331714,zh,frame-qa-technical-docs,4,LC,3,0.068286,,,,,,,,,,,
+spot-pilot-q-qa-019,pilot-q-qa-019,"给定材料
+[材料A] 运营表记录 30 次成功和 7 次失败，统计窗口为自然日。
+[材料B] 技术表记录 31 次成功和 7 次失败，统计窗口为最近 24 小时。
+[材料C] 其中一条成功记录发生在昨日 00:05。
+[材料D] 技术表还包含一次重放成功，运营表按 request_id 去重后不计该条。
+
+交付形式
+evidence-based answer
+
+任务
+两份成功数为何可能不同？哪些结论可以直接比较，哪些不能？",qa,综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设；连接多段证据或有依赖的条件,high,0.752258,zh,frame-qa-source-comparison,3,LC | MH,2,0.052258,录发 | 两份 | 不同,,,,,,,,,,
+spot-pilot-q-qa-011,pilot-q-qa-011,"给定材料
+[材料A] 运营表记录 17 次成功和 6 次失败，统计窗口为自然日。
+[材料B] 技术表记录 18 次成功和 6 次失败，统计窗口为最近 24 小时。
+[材料C] 其中一条成功记录发生在昨日 00:05。
+[材料D] 两张表换算到 UTC 后，昨日 00:05 的记录落在不同统计日。
+
+交付形式
+comparison matrix
+
+任务
+两份成功数为何可能不同？哪些结论可以直接比较，哪些不能？",qa,区分材料事实、领域常识和待验证假设；综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件,medium,0.563808,zh,frame-qa-source-comparison,3,LC | MH,2,0.136192,录发 | 两份 | 不同,,,,,,,,,,
+spot-pilot-q-summary-036,pilot-q-summary-036,"任务
+并列冲突、评估证据，并给出不超出材料的综合摘要。
+
+给定材料
+[报告A] 项目 R34 完成 77%，延期原因是接口变更。
+[报告B] 项目 R34 完成 67%，延期原因是测试环境晚到。
+[附件C] R34 的接口变更影响了 7 个模块；测试环境比计划晚 8 天开放。
+[备注D] 两份报告采用的完成率计算口径没有记录。
+[附录5] 报告B后来说明完成率只统计已排期功能，报告A仍未说明分母。
+
+交付形式
+conflict matrix",summary,识别多种合理解释并说明澄清需求；综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件；保留原意和事实，不添加材料外信息,medium,0.586042,zh,frame-summary-conflicting-reports,4,AM | LC | MH,1,0.113958,两份 | 原因 | 模块,,,,,,,,,,
+spot-pilot-q-summary-026,pilot-q-summary-026,"交付形式
+timeline table
+
+给定材料
+[事件1] 09:28 发布配置，两分钟后首次出现写入超时。
+[事件2] 09:38 流量切回旧集群，错误率从 30% 降至 2%。
+[事件3] 10:05 修复连接池上限后恢复全部流量，错误率回到基线。
+[事件4] 已证实连接池耗尽；配置变更是否直接触发耗尽仍待验证。
+
+任务
+总结时间线、影响、已证实原因和待验证事项。",summary,连接多段证据或有依赖的条件；利用失败现象定位最早偏差并设计回归检查；综合相隔较远的材料并保持前后一致,low,0.225504,mixed,frame-summary-incident,3,MH | LC,2,0.174496,首次 | timeline | 原因 | 接池 | 池耗,,,,,,,,,,
+spot-pilot-q-summary-048,pilot-q-summary-048,"Task
+Extract decisions, disagreements, owners, and open items without adding unsupported facts.
+
+Provided material
+[Note 1] The team approved read-only release R31 Wednesday and delayed writes 3 days.
+[Note 2] Operations requires a cache-hit alert before release.
+[Note 3] Mobile compatibility is assigned to Li Ming for Tuesday.
+[Note 4] Whether a failed compatibility test cancels release is unresolved.
+
+Deliverable
+executive summary; sections: decisions / owners / disagreements / open items",summary,严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求,low,0.338297,en,frame-summary-meeting,2,AM,2,0.061703,sections,,,,,,,,,,
+spot-pilot-q-summary-017,pilot-q-summary-017,"给定材料
+[段落1] 试验组包含 33 个样本，对照组包含 35 个样本。
+[段落2] 主要指标提高 4.29%，但 95% 置信区间跨过零。
+[段落3] 作者认为结果值得继续验证，没有声称效果已经确定。
+[段落4] 局限包括样本量小、单中心和两例失访。
+[附录5] 注册方案把主要指标定义为第 30 天结果，正文却报告第 14 天结果；作者尚未解释偏离。
+
+任务
+压缩主要发现，同时保留限制并区分观察与解释。
+
+交付形式
+structured abstract; sections: finding / uncertainty / limitations / follow-up",summary,综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束；区分材料事实、领域常识和待验证假设,high,0.79273,mixed,frame-summary-research,4,LC,2,0.09273,sections | 继续 | 对照,,,,,,,,,,
+spot-pilot-q-summary-038,pilot-q-summary-038,"交付形式
+bilingual summary
+
+给定材料
+[中文1] 数据导入已完成，验证工作计划周四结束。
+[English 2] Data import is complete; validation found 6 unresolved duplicate IDs.
+[中文3] 当前版本没有记录这 6 个重复 ID，负责人尚未确认处理方式。
+[English 4] Deployment remains scheduled for Friday, subject to validation approval.
+[附录5] 英文更新说明重复 ID 只影响测试环境，中文版本没有环境范围说明。
+
+任务
+统一术语并形成合并摘要，标注仅来自单一版本的信息。",summary,跨语言保持术语和语域一致；识别多种合理解释并说明澄清需求；综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息,medium,0.624802,zh,frame-summary-bilingual-report,4,AM | LC,2,0.075198,bilingual,,,,,,,,,,
+spot-pilot-q-summary-031,pilot-q-summary-031,"给定材料
+[结论1] 试点覆盖 40 个团队，其中 39 个按期完成。
+[风险2] 剩余团队缺少接口权限，最早在 6 个工作日后解决。
+[决定3] 管理层批准扩大试点，但要求先完成权限整改。
+[下一步4] 王宁负责周四前提交整改清单；预算增补尚未批准。
+
+交付形式
+four-section brief
+
+任务
+在严格字段和长度限制下生成可核查摘要。",summary,综合相隔较远的材料并保持前后一致；区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束；保留原意和事实，不添加材料外信息,low,0.242152,zh,frame-summary-executive,4,LC,2,0.157848,,,,,,,,,,,
+spot-pilot-q-summary-035,pilot-q-summary-035,"Provided material
+[Table 1] August revenue was 2000k and refunds 50k for August 1–31.
+[Table 2] Active users were 20000 for July 25–August 24.
+[Note 3] Revenue excludes tax; refunds use approval date rather than payment date.
+[Note 4] Management needs comparable findings and explicit non-comparability.
+[Appendix 5] A revision says an earlier refund label incorrectly read 'ten-thousands'; the raw export and figures shown here use thousands. Retain that correction.
+
+Deliverable
+metric table
+
+Task
+Produce a comparable management summary and flag figures that should not be directly compared.",summary,正确处理表格、连接、聚合或数据口径；明确变量关系、计算过程与数值核验；识别多种合理解释并说明澄清需求,medium,0.490419,en,frame-summary-metrics,3,AM,1,0.090419,,,,,,,,,,,
+spot-pilot-q-summary-045,pilot-q-summary-045,"给定材料
+[章节1] 构建 R28 安装前要求 Python 3.11，并创建独立虚拟环境。
+[章节2] 配置文件必须先通过 `router validate`，再启动服务。
+[章节3] 若迁移失败，保留数据库并用 `router rollback --config <path>` 回滚。
+[附录4] v2.0 不支持从 v0.x 直接升级；必须先迁移到 v1.5。
+[附录5] 回滚命令只有在迁移前备份校验通过时可用；备份失败时必须停止升级。
+
+任务
+为实施人员整理顺序化摘要，保留关键前置条件。
+
+交付形式
+ordered checklist",summary,遵守接口或库约束并处理失败路径；综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息；严格满足字段、格式、长度和结构约束,high,0.753275,zh,frame-summary-technical-guide,4,LC,2,0.053275,校验,,,,,,,,,,
+spot-pilot-q-summary-004,pilot-q-summary-004,"任务
+并列冲突、评估证据，并给出不超出材料的综合摘要。
+
+给定材料
+[报告A] 项目 R13 完成 74%，延期原因是接口变更。
+[报告B] 项目 R13 完成 64%，延期原因是测试环境晚到。
+[附件C] R13 的接口变更影响了 4 个模块；测试环境比计划晚 5 天开放。
+[备注D] 两份报告采用的完成率计算口径没有记录。
+
+交付形式
+conflict matrix",summary,识别多种合理解释并说明澄清需求；保留原意和事实，不添加材料外信息；综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件,low,0.278211,zh,frame-summary-conflicting-reports,4,AM | LC | MH,1,0.121789,两份 | 原因 | 模块,,,,,,,,,,
+spot-pilot-q-summary-002,pilot-q-summary-002,"交付形式
+incident brief
+
+给定材料
+[事件1] 09:10 发布配置，两分钟后首次出现写入超时。
+[事件2] 09:20 流量切回旧集群，错误率从 17% 降至 7%。
+[事件3] 10:05 修复连接池上限后恢复全部流量，错误率回到基线。
+[事件4] 已证实连接池耗尽；配置变更是否直接触发耗尽仍待验证。
+
+任务
+总结时间线、影响、已证实原因和待验证事项。",summary,综合相隔较远的材料并保持前后一致；连接多段证据或有依赖的条件,low,0.345117,zh,frame-summary-incident,2,LC | MH,2,0.054883,首次 | 原因 | 接池 | 池耗,,,,,,,,,,
+spot-pilot-q-translation-037,pilot-q-translation-037,"给定材料
+[源文]
+09:29 网关 G29 开始返回 502；09:33 值班员回滚配置；09:35 首次请求成功。根因尚未确认，连接池耗尽只是当前假设。
+聊天时间使用 UTC，工单使用 UTC+8；合并前先统一时区。
+
+任务
+翻译并合并相关段落，不改变事件顺序或确定性程度。 目标语言为英文。
+
+交付形式
+aligned timeline",translation,综合相隔较远的材料并保持前后一致；跨语言保持术语和语域一致；保留原意和事实，不添加材料外信息；连接多段证据或有依赖的条件,medium,0.624299,zh,frame-translation-incident,4,LC | MH,1,0.075701,首次 | timeline | 接池 | 池耗,,,,,,,,,,
+spot-pilot-q-translation-025,pilot-q-translation-025,"给定材料
+[Source text]
+For batch B19, the supplier shall deliver the test report by 18:00 Friday. If its acceptance data arrives after 2:00 Thursday, the deadline moves to Monday. The referent of “its” requires confirmation by both parties.
+
+任务
+忠实翻译并标出无法在不澄清的情况下唯一确定的指代。 目标语言为中文。
+
+交付形式
+clause-aligned translation; columns: clause / source / translation / note",translation,严格满足字段、格式、长度和结构约束；识别多种合理解释并说明澄清需求；跨语言保持术语和语域一致,low,0.253794,mixed,frame-translation-contract,3,AM,1,0.146206,columns,,,,,,,,,,
+spot-pilot-q-translation-047,pilot-q-translation-047,"给定材料
+[源文]
+当前术语表规定：rollback＝回滚，service window＝服务窗口。历史译文中有 7 处“客服窗口”均指 service window，需要统一修订。
+新版术语表要求 rollback 作名词时译为“回退点”，作动词时仍译为“回滚”。
+
+交付形式
+revised translation; columns: term / context / translation
+
+任务
+按当前术语表修订译文，并记录发生变化的术语。 目标语言为英文。",translation,区分材料事实、领域常识和待验证假设；严格满足字段、格式、长度和结构约束,high,0.761034,zh,frame-translation-glossary,2,,1,0.061034,columns | 录发 | 务窗 | 客服 | 服窗 | term,,,,,,,,,,
+spot-pilot-q-translation-006,pilot-q-translation-006,"交付形式
+reference table
+
+给定材料
+[中文版本]
+网关 G29 通知 worker W2 在它重启后刷新令牌。由于“它”可能指网关或 worker，执行顺序目前无法唯一确定。
+[English version]
+Gateway G29 told worker W2 to refresh the token after it restarted. “It” may refer to either component, so the execution order is not uniquely determined.
+
+任务
+给出保留歧义的忠实译文，并列出需要作者确认的指代。 同时交付修订后的中英文。",translation,识别多种合理解释并说明澄清需求；跨语言保持术语和语域一致；保留原意和事实，不添加材料外信息,low,0.267812,mixed,frame-translation-ambiguous-reference,3,AM,1,0.132188,version | 中英 | 付修 | 时交 | 的中 | term,,,,,,,,,,
+spot-pilot-q-translation-011,pilot-q-translation-011,"给定材料
+[中文版本]
+本报告中的“节点”指变电站监测点，附录中的 node 指计算节点。告警阈值暂定为 15.6 kV，该数值仍待现场校准。
+[English version]
+In the main report, “node” means a substation monitoring point; in the appendix it means a compute node. The 15.6 kV threshold is provisional pending field calibration.
+[中文补充]
+附表中的 HV node 专指高压监测点，不是 compute node。
+[English addendum]
+In the table, HV node specifically means a high-voltage monitoring point, not a compute node.
+
+交付形式
+annotated translation
+
+任务
+翻译节选并使术语选择与上下文定义一致。 同时交付修订后的中英文。",translation,跨语言保持术语和语域一致；综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息；区分材料事实、领域常识和待验证假设,medium,0.55733,mixed,frame-translation-domain-report,4,LC,1,0.14267,version | 中英 | 付修 | 时交 | 的中,,,,,,,,,,
+spot-pilot-q-translation-026,pilot-q-translation-026,"交付形式
+bilingual notice
+
+给定材料
+[中文版本]
+维护窗口定于 9 月 16 日 22:00–23:30。期间只读查询可用，写入请求将排队；排队超过 2 分钟的写入会失败，且不会自动重放。
+[English version]
+Maintenance is scheduled for September 16, 22:00–23:30. Read-only queries remain available; writes queued for more than 2 minutes fail and are not replayed automatically.
+
+任务
+翻译为目标语言，保留项目顺序和所有条件。 同时交付修订后的中英文。",translation,保留原意和事实，不添加材料外信息；跨语言保持术语和语域一致,low,0.238989,mixed,frame-translation-notice,2,,1,0.161011,bilingual | version | 中英 | 付修 | 时交 | 的中,,,,,,,,,,
+spot-pilot-q-translation-024,pilot-q-translation-024,"任务
+完成翻译，保持技术标识不变并统一关键术语。 目标语言为英文。
+
+给定材料
+[源文]
+在升级到 v2.6 前，请导出 `router.yaml`。如果 health check 连续 12 秒失败，执行 `router rollback --keep-data`；不要删除现有索引。
+
+交付形式
+parallel translation; columns: source / translation / terminology note",translation,严格满足字段、格式、长度和结构约束；遵守接口或库约束并处理失败路径；跨语言保持术语和语域一致；保留原意和事实，不添加材料外信息,low,0.353193,zh,frame-translation-technical,4,,1,0.046807,columns | term | 如果,,,,,,,,,,
+spot-pilot-q-translation-036,pilot-q-translation-036,"任务
+完成本地化，保持占位符和字段键不变。 同时交付修订后的中英文。
+
+给定材料
+[中文版本]
+`Retry` 按钮重新发送当前请求；`Discard` 放弃未保存更改。错误消息：`Request {request_id} timed out after 8 s.`
+[English version]
+`Retry` resends the current request; `Discard` removes unsaved changes. Error: `Request {request_id} timed out after 8 s.`
+[中文补充]
+复数消息 `{{count}} retries remaining` 必须保留 count 占位符。
+[English addendum]
+The plural message `{{count}} retries remaining` must preserve the count placeholder.
+
+交付形式
+key-value table",translation,跨语言保持术语和语域一致；严格满足字段、格式、长度和结构约束,medium,0.555696,mixed,frame-translation-ui-localization,2,,1,0.144304,version | 中英 | 付修 | 时交 | 的中,,,,,,,,,,
+spot-pilot-q-translation-021,pilot-q-translation-021,"给定材料
+[中文版本]
+09:21 网关 G21 开始返回 502；09:25 值班员回滚配置；09:27 首次请求成功。根因尚未确认，连接池耗尽只是当前假设。
+[English version]
+At 09:21 gateway G21 began returning 502. At 09:25 the operator rolled back the configuration; the first success arrived at 09:27. Root cause remains unconfirmed; pool exhaustion is only the current hypothesis.
+[中文补充]
+修复说明称连接池为 confirmed cause，较早工单仅称 hypothesis；译文必须保留来源与确定性变化。
+[English addendum]
+The repair note calls the pool a confirmed cause, while the earlier ticket says hypothesis; preserve source and certainty changes.
+
+任务
+翻译并合并相关段落，不改变事件顺序或确定性程度。 同时交付修订后的中英文。
+
+交付形式
+merged translation",translation,跨语言保持术语和语域一致；综合相隔较远的材料并保持前后一致；保留原意和事实，不添加材料外信息；连接多段证据或有依赖的条件,high,0.793842,mixed,frame-translation-incident,4,LC | MH,1,0.093842,首次 | version | 中英 | 付修 | 时交 | 的中 | 接池 | 池耗,,,,,,,,,,
+spot-pilot-q-translation-029,pilot-q-translation-029,"给定材料
+[源文]
+09:19 网关 G19 开始返回 502；09:23 值班员回滚配置；09:25 首次请求成功。根因尚未确认，连接池耗尽只是当前假设。
+
+任务
+翻译并合并相关段落，不改变事件顺序或确定性程度。 目标语言为英文。
+
+交付形式
+aligned timeline",translation,连接多段证据或有依赖的条件；综合相隔较远的材料并保持前后一致,low,0.240194,zh,frame-translation-incident,2,MH | LC,1,0.159806,首次 | timeline | 接池 | 池耗,,,,,,,,,,

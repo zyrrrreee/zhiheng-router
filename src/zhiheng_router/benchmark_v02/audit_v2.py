@@ -24,6 +24,12 @@ _STRUCTURAL_HEADINGS = {
 }
 
 
+def _surface_style(surface_realization_id: str) -> str:
+    match = re.match(r"surface-v\d+-(direct|scenario|constraints-first|constraints-last)-",
+                     surface_realization_id)
+    return match.group(1) if match else "unknown"
+
+
 def _normalize_sentence(value: str, *, replace_numbers: bool) -> str:
     value = unicodedata.normalize("NFKC", value).lower()
     if replace_numbers:
@@ -111,7 +117,7 @@ def _shortcut_diagnostics(observables: Sequence[ObservableQueryRecord],
         matched_sidecars = [sidecar_by_id[query_id] for query_id in matched_ids]
         frames = {record.semantic_frame_id for record in matched_sidecars}
         styles = {
-            record.surface_realization_id.removeprefix("surface-v2-").rsplit("-", 2)[0]
+            _surface_style(record.surface_realization_id)
             for record in matched_sidecars
         }
         evidence_variants = {
@@ -147,6 +153,11 @@ def _shortcut_diagnostics(observables: Sequence[ObservableQueryRecord],
                 or
                 len(_normalize_sentence(masked_evidence, replace_numbers=True)) >= 6
                 or bool(re.search(r"[=→{}\[\]|]|\d", masked_evidence))
+                or bool(re.search(
+                    r"json|schema|field|column|section|table|format|proof|checklist|"
+                    r"字段|列|小节|表|格式|证明|清单",
+                    masked_evidence, re.IGNORECASE,
+                ))
             )
             if len(_normalize_sentence(masked_query, replace_numbers=True)) >= 30 and evidence_remains:
                 retained += 1
@@ -194,7 +205,7 @@ def _realization_diversity(sidecars: Sequence[DiagnosticSidecar]) -> dict[str, A
         evidence = {dict(record.capability_surface_evidence)[capability] for record in relevant}
         frames = {record.semantic_frame_id for record in relevant}
         styles = {
-            record.surface_realization_id.removeprefix("surface-v2-").rsplit("-", 2)[0]
+            _surface_style(record.surface_realization_id)
             for record in relevant
         }
         result[capability] = {

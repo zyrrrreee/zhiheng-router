@@ -61,7 +61,8 @@ def validate_answerability(record: ObservableQueryRecord,
         checks = {
             "source_passages": len(_PASSAGE_RE.findall(text)) >= 3,
             "summary_target": bool(re.search(
-                r"摘要|总结|整理|提取|提炼|压缩|形成|生成|统一|summary|summarize|create|produce|normalize",
+                r"摘要|总结|整理|提取|提炼|压缩|形成|生成|统一|summary|summarize|"
+                r"create|produce|normalize|extract|brief|synthesi[sz]",
                 text, re.IGNORECASE)),
         }
     else:
