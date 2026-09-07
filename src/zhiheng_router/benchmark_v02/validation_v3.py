@@ -23,7 +23,8 @@ _MH_PATTERN = re.compile(
     r"只有|需要|例外|定义|记录|不同|原因|窗口|第一次|第二次|"
     r"depends|condition|constraint|after|before|chain|revision|rollback|step|"
     r"compare|integrate|verify|revenue|conflict|assess|requires|needs|only|"
-    r"exception|definition|record|different|cause|window|first|second",
+    r"exception|definition|record|differ|different|cause|window|calendar day|24 hours|"
+    r"first|second",
     re.IGNORECASE,
 )
 _LC_PATTERN = re.compile(

@@ -1,0 +1,416 @@
+{
+  "dataset_version": "router-benchmark-v0.2.0",
+  "generator_version": "2.3.0",
+  "config_version": "benchmark-config-v1",
+  "capability_taxonomy_version": "capability-taxonomy-v1",
+  "model_profile_version": "model-profile-v1",
+  "runtime_profile_version": "synthetic-runtime-v1",
+  "synthetic_workload_version": "synthetic-workload-v1",
+  "latency_model_version": "synthetic-latency-v1",
+  "diagnostic_protocol_version": "diagnostic-protocol-v1",
+  "split_definition_version": "family-split-v1",
+  "source_kind": "synthetic",
+  "coarse_tasks": [
+    "code",
+    "math",
+    "qa",
+    "summary",
+    "translation"
+  ],
+  "capabilities": {
+    "AR": "algorithmic_reasoning",
+    "SQ": "symbolic_quantitative",
+    "DE": "debugging_error_localization",
+    "DS": "data_sql",
+    "AU": "api_library_usage",
+    "FK": "factual_domain_knowledge",
+    "MH": "multi_hop_reasoning",
+    "LC": "long_context_integration",
+    "FT": "faithful_transformation",
+    "MT": "multilingual_terminology",
+    "AM": "ambiguity_resolution",
+    "SC": "structured_constraint_following"
+  },
+  "quality_thresholds": {
+    "primary": 0.8,
+    "sensitivity": [
+      0.7,
+      0.9
+    ]
+  },
+  "quality_model": {
+    "mu_floor": 0.02,
+    "mu_scale": 0.96,
+    "intercept": 1.35,
+    "match_coefficient": 1.35,
+    "bottleneck_coefficient": 0.65,
+    "softmin_tau": 0.12,
+    "difficulty_coefficient": 1.1,
+    "model_bias_bounds": [
+      -0.08,
+      0.08
+    ],
+    "task_residual_abs_max": 0.04,
+    "synergy_abs_max": 0.08,
+    "requirement_level_bounds": [
+      0.35,
+      0.95
+    ],
+    "quality_noise_std_bounds": [
+      0.025,
+      0.04
+    ],
+    "quality_noise_truncation_sigma": 2.5
+  },
+  "language_distribution": {
+    "code": {
+      "zh": 0.55,
+      "mixed": 0.35,
+      "en": 0.1
+    },
+    "math": {
+      "zh": 0.8,
+      "mixed": 0.1,
+      "en": 0.1
+    },
+    "qa": {
+      "zh": 0.7,
+      "mixed": 0.15,
+      "en": 0.15
+    },
+    "summary": {
+      "zh": 0.65,
+      "mixed": 0.1,
+      "en": 0.25
+    },
+    "translation": {
+      "directions": {
+        "zh_to_en": 0.4,
+        "en_to_zh": 0.4,
+        "bilingual_revision": 0.2
+      }
+    }
+  },
+  "models": [
+    {
+      "model_id": "dev-model-a",
+      "capability_profile": {
+        "AR": 0.91,
+        "SQ": 0.83,
+        "DE": 0.78,
+        "DS": 0.66,
+        "AU": 0.61,
+        "FK": 0.73,
+        "MH": 0.92,
+        "LC": 0.9,
+        "FT": 0.7,
+        "MT": 0.58,
+        "AM": 0.75,
+        "SC": 0.76
+      },
+      "task_residuals": {
+        "code": 0.01,
+        "math": 0.02,
+        "qa": 0.03,
+        "summary": 0.0,
+        "translation": -0.02
+      },
+      "synergies": {
+        "AR+MH": 0.08,
+        "MH+LC": 0.07
+      },
+      "runtime_profile": {
+        "input_cost_rate": 0.04,
+        "output_cost_rate": 0.06,
+        "startup_synthetic_ms": 800,
+        "prefill_rate": 7000,
+        "decode_rate": 45,
+        "reasoning_rate": 125,
+        "difficulty_resilience": 0.9
+      }
+    },
+    {
+      "model_id": "dev-model-b",
+      "capability_profile": {
+        "AR": 0.87,
+        "SQ": 0.62,
+        "DE": 0.93,
+        "DS": 0.95,
+        "AU": 0.91,
+        "FK": 0.6,
+        "MH": 0.72,
+        "LC": 0.64,
+        "FT": 0.57,
+        "MT": 0.52,
+        "AM": 0.66,
+        "SC": 0.82
+      },
+      "task_residuals": {
+        "code": 0.04,
+        "math": -0.02,
+        "qa": -0.01,
+        "summary": -0.02,
+        "translation": -0.03
+      },
+      "synergies": {
+        "DE+AU": 0.08,
+        "DS+SC": 0.07
+      },
+      "runtime_profile": {
+        "input_cost_rate": 0.022,
+        "output_cost_rate": 0.035,
+        "startup_synthetic_ms": 500,
+        "prefill_rate": 9000,
+        "decode_rate": 65,
+        "reasoning_rate": 150,
+        "difficulty_resilience": 0.78
+      }
+    },
+    {
+      "model_id": "dev-model-c",
+      "capability_profile": {
+        "AR": 0.76,
+        "SQ": 0.96,
+        "DE": 0.62,
+        "DS": 0.7,
+        "AU": 0.55,
+        "FK": 0.72,
+        "MH": 0.88,
+        "LC": 0.57,
+        "FT": 0.65,
+        "MT": 0.63,
+        "AM": 0.69,
+        "SC": 0.92
+      },
+      "task_residuals": {
+        "code": -0.01,
+        "math": 0.04,
+        "qa": 0.01,
+        "summary": 0.0,
+        "translation": -0.01
+      },
+      "synergies": {
+        "SQ+SC": 0.08,
+        "SQ+MH": 0.07
+      },
+      "runtime_profile": {
+        "input_cost_rate": 0.028,
+        "output_cost_rate": 0.042,
+        "startup_synthetic_ms": 650,
+        "prefill_rate": 8000,
+        "decode_rate": 55,
+        "reasoning_rate": 112,
+        "difficulty_resilience": 0.84
+      }
+    },
+    {
+      "model_id": "dev-model-d",
+      "capability_profile": {
+        "AR": 0.58,
+        "SQ": 0.54,
+        "DE": 0.5,
+        "DS": 0.61,
+        "AU": 0.64,
+        "FK": 0.74,
+        "MH": 0.67,
+        "LC": 0.81,
+        "FT": 0.96,
+        "MT": 0.95,
+        "AM": 0.76,
+        "SC": 0.86
+      },
+      "task_residuals": {
+        "code": -0.03,
+        "math": -0.03,
+        "qa": 0.0,
+        "summary": 0.03,
+        "translation": 0.04
+      },
+      "synergies": {
+        "FT+MT": 0.08,
+        "FT+LC": 0.07
+      },
+      "runtime_profile": {
+        "input_cost_rate": 0.015,
+        "output_cost_rate": 0.026,
+        "startup_synthetic_ms": 450,
+        "prefill_rate": 10000,
+        "decode_rate": 70,
+        "reasoning_rate": 138,
+        "difficulty_resilience": 0.72
+      }
+    },
+    {
+      "model_id": "dev-model-e",
+      "capability_profile": {
+        "AR": 0.63,
+        "SQ": 0.6,
+        "DE": 0.68,
+        "DS": 0.72,
+        "AU": 0.7,
+        "FK": 0.91,
+        "MH": 0.71,
+        "LC": 0.52,
+        "FT": 0.72,
+        "MT": 0.69,
+        "AM": 0.93,
+        "SC": 0.65
+      },
+      "task_residuals": {
+        "code": 0.0,
+        "math": -0.01,
+        "qa": 0.04,
+        "summary": 0.01,
+        "translation": 0.0
+      },
+      "synergies": {
+        "FK+AM": 0.08,
+        "DS+FK": 0.07
+      },
+      "runtime_profile": {
+        "input_cost_rate": 0.007,
+        "output_cost_rate": 0.014,
+        "startup_synthetic_ms": 300,
+        "prefill_rate": 6500,
+        "decode_rate": 80,
+        "reasoning_rate": 105,
+        "difficulty_resilience": 0.68
+      }
+    },
+    {
+      "model_id": "dev-model-f",
+      "capability_profile": {
+        "AR": 0.72,
+        "SQ": 0.69,
+        "DE": 0.73,
+        "DS": 0.76,
+        "AU": 0.79,
+        "FK": 0.68,
+        "MH": 0.74,
+        "LC": 0.94,
+        "FT": 0.85,
+        "MT": 0.77,
+        "AM": 0.7,
+        "SC": 0.96
+      },
+      "task_residuals": {
+        "code": 0.01,
+        "math": 0.0,
+        "qa": -0.01,
+        "summary": 0.03,
+        "translation": 0.02
+      },
+      "synergies": {
+        "LC+SC": 0.08,
+        "AU+SC": 0.07
+      },
+      "runtime_profile": {
+        "input_cost_rate": 0.02,
+        "output_cost_rate": 0.03,
+        "startup_synthetic_ms": 380,
+        "prefill_rate": 12000,
+        "decode_rate": 75,
+        "reasoning_rate": 132,
+        "difficulty_resilience": 0.82
+      }
+    }
+  ],
+  "synthetic_workload": {
+    "input_unit_coefficients": {
+      "cjk_character": 0.65,
+      "non_cjk_word": 1.3,
+      "code_or_punctuation_character": 0.2
+    },
+    "requested_output_defaults": {
+      "code": 320,
+      "math": 220,
+      "qa": 260
+    },
+    "summary_output_ratio": 0.25,
+    "summary_output_bounds": [
+      120,
+      600
+    ],
+    "translation_output_ratio": 1.05,
+    "translation_output_bounds": [
+      120,
+      800
+    ],
+    "reasoning_work": {
+      "base": 20,
+      "step": 12,
+      "dependency": 8,
+      "material_character": 0.004,
+      "constraint": 5,
+      "composition": 10,
+      "bounds": [
+        20,
+        180
+      ]
+    },
+    "cost_noise_sigma_bounds": [
+      0.05,
+      0.1
+    ],
+    "latency_noise_sigma_bounds": [
+      0.08,
+      0.15
+    ],
+    "latency_unit": "synthetic_ms",
+    "cost_unit": "synthetic_cost_units",
+    "report_label": "SIMULATED / SYNTHETIC UNITS"
+  },
+  "diagnostic_protocol": {
+    "vectorizer": {
+      "analyzer": "char",
+      "ngram_range": [
+        2,
+        5
+      ],
+      "min_df": 2,
+      "max_features": 50000,
+      "sublinear_tf": true,
+      "lowercase": true,
+      "norm": "l2"
+    },
+    "logistic_regression": {
+      "C": 1.0,
+      "penalty": "l2",
+      "solver": "liblinear",
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "random_state": 20260907
+    },
+    "fit_split": "train",
+    "tuning_on_development_test": false
+  },
+  "split_definition": {
+    "unit": "source_template_paraphrase_family",
+    "train": 0.5,
+    "validation": 0.15,
+    "development_test": 0.15,
+    "frozen_final_test": 0.2,
+    "final_familiar": 0.75,
+    "final_novel": 0.25
+  },
+  "pilot": {
+    "pilot_version": "router-v0.2-pilot-v4",
+    "master_seed": 20260907,
+    "queries_per_task": 50,
+    "namespaces": {
+      "content": "router-v0.2/content/v4",
+      "surface": "router-v0.2/surface/v4",
+      "capability": "router-v0.2/capability/v3",
+      "difficulty": "router-v0.2/difficulty/v2",
+      "quality_noise": "router-v0.2/quality-noise/v1",
+      "cost_noise": "router-v0.2/cost-noise/v1",
+      "latency_noise": "router-v0.2/latency-noise/v1",
+      "split": "router-v0.2/split/v1"
+    },
+    "query_data_path": "data/router_v0_2/pilot_v4/pilot_queries.jsonl",
+    "sidecar_data_path": "data/router_v0_2/pilot_v4/pilot_sidecar.jsonl",
+    "manifest_path": "data/router_v0_2/pilot_v4/pilot_manifest.json",
+    "audit_path": "outputs/router_v0_2/pilot_v4/pilot_audit.json",
+    "review_packet_path": "outputs/router_v0_2/pilot_v4/human_surface_review.csv"
+  }
+}

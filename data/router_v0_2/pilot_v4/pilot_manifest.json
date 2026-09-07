@@ -1,0 +1,82 @@
+{
+  "automatic_audit_ready_for_final_human_spot_review": true,
+  "config_sha256": "9c29e8c7b97f9ddbb40fc00edf0b28d0d868453ec4a1177ccb9c19d50fffd786",
+  "dataset_version": "router-benchmark-v0.2.0",
+  "effective_config_path": "configs/router_v0_2_pilot_v4.json",
+  "files": {
+    "data/router_v0_2/pilot_v4/pilot_queries.jsonl": {
+      "bytes": 221647,
+      "sha256": "2a77ead3a4b1c42cb3eab5f4ee7730b5727156c00a913561ef15b399355f3603"
+    },
+    "data/router_v0_2/pilot_v4/pilot_sidecar.jsonl": {
+      "bytes": 368175,
+      "sha256": "929d49977cf5a86735e5921589eb0a24a87b85e5f0400832b5928cfcb67cafbf"
+    },
+    "outputs/router_v0_2/pilot_v4/human_surface_review.csv": {
+      "bytes": 211631,
+      "sha256": "795b77b89b8cfc15784c9e7abce049a9c35989e77e4be3b60adefbd1b8282b71"
+    },
+    "outputs/router_v0_2/pilot_v4/pilot_audit.json": {
+      "bytes": 156655,
+      "sha256": "3789314e91b10c75f780d2c91d11339c2c358a8e17ed5d54dab86980110f8c2a"
+    },
+    "outputs/router_v0_2/pilot_v4/pilot_v3_vs_v4_comparison.json": {
+      "bytes": 1974,
+      "sha256": "0469c8d0467675c79d776490be91c1eb7794d02714467920600d124a7c0d609e"
+    },
+    "outputs/router_v0_2/pilot_v4/spot_review_50.csv": {
+      "bytes": 39204,
+      "sha256": "3f1304921bfbf187889399503657c2e7324efa5fa40cb345b2827d1e38fad870"
+    }
+  },
+  "generator_version": "2.3.0",
+  "human_scores_completed": false,
+  "master_seed": 20260907,
+  "namespaces": {
+    "capability": "router-v0.2/capability/v3",
+    "content": "router-v0.2/content/v4",
+    "cost_noise": "router-v0.2/cost-noise/v1",
+    "difficulty": "router-v0.2/difficulty/v2",
+    "latency_noise": "router-v0.2/latency-noise/v1",
+    "quality_noise": "router-v0.2/quality-noise/v1",
+    "split": "router-v0.2/split/v1",
+    "surface": "router-v0.2/surface/v4"
+  },
+  "outcomes_included": false,
+  "pilot_version": "router-v0.2-pilot-v4",
+  "protected_prior_pilots_unchanged": true,
+  "query_count": 250,
+  "router_training_allowed": false,
+  "source_kind": "synthetic",
+  "split_assignment": "none_pilot_only",
+  "stage": "pilot_human_review_guardrail_fix",
+  "task_query_counts": {
+    "code": 50,
+    "math": 50,
+    "qa": 50,
+    "summary": 50,
+    "translation": 50
+  },
+  "v3_evidence_sha256": {
+    "configs/router_v0_2_pilot_v3.json": "35844a7d7231e41c4c5fbddffb056868c9c7499a712aebf081210ef40c8b9743",
+    "data/router_v0_2/pilot_v3/pilot_manifest.json": "3af8bb015ec5f7c9cd5f3b6d6e5944e492f29127cc8683d426624515a9519768",
+    "data/router_v0_2/pilot_v3/pilot_queries.jsonl": "044f5038155ac3994416f476b0de361a9765e8087e8da73952230e9315d7dda3",
+    "data/router_v0_2/pilot_v3/pilot_sidecar.jsonl": "ce771c618ba8751036b2bae4bba4e10d80ec225244ed105bd43bda35869bb3d7",
+    "outputs/router_v0_2/pilot_v3/human_surface_review.csv": "45da489a01a01cf1256ebc3850e83cfadf3f592192e09bfb3e9702e9243bcf59",
+    "outputs/router_v0_2/pilot_v3/pilot_audit.json": "7855b83fa006a16e52ab37a182db4c3249f48eca19a355095c6f046fa13d32ff",
+    "outputs/router_v0_2/pilot_v3/pilot_v2_vs_v3_comparison.json": "2c4c54117ff96097428ff3a4f0608ab1e649d21a05cb8cb8be58a724a9e98d4b",
+    "outputs/router_v0_2/pilot_v3/spot_review_50.csv": "ced9c1eec74d09056f7718534dd96b21079c5de55377190f64b852cd6d0535ed"
+  },
+  "versions": {
+    "capability_taxonomy_version": "capability-taxonomy-v1",
+    "config_version": "benchmark-config-v1",
+    "dataset_version": "router-benchmark-v0.2.0",
+    "diagnostic_protocol_version": "diagnostic-protocol-v1",
+    "generator_version": "2.3.0",
+    "latency_model_version": "synthetic-latency-v1",
+    "model_profile_version": "model-profile-v1",
+    "runtime_profile_version": "synthetic-runtime-v1",
+    "split_definition_version": "family-split-v1",
+    "synthetic_workload_version": "synthetic-workload-v1"
+  }
+}

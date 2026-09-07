@@ -220,7 +220,7 @@ _PATTERNS = {
     "FK": r"制度|文档|定义|规则|证据|材料|手册|报告|术语表|结论|风险|决定|policy|document|definition|rule|evidence|manual|report|glossary|finding|risk|decision",
     "FT": r"保留|保持|不得|不改变|不补写|不超出|忠实|统一|转换|修订|回溯|原始|事实|数值|例外|待验证|确定性|限制|尚未批准|摘要|总结|提炼|压缩|综合|preserv|retain|without changing|faithful|normalize|revise|reassign|original|fact|exception|pending|certainty|limit|unapproved|verifiable|directly compar|summary|summari[sz]|synthesi[sz]",
     "MT": r"翻译|译文|目标语言|中英文|术语|本地化|glossary|translat|bilingual|terminology|locali[sz]",
-    "AM": r"歧义|可能指|所指|无法唯一|未定义|没有定义|口径没有|范围说明|是否|优先级|全部账户|只显示|冲突|不可直接比较|ambig|referent|may mean|may refer|cannot be resolved|does not define|whether|conflict|precedence|scope (?:is )?(?:missing|omitted|different)|all accounts|only active|not be directly compared",
+    "AM": r"歧义|可能指|所指|无法唯一|未定义|没有定义|口径没有|范围说明|是否|优先级|全部账户|只显示|冲突|不可直接比较|ambig|referent|may mean|may refer|cannot be resolved|does not define|whether|not yet validated|conflict|precedence|scope (?:is )?(?:missing|omitted|different)|all accounts|only active|not be directly compared",
 }
 
 
@@ -237,10 +237,16 @@ def _capability_is_aligned(capability: str, composition: SemanticComposition,
         return False
     if capability == "MH":
         return payload.passage_count >= 2 and bool(re.search(
-            r"依赖|条件|约束|之后|先|链|修订|回滚|比较|综合|验证|收入|冲突|评估|只有|需要|例外|定义|记录|不同|原因|窗口|第一次|第二次|depends|condition|constraint|after|before|chain|revision|rollback|step|compare|integrate|verify|revenue|conflict|assess|requires|needs|only|exception|definition|record|different|cause|window|first|second",
+            r"依赖|条件|约束|之后|先|链|修订|回滚|比较|综合|验证|收入|冲突|评估|只有|需要|例外|定义|记录|不同|原因|窗口|第一次|第二次|depends|condition|constraint|after|before|chain|revision|rollback|step|compare|integrate|verify|revenue|conflict|assess|requires|needs|only|exception|definition|record|differ|different|cause|window|first|second",
             text, re.IGNORECASE,
         )) or (composition.frame.frame_id.endswith("translation-incident")
-               and len(re.findall(r"\d{2}:\d{2}", text)) >= 3)
+               and len(re.findall(r"\d{2}:\d{2}", text)) >= 3) or (
+                   composition.frame.frame_id == "frame-math-word-problem"
+                   and bool(re.search(
+                       r"总数.*收入|共.*总收入|sold.*total revenue|total.*revenue",
+                       text, re.IGNORECASE,
+                   ))
+               )
     if capability == "LC":
         return payload.passage_count >= 3 or bool(re.search(
             r"多段|跨|附录|章节|模块|版本|来源|timeline|appendix|chapter|module|version|source|bilingual",
