@@ -1,0 +1,3677 @@
+{
+  "answerability": {
+    "by_task": {
+      "code": {
+        "total": 50,
+        "valid": 50
+      },
+      "math": {
+        "total": 50,
+        "valid": 50
+      },
+      "qa": {
+        "total": 50,
+        "valid": 50
+      },
+      "summary": {
+        "total": 50,
+        "valid": 50
+      },
+      "translation": {
+        "total": 50,
+        "valid": 50
+      }
+    },
+    "failures": [],
+    "total": 250,
+    "valid_count": 250,
+    "valid_rate": 1.0
+  },
+  "capability_pair_distribution": {
+    "AM+AR": 13,
+    "AM+DE": 4,
+    "AM+DS": 15,
+    "AM+FK": 12,
+    "AM+FT": 45,
+    "AM+LC": 27,
+    "AM+MH": 30,
+    "AM+MT": 15,
+    "AM+SC": 35,
+    "AM+SQ": 35,
+    "AR+AU": 1,
+    "AR+DE": 3,
+    "AR+MH": 14,
+    "AR+SC": 27,
+    "AR+SQ": 21,
+    "AU+DE": 11,
+    "AU+DS": 4,
+    "AU+FK": 9,
+    "AU+FT": 10,
+    "AU+LC": 10,
+    "AU+MT": 5,
+    "AU+SC": 25,
+    "DE+FK": 4,
+    "DE+FT": 9,
+    "DE+LC": 13,
+    "DE+MH": 5,
+    "DE+SC": 14,
+    "DS+FK": 3,
+    "DS+FT": 16,
+    "DS+SC": 5,
+    "DS+SQ": 16,
+    "FK+FT": 19,
+    "FK+LC": 21,
+    "FK+MH": 6,
+    "FK+MT": 10,
+    "FK+SC": 25,
+    "FK+SQ": 3,
+    "FT+LC": 44,
+    "FT+MH": 18,
+    "FT+MT": 32,
+    "FT+SC": 46,
+    "FT+SQ": 16,
+    "LC+MH": 24,
+    "LC+MT": 15,
+    "LC+SC": 25,
+    "MH+MT": 1,
+    "MH+SC": 16,
+    "MH+SQ": 17,
+    "MT+SC": 23,
+    "SC+SQ": 32
+  },
+  "capability_realization_diversity": {
+    "AM": {
+      "evidence_variant_count": 68,
+      "query_count": 99,
+      "semantic_frame_count": 20,
+      "surface_style_count": 4
+    },
+    "AR": {
+      "evidence_variant_count": 13,
+      "query_count": 33,
+      "semantic_frame_count": 7,
+      "surface_style_count": 3
+    },
+    "AU": {
+      "evidence_variant_count": 32,
+      "query_count": 36,
+      "semantic_frame_count": 8,
+      "surface_style_count": 4
+    },
+    "DE": {
+      "evidence_variant_count": 24,
+      "query_count": 29,
+      "semantic_frame_count": 6,
+      "surface_style_count": 3
+    },
+    "DS": {
+      "evidence_variant_count": 16,
+      "query_count": 26,
+      "semantic_frame_count": 6,
+      "surface_style_count": 3
+    },
+    "FK": {
+      "evidence_variant_count": 45,
+      "query_count": 53,
+      "semantic_frame_count": 11,
+      "surface_style_count": 4
+    },
+    "FT": {
+      "evidence_variant_count": 80,
+      "query_count": 118,
+      "semantic_frame_count": 24,
+      "surface_style_count": 4
+    },
+    "LC": {
+      "evidence_variant_count": 68,
+      "query_count": 80,
+      "semantic_frame_count": 18,
+      "surface_style_count": 4
+    },
+    "MH": {
+      "evidence_variant_count": 39,
+      "query_count": 55,
+      "semantic_frame_count": 13,
+      "surface_style_count": 4
+    },
+    "MT": {
+      "evidence_variant_count": 33,
+      "query_count": 47,
+      "semantic_frame_count": 10,
+      "surface_style_count": 4
+    },
+    "SC": {
+      "evidence_variant_count": 80,
+      "query_count": 124,
+      "semantic_frame_count": 25,
+      "surface_style_count": 4
+    },
+    "SQ": {
+      "evidence_variant_count": 48,
+      "query_count": 58,
+      "semantic_frame_count": 12,
+      "surface_style_count": 4
+    }
+  },
+  "checks": {
+    "all_capabilities_covered": true,
+    "capability_count_2_to_4": true,
+    "capability_realization_diversity": true,
+    "content_payload_presence": true,
+    "cue_masking_structure_retained": true,
+    "difficulty_bounds": true,
+    "fixed_sentence_share": true,
+    "id_and_family_uniqueness": true,
+    "language_policy": true,
+    "no_exact_duplicate": true,
+    "no_label_like_token": true,
+    "no_model_or_result_text": true,
+    "no_normalized_duplicate": true,
+    "normalized_fixed_sentence_below_v1": true,
+    "query_count": true,
+    "query_length": true,
+    "semantic_frame_coverage": true,
+    "surface_evidence_present": true,
+    "surface_lint": true,
+    "task_balance": true,
+    "task_specific_answerability": true
+  },
+  "cue_masking_diagnostic": {
+    "candidate_count": 719,
+    "diagnostics": [
+      {
+        "affected_queries": 24,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 24,
+        "token": "not"
+      },
+      {
+        "affected_queries": 19,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 19,
+        "token": "summary"
+      },
+      {
+        "affected_queries": 14,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 14,
+        "token": "影响"
+      },
+      {
+        "affected_queries": 13,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 13,
+        "token": "写入"
+      },
+      {
+        "affected_queries": 12,
+        "capability": "AM",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 12,
+        "token": "周二"
+      },
+      {
+        "affected_queries": 12,
+        "capability": "AM",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 12,
+        "token": "尚无"
+      },
+      {
+        "affected_queries": 12,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 12,
+        "token": "忠实"
+      },
+      {
+        "affected_queries": 12,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 12,
+        "token": "指代"
+      },
+      {
+        "affected_queries": 12,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 12,
+        "token": "的指"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "SQ",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "优化"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "工作"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "并给"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "所有"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "数与"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "最后"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "有记"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "标准"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "澄清"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "AM",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "的条"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "计划"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "AM",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "证据"
+      },
+      {
+        "affected_queries": 11,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 11,
+        "token": "译文"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "approval"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "AM",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "memo"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "remains"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "一确"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "事项"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "AM",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "仍为"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "发布"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "后一"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "和所"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "唯一"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "并记"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "SQ",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "整数"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "无法"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "AM",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "显示"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "有效"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "MH",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "模块"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "结果"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "综合"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "AM",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "行顺"
+      },
+      {
+        "affected_queries": 10,
+        "capability": "DE",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 10,
+        "token": "超时"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "date"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "derivation"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "version"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "中英"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "付修"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "信息"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "DE",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "修复"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "决定"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "升级"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "原因"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "只读"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "后的"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "团队"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "AM",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "指出"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "时交"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "查询"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "现有"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "的中"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "的信"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "DE",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "置变"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "解析"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "MT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "订后"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "DE",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "证实"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "读查"
+      },
+      {
+        "affected_queries": 9,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 9,
+        "token": "限制"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "SQ",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "values"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "个工"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "作日"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "可用"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "提交"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "收入"
+      },
+      {
+        "affected_queries": 8,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 8,
+        "token": "超过"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "calculation"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "FT",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "gateway"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SQ",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "solution"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "三先"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "三发"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "上命"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "下唯"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "不澄"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "不补"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SQ",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "两条"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SQ",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "个积"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "中没"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "中率"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "为缓"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "二前"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "人同"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "人和"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "仍缺"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SQ",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "代回"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "SQ",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "件核"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "会议"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "但移"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "先发"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "入功"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "兼容"
+      },
+      {
+        "affected_queries": 7,
+        "capability": "LC",
+        "retained_rate": 1.0,
+        "structure_retained_after_mask": 7,
+        "token": "写会"
+      }
+    ],
+    "method": "Remove the associated token from its capability evidence span and check whether substantive structure remains; no Predictor is trained.",
+    "minimum_structure_retained_rate": 1.0
+  },
+  "difficulty_distribution": {
+    "high": 83,
+    "low": 75,
+    "medium": 92
+  },
+  "difficulty_summary": {
+    "max": 0.94919,
+    "mean": 0.562488,
+    "min": 0.157441
+  },
+  "exact_duplicate_groups": [],
+  "exact_sentence_frequency": [
+    {
+      "count": 10,
+      "sentence": "[English version]",
+      "share": 0.04
+    },
+    {
+      "count": 8,
+      "sentence": "ordered checklist",
+      "share": 0.032
+    },
+    {
+      "count": 7,
+      "sentence": "目标是在满足依赖的前提下缩短总完成时间",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "任务失败后，不再启动依赖它的任务",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "输入格式：`[{\"id\": \"A\", \"depends_on\": []},",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "实现 `schedule(tasks, limit)`，返回合法的分批执行顺序，并说明环依赖和未知依赖如何报告",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "def append_once(store, event):",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "get(\"request_id\", \"\")",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "if key in store:",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "return store[key]",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "value = {\"request_id\": key, \"amount\": event[\"amount\"]}",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key + \"-retry\"] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "某项目采购 x 台标准设备和 y 台增强设备",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "建立方程并求 x、y，代回两条条件核验",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[材料C] 本次日志来自批处理接口，返回 HTTP 429 和 `retry_after`",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "本次 worker 是否应自动重试",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "说明每段材料在结论中的作用",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "提炼决定、分歧、负责人和未决事项，不补写会议中没有的信息",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录2] 运维认为缓存指标仍缺失，发布前需补上命中率告警",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录3] 产品负责人同意只读范围，但移动端兼容性由李明在周二前确认",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录4] 未决事项：若兼容性测试失败，是否取消周三发布尚无决定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落3] 作者认为结果值得继续验证，没有声称效果已经确定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落4] 局限包括样本量小、单中心和两例失访",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "压缩主要发现，同时保留限制并区分观察与解释",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "完成翻译，保持技术标识不变并统一关键术语",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "忠实翻译并标出无法在不澄清的情况下唯一确定的指代",
+      "share": 0.028
+    },
+    {
+      "count": 6,
+      "sentence": "Python function",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "定位导致重复记录的最早状态变化，给出最小修复，并写出覆盖普通请求和 retry 请求的测试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "预期：同一 `request_id` 只保留一条记录",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "接口：`GET /v2/items",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "异常样例：HTTP 200 但某个 item 缺少 `id`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "实现分页客户端，区分末页、限流和 schema 错误",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "def transform(rows):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for row in rows:",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "out[row[\"id\"]] = int(row",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "return list(out",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "把解析、校验和聚合职责拆开，同时保持列出的外部行为，并给出特征测试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "def contains_pair(values, target):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for i in range(len(values)):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for j in range(i + 1, len(values)):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "if values[i] + values[j] == target:",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "比较排序双指针与哈希集合两种优化，选择一种实现，并分析重复值和负数边界",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "计算第二次仍为红球的条件概率，并写出分子与分母",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "用数学归纳法证明命题，分别写出基础步和归纳步",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "求剩余面积，列出大矩形和挖空部分的计算，并保留单位",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "求两类票各售出多少张，并验证票数与收入",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "按证据链说明已经满足和仍未满足的条件",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[材料A] 只有通过安全审批的版本才能进入部署队列",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[材料C] 队列条目进入后，需要窗口负责人确认",
+      "share": 0.024
+    }
+  ],
+  "high_frequency_fixed_sentences": [
+    {
+      "count": 7,
+      "sentence": "# 变更说明只取消了登录接口的自动重试，批处理接口保持原规则",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "# 文档规定，worker 收到 `retry_after` 后等待 # 秒再重试",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[材料c] 本次日志来自批处理接口，返回 http # 和 `retry_after`",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落#] 作者认为结果值得继续验证，没有声称效果已经确定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落#] 局限包括样本量小、单中心和两例失访",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落#] 试验组包含 # 个样本，对照组包含 # 个样本",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录#] 产品负责人同意只读范围，但移动端兼容性由李明在周二前确认",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录#] 团队决定周三先发布 r# 的只读查询，写入功能延后 # 天",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录#] 未决事项：若兼容性测试失败，是否取消周三发布尚无决定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录#] 运维认为缓存指标仍缺失，发布前需补上命中率告警",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "`#:# write r#-retry`",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "def append_once(store, event):",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "get(\"request_id\", \"\")",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key + \"-retry\"] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "value = {\"request_id\": key, \"amount\": event[\"amount\"]}",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "任务耗时：a=#ms、b=#ms、c=#ms、d=#ms、e=#ms",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "压缩主要发现，同时保留限制并区分观察与解释",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "完成翻译，保持技术标识不变并统一关键术语",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "实现 `schedule(tasks, limit)`，返回合法的分批执行顺序，并说明环依赖和未知依赖如何报告",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "建立方程并求 x、y，代回两条条件核验",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "忠实翻译并标出无法在不澄清的情况下唯一确定的指代",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "提炼决定、分歧、负责人和未决事项，不补写会议中没有的信息",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "某项目采购 x 台标准设备和 y 台增强设备",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "目标是在满足依赖的前提下缩短总完成时间",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "设备总数为 #，按标准设备 # 个积分、增强设备 # 个积分计算，总积分为 #",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "输入格式：`[{\"id\": \"a\", \"depends_on\": []},",
+      "share": 0.028
+    },
+    {
+      "count": 6,
+      "sentence": "#:# 恢复旧 schema 后请求成功",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[备注d] 两份报告采用的完成率计算口径没有记录",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "[报告a] 项目 r# 完成 #%，延期原因是接口变更",
+      "share": 0.024
+    }
+  ],
+  "label_like_matches": [],
+  "language_distribution": {
+    "en": 29,
+    "mixed": 65,
+    "zh": 156
+  },
+  "likely_generator_artifact_count": 0,
+  "limitations": [
+    "Lexical and structural diagnostics do not establish naturalness or Human Surface Audit PASS.",
+    "No quality, cost, latency, outcome, Predictor, Router, or baseline result is generated."
+  ],
+  "manual_review_required": {
+    "full_human_scores_are_unfilled": true,
+    "human_surface_audit_passed": false,
+    "spot_review_scores_are_unfilled": true
+  },
+  "max_exact_sentence_share": 0.04,
+  "max_fixed_sentence_share": 0.028,
+  "max_language_policy_deviation": 0.01,
+  "max_normalized_sentence_share": 0.04,
+  "max_repeated_phrase_share": 0.04,
+  "missing_surface_evidence": [],
+  "normalized_duplicate_groups": [],
+  "normalized_sentence_frequency": [
+    {
+      "count": 10,
+      "sentence": "[English version]",
+      "share": 0.04
+    },
+    {
+      "count": 8,
+      "sentence": "ordered checklist",
+      "share": 0.032
+    },
+    {
+      "count": 7,
+      "sentence": "任务耗时：A=21ms、B=3ms、C=4ms、D=24ms、E=18ms",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "目标是在满足依赖的前提下缩短总完成时间",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "任务失败后，不再启动依赖它的任务",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "输入格式：`[{\"id\": \"A\", \"depends_on\": []},",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "实现 `schedule(tasks, limit)`，返回合法的分批执行顺序，并说明环依赖和未知依赖如何报告",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "def append_once(store, event):",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "get(\"request_id\", \"\")",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "if key in store:",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "return store[key]",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "value = {\"request_id\": key, \"amount\": event[\"amount\"]}",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "store[key + \"-retry\"] = value",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "某项目采购 x 台标准设备和 y 台增强设备",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "设备总数为 28，按标准设备 2 个积分、增强设备 1 个积分计算，总积分为 52",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "建立方程并求 x、y，代回两条条件核验",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "6 文档规定，worker 收到 `retry_after` 后等待 9 秒再重试",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "7 变更说明只取消了登录接口的自动重试，批处理接口保持原规则",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[材料C] 本次日志来自批处理接口，返回 HTTP 429 和 `retry_after`",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "本次 worker 是否应自动重试",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "说明每段材料在结论中的作用",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "提炼决定、分歧、负责人和未决事项，不补写会议中没有的信息",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录1] 团队决定周三先发布 R12 的只读查询，写入功能延后 6 天",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录2] 运维认为缓存指标仍缺失，发布前需补上命中率告警",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录3] 产品负责人同意只读范围，但移动端兼容性由李明在周二前确认",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[记录4] 未决事项：若兼容性测试失败，是否取消周三发布尚无决定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落1] 试验组包含 35 个样本，对照组包含 37 个样本",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落3] 作者认为结果值得继续验证，没有声称效果已经确定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "[段落4] 局限包括样本量小、单中心和两例失访",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "压缩主要发现，同时保留限制并区分观察与解释",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "完成翻译，保持技术标识不变并统一关键术语",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "sentence": "忠实翻译并标出无法在不澄清的情况下唯一确定的指代",
+      "share": 0.028
+    },
+    {
+      "count": 6,
+      "sentence": "Python function",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "定位导致重复记录的最早状态变化，给出最小修复，并写出覆盖普通请求和 retry 请求的测试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "失败输入：`{\"request_id\":\"r17\",\"amount\":23,\"retry\":true}`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "日志：`09:31 cache miss r17`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "预期：同一 `request_id` 只保留一条记录",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "成功响应：`{\"items\":[{\"id\":\"i27\",\"state\":\"ready\"}],\"next_cursor\":\"p2\"}`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "限流响应：HTTP 429，`{\"retry_after\":4}`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "异常样例：HTTP 200 但某个 item 缺少 `id`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "实现分页客户端，区分末页、限流和 schema 错误",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "def transform(rows):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for row in rows:",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "out[row[\"id\"]] = int(row",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "return list(out",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "输入 `[{\"id\":\"a\",\"value\":\"13\"},{\"id\":\"b\",\"value\":\"6\"}]` 返回 `[('a',13),('b',6)]`",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "把解析、校验和聚合职责拆开，同时保持列出的外部行为，并给出特征测试",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "def contains_pair(values, target):",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "sentence": "for i in range(len(values)):",
+      "share": 0.024
+    }
+  ],
+  "per_capability_lexical_concentration": {
+    "AM": {
+      "query_count": 99,
+      "top_token": "交付",
+      "top_token_share": 0.868687,
+      "top_token_support": 86,
+      "unique_token_count": 1277
+    },
+    "AR": {
+      "query_count": 33,
+      "top_token": "交付",
+      "top_token_share": 0.969697,
+      "top_token_support": 32,
+      "unique_token_count": 348
+    },
+    "AU": {
+      "query_count": 36,
+      "top_token": "交付",
+      "top_token_share": 0.972222,
+      "top_token_support": 35,
+      "unique_token_count": 474
+    },
+    "DE": {
+      "query_count": 29,
+      "top_token": "交付",
+      "top_token_share": 1.0,
+      "top_token_support": 29,
+      "unique_token_count": 340
+    },
+    "DS": {
+      "query_count": 26,
+      "top_token": "交付",
+      "top_token_share": 0.730769,
+      "top_token_support": 19,
+      "unique_token_count": 389
+    },
+    "FK": {
+      "query_count": 53,
+      "top_token": "交付",
+      "top_token_share": 0.849057,
+      "top_token_support": 45,
+      "unique_token_count": 787
+    },
+    "FT": {
+      "query_count": 118,
+      "top_token": "交付",
+      "top_token_share": 0.872881,
+      "top_token_support": 103,
+      "unique_token_count": 1458
+    },
+    "LC": {
+      "query_count": 80,
+      "top_token": "交付",
+      "top_token_share": 0.8625,
+      "top_token_support": 69,
+      "unique_token_count": 1248
+    },
+    "MH": {
+      "query_count": 55,
+      "top_token": "交付",
+      "top_token_share": 0.909091,
+      "top_token_support": 50,
+      "unique_token_count": 794
+    },
+    "MT": {
+      "query_count": 47,
+      "top_token": "交付",
+      "top_token_share": 0.93617,
+      "top_token_support": 44,
+      "unique_token_count": 636
+    },
+    "SC": {
+      "query_count": 124,
+      "top_token": "交付",
+      "top_token_share": 0.927419,
+      "top_token_support": 115,
+      "unique_token_count": 1405
+    },
+    "SQ": {
+      "query_count": 58,
+      "top_token": "交付",
+      "top_token_share": 0.87931,
+      "top_token_support": 51,
+      "unique_token_count": 597
+    }
+  },
+  "pilot_version": "router-v0.2-pilot-v2",
+  "primary_capability_distribution": {
+    "AM": 27,
+    "AR": 13,
+    "AU": 16,
+    "DE": 10,
+    "DS": 12,
+    "FK": 20,
+    "FT": 34,
+    "LC": 29,
+    "MH": 20,
+    "MT": 17,
+    "SC": 30,
+    "SQ": 22
+  },
+  "query_count": 250,
+  "query_length_summary": {
+    "max": 646,
+    "mean": 233.692,
+    "min": 97
+  },
+  "ready_for_human_review": false,
+  "ready_for_spot_review": true,
+  "repeated_multiword_phrase_frequency": [
+    {
+      "count": 10,
+      "phrase": "同时交付修订后的中英",
+      "share": 0.04
+    },
+    {
+      "count": 7,
+      "phrase": "if key in store",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "不再启动依赖它的任务",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "不补写会议中没有的信",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "产品负责人同意只读范",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "但移动端兼容性由李明",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "作者认为结果值得继续",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "依赖的前提下缩短总完",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "保持技术标识不变并统",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "出无法在不澄清的情况",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "前提下缩短总完成时间",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "发布前需补上命中率告",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "变更说明只取消了登录",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "同时保留限制并区分观",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "在不澄清的情况下唯一",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "在满足依赖的前提下缩",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "并说明环依赖和未知依",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "忠实翻译并标出无法在",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "性由李明在周二前确认",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "批处理接口保持原规则",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "明只取消了登录接口的",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "是否取消周三发布尚无",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "本次日志来自批处理接",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "术标识不变并统一关键",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "段材料在结论中的作用",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "没有声称效果已经确定",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "消了登录接口的自动重",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "清的情况下唯一确定的",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "环依赖和未知依赖如何",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "留限制并区分观察与解",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "目标是在满足依赖的前",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "端兼容性由李明在周二",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "译并标出无法在不澄清",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "说明每段材料在结论中",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "运维认为缓存指标仍缺",
+      "share": 0.028
+    },
+    {
+      "count": 7,
+      "phrase": "返回合法的分批执行顺",
+      "share": 0.028
+    },
+    {
+      "count": 6,
+      "phrase": "for i in range",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "for j in range",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "for row in rows",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "job ran outside the",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "log says the job",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "outside the service window",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "ran outside the service",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "return true return false",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "says the job ran",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "the job ran outside",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "不改变事件顺序或确定",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "不超出材料的综合摘要",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "两份报告采用的完成率",
+      "share": 0.024
+    },
+    {
+      "count": 6,
+      "phrase": "为实施人员整理顺序化",
+      "share": 0.024
+    }
+  ],
+  "secondary_capability_distribution": {
+    "AM": 72,
+    "AR": 20,
+    "AU": 20,
+    "DE": 19,
+    "DS": 14,
+    "FK": 33,
+    "FT": 84,
+    "LC": 51,
+    "MH": 35,
+    "MT": 30,
+    "SC": 94,
+    "SQ": 36
+  },
+  "semantic_frame_coverage": {
+    "frame-code-api-client": 6,
+    "frame-code-data-pipeline": 6,
+    "frame-code-performance": 6,
+    "frame-code-refactor": 6,
+    "frame-code-repository-review": 6,
+    "frame-code-scheduler": 7,
+    "frame-code-service-debug": 7,
+    "frame-code-sql-report": 6,
+    "frame-math-chart-analysis": 6,
+    "frame-math-equation-system": 7,
+    "frame-math-geometry": 6,
+    "frame-math-optimization": 6,
+    "frame-math-probability": 7,
+    "frame-math-proof": 6,
+    "frame-math-statistics": 6,
+    "frame-math-word-problem": 6,
+    "frame-qa-ambiguous-policy": 6,
+    "frame-qa-bilingual-terms": 6,
+    "frame-qa-data-explanation": 6,
+    "frame-qa-evidence-chain": 7,
+    "frame-qa-long-policy": 6,
+    "frame-qa-source-comparison": 6,
+    "frame-qa-technical-docs": 7,
+    "frame-qa-troubleshooting": 6,
+    "frame-summary-bilingual-report": 6,
+    "frame-summary-conflicting-reports": 6,
+    "frame-summary-executive": 6,
+    "frame-summary-incident": 6,
+    "frame-summary-meeting": 7,
+    "frame-summary-metrics": 6,
+    "frame-summary-research": 7,
+    "frame-summary-technical-guide": 6,
+    "frame-translation-ambiguous-reference": 6,
+    "frame-translation-contract": 7,
+    "frame-translation-domain-report": 6,
+    "frame-translation-glossary": 6,
+    "frame-translation-incident": 6,
+    "frame-translation-notice": 6,
+    "frame-translation-technical": 7,
+    "frame-translation-ui-localization": 6
+  },
+  "stage": "pilot_surface_revision_2",
+  "surface_lint": {
+    "failure_count": 0,
+    "failures": []
+  },
+  "task_distribution": {
+    "code": 50,
+    "math": 50,
+    "qa": 50,
+    "summary": 50,
+    "translation": 50
+  },
+  "task_language_distribution": {
+    "code": {
+      "en": 5,
+      "mixed": 17,
+      "zh": 28
+    },
+    "math": {
+      "en": 5,
+      "mixed": 5,
+      "zh": 40
+    },
+    "qa": {
+      "en": 7,
+      "mixed": 8,
+      "zh": 35
+    },
+    "summary": {
+      "en": 12,
+      "mixed": 5,
+      "zh": 33
+    },
+    "translation": {
+      "mixed": 30,
+      "zh": 20
+    }
+  },
+  "token_capability_association_candidates": [
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 9,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-performance": 6,
+        "frame-math-optimization": 5
+      },
+      "support": 11,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "code": 6,
+        "math": 5
+      },
+      "token": "优化"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 11,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-long-policy": 5,
+        "frame-summary-bilingual-report": 3,
+        "frame-summary-executive": 3
+      },
+      "support": 11,
+      "surface_realization_count": 3,
+      "task_distribution": {
+        "qa": 5,
+        "summary": 6
+      },
+      "token": "工作"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-statistics": 5,
+        "frame-math-word-problem": 6
+      },
+      "support": 11,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "math": 11
+      },
+      "token": "数与"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-refactor": 6,
+        "frame-math-statistics": 5
+      },
+      "support": 11,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 6,
+        "math": 5
+      },
+      "token": "最后"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-data-pipeline": 4,
+        "frame-math-equation-system": 7
+      },
+      "support": 11,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "code": 4,
+        "math": 7
+      },
+      "token": "标准"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 6,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-bilingual-report": 6,
+        "frame-summary-metrics": 4
+      },
+      "support": 10,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "summary": 10
+      },
+      "token": "approval"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-statistics": 5,
+        "frame-qa-long-policy": 5
+      },
+      "support": 10,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "math": 5,
+        "qa": 5
+      },
+      "token": "后一"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 6,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-data-pipeline": 4,
+        "frame-translation-glossary": 6
+      },
+      "support": 10,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 4,
+        "translation": 6
+      },
+      "token": "并记"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-statistics": 5,
+        "frame-qa-long-policy": 5
+      },
+      "support": 10,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "math": 5,
+        "qa": 5
+      },
+      "token": "有效"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "DE",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-api-client": 6,
+        "frame-summary-incident": 4
+      },
+      "support": 10,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "code": 6,
+        "summary": 4
+      },
+      "token": "超时"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 6,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-code-performance": 6,
+        "frame-math-chart-analysis": 2
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "code": 6,
+        "math": 2
+      },
+      "token": "values"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-long-policy": 5,
+        "frame-summary-executive": 3
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 5,
+        "summary": 3
+      },
+      "token": "个工"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-long-policy": 5,
+        "frame-summary-executive": 3
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 5,
+        "summary": 3
+      },
+      "token": "作日"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 6,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-optimization": 5,
+        "frame-translation-notice": 3
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "math": 5,
+        "translation": 3
+      },
+      "token": "可用"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 8,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-long-policy": 5,
+        "frame-summary-executive": 3
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 5,
+        "summary": 3
+      },
+      "token": "提交"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-word-problem": 6,
+        "frame-summary-metrics": 2
+      },
+      "support": 8,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 6,
+        "summary": 2
+      },
+      "token": "收入"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-qa-long-policy": 5,
+        "frame-translation-notice": 3
+      },
+      "support": 8,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "qa": 5,
+        "translation": 3
+      },
+      "token": "超过"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-chart-analysis": 3,
+        "frame-math-statistics": 4
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "calculation"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-ambiguous-reference": 3,
+        "frame-translation-incident": 4
+      },
+      "support": 7,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "gateway"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 4,
+        "frame-math-word-problem": 3
+      },
+      "support": 7,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "solution"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "三先"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "三发"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "上命"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "下唯"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "不澄"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "不补"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "两条"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "个积"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "中没"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "中率"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "为缓"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "二前"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "人同"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "人和"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "仍缺"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "代回"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "件核"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "会议"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "但移"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "先发"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "入功"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "兼容"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "写会"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "决事"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "况下"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "准设"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "出无"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "分为"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "分歧"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "分计"
+    },
+    {
+      "appears_in_multiple_surface_realizations": true,
+      "capability": "FT",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-incident": 4,
+        "frame-translation-notice": 3
+      },
+      "support": 7,
+      "surface_realization_count": 2,
+      "task_distribution": {
+        "summary": 4,
+        "translation": 3
+      },
+      "token": "分钟"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "前确"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "前需"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "功能"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "动端"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "台增"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "台标"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "同意"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "否取"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "周三"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "命中"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "品负"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "回两"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "在不"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "增强"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "备和"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "备总"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "存指"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "定周"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "定的"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "实翻"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "容性"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "布前"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "布尚"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "并标"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "并求"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "延后"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "建立"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "强设"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "性测"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "性由"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "总数"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "总积"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "情况"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "意只"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "按标"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "提炼"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "方程"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "无决"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "明在"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "有的"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "未决"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "李明"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "条条"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "某项"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "标仍"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "标出"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SQ",
+      "classification": "uncertain",
+      "evidence_variant_count": 7,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-math-equation-system": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "math": 7
+      },
+      "token": "核验"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "SC",
+      "classification": "uncertain",
+      "evidence_variant_count": 4,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-translation-contract": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "translation": 7
+      },
+      "token": "法在"
+    },
+    {
+      "appears_in_multiple_surface_realizations": false,
+      "capability": "LC",
+      "classification": "uncertain",
+      "evidence_variant_count": 5,
+      "precision": 1.0,
+      "semantic_frame_distribution": {
+        "frame-summary-meeting": 7
+      },
+      "support": 7,
+      "surface_realization_count": 1,
+      "task_distribution": {
+        "summary": 7
+      },
+      "token": "消周"
+    }
+  ],
+  "token_capability_candidate_count": 100,
+  "translation_direction_distribution": {
+    "bilingual_revision": 10,
+    "en_to_zh": 20,
+    "zh_to_en": 20
+  }
+}

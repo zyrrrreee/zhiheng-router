@@ -1,0 +1,76 @@
+{
+  "automatic_audit_ready_for_spot_review": true,
+  "config_sha256": "5b1a5f0be71d8b76bd1412a69513a4e8a3435599f1cd673015c0e5eec765ed5b",
+  "dataset_version": "router-benchmark-v0.2.0",
+  "files": {
+    "data/router_v0_2/pilot_v2/pilot_queries.jsonl": {
+      "bytes": 182989,
+      "sha256": "2473eda31fd94278b35c8329bfef029224842d1df0f6ab19fdc1051860f3b1a4"
+    },
+    "data/router_v0_2/pilot_v2/pilot_sidecar.jsonl": {
+      "bytes": 336474,
+      "sha256": "a326b122e47ce8cea1c896389c9c1ca4e8deb3ef1320dd20bcc0976f89c44562"
+    },
+    "outputs/router_v0_2/pilot_v2/human_surface_review.csv": {
+      "bytes": 184184,
+      "sha256": "b8ff352939a462323dd55d94d6bf65606d1b5f8720e34eee75ae42e4d6487325"
+    },
+    "outputs/router_v0_2/pilot_v2/pilot_audit.json": {
+      "bytes": 92840,
+      "sha256": "dff507e74f66fa30bf8fb6214a200ccd250e7763db60316a0184b7079e7b8304"
+    },
+    "outputs/router_v0_2/pilot_v2/pilot_v1_vs_v2_comparison.json": {
+      "bytes": 5422,
+      "sha256": "e8f70012d48ca4552fec4a3aefbaa10d2302dee5b7a2249a30455812be08b19c"
+    },
+    "outputs/router_v0_2/pilot_v2/spot_review_50.csv": {
+      "bytes": 33721,
+      "sha256": "c7808a4716b45d423c541f49830e20d3a6eae776a16046c1098be9537e4873d7"
+    }
+  },
+  "generator_version": "2.1.0",
+  "human_scores_completed": false,
+  "master_seed": 20260907,
+  "namespaces": {
+    "capability": "router-v0.2/capability/v1",
+    "content": "router-v0.2/content/v2",
+    "cost_noise": "router-v0.2/cost-noise/v1",
+    "difficulty": "router-v0.2/difficulty/v1",
+    "latency_noise": "router-v0.2/latency-noise/v1",
+    "quality_noise": "router-v0.2/quality-noise/v1",
+    "split": "router-v0.2/split/v1",
+    "surface": "router-v0.2/surface/v2"
+  },
+  "outcomes_included": false,
+  "pilot_version": "router-v0.2-pilot-v2",
+  "query_count": 250,
+  "router_training_allowed": false,
+  "source_kind": "synthetic",
+  "split_assignment": "none_pilot_only",
+  "stage": "pilot_surface_revision_2",
+  "task_query_counts": {
+    "code": 50,
+    "math": 50,
+    "qa": 50,
+    "summary": 50,
+    "translation": 50
+  },
+  "v1_evidence_sha256": {
+    "configs/router_v0_2_benchmark.json": "7706307ea88db1309c998d7e87f84dbfb275b28daffc890875ca581f200fd964",
+    "data/router_v0_2/pilot/pilot_queries.jsonl": "1e903fa8681a08e637a6e28a7b8903c9276d42332072829cc4d1ff876829ff70",
+    "data/router_v0_2/pilot/pilot_sidecar.jsonl": "2acfcaa14320c09ec067913555bd750abadc6197307da6158ec1f766eb84ced0"
+  },
+  "v1_preserved": true,
+  "versions": {
+    "capability_taxonomy_version": "capability-taxonomy-v1",
+    "config_version": "benchmark-config-v1",
+    "dataset_version": "router-benchmark-v0.2.0",
+    "diagnostic_protocol_version": "diagnostic-protocol-v1",
+    "generator_version": "2.1.0",
+    "latency_model_version": "synthetic-latency-v1",
+    "model_profile_version": "model-profile-v1",
+    "runtime_profile_version": "synthetic-runtime-v1",
+    "split_definition_version": "family-split-v1",
+    "synthetic_workload_version": "synthetic-workload-v1"
+  }
+}

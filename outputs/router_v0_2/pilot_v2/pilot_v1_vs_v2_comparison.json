@@ -1,0 +1,230 @@
+{
+  "comparison": "router-v0.2-pilot-v1_vs_router-v0.2-pilot-v2",
+  "delta_v2_minus_v1": {
+    "answerability_valid_count": 198,
+    "average_query_length": -113.86,
+    "content_payload_presence_rate": 0.792,
+    "likely_generator_artifact_count_among_top_candidates": -99,
+    "max_fixed_sentence_share": -0.076,
+    "r1_normalized_sentence_share": -0.12,
+    "surface_lint_failure_count": -29
+  },
+  "interpretation_boundary": "These automatic diagnostics support Spot Review selection; they do not establish Human Surface Audit PASS.",
+  "same_master_seed": true,
+  "v1": {
+    "answerability_total": 250,
+    "answerability_valid_count": 52,
+    "average_query_length": 347.552,
+    "content_payload_presence_rate": 0.208,
+    "exact_duplicate_group_count": 0,
+    "language_distribution": {
+      "en": 30,
+      "mixed": 65,
+      "zh": 155
+    },
+    "likely_generator_artifact_count_among_top_candidates": 99,
+    "max_fixed_sentence_share": 0.104,
+    "normalized_duplicate_group_count": 0,
+    "primary_capability_distribution": {
+      "AM": 27,
+      "AR": 13,
+      "AU": 16,
+      "DE": 10,
+      "DS": 12,
+      "FK": 20,
+      "FT": 34,
+      "LC": 29,
+      "MH": 20,
+      "MT": 17,
+      "SC": 30,
+      "SQ": 22
+    },
+    "query_count": 250,
+    "r1_normalized_sentence_share": 0.16,
+    "secondary_capability_distribution": {
+      "AM": 72,
+      "AR": 20,
+      "AU": 20,
+      "DE": 19,
+      "DS": 14,
+      "FK": 33,
+      "FT": 84,
+      "LC": 51,
+      "MH": 35,
+      "MT": 30,
+      "SC": 94,
+      "SQ": 36
+    },
+    "semantic_frame_count": 40,
+    "surface_lint_failure_count": 29,
+    "task_distribution": {
+      "code": 50,
+      "math": 50,
+      "qa": 50,
+      "summary": 50,
+      "translation": 50
+    },
+    "token_capability_association_candidate_count": 100,
+    "top_repeated_phrases": [
+      {
+        "count": 40,
+        "phrase": "并按给定输出要求交付",
+        "share": 0.16
+      },
+      {
+        "count": 40,
+        "phrase": "的比例以原始总量为基",
+        "share": 0.16
+      },
+      {
+        "count": 40,
+        "phrase": "题面中的比例以原始总",
+        "share": 0.16
+      },
+      {
+        "count": 36,
+        "phrase": "后续说明把修订范围限",
+        "share": 0.144
+      },
+      {
+        "count": 36,
+        "phrase": "明把修订范围限定为已",
+        "share": 0.144
+      },
+      {
+        "count": 36,
+        "phrase": "订范围限定为已批准情",
+        "share": 0.144
+      },
+      {
+        "count": 33,
+        "phrase": "不要默认未说明的口径",
+        "share": 0.132
+      },
+      {
+        "count": 33,
+        "phrase": "先写出采用的解释及其",
+        "share": 0.132
+      },
+      {
+        "count": 32,
+        "phrase": "两项决定和一个尚未解",
+        "share": 0.128
+      },
+      {
+        "count": 32,
+        "phrase": "个尚未解决的依赖条件",
+        "share": 0.128
+      }
+    ]
+  },
+  "v1_generator_version": "2.0.0",
+  "v2": {
+    "answerability_total": 250,
+    "answerability_valid_count": 250,
+    "average_query_length": 233.692,
+    "content_payload_presence_rate": 1.0,
+    "exact_duplicate_group_count": 0,
+    "language_distribution": {
+      "en": 29,
+      "mixed": 65,
+      "zh": 156
+    },
+    "likely_generator_artifact_count_among_top_candidates": 0,
+    "max_fixed_sentence_share": 0.028,
+    "normalized_duplicate_group_count": 0,
+    "primary_capability_distribution": {
+      "AM": 27,
+      "AR": 13,
+      "AU": 16,
+      "DE": 10,
+      "DS": 12,
+      "FK": 20,
+      "FT": 34,
+      "LC": 29,
+      "MH": 20,
+      "MT": 17,
+      "SC": 30,
+      "SQ": 22
+    },
+    "query_count": 250,
+    "r1_normalized_sentence_share": 0.04,
+    "secondary_capability_distribution": {
+      "AM": 72,
+      "AR": 20,
+      "AU": 20,
+      "DE": 19,
+      "DS": 14,
+      "FK": 33,
+      "FT": 84,
+      "LC": 51,
+      "MH": 35,
+      "MT": 30,
+      "SC": 94,
+      "SQ": 36
+    },
+    "semantic_frame_count": 40,
+    "surface_lint_failure_count": 0,
+    "task_distribution": {
+      "code": 50,
+      "math": 50,
+      "qa": 50,
+      "summary": 50,
+      "translation": 50
+    },
+    "token_capability_association_candidate_count": 100,
+    "top_repeated_phrases": [
+      {
+        "count": 10,
+        "phrase": "同时交付修订后的中英",
+        "share": 0.04
+      },
+      {
+        "count": 7,
+        "phrase": "if key in store",
+        "share": 0.028
+      },
+      {
+        "count": 7,
+        "phrase": "不再启动依赖它的任务",
+        "share": 0.028
+      },
+      {
+        "count": 7,
+        "phrase": "不补写会议中没有的信",
+        "share": 0.028
+      },
+      {
+        "count": 7,
+        "phrase": "产品负责人同意只读范",
+        "share": 0.028
+      },
+      {
+        "count": 7,
+        "phrase": "但移动端兼容性由李明",
+        "share": 0.028
+      },
+      {
+        "count": 7,
+        "phrase": "作者认为结果值得继续",
+        "share": 0.028
+      },
+      {
+        "count": 7,
+        "phrase": "依赖的前提下缩短总完",
+        "share": 0.028
+      },
+      {
+        "count": 7,
+        "phrase": "保持技术标识不变并统",
+        "share": 0.028
+      },
+      {
+        "count": 7,
+        "phrase": "出无法在不澄清的情况",
+        "share": 0.028
+      }
+    ]
+  },
+  "v2_generator_version": "2.1.0"
+}

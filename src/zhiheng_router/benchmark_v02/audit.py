@@ -92,7 +92,7 @@ def audit_pilot(config: dict[str, Any], observables: Sequence[ObservableQueryRec
         sidecar = sidecar_by_id[record.query_id]
         exact_groups[record.query_text].append(record.query_id)
         normalized_groups[normalize_query(record.query_text)].append(record.query_id)
-        sentence_counts.update(_sentences(record.query_text))
+        sentence_counts.update(sorted(_sentences(record.query_text)))
         match = _FORBIDDEN_PATTERN.search(record.query_text)
         if match:
             label_like.append({"query_id": record.query_id, "match": match.group()})
@@ -106,23 +106,24 @@ def audit_pilot(config: dict[str, Any], observables: Sequence[ObservableQueryRec
         for capability, evidence in sidecar.capability_surface_evidence:
             if evidence not in record.query_text:
                 evidence_missing.append({"query_id": record.query_id, "capability": capability})
-        for token in _tokens(record.query_text):
+        for token in sorted(_tokens(record.query_text)):
             token_counts[token] += 1
-            for capability in active:
+            for capability in sorted(active):
                 token_capability_counts[token][capability] += 1
 
     exact_duplicates = [ids for ids in exact_groups.values() if len(ids) > 1]
     normalized_duplicates = [ids for ids in normalized_groups.values() if len(ids) > 1]
     frequent_sentences = [
         {"sentence": sentence, "count": count, "share": round(count / query_count, 6)}
-        for sentence, count in sentence_counts.most_common()
+        for sentence, count in sorted(sentence_counts.items(), key=lambda item: (-item[1], item[0]))
         if count >= 5
     ]
     strong_associations = []
     for token, support in token_counts.items():
         if support < 5:
             continue
-        capability, joint = token_capability_counts[token].most_common(1)[0]
+        capability, joint = max(
+            token_capability_counts[token].items(), key=lambda item: (item[1], item[0]))
         precision = joint / support
         if precision >= 0.9:
             strong_associations.append({
