@@ -1,0 +1,280 @@
+{
+  "input_file": "outputs\\real_validation\\records.jsonl",
+  "record_count": 60,
+  "averages_scope": "successful records with non-null measurements",
+  "cost_unit": "USD",
+  "latency_unit": "ms",
+  "strategy_statistics": {
+    "lowest_cost": {
+      "query_count": 20,
+      "success_count": 17,
+      "failure_count": 3,
+      "selected_model_distribution": {
+        "deepseek-v4-flash": 20
+      },
+      "average_cost": 0.0004915317647058825,
+      "average_latency_ms": 14535.012923529393,
+      "average_input_tokens": 111.17647058823529,
+      "average_output_tokens": 1699.8823529411766,
+      "selected_model_statistics": {
+        "deepseek-v4-flash": {
+          "query_count": 20,
+          "success_count": 17,
+          "average_cost": 0.0004915317647058825,
+          "average_latency_ms": 14535.012923529393,
+          "average_input_tokens": 111.17647058823529,
+          "average_output_tokens": 1699.8823529411766
+        }
+      }
+    },
+    "router": {
+      "query_count": 20,
+      "success_count": 17,
+      "failure_count": 3,
+      "selected_model_distribution": {
+        "deepseek-v4-flash": 2,
+        "deepseek-v4-pro": 18
+      },
+      "average_cost": 0.001860064411764706,
+      "average_latency_ms": 41430.45401764705,
+      "average_input_tokens": 110.70588235294117,
+      "average_output_tokens": 2092.764705882353,
+      "selected_model_statistics": {
+        "deepseek-v4-flash": {
+          "query_count": 2,
+          "success_count": 2,
+          "average_cost": 3.549000000000001e-05,
+          "average_latency_ms": 1552.8565499996603,
+          "average_input_tokens": 96.5,
+          "average_output_tokens": 78.5
+        },
+        "deepseek-v4-pro": {
+          "query_count": 18,
+          "success_count": 15,
+          "average_cost": 0.0021033410000000003,
+          "average_latency_ms": 46747.467013333364,
+          "average_input_tokens": 112.6,
+          "average_output_tokens": 2361.3333333333335
+        }
+      }
+    },
+    "strongest": {
+      "query_count": 20,
+      "success_count": 18,
+      "failure_count": 2,
+      "selected_model_distribution": {
+        "deepseek-v4-pro": 20
+      },
+      "average_cost": 0.00112288,
+      "average_latency_ms": 24382.13667222236,
+      "average_input_tokens": 110.88888888888889,
+      "average_output_tokens": 1235.2222222222222,
+      "selected_model_statistics": {
+        "deepseek-v4-pro": {
+          "query_count": 20,
+          "success_count": 18,
+          "average_cost": 0.00112288,
+          "average_latency_ms": 24382.13667222236,
+          "average_input_tokens": 110.88888888888889,
+          "average_output_tokens": 1235.2222222222222
+        }
+      }
+    }
+  },
+  "router_analysis": {
+    "deepseek-v4-flash_selection_count": 2,
+    "deepseek-v4-pro_selection_count": 18,
+    "queries_by_selected_model": {
+      "deepseek-v4-flash": [
+        {
+          "query_id": "real-query-006",
+          "query_text": "Solve 3x + 7 = 25 and briefly verify the result."
+        },
+        {
+          "query_id": "real-query-016",
+          "query_text": "In two sentences, explain what a model router does."
+        }
+      ],
+      "deepseek-v4-pro": [
+        {
+          "query_id": "real-query-001",
+          "query_text": "Write a Python function that returns the median of a non-empty list."
+        },
+        {
+          "query_id": "real-query-002",
+          "query_text": "修复下面函数在空列表时抛出的异常，并说明修改理由：\n```python\ndef average(values):\n    return sum(values) / len(values)\n```"
+        },
+        {
+          "query_id": "real-query-003",
+          "query_text": "Implement an O(n) JavaScript function that finds the longest substring without repeated characters, and include two tests."
+        },
+        {
+          "query_id": "real-query-004",
+          "query_text": "请用 Python 实现一个带指数退避和最大重试次数的异步请求函数；取消任务时必须立即传播 CancelledError。"
+        },
+        {
+          "query_id": "real-query-005",
+          "query_text": "Design a dependency resolver that returns a valid installation order and reports one concrete cycle when no order exists. Provide pseudocode and complexity analysis."
+        },
+        {
+          "query_id": "real-query-007",
+          "query_text": "袋中有 4 个红球和 6 个蓝球，不放回连续抽取 2 个球。求两球颜色相同的概率，并写出计算过程。"
+        },
+        {
+          "query_id": "real-query-008",
+          "query_text": "A fair six-sided die is rolled until a 6 appears. What is the expected number of rolls? Explain the derivation."
+        },
+        {
+          "query_id": "real-query-009",
+          "query_text": "求函数 f(x)=x^3-6x^2+9x+1 在区间 [0,4] 上的最大值和最小值，并说明端点为何需要检查。"
+        },
+        {
+          "query_id": "real-query-010",
+          "query_text": "Prove by induction that 1 + 2 + ... + n = n(n+1)/2 for every positive integer n."
+        },
+        {
+          "query_id": "real-query-011",
+          "query_text": "A monitoring service becomes slower after traffic doubles, while CPU usage stays low. Give three plausible causes and the first measurement you would check for each."
+        },
+        {
+          "query_id": "real-query-012",
+          "query_text": "甲、乙、丙三人分别在周一、周二、周三值班，每人一天。已知甲不在周一，乙在甲之前。请给出唯一排班并解释。"
+        },
+        {
+          "query_id": "real-query-013",
+          "query_text": "Plan a zero-downtime database migration when old and new application versions must run concurrently for one hour. List the steps in dependency order."
+        },
+        {
+          "query_id": "real-query-014",
+          "query_text": "一次上线后错误率上升，同时请求量、CPU 和内存都未明显变化。请区分相关性与因果性，并提出两个可验证的解释。"
+        },
+        {
+          "query_id": "real-query-015",
+          "query_text": "Three jobs take 2, 4, and 6 hours. Two identical workers are available, and each job cannot be split. Find a schedule with minimum completion time and justify why it is optimal."
+        },
+        {
+          "query_id": "real-query-017",
+          "query_text": "请向没有网络背景的同学解释 HTTPS 为什么能够同时提供加密和身份验证，控制在 120 字以内。"
+        },
+        {
+          "query_id": "real-query-018",
+          "query_text": "Summarize this passage in one sentence: Retrieval-augmented generation looks up external documents at inference time, while fine-tuning changes model parameters using training examples."
+        },
+        {
+          "query_id": "real-query-019",
+          "query_text": "Compare retrieval-augmented generation with fine-tuning for a support assistant whose product documentation changes every week. Give one advantage and one limitation of each."
+        },
+        {
+          "query_id": "real-query-020",
+          "query_text": "某分布式系统在网络分区期间仍允许两侧写入。请用一个库存扣减场景解释它可能牺牲的一致性，以及分区恢复后需要处理什么问题。"
+        }
+      ]
+    },
+    "top_5_by_cost": [
+      {
+        "query_id": "real-query-005",
+        "query_text": "Design a dependency resolver that returns a valid installation order and reports one concrete cycle when no order exists. Provide pseudocode and complexity analysis.",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.00800139,
+        "latency_ms": 163420.40240000005,
+        "output_tokens": 9142
+      },
+      {
+        "query_id": "real-query-013",
+        "query_text": "Plan a zero-downtime database migration when old and new application versions must run concurrently for one hour. List the steps in dependency order.",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.00575331,
+        "latency_ms": 133007.50659999994,
+        "output_tokens": 6557
+      },
+      {
+        "query_id": "real-query-014",
+        "query_text": "一次上线后错误率上升，同时请求量、CPU 和内存都未明显变化。请区分相关性与因果性，并提出两个可验证的解释。",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.00503295,
+        "latency_ms": 129862.9417000002,
+        "output_tokens": 5727
+      },
+      {
+        "query_id": "real-query-020",
+        "query_text": "某分布式系统在网络分区期间仍允许两侧写入。请用一个库存扣减场景解释它可能牺牲的一致性，以及分区恢复后需要处理什么问题。",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.00466668,
+        "latency_ms": 119304.5820999996,
+        "output_tokens": 5307
+      },
+      {
+        "query_id": "real-query-003",
+        "query_text": "Implement an O(n) JavaScript function that finds the longest substring without repeated characters, and include two tests.",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.0024499199999999995,
+        "latency_ms": 42542.558900000135,
+        "output_tokens": 2764
+      }
+    ],
+    "top_5_by_latency": [
+      {
+        "query_id": "real-query-005",
+        "query_text": "Design a dependency resolver that returns a valid installation order and reports one concrete cycle when no order exists. Provide pseudocode and complexity analysis.",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.00800139,
+        "latency_ms": 163420.40240000005,
+        "output_tokens": 9142
+      },
+      {
+        "query_id": "real-query-013",
+        "query_text": "Plan a zero-downtime database migration when old and new application versions must run concurrently for one hour. List the steps in dependency order.",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.00575331,
+        "latency_ms": 133007.50659999994,
+        "output_tokens": 6557
+      },
+      {
+        "query_id": "real-query-014",
+        "query_text": "一次上线后错误率上升，同时请求量、CPU 和内存都未明显变化。请区分相关性与因果性，并提出两个可验证的解释。",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.00503295,
+        "latency_ms": 129862.9417000002,
+        "output_tokens": 5727
+      },
+      {
+        "query_id": "real-query-020",
+        "query_text": "某分布式系统在网络分区期间仍允许两侧写入。请用一个库存扣减场景解释它可能牺牲的一致性，以及分区恢复后需要处理什么问题。",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.00466668,
+        "latency_ms": 119304.5820999996,
+        "output_tokens": 5307
+      },
+      {
+        "query_id": "real-query-003",
+        "query_text": "Implement an O(n) JavaScript function that finds the longest substring without repeated characters, and include two tests.",
+        "selected_model": "deepseek-v4-pro",
+        "cost": 0.0024499199999999995,
+        "latency_ms": 42542.558900000135,
+        "output_tokens": 2764
+      }
+    ]
+  },
+  "router_vs_strongest": {
+    "average_cost": {
+      "router": 0.001860064411764706,
+      "strongest": 0.00112288,
+      "router_minus_strongest": 0.000737184411764706
+    },
+    "average_latency_ms": {
+      "router": 41430.45401764705,
+      "strongest": 24382.13667222236,
+      "router_minus_strongest": 17048.317345424686
+    },
+    "average_input_tokens": {
+      "router": 110.70588235294117,
+      "strongest": 110.88888888888889,
+      "router_minus_strongest": -0.18300653594771177
+    },
+    "average_output_tokens": {
+      "router": 2092.764705882353,
+      "strongest": 1235.2222222222222,
+      "router_minus_strongest": 857.542483660131
+    }
+  }
+}

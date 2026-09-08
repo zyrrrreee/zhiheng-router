@@ -1,0 +1,41 @@
+{
+  "router": {
+    "total_count": 20,
+    "success_count": 17,
+    "failure_count": 3,
+    "success_rate": 0.85,
+    "average_cost_usd": 0.001860064411764706,
+    "total_cost_usd": 0.031621095,
+    "average_latency_ms": 41430.45401764705,
+    "quality_pass_rate": 1.0,
+    "average_quality": 1.0,
+    "total_input_tokens": 1882,
+    "total_output_tokens": 35577
+  },
+  "strongest": {
+    "total_count": 20,
+    "success_count": 18,
+    "failure_count": 2,
+    "success_rate": 0.9,
+    "average_cost_usd": 0.00112288,
+    "total_cost_usd": 0.02021184,
+    "average_latency_ms": 24382.13667222236,
+    "quality_pass_rate": 1.0,
+    "average_quality": 0.9972222222222222,
+    "total_input_tokens": 1996,
+    "total_output_tokens": 22234
+  },
+  "lowest_cost": {
+    "total_count": 20,
+    "success_count": 17,
+    "failure_count": 3,
+    "success_rate": 0.85,
+    "average_cost_usd": 0.0004915317647058825,
+    "total_cost_usd": 0.008356040000000002,
+    "average_latency_ms": 14535.012923529393,
+    "quality_pass_rate": 1.0,
+    "average_quality": 1.0,
+    "total_input_tokens": 1890,
+    "total_output_tokens": 28898
+  }
+}

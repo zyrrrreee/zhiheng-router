@@ -1,0 +1,139 @@
+{
+  "experiment": "minimal_real_deepseek_validation",
+  "timestamp": "2026-09-08T12:03:54.744793+00:00",
+  "measurement_kind": "measured",
+  "query_count": 20,
+  "queries": [
+    {
+      "query_id": "real-query-001",
+      "query_text": "Write a Python function that returns the median of a non-empty list."
+    },
+    {
+      "query_id": "real-query-002",
+      "query_text": "修复下面函数在空列表时抛出的异常，并说明修改理由：\n```python\ndef average(values):\n    return sum(values) / len(values)\n```"
+    },
+    {
+      "query_id": "real-query-003",
+      "query_text": "Implement an O(n) JavaScript function that finds the longest substring without repeated characters, and include two tests."
+    },
+    {
+      "query_id": "real-query-004",
+      "query_text": "请用 Python 实现一个带指数退避和最大重试次数的异步请求函数；取消任务时必须立即传播 CancelledError。"
+    },
+    {
+      "query_id": "real-query-005",
+      "query_text": "Design a dependency resolver that returns a valid installation order and reports one concrete cycle when no order exists. Provide pseudocode and complexity analysis."
+    },
+    {
+      "query_id": "real-query-006",
+      "query_text": "Solve 3x + 7 = 25 and briefly verify the result."
+    },
+    {
+      "query_id": "real-query-007",
+      "query_text": "袋中有 4 个红球和 6 个蓝球，不放回连续抽取 2 个球。求两球颜色相同的概率，并写出计算过程。"
+    },
+    {
+      "query_id": "real-query-008",
+      "query_text": "A fair six-sided die is rolled until a 6 appears. What is the expected number of rolls? Explain the derivation."
+    },
+    {
+      "query_id": "real-query-009",
+      "query_text": "求函数 f(x)=x^3-6x^2+9x+1 在区间 [0,4] 上的最大值和最小值，并说明端点为何需要检查。"
+    },
+    {
+      "query_id": "real-query-010",
+      "query_text": "Prove by induction that 1 + 2 + ... + n = n(n+1)/2 for every positive integer n."
+    },
+    {
+      "query_id": "real-query-011",
+      "query_text": "A monitoring service becomes slower after traffic doubles, while CPU usage stays low. Give three plausible causes and the first measurement you would check for each."
+    },
+    {
+      "query_id": "real-query-012",
+      "query_text": "甲、乙、丙三人分别在周一、周二、周三值班，每人一天。已知甲不在周一，乙在甲之前。请给出唯一排班并解释。"
+    },
+    {
+      "query_id": "real-query-013",
+      "query_text": "Plan a zero-downtime database migration when old and new application versions must run concurrently for one hour. List the steps in dependency order."
+    },
+    {
+      "query_id": "real-query-014",
+      "query_text": "一次上线后错误率上升，同时请求量、CPU 和内存都未明显变化。请区分相关性与因果性，并提出两个可验证的解释。"
+    },
+    {
+      "query_id": "real-query-015",
+      "query_text": "Three jobs take 2, 4, and 6 hours. Two identical workers are available, and each job cannot be split. Find a schedule with minimum completion time and justify why it is optimal."
+    },
+    {
+      "query_id": "real-query-016",
+      "query_text": "In two sentences, explain what a model router does."
+    },
+    {
+      "query_id": "real-query-017",
+      "query_text": "请向没有网络背景的同学解释 HTTPS 为什么能够同时提供加密和身份验证，控制在 120 字以内。"
+    },
+    {
+      "query_id": "real-query-018",
+      "query_text": "Summarize this passage in one sentence: Retrieval-augmented generation looks up external documents at inference time, while fine-tuning changes model parameters using training examples."
+    },
+    {
+      "query_id": "real-query-019",
+      "query_text": "Compare retrieval-augmented generation with fine-tuning for a support assistant whose product documentation changes every week. Give one advantage and one limitation of each."
+    },
+    {
+      "query_id": "real-query-020",
+      "query_text": "某分布式系统在网络分区期间仍允许两侧写入。请用一个库存扣减场景解释它可能牺牲的一致性，以及分区恢复后需要处理什么问题。"
+    }
+  ],
+  "strategies": [
+    "router",
+    "strongest",
+    "lowest_cost"
+  ],
+  "models": {
+    "deepseek-v4-flash": {
+      "predictor_proxy_model_id": "dev-model-e",
+      "pricing_usd_per_million_tokens": {
+        "cache_hit_input": 0.0028,
+        "cache_miss_input": 0.14,
+        "output": 0.28
+      },
+      "routing_profile": {
+        "estimated_cost": 0.14,
+        "estimated_latency_ms": 1000.0
+      }
+    },
+    "deepseek-v4-pro": {
+      "predictor_proxy_model_id": "dev-model-a",
+      "pricing_usd_per_million_tokens": {
+        "cache_hit_input": 0.003625,
+        "cache_miss_input": 0.435,
+        "output": 0.87
+      },
+      "routing_profile": {
+        "estimated_cost": 0.435,
+        "estimated_latency_ms": 1500.0
+      }
+    }
+  },
+  "router_policy": {
+    "router_probability_threshold": 0.8,
+    "cost_tolerance_abs": 0.0
+  },
+  "predictor_artifact": "outputs\\mvp\\router.joblib",
+  "predictor_quality_score_threshold": 0.8,
+  "predictor_proxy_mapping": {
+    "deepseek-v4-flash": "dev-model-e",
+    "deepseek-v4-pro": "dev-model-a"
+  },
+  "selection_estimates_kind": "query_aware_predictor_with_explicit_proxy_mapping",
+  "selection_notice": "Pass probabilities come from the existing synthetic dev-model predictor through an explicit role proxy mapping. They are not learned DeepSeek performance estimates and must not be reported as validated DeepSeek quality predictions.",
+  "quality_judge": {
+    "model_id": "deepseek-v4-pro",
+    "quality_threshold": 0.8,
+    "measurement_kind": "model_judge",
+    "api_key_source": "DEEPSEEK_API_KEY environment variable"
+  },
+  "api_base_url": "https://api.deepseek.com",
+  "api_key_source": "DEEPSEEK_API_KEY environment variable"
+}

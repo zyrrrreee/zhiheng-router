@@ -30,7 +30,9 @@ Thumbs.db
 
 # Logs and generated outputs
 logs/
-outputs/
+outputs/*
+!outputs/real_validation/
+!outputs/real_validation/**
 *.log
 
 # Coverage and build artifacts

@@ -1,12 +1,20 @@
-"""Four deployable baselines using training statistics or predefined Query rules."""
+"""Legacy experiment baselines and uniform selector-style baseline strategies."""
 
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from typing import Protocol, runtime_checkable
 
-from .estimates import estimates_from_probabilities
-from .features import task_type_hint
-from .router import route
-from .schemas import ModelCandidate, ModelStatistics, RoutingDecision, RoutingPolicy, nonempty
+from ..estimates import estimates_from_probabilities
+from ..features import task_type_hint
+from ..router import route
+from ..schemas import (
+    CandidateEstimate,
+    ModelCandidate,
+    ModelStatistics,
+    RoutingDecision,
+    RoutingPolicy,
+    nonempty,
+)
 
 
 @dataclass(frozen=True)
@@ -17,18 +25,23 @@ class BaselineSelection:
 
 
 class Baselines:
-    def __init__(self, candidates: Sequence[ModelCandidate], statistics: Mapping[str, ModelStatistics],
+    """Existing v0.1 baseline collection retained for experiment compatibility."""
+
+    def __init__(self, candidates: Sequence[ModelCandidate],
+                 statistics: Mapping[str, ModelStatistics],
                  policy: RoutingPolicy, rules: Mapping[str, str]):
         self.candidates = tuple(candidates)
         self.rules = dict(rules)
         active = {c.model_id for c in candidates if c.enabled}
         if not active or not active <= statistics.keys():
             raise ValueError("baseline training statistics missing for enabled candidates")
-        if set(rules) != {"code", "math", "summary", "translation", "qa"} or not set(rules.values()) <= active:
+        if (set(rules) != {"code", "math", "summary", "translation", "qa"}
+                or not set(rules.values()) <= active):
             raise ValueError("rules must cover all hints and reference enabled models")
         self.strongest_model = min(active, key=lambda m: (-statistics[m].mean_quality, m))
         self.lowest_cost_model = min(active, key=lambda m: (statistics[m].mean_cost, m))
-        estimates = estimates_from_probabilities({m: statistics[m].pass_rate for m in active}, statistics)
+        estimates = estimates_from_probabilities(
+            {m: statistics[m].pass_rate for m in active}, statistics)
         # No current Query is used: one global selection from training pass rates.
         self.global_decision = route(candidates, estimates, policy)
 
@@ -46,3 +59,26 @@ class Baselines:
     def global_historical(self, query: str) -> RoutingDecision:
         nonempty(query, "query")
         return self.global_decision
+
+
+@runtime_checkable
+class BaselineSelector(Protocol):
+    def select(self, candidates: Sequence[ModelCandidate],
+               estimates: Sequence[CandidateEstimate],
+               query_text: str | None = None) -> RoutingDecision:
+        """Select one candidate using only the supplied observable inputs."""
+        ...
+
+
+from .lowest_cost import LowestCostBaseline
+from .rule_based import RuleBasedBaseline
+from .strongest import StrongestBaseline
+
+__all__ = [
+    "BaselineSelection",
+    "BaselineSelector",
+    "Baselines",
+    "LowestCostBaseline",
+    "RuleBasedBaseline",
+    "StrongestBaseline",
+]
